@@ -1,4 +1,13 @@
-﻿-------- Fiche Utilisateur --------
+﻿/**************************************************************************
+ * Users_Stories.txt
+ *
+ * Maxime Léau, Mathieu Templier Copyright 2015
+ * Description :
+ * Author(s) : Maxime Léau <maxime.leau@imie-rennes.fr>; Mathieu Templier <mathieu.templier@imie-rennes.fr>
+ * Licence : All right reserved.
+ * Last update : December 07, 2015
+ *
+ **************************************************************************/
 
 - Samuel Késako
 - Classe moyenne (Première console et premier jeu offert à Noël)
@@ -9,7 +18,6 @@
   Pour découvrir l'univers des Pokémons
 - Pour faire comme les autres 
   Il se sent exlu des conversations entre copains.
-
 
 - Max Saumoné
 - Aisé (Gâté par ses parents, possèdent la plupart des consoles avec des jeux variés)
@@ -25,20 +33,5 @@
 - 23 ans
 - Expert (Développeur logiciel)
 - Expert (Geek)
-- 
-
-
-
-Histoire originale du dessin animé
-
-
-Nommé
-- Milieu social
-- Age
-- Expertise informatique
-- Expertise sur le sujet traité
-- Utilisation principale de l'application (Pour qui, pourquoi, comment)
-- Utilisation secondaire de l'application (Pour qui, pourquoi, comment)
-- Pourquoi cette application et pas une autre
 
 
