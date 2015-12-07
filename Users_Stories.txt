@@ -1,0 +1,44 @@
+﻿-------- Fiche Utilisateur --------
+
+- Samuel Késako
+- Classe moyenne (Première console et premier jeu offert à Noël)
+- 8 ans
+- Primo utilisateur (Utilisation avec les parents jeux d'éducation ADIBOU)
+- Novice (Ses amis possèdent le produit. Il a regardé ses camarades y jouer, mais n'a jamais utilisé lui-même)
+- Il termine l'histoire
+  Pour découvrir l'univers des Pokémons
+- Pour faire comme les autres 
+  Il se sent exlu des conversations entre copains.
+
+
+- Max Saumoné
+- Aisé (Gâté par ses parents, possèdent la plupart des consoles avec des jeux variés)
+- 13 ans
+- Primo utilisateur (Utilisation des ordinateurs disponibles durant les cours)
+- Expert (Console de salon et portable)
+- Compétition avec ses amis : échanges, combats multijoueurs, monter ses Pokémons à leur meilleur niveau.
+- Patienter dans les transports
+- Se distinguer auprès de ses amis
+
+- Paul Edouard
+- Vie seul. Dépense 20€ par an dans les jeux vidéos
+- 23 ans
+- Expert (Développeur logiciel)
+- Expert (Geek)
+- 
+
+
+
+Histoire originale du dessin animé
+
+
+Nommé
+- Milieu social
+- Age
+- Expertise informatique
+- Expertise sur le sujet traité
+- Utilisation principale de l'application (Pour qui, pourquoi, comment)
+- Utilisation secondaire de l'application (Pour qui, pourquoi, comment)
+- Pourquoi cette application et pas une autre
+
+
