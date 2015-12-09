@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Pokemon.MainPage"
+    x:Class="Pokemon.Pages.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Pokemon"
@@ -8,6 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Image Source="../Images/demarrage.png" PointerPressed="Image_PointerPressed"/>
     </Grid>
 </Page>
