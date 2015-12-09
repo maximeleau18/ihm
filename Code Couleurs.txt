@@ -1,4 +1,25 @@
-Logo Pokémon Fond : Jaune : #fdc00d Contour Bleu foncé : #2e4696
-Couleur Fond Bouton : Vert : #009900 Contour : Vert Foncé : #015801
-Degradé Fond : Noir : #000000 vers Gris : #666666
-TextView Fonf Blanc : #ffffff Contour : Gris : #cccccc
+Logo Pokémon :
+ - Fond : Jaune #fdc00d 
+ - Bordure : Bleu foncé #2e4696
+ 
+Bouton : 
+ - Fond : Vert #009900 
+ - Bordure : Vert Foncé #015801
+ 
+Degradé Fond : 
+ - Noir : #000000 
+ - vert Gris : #666666
+ 
+TextView  
+ - Fond : Blanc #ffffff 
+ - Bordure : Gris #cccccc
+ 
+Boutons Objets : 
+ - Fond : Jaune #fdc00d 
+ - Bordure : #CC9C0A
+ 
+Boutons Attaque :
+ - Fond : Rouge #FF0000
+ - Bordure : Bordeau #990000
+ 
+Boutons Pokémon: 
