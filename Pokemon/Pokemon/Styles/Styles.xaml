@@ -35,11 +35,26 @@
         </Setter>
     </Style>
     <!-- Fond de page par défaut -->
-    <Style x:Key="BackgroundGrid" TargetType="Grid">
+    <Style x:Key="BackgroundGridDefault" TargetType="Grid">
         <Setter Property="Background">
             <Setter.Value>
                 <ImageBrush ImageSource="..\Images\Background.png"/>
             </Setter.Value>
         </Setter>
+    </Style>
+    <!-- Style Bordure des TextBlock -->
+    <Style x:Key="BorderCornerTextBlock" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderBrush" Value="#cccccc" />
+        <Setter Property="Background" Value="#ffffff" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+    <!-- Style Bordure Bouton Sélection des Personnages -->
+    <Style x:Key="BorderImageSelection" TargetType="Image">
+        <Setter Property="Source" Value="..\Images\Triangle.png" />
+    </Style>
+    <!-- Style Bordure Bouton Sélection des Personnages survolé -->
+    <Style x:Key="BorderImageSelectionSelected" TargetType="Image">
+        <Setter Property="Source" Value="..\Images\TriangleSelected.png" />
     </Style>
 </ResourceDictionary>

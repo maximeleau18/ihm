@@ -47,5 +47,9 @@ namespace Pokemon.Pages
             this.btnContinuer.Style = (Style)Application.Current.Resources["BorderCornerButtonParams"];
         }
 
+        private void btnNouvellePartie_Click(object sender, RoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(ChooseCharacter));
+        }
     }
 }

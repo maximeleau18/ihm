@@ -26,5 +26,40 @@ namespace Pokemon.Pages
         {
             this.InitializeComponent();
         }
+
+        private void ManSelected_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.ManSelected.Style = (Style)Application.Current.Resources["BorderImageSelectionSelected"];
+        }
+
+        private void ManSelected_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.ManSelected.Style = (Style)Application.Current.Resources["BorderImageSelection"];
+        }
+
+        private void WomanSelected_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.WomanSelected.Style = (Style)Application.Current.Resources["BorderImageSelectionSelected"];
+        }
+
+        private void WomanSelected_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.WomanSelected.Style = (Style)Application.Current.Resources["BorderImageSelection"];
+        }
+
+        private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnBack.Style = (Style)Application.Current.Resources["BorderCornerButtonParamsSelected"];
+        }
+
+        private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnBack.Style = (Style)Application.Current.Resources["BorderCornerButtonParams"];
+        }
+
+        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(StartMenuPage));
+        }
     }
 }

@@ -128,8 +128,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Background.png" />
+    <Content Include="Images\Chen.png" />
     <Content Include="Images\Demarrage.png" />
+    <Content Include="Images\Man.png" />
     <Content Include="Images\Menu.png" />
+    <Content Include="Images\Triangle.png" />
+    <Content Include="Images\TriangleSelected.png" />
+    <Content Include="Images\Woman.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
