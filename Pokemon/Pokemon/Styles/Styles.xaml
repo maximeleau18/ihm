@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Pokemon.Styles">
     <!-- Style des boutons Paramètres par défaut -->
-    <Style x:Key="BorderCornerButtonParams" TargetType="Button">
+    <Style x:Key="ButtonParams" TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Template">
             <Setter.Value>
@@ -19,13 +19,12 @@
         </Setter>
     </Style>
     <!-- Style des boutons Paramètres survolés -->
-    <Style x:Key="BorderCornerButtonParamsSelected" TargetType="Button">
+    <Style x:Key="ButtonSelected" TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="10" BorderBrush="#ffffff" Background="{TemplateBinding Background}"
-                                BorderThickness="2">
+                    <Border CornerRadius="10" BorderBrush="#ffffff" BorderThickness="2" Background="{TemplateBinding Background}">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
 
                         </ContentPresenter>
@@ -38,23 +37,41 @@
     <Style x:Key="BackgroundGridDefault" TargetType="Grid">
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="..\Images\Background.png"/>
+                <ImageBrush ImageSource="../Images/Background.png"/>
             </Setter.Value>
         </Setter>
     </Style>
     <!-- Style Bordure des TextBlock -->
-    <Style x:Key="BorderCornerTextBlock" TargetType="Border">
+    <Style x:Key="BorderTextBlock" TargetType="Border">
         <Setter Property="CornerRadius" Value="10" />
         <Setter Property="BorderBrush" Value="#cccccc" />
         <Setter Property="Background" Value="#ffffff" />
         <Setter Property="BorderThickness" Value="2" />
     </Style>
     <!-- Style Bordure Bouton Sélection des Personnages -->
-    <Style x:Key="BorderImageSelection" TargetType="Image">
-        <Setter Property="Source" Value="..\Images\Triangle.png" />
+    <Style x:Key="ImageChooseCharacter" TargetType="Image">
+        <Setter Property="Source" Value="../Images/Triangle.png" />
     </Style>
     <!-- Style Bordure Bouton Sélection des Personnages survolé -->
-    <Style x:Key="BorderImageSelectionSelected" TargetType="Image">
-        <Setter Property="Source" Value="..\Images\TriangleSelected.png" />
+    <Style x:Key="ImageChooseCharacterSelected" TargetType="Image">
+        <Setter Property="Source" Value="../Images/TriangleSelected.png" />
     </Style>
+    <Style x:Key="TextBoxChooseName" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderBrush" Value="#cccccc" />
+        <Setter Property="Background" Value="#ffffff" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+    <!-- Woman Icone -->
+    <Image x:Key="ImageWomanIcone" >
+        <Image.Source>
+            <BitmapImage UriSource="../Images/WomanMini.png"></BitmapImage>
+        </Image.Source>
+    </Image>
+    <!-- Man Icone -->
+    <Image x:Key="ImageManIcone" >
+        <Image.Source>
+            <BitmapImage UriSource="../Images/ManMini.png"></BitmapImage>
+        </Image.Source>
+    </Image>
 </ResourceDictionary>

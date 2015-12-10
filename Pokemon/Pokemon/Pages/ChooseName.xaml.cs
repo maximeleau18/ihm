@@ -1,0 +1,90 @@
+﻿using Pokemon.Entity;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
+
+// Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
+
+namespace Pokemon.Pages
+{
+    /// <summary>
+    /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
+    /// </summary>
+    public sealed partial class ChooseName : Page
+    {
+        private Player player;
+
+        public ChooseName()
+        {
+            this.InitializeComponent();
+        }        
+
+        internal Player Player
+        {
+            get
+            {
+                return player;
+            }
+
+            set
+            {
+                player = value;
+            }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            this.TxtBlockName.Focus(FocusState.Keyboard);
+            this.Player = (Player)e.Parameter;
+
+            if (Player.Sexe.Equals("M"))
+            {
+                this.ImgCharacter.Source = ((Image)Application.Current.Resources["ImageManIcone"]).Source;
+            }
+
+            if (Player.Sexe.Equals("F"))
+            {
+                this.ImgCharacter.Source = ((Image)Application.Current.Resources["ImageWomanIcone"]).Source;
+            }
+
+        }
+
+        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(ChooseCharacter));
+        }
+
+        private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonSelected"];
+        }
+
+        private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParams"];
+        }
+
+        private void btnValidate_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnValidate.Style = (Style)Application.Current.Resources["ButtonSelected"];
+        }
+
+        private void btnValidate_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnValidate.Style = (Style)Application.Current.Resources["ButtonParams"];
+        }
+    }
+}

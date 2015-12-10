@@ -112,6 +112,9 @@
     <Compile Include="Pages\ChooseCharacter.xaml.cs">
       <DependentUpon>ChooseCharacter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ChooseName.xaml.cs">
+      <DependentUpon>ChooseName.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -131,10 +134,13 @@
     <Content Include="Images\Chen.png" />
     <Content Include="Images\Demarrage.png" />
     <Content Include="Images\Man.png" />
+    <Content Include="Images\ManMini.png" />
     <Content Include="Images\Menu.png" />
+    <Content Include="Images\TonNom.png" />
     <Content Include="Images\Triangle.png" />
     <Content Include="Images\TriangleSelected.png" />
     <Content Include="Images\Woman.png" />
+    <Content Include="Images\WomanMini.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -150,6 +156,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Pages\ChooseCharacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ChooseName.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

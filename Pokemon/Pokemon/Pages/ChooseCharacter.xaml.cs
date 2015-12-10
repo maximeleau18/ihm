@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pokemon.Entity;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace Pokemon.Pages
     /// </summary>
     public sealed partial class ChooseCharacter : Page
     {
+        Player player;
+
         public ChooseCharacter()
         {
             this.InitializeComponent();
@@ -29,37 +32,53 @@ namespace Pokemon.Pages
 
         private void ManSelected_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.ManSelected.Style = (Style)Application.Current.Resources["BorderImageSelectionSelected"];
+            this.ManSelected.Style = (Style)Application.Current.Resources["ImageChooseCharacterSelected"];
         }
 
         private void ManSelected_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            this.ManSelected.Style = (Style)Application.Current.Resources["BorderImageSelection"];
+            this.ManSelected.Style = (Style)Application.Current.Resources["ImageChooseCharacter"];
         }
 
         private void WomanSelected_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.WomanSelected.Style = (Style)Application.Current.Resources["BorderImageSelectionSelected"];
+            this.WomanSelected.Style = (Style)Application.Current.Resources["ImageChooseCharacterSelected"];
         }
 
         private void WomanSelected_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            this.WomanSelected.Style = (Style)Application.Current.Resources["BorderImageSelection"];
+            this.WomanSelected.Style = (Style)Application.Current.Resources["ImageChooseCharacter"];
         }
 
         private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnBack.Style = (Style)Application.Current.Resources["BorderCornerButtonParamsSelected"];
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonSelected"];
         }
 
         private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            this.btnBack.Style = (Style)Application.Current.Resources["BorderCornerButtonParams"];
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParams"];
         }
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
             (Window.Current.Content as Frame).Navigate(typeof(StartMenuPage));
+        }
+
+        private void ManSelected_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Player player = new Player();
+            player.Sexe = "M";
+
+            (Window.Current.Content as Frame).Navigate(typeof(ChooseName), player);
+        }
+
+        private void WomanSelected_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Player player = new Player();
+            player.Sexe = "F";
+
+            (Window.Current.Content as Frame).Navigate(typeof(ChooseName), player);
         }
     }
 }
