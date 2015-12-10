@@ -109,6 +109,9 @@
     <Compile Include="Entity\Status.cs" />
     <Compile Include="Entity\StatusObject.cs" />
     <Compile Include="Entity\TypePokemon.cs" />
+    <Compile Include="Pages\ChooseCharacter.xaml.cs">
+      <DependentUpon>ChooseCharacter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Pages\ChooseCharacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
