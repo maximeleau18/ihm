@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace Pokemon
+namespace Pokemon.Pages
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
@@ -25,6 +25,11 @@ namespace Pokemon
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(StartMenuPage));
         }
     }
 }
