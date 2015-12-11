@@ -86,4 +86,12 @@
             <BitmapImage UriSource="../Images/Wan.png"></BitmapImage>
         </Image.Source>
     </Image>
+    <!-- Fond de page Map -->
+    <Style x:Key="BackgroundGridMap" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="../Images/Background.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
