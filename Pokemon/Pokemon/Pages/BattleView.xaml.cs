@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pokemon.UserControls;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,17 +14,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
+// Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Pokemon.UserControls
+namespace Pokemon.Pages
 {
-    public sealed partial class AttackButton : UserControl
+    /// <summary>
+    /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
+    /// </summary>
+    public sealed partial class BattleView : Page
     {
-        public AttackButton()
+        public BattleView()
         {
             this.InitializeComponent();
         }
-
-
     }
 }

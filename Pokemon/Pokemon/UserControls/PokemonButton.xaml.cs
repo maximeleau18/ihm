@@ -17,13 +17,11 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls
 {
-    public sealed partial class AttackButton : UserControl
+    public sealed partial class PokemonButton : UserControl
     {
-        public AttackButton()
+        public PokemonButton()
         {
             this.InitializeComponent();
         }
-
-
     }
 }

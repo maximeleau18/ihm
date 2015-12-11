@@ -18,21 +18,21 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls
 {
-    public sealed partial class AttackMenu : UserControl
+    public sealed partial class PokemonView : UserControl
     {
-        public AttackMenu()
+        public PokemonView()
         {
             this.InitializeComponent();
         }
 
         private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
+            this.btnBack.Style = (Style)Application.Current.Resources["PokemonButtonSelected"];
         }
 
         private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParams"];
+            this.btnBack.Style = (Style)Application.Current.Resources["PokemonButton"];
         }
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)

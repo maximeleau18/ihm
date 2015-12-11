@@ -109,6 +109,9 @@
     <Compile Include="Entity\Status.cs" />
     <Compile Include="Entity\StatusObject.cs" />
     <Compile Include="Entity\TypePokemon.cs" />
+    <Compile Include="Pages\BattleView.xaml.cs">
+      <DependentUpon>BattleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ChooseCharacter.xaml.cs">
       <DependentUpon>ChooseCharacter.xaml</DependentUpon>
     </Compile>
@@ -128,12 +131,28 @@
     <Compile Include="UserControls\BattleMenu.xaml.cs">
       <DependentUpon>BattleMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ObjectButton.xaml.cs">
+      <DependentUpon>ObjectButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ObjectCategoryView.xaml.cs">
+      <DependentUpon>ObjectCategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ObjectListView.xaml.cs">
+      <DependentUpon>ObjectListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PokemonBattleDisplayOpponent.xaml.cs">
       <DependentUpon>PokemonBattleDisplayOpponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PokemonBattleDisplayPlayer.xaml.cs">
       <DependentUpon>PokemonBattleDisplayPlayer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PokemonButton.xaml.cs">
+      <DependentUpon>PokemonButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PokemonView.xaml.cs">
+      <DependentUpon>PokemonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -206,11 +225,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\ObjectButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ObjectCategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ObjectListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\PokemonBattleDisplayOpponent.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\PokemonBattleDisplayPlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PokemonButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PokemonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

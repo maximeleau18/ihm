@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using Pokemon.Utils;
+
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace Pokemon.UserControls
@@ -23,43 +25,75 @@ namespace Pokemon.UserControls
         {
             this.InitializeComponent();
         }
-
+        
         private void AttackButton_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-
+            this.AttackButton.Style = (Style)Application.Current.Resources["AttackButton"];
         }
 
         private void AttackButton_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-
+            this.AttackButton.Style = (Style)Application.Current.Resources["AttackButtonSelected"];
         }
 
         private void PokemonButton_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-
+            this.PokemonButton.Style = (Style)Application.Current.Resources["PokemonButton"];
         }
 
         private void PokemonButton_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-
+            this.PokemonButton.Style = (Style)Application.Current.Resources["PokemonButtonSelected"];
         }
 
         private void ObjectButton_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-
+            this.ObjectButton.Style = (Style)Application.Current.Resources["ObjectButton"];
         }
 
         private void ObjectButton_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-
+            this.ObjectButton.Style = (Style)Application.Current.Resources["ObjectButtonSelected"];
         }
 
         private void RunawayButton_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-
+            this.RunawayButton.Style = (Style)Application.Current.Resources["RunawayButton"];
         }
 
         private void RunawayButton_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.RunawayButton.Style = (Style)Application.Current.Resources["RunawayButtonSelected"];
+        }
+        
+        private void AttackButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (AttackMenu item in Helper.FindVisualChildren<AttackMenu>(this.Parent as Grid))
+            {
+                item.Visibility = Visibility.Visible;
+                Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void PokemonButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (PokemonView item in Helper.FindVisualChildren<PokemonView>(this.Parent as Grid))
+            {
+                item.Visibility = Visibility.Visible;
+                Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void ObjectButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (ObjectCategoryView item in Helper.FindVisualChildren<ObjectCategoryView>(this.Parent as Grid))
+            {
+                item.Visibility = Visibility.Visible;
+                Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void RunawayButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -8,9 +8,8 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="AttackButton" Style="{StaticResource AttackButton}" 
-                Background="#FF0000" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                PointerExited="AttackButton_PointerExited"  PointerEntered="AttackButton_PointerEntered">
+        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Button" Style="{StaticResource AttackButton}" 
+                Background="#FF0000" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             
             <Grid Margin="6,6,6,6">                
                 <Grid.RowDefinitions>

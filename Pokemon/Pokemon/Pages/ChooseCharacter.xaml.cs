@@ -70,7 +70,7 @@ namespace Pokemon.Pages
             Player player = new Player();
             player.Sexe = "M";
 
-            (Window.Current.Content as Frame).Navigate(typeof(ChooseName), player);
+            //(Window.Current.Content as Frame).Navigate(typeof(ChooseName), player);
         }
 
         private void WomanSelected_Tapped(object sender, TappedRoutedEventArgs e)
@@ -78,7 +78,7 @@ namespace Pokemon.Pages
             Player player = new Player();
             player.Sexe = "F";
 
-            (Window.Current.Content as Frame).Navigate(typeof(ChooseName), player);
+            //(Window.Current.Content as Frame).Navigate(typeof(ChooseName), player);
         }
     }
 }
