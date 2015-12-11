@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PKMTEMP.Entity
+namespace Pokemon.Entity
 {
     class Player
     {
         private String name;
+        private String sexe;
+        private String urlCharacter;
         private int money;
-
-        private int positionX;
-        private int positionY;
-
+        
         private List<Pokemon> pokedex;
         private List<Pokemon> team;
         private List<Pokemon> pc;
@@ -23,9 +22,14 @@ namespace PKMTEMP.Entity
         private List<BattleObject> battlePocket;
         private List<BallObject> ballPocket;
 
-        public Player(String _nom)
+        public Player()
         {
 
+        }
+
+        public Player(String _name)
+        {
+            this.Name = _name;
         }
 
         public void UtiliserObjet(PokemonObject _objet)
@@ -48,6 +52,19 @@ namespace PKMTEMP.Entity
             }
         }
 
+        public string Sexe
+        {
+            get
+            {
+                return sexe;
+            }
+
+            set
+            {
+                sexe = value;
+            }
+        }
+
         public int Money
         {
             get
@@ -58,6 +75,19 @@ namespace PKMTEMP.Entity
             set
             {
                 money = value;
+            }
+        }
+
+        public string UrlCharacter
+        {
+            get
+            {
+                return urlCharacter;
+            }
+
+            set
+            {
+                urlCharacter = value;
             }
         }
 
@@ -86,8 +116,5 @@ namespace PKMTEMP.Entity
                 pc = value;
             }
         }
-
-       
-       
     }
 }

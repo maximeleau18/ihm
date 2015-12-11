@@ -29,7 +29,7 @@ namespace Pokemon.Pages
 
         private void btnNouvellePartie_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnNouvellePartie.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
+            this.btnNouvellePartie.Style = (Style)Application.Current.Resources["ButtonSelected"];
         }
 
         private void btnNouvellePartie_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -39,7 +39,7 @@ namespace Pokemon.Pages
 
         private void btnContinuer_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnContinuer.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
+            this.btnContinuer.Style = (Style)Application.Current.Resources["ButtonSelected"];
         }
 
         private void btnContinuer_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -47,5 +47,9 @@ namespace Pokemon.Pages
             this.btnContinuer.Style = (Style)Application.Current.Resources["ButtonParams"];
         }
 
+        private void btnNouvellePartie_Click(object sender, RoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(ChooseCharacter));
+        }
     }
 }
