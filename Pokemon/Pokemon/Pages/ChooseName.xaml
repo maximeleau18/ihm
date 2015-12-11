@@ -45,7 +45,7 @@
                                 <RowDefinition Height="90*" />
                                 <RowDefinition Height="5*" />
                             </Grid.RowDefinitions>
-                            <TextBox Grid.Row="1" Grid.Column="0" x:Name="TxtBlockName" Background="#ffffff" BorderBrush="Transparent" 
+                            <TextBox Grid.Row="1" Grid.Column="0" x:Name="TxtBoxName" Background="#ffffff" BorderBrush="Transparent" 
                                      FontSize="20" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch" Text="" />                       
                         </Grid>
                     </Grid>
@@ -54,8 +54,8 @@
             <Grid Grid.Row="3" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10*" />
-                    <RowDefinition Height="30*" />
-                    <RowDefinition Height="60*" />
+                    <RowDefinition Height="50*" />
+                    <RowDefinition Height="40*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*" />
@@ -68,13 +68,18 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15*" />
+                            <RowDefinition Height="70*" />
+                            <RowDefinition Height="15*" />
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2" x:Name="btnValidate" Content="VALIDER"
-                                FontSize="20" Background="#009900" Style="{StaticResource ButtonParams}" PointerEntered="btnValidate_PointerEntered" PointerExited="btnValidate_PointerExited"/>
-                        <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2" x:Name="btnBack" Content="RETOUR"
+                        <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="btnValidate" Content="VALIDER"
+                                FontSize="20" Background="#009900" Style="{StaticResource ButtonParams}" PointerEntered="btnValidate_PointerEntered" PointerExited="btnValidate_PointerExited" Tapped="btnValidate_Tapped"/>
+                        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="btnBack" Content="RETOUR"
                                 FontSize="20" Background="#009900" Style="{StaticResource ButtonParams}" Tapped="btnBack_Tapped" 
                                 PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited"/>
                     </Grid>

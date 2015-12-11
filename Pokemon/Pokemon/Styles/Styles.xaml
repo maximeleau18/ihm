@@ -74,4 +74,16 @@
             <BitmapImage UriSource="../Images/ManMini.png"></BitmapImage>
         </Image.Source>
     </Image>
+    <!-- Woman Character -->
+    <Image x:Key="WomanCharacter" >
+        <Image.Source>
+            <BitmapImage UriSource="../Images/Woman.png"></BitmapImage>
+        </Image.Source>
+    </Image>
+    <!-- Woman Character -->
+    <Image x:Key="ManCharacter" >
+        <Image.Source>
+            <BitmapImage UriSource="../Images/Wan.png"></BitmapImage>
+        </Image.Source>
+    </Image>
 </ResourceDictionary>

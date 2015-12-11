@@ -29,7 +29,13 @@ namespace Pokemon.Pages
         public ChooseName()
         {
             this.InitializeComponent();
-        }        
+            this.Loaded += new RoutedEventHandler(ChooseName_Loaded);
+        }
+
+        void ChooseName_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.TxtBoxName.Focus(FocusState.Keyboard);
+        }     
 
         internal Player Player
         {
@@ -47,7 +53,7 @@ namespace Pokemon.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            this.TxtBlockName.Focus(FocusState.Keyboard);
+            this.TxtBoxName.Focus(FocusState.Keyboard);
             this.Player = (Player)e.Parameter;
 
             if (Player.Sexe.Equals("M"))
@@ -85,6 +91,18 @@ namespace Pokemon.Pages
         private void btnValidate_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             this.btnValidate.Style = (Style)Application.Current.Resources["ButtonParams"];
+        }
+
+        private void btnValidate_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            String name = this.TxtBoxName.Text.Trim();
+            // Effectuer les tests sur la chaine de caractères
+            if (String.IsNullOrEmpty(name))
+            {
+
+            }
+            // On charge la page map
+
         }
     }
 }
