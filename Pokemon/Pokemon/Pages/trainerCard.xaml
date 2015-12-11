@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="Pokemon.trainerCard"
+    x:Class="Pokemon.Pages.trainerCard"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Pokemon"
+    xmlns:local="using:Pokemon.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -62,7 +62,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Row="1" Grid.Column="1" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="16" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" Tapped="btnBack_Tapped" />
+                    Style="{StaticResource ButtonParams}" FontSize="16" />
             </Grid>
         </Grid>
     </Grid>

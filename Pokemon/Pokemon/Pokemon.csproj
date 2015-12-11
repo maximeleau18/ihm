@@ -115,14 +115,26 @@
     <Compile Include="Pages\ChooseName.xaml.cs">
       <DependentUpon>ChooseName.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FirstTutoScreen.xaml.cs">
+      <DependentUpon>FirstTutoScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Pokedex.xaml.cs">
+      <DependentUpon>Pokedex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SecondTutoScreen.xaml.cs">
+      <DependentUpon>SecondTutoScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\StartMenuPage.xaml.cs">
       <DependentUpon>StartMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\trainerCard.xaml.cs">
+      <DependentUpon>trainerCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -133,12 +145,19 @@
     <None Include="Pokemon_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\abra.png" />
     <Content Include="Images\Background.png" />
     <Content Include="Images\Chen.png" />
+    <Content Include="Images\chetiflor.png" />
     <Content Include="Images\Demarrage.png" />
+    <Content Include="Images\florizarre.png" />
+    <Content Include="Images\groudon.png" />
+    <Content Include="Images\joystick.png" />
+    <Content Include="Images\kaiminus.png" />
     <Content Include="Images\Man.png" />
     <Content Include="Images\ManMini.png" />
     <Content Include="Images\Menu.png" />
+    <Content Include="Images\noctali.png" />
     <Content Include="Images\TonNom.png" />
     <Content Include="Images\Triangle.png" />
     <Content Include="Images\TriangleSelected.png" />
@@ -166,6 +185,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\FirstTutoScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,7 +197,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Pokedex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SecondTutoScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\StartMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\trainerCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -70,7 +70,7 @@ namespace Pokemon.Pages
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(ChooseCharacter));
+            (Window.Current.Content as Frame).Navigate(typeof(FirstTutoScreen));
         }
 
         private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)

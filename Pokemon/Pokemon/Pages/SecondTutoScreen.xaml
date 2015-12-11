@@ -1,12 +1,12 @@
 ﻿<Page
-    x:Class="Pokemon.SecondTutoScreen"
+    x:Class="Pokemon.Pages.SecondTutoScreen"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Pokemon"
+    xmlns:local="using:Pokemon.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid Style="{StaticResource BackgroundGridDefault}">
             <Grid.RowDefinitions>
@@ -39,7 +39,7 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Row="1" Grid.Column="1" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="20" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" Tapped="btnBack_Tapped" />
+                    Style="{StaticResource ButtonParams}" FontSize="20" Tapped="btnBack_Tapped" />
                 </Grid>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="1" Background="White"></Grid>
@@ -55,7 +55,7 @@
                                                         FontSize="17" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left"
                                                         TextWrapping="Wrap"
                                                         Text="Pour te déplacer, reste appuyé sur le rond du joystick et déplace ton doit vers la direction dans laquelle tu veux aller" />
-            </Grid>
+                </Grid>
                 <Grid Grid.Row="1">
                     <TextBox Grid.Row="0" x:Name="TutoMsg4" Margin="10,10,10,10" Background="Transparent" BorderBrush="Transparent" Foreground="White" Width="auto"
                                                         FontSize="17" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -75,10 +75,10 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Row="1" Grid.Column="1" x:Name="btnNext" Content="SUIVANT" HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="16" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" Tapped="btnBack_Tapped" />
+                    Style="{StaticResource ButtonParams}" FontSize="16" Tapped="btnNext_Tapped" />
                 </Grid>
             </Grid>
-            
+
         </Grid>
     </Grid>
 </Page>
