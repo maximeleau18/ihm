@@ -5,29 +5,25 @@
     xmlns:local="using:Pokemon.UserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    mc:Ignorable="d">
 
-    <Grid Margin="0,0,0,194" HorizontalAlignment="Left" Width="390">
+    <Grid Background="Gray">
         <Grid.RowDefinitions>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="51*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Height="105" VerticalAlignment="Top" Background="Gray" Grid.RowSpan="2">
-            <Image x:Name="image" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="ms-appx:///Assets/kaiminus.png" Margin="290,0,0,0"/>
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="206" SelectionChanged="textBlock_SelectionChanged">
-            	<Run Text="Kaiminus"/>
-            	<LineBreak/>
-            	<Run/>
-            </TextBlock>
-            <ProgressBar HorizontalAlignment="Left" Height="10" Margin="10,71,0,0" VerticalAlignment="Top" Width="284" Background="Green"/>
-            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="206" SelectionChanged="textBlock_SelectionChanged">
-            	<Run Text="N.6"/>
-            	<LineBreak/>
-            	<Run/>
-            </TextBlock>
-        </Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="1" Grid.Row="0" x:Name="opponentName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" >
+        	<Run Text="Héricendre"/>
+        </TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="1" x:Name="opponentLevel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" >
+        	<Run Text="N.6"/>
+        </TextBlock>
+        <ProgressBar Grid.Column="1" Grid.Row="2" x:Name="opponentLifeBar" Background="Green" MinHeight="20" />
+        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="../Images/hericendre.png"/>
     </Grid>
 </UserControl>

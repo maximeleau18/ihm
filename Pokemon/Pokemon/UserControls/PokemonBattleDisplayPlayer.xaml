@@ -9,28 +9,25 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Margin="0,0,0,194" HorizontalAlignment="Left" Width="390">
+    <Grid Background="Gray">
         <Grid.RowDefinitions>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="51*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Height="105" VerticalAlignment="Top" Background="Gray" Grid.RowSpan="2">
-            <Image x:Name="image" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="ms-appx:///Assets/hericendre.png"/>
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="95,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="206" SelectionChanged="textBlock_SelectionChanged">
-            	<Run Text="Héri"/>
-            	<Run Text="c"/>
-            	<Run Text="endre"/>
-            	<LineBreak/>
-            	<Run/>
-            </TextBlock>
-            <ProgressBar HorizontalAlignment="Left" Height="10" Margin="95,52,0,0" VerticalAlignment="Top" Width="284" Background="Green"/>
-            <ProgressBar HorizontalAlignment="Left" Height="10" Margin="95,67,0,0" VerticalAlignment="Top" Width="284" Background="Blue"/>
-            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="95,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="206" SelectionChanged="textBlock_SelectionChanged">
-            	<Run Text="N.6"/>
-            	<LineBreak/>
-            	<Run/>
-            </TextBlock>
-        </Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="40*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" x:Name="playerName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" >
+        	<Run Text="Kaiminus"/>
+        </TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" x:Name="playerLevel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" >
+        	<Run Text="N.6"/>
+        </TextBlock>
+        <ProgressBar Grid.Column="0" Grid.Row="2" x:Name="playerLifeBar" Background="Green" MinHeight="20" />
+        <ProgressBar Grid.Column="0" Grid.Row="3" x:Name="playerXpBar" Background="Blue" MinHeight="20" />
+        <Image Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Source="ms-appx:///Images/kaiminus.png"/>
     </Grid>
 </UserControl>

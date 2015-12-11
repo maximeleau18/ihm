@@ -1,0 +1,34 @@
+﻿<UserControl
+    x:Class="Pokemon.UserControls.BattleMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pokemon.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" x:Name="AttackButton" Content="Attaque" Style="{StaticResource AttackButton}" 
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF0000" Foreground="White" 
+                PointerExited="AttackButton_PointerExited"  PointerEntered="AttackButton_PointerEntered"/>
+
+        <Button Grid.Row="1" x:Name="PokemonButton" Content="Pokémon" Style="{StaticResource PokemonButton}" 
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#993300" Foreground="White" 
+                PointerExited="PokemonButton_PointerExited"  PointerEntered="PokemonButton_PointerEntered"/>
+
+        <Button Grid.Row="2" x:Name="ObjectButton" Content="Objets" Style="{StaticResource ObjectButton}" 
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#fdc00d" Foreground="White" 
+                PointerExited="ObjectButton_PointerExited"  PointerEntered="ObjectButton_PointerEntered"/>
+
+        <Button Grid.Row="3" x:Name="RunawayButton" Content="Fuite" Style="{StaticResource RunawayButton}" 
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#0000FF" Foreground="White" 
+                PointerExited="RunawayButton_PointerExited"  PointerEntered="RunawayButton_PointerEntered"/>
+
+    </Grid>
+</UserControl>

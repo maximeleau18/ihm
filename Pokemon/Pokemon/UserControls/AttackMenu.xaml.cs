@@ -17,9 +17,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls
 {
-    public sealed partial class BattleAction : UserControl
+    public sealed partial class AttackMenu : UserControl
     {
-        public BattleAction()
+        public AttackMenu()
         {
             this.InitializeComponent();
         }

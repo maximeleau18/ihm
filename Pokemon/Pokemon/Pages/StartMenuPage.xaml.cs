@@ -29,22 +29,22 @@ namespace Pokemon.Pages
 
         private void btnNouvellePartie_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnNouvellePartie.Style = (Style)Application.Current.Resources["BorderCornerButtonParamsSelected"];
+            this.btnNouvellePartie.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
         private void btnNouvellePartie_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            this.btnNouvellePartie.Style = (Style)Application.Current.Resources["BorderCornerButtonParams"];
+            this.btnNouvellePartie.Style = (Style)Application.Current.Resources["ButtonParams"];
         }
 
         private void btnContinuer_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnContinuer.Style = (Style)Application.Current.Resources["BorderCornerButtonParamsSelected"];
+            this.btnContinuer.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
         private void btnContinuer_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            this.btnContinuer.Style = (Style)Application.Current.Resources["BorderCornerButtonParams"];
+            this.btnContinuer.Style = (Style)Application.Current.Resources["ButtonParams"];
         }
 
     }

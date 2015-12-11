@@ -119,8 +119,14 @@
       <DependentUpon>StartMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\BattleAction.xaml.cs">
-      <DependentUpon>BattleAction.xaml</DependentUpon>
+    <Compile Include="UserControls\AttackButton.xaml.cs">
+      <DependentUpon>AttackButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AttackMenu.xaml.cs">
+      <DependentUpon>AttackMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BattleMenu.xaml.cs">
+      <DependentUpon>BattleMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PokemonBattleDisplayOpponent.xaml.cs">
       <DependentUpon>PokemonBattleDisplayOpponent.xaml</DependentUpon>
@@ -136,14 +142,19 @@
     <None Include="Pokemon_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Content Include="Assets\hericendre.png" />
-    <Content Include="Assets\kaiminus.png" />
-=======
+    <Content Include="Images\abra.png" />
     <Content Include="Images\Background.png" />
+    <Content Include="Images\chetiflor.png" />
     <Content Include="Images\Demarrage.png" />
+    <Content Include="Images\Fist.png" />
+    <Content Include="Images\florizarre.png" />
+    <Content Include="Images\hericendre.png" />
+    <Content Include="Images\kaiminus.png" />
+    <Content Include="Images\Medic.png" />
     <Content Include="Images\Menu.png" />
->>>>>>> b7bdf5c2d5bcf5654e092bd113e5b1825ded72d4
+    <Content Include="Images\Pokeball.png" />
+    <Content Include="Images\stadium.png" />
+    <Content Include="Images\status.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -158,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Pages\BattleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ChooseCharacter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -165,6 +180,10 @@
     <Page Include="Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StartMenuPage.xaml">
       <SubType>Designer</SubType>
@@ -175,7 +194,15 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="UserControls\BattleAction.xaml">
+    <Page Include="UserControls\AttackButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AttackMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BattleMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
