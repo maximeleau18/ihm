@@ -1,0 +1,120 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pokemon.Entity
+{
+    class Player
+    {
+        private String name;
+        private String sexe;
+        private String urlCharacter;
+        private int money;
+        
+        private List<Pokemon> pokedex;
+        private List<Pokemon> team;
+        private List<Pokemon> pc;
+
+        private List<MedicObject> medicPocket;
+        private List<StatusObject> statusPocket;
+        private List<BattleObject> battlePocket;
+        private List<BallObject> ballPocket;
+
+        public Player()
+        {
+
+        }
+
+        public Player(String _name)
+        {
+            this.Name = _name;
+        }
+
+        public void UtiliserObjet(PokemonObject _objet)
+        {
+
+        }
+
+        
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+
+        public string Sexe
+        {
+            get
+            {
+                return sexe;
+            }
+
+            set
+            {
+                sexe = value;
+            }
+        }
+
+        public int Money
+        {
+            get
+            {
+                return money;
+            }
+
+            set
+            {
+                money = value;
+            }
+        }
+
+        public string UrlCharacter
+        {
+            get
+            {
+                return urlCharacter;
+            }
+
+            set
+            {
+                urlCharacter = value;
+            }
+        }
+
+        internal List<Pokemon> Team
+        {
+            get
+            {
+                return team;
+            }
+
+            set
+            {
+                team = value;
+            }
+        }
+
+        internal List<Pokemon> Pc
+        {
+            get
+            {
+                return pc;
+            }
+
+            set
+            {
+                pc = value;
+            }
+        }
+    }
+}
