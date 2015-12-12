@@ -15,11 +15,11 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace Pokemon.UserControls
+namespace Pokemon.UserControls.Menus
 {
-    public sealed partial class PokemonBattleDisplayOpponent : UserControl
+    public sealed partial class ObjectSelectionMenu : UserControl
     {
-        public PokemonBattleDisplayOpponent()
+        public ObjectSelectionMenu()
         {
             this.InitializeComponent();
         }

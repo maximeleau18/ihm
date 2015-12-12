@@ -15,11 +15,11 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace Pokemon.UserControls
+namespace Pokemon.UserControls.Views
 {
-    public sealed partial class ObjectListView : UserControl
+    public sealed partial class PokemonBattleDisplayPlayer : UserControl
     {
-        public ObjectListView()
+        public PokemonBattleDisplayPlayer()
         {
             this.InitializeComponent();
         }

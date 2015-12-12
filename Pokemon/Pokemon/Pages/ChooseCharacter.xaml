@@ -6,10 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:uControl="using:Pokemon.UserControls">
+    xmlns:uControl="using:Pokemon.UserControls.Buttons">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Style="{StaticResource BackgroundGridDefault}">
+        <!-- <GridStyle="{StaticResource BackgroundGridDefault}" > -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="10*" />
                 <RowDefinition Height="60*" />
@@ -22,7 +22,8 @@
                 <ColumnDefinition Width="49.8*" />
             </Grid.ColumnDefinitions>
             <Image Grid.Row="1" Grid.Column="0" Source="../Images/Chen.png" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="20, 20, 20, 20"/>
-            <Border Margin="10" Grid.Row="2" Grid.Column="0" Style="{StaticResource BorderTextBlock}" />
+            <!--<Border Margin="10" Grid.Row="2" Grid.Column="0" Style="{StaticResource BorderTextBlock}" />-->
+        <Border Margin="10" Grid.Row="2" Grid.Column="0" />
             <Grid Grid.Row="2" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10*" />
@@ -51,9 +52,11 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Image x:Name="ManSelected" Grid.Row="0" Grid.Column="0" Style="{StaticResource ImageChooseCharacter}" PointerEntered="ManSelected_PointerEntered" 
+                <!--<Image x:Name="ManSelected" Grid.Row="0" Grid.Column="0" Style="{StaticResource ImageChooseCharacter}" PointerEntered="ManSelected_PointerEntered"-->
+                <Image x:Name="ManSelected" Grid.Row="0" Grid.Column="0" PointerEntered="ManSelected_PointerEntered"      
                        PointerExited="ManSelected_PointerExited" Tapped="ManSelected_Tapped" />
-                <Image x:Name="WomanSelected" Grid.Row="0" Grid.Column="1" Style="{StaticResource ImageChooseCharacter}" PointerEntered="WomanSelected_PointerEntered" 
+                <!--<Image x:Name="WomanSelected" Grid.Row="0" Grid.Column="1" Style="{StaticResource ImageChooseCharacter}" PointerEntered="WomanSelected_PointerEntered"-->
+                <Image x:Name="WomanSelected" Grid.Row="0" Grid.Column="1" PointerEntered="WomanSelected_PointerEntered" 
                        PointerExited="WomanSelected_PointerExited" Tapped="WomanSelected_Tapped" />
             </Grid>
             <Grid Grid.Row="3" Grid.Column="2">
@@ -67,12 +70,12 @@
                     <ColumnDefinition Width="50*" />
                     <ColumnDefinition Width="10*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="1" Grid.Column="1" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
+                <!--<Button Grid.Row="1" Grid.Column="1" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="20" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" Tapped="btnBack_Tapped" />
-           
-                
+                    Style="{StaticResource ButtonParams}" FontSize="20" PointerEntered="btnBack_PointerEntered"  PointerExited="btnBack_PointerExited"  Tapped="btnBack_Tapped" />-->
+
+            <uControl:BackButton Grid.Row="1" Grid.Column="1" x:Name="btnBack" Tapped="btnBack_Tapped"></uControl:BackButton>
             </Grid>
-        </Grid>
+        <!--</GridStyle>-->
     </Grid>
 </Page>

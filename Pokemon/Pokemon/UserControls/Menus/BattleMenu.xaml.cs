@@ -17,7 +17,7 @@ using Pokemon.Utils;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace Pokemon.UserControls
+namespace Pokemon.UserControls.Menus
 {
     public sealed partial class BattleMenu : UserControl
     {
@@ -77,7 +77,7 @@ namespace Pokemon.UserControls
 
         private void PokemonButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (PokemonView item in Helper.FindVisualChildren<PokemonView>(this.Parent as Grid))
+            foreach (PokemonSelectionMenu item in Helper.FindVisualChildren<PokemonSelectionMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;
@@ -86,7 +86,7 @@ namespace Pokemon.UserControls
 
         private void ObjectButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (ObjectCategoryView item in Helper.FindVisualChildren<ObjectCategoryView>(this.Parent as Grid))
+            foreach (ObjectSelectionMenu item in Helper.FindVisualChildren<ObjectSelectionMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;

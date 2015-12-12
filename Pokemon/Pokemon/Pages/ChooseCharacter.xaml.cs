@@ -70,5 +70,6 @@ namespace Pokemon.Pages
 
             //(Window.Current.Content as Frame).Navigate(typeof(ChooseName), player);
         }
+
     }
 }

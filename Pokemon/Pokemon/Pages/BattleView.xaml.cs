@@ -1,4 +1,5 @@
-﻿using Pokemon.UserControls;
+﻿using Pokemon.Entity;
+using Pokemon.UserControls;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,15 @@ namespace Pokemon.Pages
         public BattleView()
         {
             this.InitializeComponent();
+        }
+
+        public void CreateNeededObjectsTemporary()
+        {
+            Player p = new Player();
+
+            Pokemon.Entity.Pokemon kaiminus = new Pokemon.Entity.Pokemon("Kaiminus", "C'est un pokemon eau", 6, 1, 1, 1);
+
+            p.Team.Add(kaiminus);
         }
     }
 }

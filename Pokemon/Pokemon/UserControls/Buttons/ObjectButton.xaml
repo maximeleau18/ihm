@@ -1,38 +1,33 @@
 ﻿<UserControl
-    x:Class="Pokemon.UserControls.ObjectButton"
+    x:Class="Pokemon.UserControls.Buttons.ObjectButton"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Pokemon.UserControls"
+    xmlns:local="using:Pokemon.UserControls.Buttons"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Grid>
-        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Button" Style="{StaticResource PokemonButton}" 
-                Background="#993300" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Button" Style="{StaticResource ObjectButton}" 
+                Background="#fdc00d" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
             <Grid Margin="6,6,6,6">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="6*"/>
-                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Source="ms-appx:///Images/kaiminus.png"></Image>
+                <Image Grid.Row="2" Grid.Column="0" Source="ms-appx:///Images/MedicObjects/antidote.png"></Image>
 
-                <TextBlock Grid.Row="0" Grid.Column="1" Margin="6,6,6,6">
-                    Kaiminus
-                </TextBlock>
-
-                <TextBlock Grid.Row="0" Grid.Column="2" Margin="6,6,6,6">
-                    N.6
-                </TextBlock>
-
-                <ProgressBar Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Background="Green"></ProgressBar>
+                <TextBlock Grid.Row="1" Grid.Column="1" Height="Auto" VerticalAlignment="Center">ObjectName</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="1" Height="Auto" VerticalAlignment="Center">x5</TextBlock>
             </Grid>
         </Button>
     </Grid>

@@ -23,13 +23,13 @@ namespace Pokemon.UserControls.Buttons
         {
             this.InitializeComponent();
         }
-
-        private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
+        
+        private void Grid_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             this.btnBack.Style = (Style)Application.Current.Resources["ButtonSelected"];
         }
 
-        private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
+        private void Grid_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             this.btnBack.Style = (Style)Application.Current.Resources["ButtonParams"];
         }

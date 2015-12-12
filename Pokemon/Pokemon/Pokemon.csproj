@@ -128,10 +128,10 @@
     <Compile Include="UserControls\Buttons\AttackButton.xaml.cs">
       <DependentUpon>AttackButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AttackMenu.xaml.cs">
+    <Compile Include="UserControls\Menus\AttackMenu.xaml.cs">
       <DependentUpon>AttackMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\BattleMenu.xaml.cs">
+    <Compile Include="UserControls\Menus\BattleMenu.xaml.cs">
       <DependentUpon>BattleMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Buttons\BackButton.xaml.cs">
@@ -140,23 +140,26 @@
     <Compile Include="UserControls\Buttons\ObjectButton.xaml.cs">
       <DependentUpon>ObjectButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ObjectCategoryView.xaml.cs">
-      <DependentUpon>ObjectCategoryView.xaml</DependentUpon>
+    <Compile Include="UserControls\Buttons\ObjectCategoryButton.xaml.cs">
+      <DependentUpon>ObjectCategoryButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ObjectListView.xaml.cs">
-      <DependentUpon>ObjectListView.xaml</DependentUpon>
+    <Compile Include="UserControls\Menus\ObjectSelectionMenu.xaml.cs">
+      <DependentUpon>ObjectSelectionMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PokemonBattleDisplayOpponent.xaml.cs">
+    <Compile Include="UserControls\Menus\ObjectCategoryMenu.xaml.cs">
+      <DependentUpon>ObjectCategoryMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Views\PokemonBattleDisplayOpponent.xaml.cs">
       <DependentUpon>PokemonBattleDisplayOpponent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PokemonBattleDisplayPlayer.xaml.cs">
+    <Compile Include="UserControls\Views\PokemonBattleDisplayPlayer.xaml.cs">
       <DependentUpon>PokemonBattleDisplayPlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Buttons\PokemonButton.xaml.cs">
       <DependentUpon>PokemonButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PokemonView.xaml.cs">
-      <DependentUpon>PokemonView.xaml</DependentUpon>
+    <Compile Include="UserControls\Menus\PokemonSelectionMenu.xaml.cs">
+      <DependentUpon>PokemonSelectionMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Helper.cs" />
   </ItemGroup>
@@ -167,19 +170,24 @@
     <None Include="Pokemon_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\abra.png" />
+    <Content Include="Images\MedicObjects\Anti-Brule.png" />
+    <Content Include="Images\MedicObjects\Anti-Para.png" />
+    <Content Include="Images\MedicObjects\antidote.png" />
+    <Content Include="Images\MedicObjects\potion.png" />
+    <Content Include="Images\MedicObjects\Réveil.png" />
+    <Content Include="Images\Pokemons\abra.png" />
     <Content Include="Images\Background.png" />
-    <Content Include="Images\chetiflor.png" />
+    <Content Include="Images\Pokemons\chetiflor.png" />
     <Content Include="Images\Demarrage.png" />
-    <Content Include="Images\Fist.png" />
-    <Content Include="Images\florizarre.png" />
-    <Content Include="Images\hericendre.png" />
-    <Content Include="Images\kaiminus.png" />
-    <Content Include="Images\Medic.png" />
+    <Content Include="Images\ObjectsCategory\Fist.png" />
+    <Content Include="Images\Pokemons\florizarre.png" />
+    <Content Include="Images\Pokemons\hericendre.png" />
+    <Content Include="Images\Pokemons\kaiminus.png" />
+    <Content Include="Images\ObjectsCategory\Medic.png" />
     <Content Include="Images\Menu.png" />
-    <Content Include="Images\Pokeball.png" />
+    <Content Include="Images\ObjectsCategory\Pokeball.png" />
     <Content Include="Images\stadium.png" />
-    <Content Include="Images\status.png" />
+    <Content Include="Images\ObjectsCategory\status.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -214,6 +222,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\ButtonsStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="Styles\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -223,11 +236,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\AttackMenu.xaml">
+    <Page Include="UserControls\Menus\AttackMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\BattleMenu.xaml">
+    <Page Include="UserControls\Menus\BattleMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,19 +252,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\ObjectCategoryView.xaml">
+    <Page Include="UserControls\Buttons\ObjectCategoryButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\ObjectListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\PokemonBattleDisplayOpponent.xaml">
+    <Page Include="UserControls\Menus\ObjectSelectionMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\PokemonBattleDisplayPlayer.xaml">
+    <Page Include="UserControls\Menus\ObjectCategoryMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Views\PokemonBattleDisplayOpponent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Views\PokemonBattleDisplayPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -259,7 +276,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\PokemonView.xaml">
+    <Page Include="UserControls\Menus\PokemonSelectionMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
