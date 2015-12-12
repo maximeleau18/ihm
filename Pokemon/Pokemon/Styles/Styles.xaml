@@ -182,6 +182,38 @@
         </Setter>
     </Style>
 
-    
+    <!-- Woman Icone -->
+    <Image x:Key="ImageWomanIcone" >
+        <Image.Source>
+            <BitmapImage UriSource="../Images/WomanMini.png"></BitmapImage>
+        </Image.Source>
+    </Image>
+    <!-- Man Icone -->
+    <Image x:Key="ImageManIcone" >
+        <Image.Source>
+            <BitmapImage UriSource="../Images/ManMini.png"></BitmapImage>
+        </Image.Source>
+    </Image>
+    <!-- Woman Character -->
+    <Image x:Key="WomanCharacter" >
+        <Image.Source>
+            <BitmapImage UriSource="../Images/Woman.png"></BitmapImage>
+        </Image.Source>
+    </Image>
+    <!-- Woman Character -->
+    <Image x:Key="ManCharacter" >
+        <Image.Source>
+            <BitmapImage UriSource="../Images/Wan.png"></BitmapImage>
+        </Image.Source>
+    </Image>
+	
+    <!-- Fond de page Map -->
+    <Style x:Key="BackgroundGridMap" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="../Images/Background.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>
