@@ -23,10 +23,6 @@
                 </Grid.ColumnDefinitions>
 
                 <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Source="ms-appx:///Images/kaiminus.png"></Image>
-
-                
-
-                
             </Grid>
         </Button>
     </Grid>

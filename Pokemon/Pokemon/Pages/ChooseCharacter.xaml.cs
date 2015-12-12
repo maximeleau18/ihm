@@ -49,17 +49,7 @@ namespace Pokemon.Pages
         {
             this.WomanSelected.Style = (Style)Application.Current.Resources["ImageChooseCharacter"];
         }
-
-        private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonSelected"];
-        }
-
-        private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParams"];
-        }
-
+                
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
             (Window.Current.Content as Frame).Navigate(typeof(StartMenuPage));
