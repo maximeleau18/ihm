@@ -102,7 +102,7 @@ namespace Pokemon.Pages
 
             }
             // On charge la page map
-
+            (Window.Current.Content as Frame).Navigate(typeof(Map));
         }
     }
 }
