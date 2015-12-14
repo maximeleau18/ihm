@@ -17,7 +17,7 @@ namespace Pokemon.Entity
         private Statistics baseStats;
         private Statistics actualStats;
         
-        public Pokemon(String _nom, String _prenom, int _niveau, int _attaque, int _defense, int _vitesse)
+        public Pokemon(String _nom, String _description, int _niveau, int _attaque, int _defense, int _vitesse)
         {
 
         }

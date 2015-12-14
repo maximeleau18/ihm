@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="Pokemon.Pages.BattleView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pokemon"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:UCMenus="using:Pokemon.UserControls.Menus"
+    xmlns:UCViews="using:Pokemon.UserControls.Views">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <UCViews:PokemonBattleDisplayOpponent x:Name="Opponent" Grid.Column="0" Grid.Row="0"/>
+        <Image Grid.Column="0" Grid.Row="1" Source="ms-appx:///Images/stadium.png"></Image>
+        <UCViews:PokemonBattleDisplayPlayer x:Name="Player" Grid.Column="0" Grid.Row="2"/>
+
+        <UCMenus:BattleMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="BattleMenu" Visibility="Visible"></UCMenus:BattleMenu>
+        <UCMenus:AttackMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="AttackMenu" Visibility="Collapsed"></UCMenus:AttackMenu>
+        <UCMenus:PokemonSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="PokemonMenu" Visibility="Collapsed"></UCMenus:PokemonSelectionMenu>
+        <UCMenus:ObjectSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="ObjectListView" Visibility="Collapsed"></UCMenus:ObjectSelectionMenu>
+    </Grid>
+</Page>

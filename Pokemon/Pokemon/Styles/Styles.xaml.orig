@@ -3,6 +3,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     >
 
+<<<<<<< HEAD
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!-- Style des boutons Pokemon par défaut -->
     <Style x:Key="PokemonDefault" TargetType="Button">
         <Setter Property="Foreground" Value="White" />
@@ -48,6 +55,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+=======
+>>>>>>> origin/Mathieu
     <!-- Fond de page par défaut -->
     <Style x:Key="BackgroundGrid" TargetType="Grid">
         <Setter Property="Background">
@@ -56,7 +65,12 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+<<<<<<< HEAD
+    <!-- Style Bordure des TextBlock -->
+    <Style x:Key="BorderTextBlock" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderBrush" Value="#cccccc" />
+        <Setter Property="Background" Value="#ffffff" />
         <Setter Property="BorderThickness" Value="2" />
     </Style>
     <!-- Style Bordure de la box pokémon dans "carte de dresseur"-->
@@ -64,6 +78,25 @@
         <Setter Property="CornerRadius" Value="10" />
         <Setter Property="BorderBrush" Value="#4D194D" />
         <Setter Property="Background" Value="#993399" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+    <!-- Style Bordure Bouton Sélection des Personnages -->
+    <Style x:Key="ImageChooseCharacter" TargetType="Image">
+        <Setter Property="Source" Value="../Images/Triangle.png" />
+    </Style>
+    <!-- Style Bordure Bouton Sélection des Personnages survolé -->
+    <Style x:Key="ImageChooseCharacterSelected" TargetType="Image">
+        <Setter Property="Source" Value="../Images/TriangleSelected.png" />
+    </Style>
+    <Style x:Key="TextBoxChooseName" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderBrush" Value="#cccccc" />
+        <Setter Property="Background" Value="#ffffff" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+=======
+
+>>>>>>> origin/Mathieu
     <!-- Woman Icone -->
     <Image x:Key="ImageWomanIcone" >
         <Image.Source>
