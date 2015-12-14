@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Style="{StaticResource BackgroundGridDefault}">
+        <Grid Style="{StaticResource BackgroundGrid}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="44,5*" />
                 <ColumnDefinition Width="1*" />
@@ -20,7 +20,7 @@
                     <RowDefinition Height="65*" />
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <Image Grid.Row="1" Grid.Column="1" Source="../Images/kaiminus.png" VerticalAlignment="Stretch"
+                    <Image Grid.Row="1" Grid.Column="1" Source="../Images/Pokemons/kaiminus.png" VerticalAlignment="Stretch"
                            HorizontalAlignment="Left" Margin="10, 10, 10, 10"/>
                 </Grid>
                 <Grid Grid.Row="1">

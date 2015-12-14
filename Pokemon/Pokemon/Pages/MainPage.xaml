@@ -8,6 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image Source="../Images/demarrage.png" Tapped="Image_Tapped"/>
+        <Image Source="../Images/Demarrage.png" Tapped="Image_Tapped"/>
     </Grid>
 </Page>

@@ -75,7 +75,7 @@ namespace Pokemon.Pages
 
         private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonSelected"];
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
         private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -85,7 +85,7 @@ namespace Pokemon.Pages
 
         private void btnValidate_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnValidate.Style = (Style)Application.Current.Resources["ButtonSelected"];
+            this.btnValidate.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
         private void btnValidate_PointerExited(object sender, PointerRoutedEventArgs e)

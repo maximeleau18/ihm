@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Style="{StaticResource BackgroundGridDefault}">
+        <Grid Style="{StaticResource BackgroundGrid}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="49,5*" />
                 <ColumnDefinition Width="1*" />
@@ -35,7 +35,7 @@
                     <TextBox Grid.Row="0" x:Name="TutoMsg2" Margin="10,10,10,10" Background="Transparent" BorderBrush="Transparent" Foreground="White" Width="auto"
                                                         FontSize="20" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
                                                         TextWrapping="Wrap"
-                                                        Text="Touche sur le sujet que tu veux voir en détail ur les boutons à côté" />
+                                                        Text="Touche sur le sujet que tu veux voir en détail sur les boutons à côté" />
                 </Grid>
             </Grid>
             <Grid Grid.Column="1" Background="White"></Grid>

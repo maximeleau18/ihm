@@ -115,6 +115,9 @@
     <Compile Include="Pages\ChooseCharacter.xaml.cs">
       <DependentUpon>ChooseCharacter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ChooseName.xaml.cs">
+      <DependentUpon>ChooseName.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FirstTutoScreen.xaml.cs">
       <DependentUpon>FirstTutoScreen.xaml</DependentUpon>
     </Compile>
@@ -133,8 +136,8 @@
     <Compile Include="Pages\StartMenuPage.xaml.cs">
       <DependentUpon>StartMenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\trainerCard.xaml.cs">
-      <DependentUpon>trainerCard.xaml</DependentUpon>
+    <Compile Include="Pages\TrainerCard.xaml.cs">
+      <DependentUpon>TrainerCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\Buttons\AttackButton.xaml.cs">
@@ -182,6 +185,7 @@
     <None Include="Pokemon_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Joystick.png" />
     <Content Include="Images\MedicObjects\Anti-Brule.png" />
     <Content Include="Images\MedicObjects\Anti-Para.png" />
     <Content Include="Images\MedicObjects\antidote.png" />
@@ -370,8 +374,8 @@
     <Content Include="Images\Map\map_99.gif" />
     <Content Include="Images\Menu.png" />
     <Content Include="Images\ObjectsCategory\Pokeball.png" />
-    <Content Include="Images\stadium.png" />
     <Content Include="Images\ObjectsCategory\status.png" />
+    <Content Include="Images\Stadium.png" />
     <Content Include="Images\TonNom.png" />
     <Content Include="Images\Triangle.png" />
     <Content Include="Images\TriangleSelected.png" />
@@ -399,6 +403,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ChooseName.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\FirstTutoScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -423,7 +431,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\trainerCard.xaml">
+    <Page Include="Pages\TrainerCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

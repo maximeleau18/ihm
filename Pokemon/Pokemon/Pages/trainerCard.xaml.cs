@@ -20,9 +20,9 @@ namespace Pokemon.Pages
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class trainerCard : Page
+    public sealed partial class TrainerCard : Page
     {
-        public trainerCard()
+        public TrainerCard()
         {
             this.InitializeComponent();
         }

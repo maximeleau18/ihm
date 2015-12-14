@@ -17,9 +17,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Menus
 {
-    public sealed partial class ObjectSelectionMenu : UserControl
+    public sealed partial class ObjectCategoryMenu : UserControl
     {
-        public ObjectSelectionMenu()
+        public ObjectCategoryMenu()
         {
             this.InitializeComponent();
         }
