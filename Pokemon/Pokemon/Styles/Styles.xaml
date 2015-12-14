@@ -33,6 +33,51 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!-- Style des boutons Pokemon par défaut -->
+    <Style x:Key="PokemonDefault" TargetType="Button">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="30" BorderBrush="#662200" BorderThickness="2" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- Style des boutons Pokémon survolés -->
+    <Style x:Key="Pokemonselected" TargetType="Button">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="30" BorderBrush="#ffffff" BorderThickness="2" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- Style des boutons Type de Pokémon -->
+    <Style x:Key="Type" TargetType="Button">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="10" BorderBrush="#000000" BorderThickness="2" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!-- Fond de page par défaut -->
     <Style x:Key="BackgroundGridDefault" TargetType="Grid">
         <Setter Property="Background">
@@ -46,6 +91,13 @@
         <Setter Property="CornerRadius" Value="10" />
         <Setter Property="BorderBrush" Value="#cccccc" />
         <Setter Property="Background" Value="#ffffff" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+    <!-- Style Bordure de la box pokémon dans "carte de dresseur"-->
+    <Style x:Key="BorderPokeBlock" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderBrush" Value="#4D194D" />
+        <Setter Property="Background" Value="#993399" />
         <Setter Property="BorderThickness" Value="2" />
     </Style>
     <!-- Style Bordure Bouton Sélection des Personnages -->
