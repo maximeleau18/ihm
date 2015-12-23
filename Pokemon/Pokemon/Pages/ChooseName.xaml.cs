@@ -101,8 +101,10 @@ namespace Pokemon.Pages
             {
 
             }
+            // On chare le nom du joueur
+            this.Player.Name = name.ToUpper();
             // On charge la page map
-            (Window.Current.Content as Frame).Navigate(typeof(Map));
+            (Window.Current.Content as Frame).Navigate(typeof(Map), this.Player);
         }
     }
 }

@@ -126,5 +126,40 @@
         <Setter Property="BorderBrush" Value="#cccccc" />
         <Setter Property="Background" Value="#ffffff" />
     </Style>
+
+
+    <!-- Fond de page du menu -->
+    <Style x:Key="BackgroundGridMenu" TargetType="SplitView">
+        <Setter Property="PaneBackground">
+            <Setter.Value>
+                <ImageBrush ImageSource="../Images/Background.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Fond de page du bouton pokédex -->
+    <Style x:Key="BackgroundMenuPokedex" TargetType="StackPanel">
+        <Setter Property="Background" Value="#4388CC" />
+    </Style>
+
+    <!-- Fond de page du bouton pokémon -->
+    <Style x:Key="BackgroundMenuPokemon" TargetType="StackPanel">
+        <Setter Property="Background" Value="#993300" />
+    </Style>
+
+    <!-- Fond de page du bouton sac -->
+    <Style x:Key="BackgroundMenuBag" TargetType="StackPanel">
+        <Setter Property="Background" Value="#FF9900" />
+    </Style>
+
+    <!-- Fond de page du bouton personnage -->
+    <Style x:Key="BackgroundMenuCharacter" TargetType="StackPanel">
+        <Setter Property="Background" Value="#993399" />
+    </Style>
     
+    <!-- Fond de page du bouton retour -->
+    <Style x:Key="BackgroundMenuReturn" TargetType="StackPanel">
+        <Setter Property="Background" Value="#009900" />
+    </Style>
+
 </ResourceDictionary>
