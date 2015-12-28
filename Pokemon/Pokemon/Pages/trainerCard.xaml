@@ -15,14 +15,15 @@
                 <RowDefinition Height="15*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="70*" />
-                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="60*" />
             </Grid.ColumnDefinitions>
             <Image Grid.Row="0" Grid.Column="0" Source="../Images/CarteDresseur.png" VerticalAlignment="Stretch"
                    HorizontalAlignment="Left" Margin="20, 20, 10, 10"/>
-            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="TxtboxChooseCharacter" Text="Sophie" Margin="10,10,10,10" HorizontalAlignment="Stretch"
-                       VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial" FontSize="20" Foreground="#FFFFFF"/>
-            <Border Margin="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource BorderPokeBlock}" />
+            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="TxtblockNameCharacter" Text="" Margin="10,10,10,10" HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial" FontSize="70" Foreground="#FFFFFF"
+                       TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+            <Border x:Name="PokeContentBlock" Margin="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource BorderPokeBlock}" PointerEntered="PokeContentBlock_PointerEntered" PointerExited="PokeContentBlock_PointerExited" />
             <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50*"/>
@@ -34,35 +35,37 @@
                     <ColumnDefinition Width="20*"/>
                     <ColumnDefinition Width="40*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Row="0" Grid.Column="0" Source="../Images/groudon.png" VerticalAlignment="Stretch"
+                <Image Grid.Row="0" Grid.Column="0" Source="../Images/Pokemons/groudon.png" VerticalAlignment="Stretch"
                    HorizontalAlignment="Center" Margin="10, 10, 10, 10"/>
-                <Image Grid.Row="0" Grid.Column="1" Source="../Images/abra.png" VerticalAlignment="Stretch"
+                <Image Grid.Row="0" Grid.Column="1" Source="../Images/Pokemons/abra.png" VerticalAlignment="Stretch"
                    HorizontalAlignment="Center" Margin="10, 10, 10, 10"/>
-                <Image Grid.Row="0" Grid.Column="2" Source="../Images/noctali.png" VerticalAlignment="Stretch"
+                <Image Grid.Row="0" Grid.Column="2" Source="../Images/Pokemons/noctali.png" VerticalAlignment="Stretch"
                    HorizontalAlignment="Center" Margin="10, 10, 10, 10"/>
-                <Image Grid.Row="1" Grid.Column="0" Source="../Images/florizarre.png" VerticalAlignment="Stretch"
+                <Image Grid.Row="1" Grid.Column="0" Source="../Images/Pokemons/florizarre.png" VerticalAlignment="Stretch"
                    HorizontalAlignment="Center" Margin="10, 10, 10, 10"/>
-                <Image Grid.Row="1" Grid.Column="1" Source="../Images/kaiminus.png" VerticalAlignment="Stretch"
+                <Image Grid.Row="1" Grid.Column="1" Source="../Images/Pokemons/kaiminus.png" VerticalAlignment="Stretch"
                    HorizontalAlignment="Center" Margin="10, 10, 10, 10"/>
-                <Image Grid.Row="1" Grid.Column="2" Source="../Images/chetiflor.png" VerticalAlignment="Stretch"
+                <Image Grid.Row="1" Grid.Column="2" Source="../Images/Pokemons/chetiflor.png" VerticalAlignment="Stretch"
                    HorizontalAlignment="Center" Margin="10, 10, 10, 10"/>
-                <Image Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Source="../Images/woman.png" VerticalAlignment="Stretch"
+                <Image x:Name="ImgCharacter" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" VerticalAlignment="Stretch"
                    HorizontalAlignment="Center" Margin="20, 20, 20, 20"/>
             </Grid>
             <Grid Grid.Row="3" Grid.Column="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20*" />
-                    <RowDefinition Height="60*" />
-                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="80*" />
+                    <RowDefinition Height="10*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="40*" />
+                    <ColumnDefinition Width="5*" />
                     <ColumnDefinition Width="50*" />
-                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="5*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="1" Grid.Column="1" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
+                <Button Grid.Row="1" Grid.Column="2" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="16" />
+                    Style="{StaticResource ButtonParams}" FontSize="16" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" 
+                        Tapped="btnBack_Tapped" />
             </Grid>
         </Grid>
     </Grid>

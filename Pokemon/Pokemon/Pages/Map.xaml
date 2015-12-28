@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <SplitView x:Name="MenuSplitView" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="64" OpenPaneLength="200" Style="{StaticResource BackgroundGridMenu}">
+    <SplitView x:Name="MenuSplitView" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="64" OpenPaneLength="400" Style="{StaticResource BackgroundGridMenu}">
         <SplitView.Pane>
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" Background="Transparent">
@@ -16,19 +16,19 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokedex}">
                     <Image x:Name="PokedexButton" Source="../Images/Menu/PokedexButton.png" Margin="0,0,15,0" Tapped="PokedexButton_Tapped" />
-                    <HyperlinkButton x:Name="TxtPokedex" Content="POKEDEX" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" />
+                    <HyperlinkButton x:Name="TxtPokedex" Content="POKEDEX" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" Tapped="TxtPokedex_Tapped" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokemon}">
                     <Image x:Name="PokemonButton" Source="../Images/Menu/PokemonButton.png" Margin="0,0,15,0" Tapped="PokemonButton_Tapped" />
-                    <HyperlinkButton x:Name="TxtPokemon" Content="POKEMON" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" />
+                    <HyperlinkButton x:Name="TxtPokemon" Content="POKEMON" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" Tapped="TxtPokemon_Tapped" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuBag}">
                     <Image x:Name="BagButton" Source="../Images/Menu/SacButton.png" Margin="0,0,15,0" Tapped="BagButton_Tapped" />
-                    <HyperlinkButton x:Name="TxtBag" Content="SAC" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" />
+                    <HyperlinkButton x:Name="TxtBag" Content="SAC" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" Tapped="TxtBag_Tapped" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuCharacter}">
                     <Image x:Name="CharacterButton" Margin="0,0,15,0" Tapped="CharacterButton_Tapped"  />
-                    <HyperlinkButton x:Name="TxtCharacter" Content="MAXIME" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" />
+                    <HyperlinkButton x:Name="TxtCharacter" Content="" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" Tapped="TxtCharacter_Tapped" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Background="Transparent" Width="64" Height="128">
                 </StackPanel>
@@ -67,6 +67,8 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="107*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />

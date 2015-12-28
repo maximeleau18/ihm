@@ -186,6 +186,8 @@
     <None Include="Pokemon_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\CarteDresseur.png" />
+    <Content Include="Images\Demarrage.png" />
     <Content Include="Images\Joystick.png" />
     <Content Include="Images\Map\Map_01.png" />
     <Content Include="Images\Map\Map_02.png" />
@@ -1399,7 +1401,6 @@
     <Content Include="Images\Background.png" />
     <Content Include="Images\Chen.png" />
     <Content Include="Images\Pokemons\chetiflor.png" />
-    <Content Include="Images\Demarrage.png" />
     <Content Include="Images\ObjectsCategory\Fist.png" />
     <Content Include="Images\Pokemons\florizarre.png" />
     <Content Include="Images\Pokemons\hericendre.png" />

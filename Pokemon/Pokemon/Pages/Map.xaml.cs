@@ -56,14 +56,20 @@ namespace Pokemon.Pages
         public Map()
         {
             this.InitializeComponent();
-            
+
             // On abonne la grid à l'évènement afin de bouger notre personnage
-            this.Loaded += new RoutedEventHandler(Page_Loaded);
+            this.Loaded += Page_Loaded;
+            this.Unloaded += Page_Unloaded;
         }
 
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ((Frame)Window.Current.Content).KeyUp += GridMap_KeyUp;
+        }
+
+        void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            ((Frame)Window.Current.Content).KeyUp -= GridMap_KeyUp;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -82,10 +88,7 @@ namespace Pokemon.Pages
             }
 
             this.TxtCharacter.Content = this.Player.Name;
-
-
-            this.Player.PosX = 30;
-            this.Player.PosY = 15;
+            
             this.GridManager = new GridManager(this.GridMap, 5, 17, 25, 45, 16, 28, this.Player);
         }
 
@@ -297,6 +300,26 @@ namespace Pokemon.Pages
         private void TxtReturn_Tapped(object sender, TappedRoutedEventArgs e)
         {
             (Window.Current.Content as Frame).Navigate(typeof(StartMenuPage));
+        }
+
+        private void TxtPokedex_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(Pokedex));
+        }
+
+        private void TxtBag_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void TxtCharacter_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(TrainerCard), this.Player);
+        }
+
+        private void TxtPokemon_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
         }
     }
 }

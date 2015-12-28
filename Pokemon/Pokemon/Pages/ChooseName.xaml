@@ -46,7 +46,8 @@
                                 <RowDefinition Height="5*" />
                             </Grid.RowDefinitions>
                             <TextBox Grid.Row="1" Grid.Column="0" x:Name="TxtBoxName" Background="#ffffff" BorderBrush="Transparent" 
-                                     FontSize="20" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch" Text="" />                       
+                                     FontSize="20" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch" Text=""
+                                     MaxLength="25"/>                       
                         </Grid>
                     </Grid>
                 </Border>

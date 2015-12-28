@@ -29,7 +29,7 @@
 
             <Button Grid.Row="3" x:Name="RunawayButton" Content="Fuite" Style="{StaticResource RunawayButton}" 
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#0000FF" Foreground="White" 
-                PointerExited="RunawayButton_PointerExited"  PointerEntered="RunawayButton_PointerEntered" Click="RunawayButton_Click"/>
+                PointerExited="RunawayButton_PointerExited"  PointerEntered="RunawayButton_PointerEntered" Click="RunawayButton_Click" />
 
         </Grid>
     </Grid>

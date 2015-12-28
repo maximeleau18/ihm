@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
+using Pokemon.Pages;
 
 namespace Pokemon.Entity
 {
@@ -262,6 +263,10 @@ namespace Pokemon.Entity
             this.CurrentGrid.Children.Add(this.PlayerImg);
             Grid.SetColumn(this.PlayerImg, this.Player.PosX);
             Grid.SetRow(this.PlayerImg, this.Player.PosY);
+
+            if ((this.Player.PosX == 29) && (this.Player.PosY == 15)){
+                (Window.Current.Content as Frame).Navigate(typeof(BattleView), this.Player);
+            }
         }
     }
 }

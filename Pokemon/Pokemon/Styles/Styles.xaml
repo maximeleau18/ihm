@@ -61,8 +61,17 @@
     
     <!-- Style Bordure de la box pokémon dans "carte de dresseur"-->
     <Style x:Key="BorderPokeBlock" TargetType="Border">
-        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="CornerRadius" Value="20" />
         <Setter Property="BorderBrush" Value="#4D194D" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Background" Value="#993399" />
+    </Style>
+    
+    <!-- Style Bordure de la box pokémon dans "carte de dresseur" survolée -->
+    <Style x:Key="BorderPokeBlockSelected" TargetType="Border">
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="BorderBrush" Value="#FFFFFF" />
+        <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Background" Value="#993399" />
     </Style>
     

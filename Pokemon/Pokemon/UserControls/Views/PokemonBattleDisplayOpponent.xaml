@@ -24,6 +24,6 @@
         	<Run Text="N.6"/>
         </TextBlock>
         <ProgressBar Grid.Column="1" Grid.Row="2" x:Name="opponentLifeBar" Background="Green" MinHeight="20" />
-        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="../Images/hericendre.png"/>
+        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="ms-appx:///Images/Pokemons/hericendre.png"/>
     </Grid>
 </UserControl>

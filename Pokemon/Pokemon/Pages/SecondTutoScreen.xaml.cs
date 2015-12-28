@@ -36,5 +36,26 @@ namespace Pokemon.Pages
         {
             (Window.Current.Content as Frame).Navigate(typeof(FirstTutoScreen));
         }
+
+        private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
+
+        }
+
+        private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParams"];
+        }
+
+        private void btnNext_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnNext.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
+        }
+
+        private void btnNext_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnNext.Style = (Style)Application.Current.Resources["ButtonParams"];
+        }
     }
 }

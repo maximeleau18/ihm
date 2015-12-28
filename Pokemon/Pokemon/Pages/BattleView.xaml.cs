@@ -24,18 +24,43 @@ namespace Pokemon.Pages
     /// </summary>
     public sealed partial class BattleView : Page
     {
+        private Player player;
+
         public BattleView()
         {
             this.InitializeComponent();
+            this.BattleMenu.RunawayButtonClick += new RoutedEventHandler(RunawayButton_Click);
+        }        
+
+        internal Player Player
+        {
+            get
+            {
+                return player;
+            }
+
+            set
+            {
+                player = value;
+            }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            this.Player = (Player)e.Parameter;
         }
 
         public void CreateNeededObjectsTemporary()
         {
-            Player p = new Player();
+            Entity.Pokemon kaiminus = new Entity.Pokemon("Kaiminus", "C'est un pokemon eau", 6, 1, 1, 1);
 
-            Pokemon.Entity.Pokemon kaiminus = new Pokemon.Entity.Pokemon("Kaiminus", "C'est un pokemon eau", 6, 1, 1, 1);
-
-            p.Team.Add(kaiminus);
+            this.Player.Team.Add(kaiminus);
+        }
+        
+        private void RunawayButton_Click(object sender, RoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(Map), this.Player);
         }
     }
 }
