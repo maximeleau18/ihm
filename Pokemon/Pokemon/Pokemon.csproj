@@ -103,7 +103,7 @@
     <Compile Include="Entity\BattleObject.cs" />
     <Compile Include="Entity\GridManager.cs" />
     <Compile Include="Entity\MedicObject.cs" />
-    <Compile Include="Entity\ObjetPokemon.cs" />
+    <Compile Include="Entity\PokemonObject.cs" />
     <Compile Include="Entity\Player.cs" />
     <Compile Include="Entity\Pokemon.cs" />
     <Compile Include="Entity\Statistics.cs" />

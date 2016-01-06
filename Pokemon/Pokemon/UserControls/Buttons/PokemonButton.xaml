@@ -9,7 +9,7 @@
 
     <Grid>
         <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Button" Style="{StaticResource PokemonButton}" 
-                Background="#993300" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                Background="#993300" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited">
 
             <Grid Margin="6,6,6,6">
                 <Grid.RowDefinitions>

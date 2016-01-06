@@ -22,5 +22,10 @@ namespace Pokemon.Entity
                 modifiedStats = value;
             }
         }
-    }
+
+        public BattleObject(String name, String urlPicture) : base (name, urlPicture)
+        {
+
+        }
+    } 
 }

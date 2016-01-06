@@ -24,12 +24,6 @@ namespace Pokemon.UserControls.Menus
         {
             this.InitializeComponent();
         }
-        
-
-        //private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
-        //{
-        //    this.btnBack.Style = (Style)Application.Current.Resources["PokemonButton"];
-        //}
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -39,11 +33,5 @@ namespace Pokemon.UserControls.Menus
                 Visibility = Visibility.Collapsed;
             }
         }
-
-        //private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
-        //{
-        //    this.btnBack.Style = (Style)Application.Current.Resources["PokemonButtonSelected"];
-        //}
-
     }
 }

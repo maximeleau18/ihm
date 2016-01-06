@@ -89,7 +89,7 @@ namespace Pokemon.Pages
 
             this.TxtCharacter.Content = this.Player.Name;
             
-            this.GridManager = new GridManager(this.GridMap, 5, 17, 25, 45, 16, 28, this.Player);
+            this.GridManager = new GridManager(this.GridMap, 5, 17, 26, 45, 17, 28, this.Player);
         }
 
         private void GridMap_KeyUp(object sender, KeyRoutedEventArgs e)

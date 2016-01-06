@@ -88,7 +88,7 @@
         </Setter>
     </Style>
 
-    <!-- Hilight AttackButton -->
+    <!-- Hilight PokemonButton -->
     <Style x:Key="PokemonButtonSelected" TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Template">
