@@ -17,16 +17,16 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Pokemon.Pages
+namespace Pokemon.Pages.Views
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class TrainerCard : Page
+    public sealed partial class TrainerCardView : Page
     {
         private Player player;
 
-        public TrainerCard()
+        public TrainerCardView()
         {
             this.InitializeComponent();
         }
@@ -72,17 +72,17 @@ namespace Pokemon.Pages
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(Map), this.Player);
+            (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
         }       
 
-        private void PokeContentBlock_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            this.PokeContentBlock.Style = (Style)Application.Current.Resources["BorderPokeBlockSelected"];
-        }
+        //private void PokeContentBlock_PointerEntered(object sender, PointerRoutedEventArgs e)
+        //{
+        //    this.PokeContentBlock.Style = (Style)Application.Current.Resources["BorderPokeBlockSelected"];
+        //}
 
-        private void PokeContentBlock_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.PokeContentBlock.Style = (Style)Application.Current.Resources["BorderPokeBlock"];
-        }
+        //private void PokeContentBlock_PointerExited(object sender, PointerRoutedEventArgs e)
+        //{
+        //    this.PokeContentBlock.Style = (Style)Application.Current.Resources["BorderPokeBlock"];
+        //}
     }
 }

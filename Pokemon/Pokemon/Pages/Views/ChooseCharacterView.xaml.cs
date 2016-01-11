@@ -16,14 +16,14 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Pokemon.Pages
+namespace Pokemon.Pages.Views
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class ChooseCharacter : Page
+    public sealed partial class ChooseCharacterView : Page
     {
-        public ChooseCharacter()
+        public ChooseCharacterView()
         {
             this.InitializeComponent();
         }
@@ -50,7 +50,7 @@ namespace Pokemon.Pages
                 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(StartMenuPage));
+            (Window.Current.Content as Frame).Navigate(typeof(StartMenuPageView));
         }
 
         private void ManSelected_Tapped(object sender, TappedRoutedEventArgs e)
@@ -58,7 +58,7 @@ namespace Pokemon.Pages
             Player player = new Player();
             player.Sexe = "M";
 
-            (Window.Current.Content as Frame).Navigate(typeof(ChooseName), player);
+            (Window.Current.Content as Frame).Navigate(typeof(ChooseNameView), player);
         }
 
         private void WomanSelected_Tapped(object sender, TappedRoutedEventArgs e)
@@ -66,7 +66,7 @@ namespace Pokemon.Pages
             Player player = new Player();
             player.Sexe = "F";
 
-            (Window.Current.Content as Frame).Navigate(typeof(ChooseName), player);
+            (Window.Current.Content as Frame).Navigate(typeof(ChooseNameView), player);
         }
 
         private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)

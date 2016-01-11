@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="Pokemon.Pages.SecondTutoScreen"
+    x:Class="Pokemon.Pages.Views.SecondTutoScreenView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Pokemon.Pages"
+    xmlns:local="using:Pokemon.Pages.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -20,7 +20,7 @@
                     <RowDefinition Height="42.5*" />
                     <RowDefinition Height="15*" />
                 </Grid.RowDefinitions>
-                <Image x:Name="ImgJoystick" Grid.Row="0" Source="../Images/Joystick.png" 
+                <Image x:Name="ImgJoystick" Grid.Row="0" Source="ms-appx:///Images/Joystick.png" 
                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="20, 20, 20, 20"/>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
@@ -35,7 +35,8 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Row="1" Grid.Column="1" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="20" Tapped="btnBack_Tapped" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" />
+                    Style="{StaticResource ButtonParams}" FontSize="20" Tapped="btnBack_Tapped" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" 
+                            Visibility="Collapsed" />
                 </Grid>
             </Grid>
             <Grid Grid.Column="1" Background="White"></Grid>

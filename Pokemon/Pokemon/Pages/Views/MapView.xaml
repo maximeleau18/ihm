@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="Pokemon.Pages.Map"
+    x:Class="Pokemon.Pages.Views.MapView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Pokemon.Pages"
+    xmlns:local="using:Pokemon.Pages.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -11,19 +11,19 @@
         <SplitView.Pane>
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" Background="Transparent">
-                    <Image x:Name="MenuButton" Source="../Images/Menu/MenuButton.png" Margin="0,0,15,0" Tapped="MenuButton_Tapped" />
+                    <Image x:Name="MenuButton" Source="ms-appx:///Images/Menu/MenuButton.png" Margin="0,0,15,0" Tapped="MenuButton_Tapped" />
                     <TextBlock x:Name="TxtMenu" Text="MENU" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokedex}">
-                    <Image x:Name="PokedexButton" Source="../Images/Menu/PokedexButton.png" Margin="0,0,15,0" Tapped="PokedexButton_Tapped" />
+                    <Image x:Name="PokedexButton" Source="ms-appx:///Images/Menu/PokedexButton.png" Margin="0,0,15,0" Tapped="PokedexButton_Tapped" />
                     <HyperlinkButton x:Name="TxtPokedex" Content="POKEDEX" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" Tapped="TxtPokedex_Tapped" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokemon}">
-                    <Image x:Name="PokemonButton" Source="../Images/Menu/PokemonButton.png" Margin="0,0,15,0" Tapped="PokemonButton_Tapped" />
+                    <Image x:Name="PokemonButton" Source="ms-appx:///Images/Menu/PokemonButton.png" Margin="0,0,15,0" Tapped="PokemonButton_Tapped" />
                     <HyperlinkButton x:Name="TxtPokemon" Content="POKEMON" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" Tapped="TxtPokemon_Tapped" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuBag}">
-                    <Image x:Name="BagButton" Source="../Images/Menu/SacButton.png" Margin="0,0,15,0" Tapped="BagButton_Tapped" />
+                    <Image x:Name="BagButton" Source="ms-appx:///Images/Menu/SacButton.png" Margin="0,0,15,0" Tapped="BagButton_Tapped" />
                     <HyperlinkButton x:Name="TxtBag" Content="SAC" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" Tapped="TxtBag_Tapped" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuCharacter}">
@@ -33,7 +33,7 @@
                 <StackPanel Orientation="Horizontal" Background="Transparent" Width="64" Height="128">
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuReturn}">
-                    <Image x:Name="ReturnButton" Source="../Images/Menu/ReturnButton.png" Margin="0,0,15,0" Tapped="ReturnButton_Tapped" />
+                    <Image x:Name="ReturnButton" Source="ms-appx:///Images/Menu/ReturnButton.png" Margin="0,0,15,0" Tapped="ReturnButton_Tapped" />
                     <HyperlinkButton x:Name="TxtReturn" Content="QUITTER" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" Tapped="TxtReturn_Tapped" />
                 </StackPanel>
             </StackPanel>

@@ -54,7 +54,7 @@
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="..\Images\Background.png"/>
+                <ImageBrush ImageSource="ms-appx:///Images/Background.png"/>
             </Setter.Value>
         </Setter>
     </Style>
@@ -78,28 +78,28 @@
     <!-- Woman Icone -->
     <Image x:Key="ImageWomanIcone" >
         <Image.Source>
-            <BitmapImage UriSource="../Images/WomanMini.png"></BitmapImage>
+            <BitmapImage UriSource="ms-appx:///Images/WomanMini.png"></BitmapImage>
         </Image.Source>
     </Image>
     
     <!-- Man Icone -->
     <Image x:Key="ImageManIcone" >
         <Image.Source>
-            <BitmapImage UriSource="../Images/ManMini.png"></BitmapImage>
+            <BitmapImage UriSource="ms-appx:///Images/ManMini.png"></BitmapImage>
         </Image.Source>
     </Image>
     
     <!-- Woman Character -->
     <Image x:Key="WomanCharacter" >
         <Image.Source>
-            <BitmapImage UriSource="../Images/Woman.png"></BitmapImage>
+            <BitmapImage UriSource="ms-appx:///Images/Woman.png"></BitmapImage>
         </Image.Source>
     </Image>
     
     <!-- Woman Character -->
     <Image x:Key="ManCharacter" >
         <Image.Source>
-            <BitmapImage UriSource="../Images/Wan.png"></BitmapImage>
+            <BitmapImage UriSource="ms-appx:///Images/Wan.png"></BitmapImage>
         </Image.Source>
     </Image>
 	
@@ -107,19 +107,19 @@
     <Style x:Key="BackgroundGridMap" TargetType="Grid">
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="../Images/Background.png"/>
+                <ImageBrush ImageSource="ms-appx:///Images/Background.png"/>
             </Setter.Value>
         </Setter>
     </Style>
 
     <!-- Image de sélection du joueur -->
     <Style x:Key="ImageChooseCharacter" TargetType="Image">
-        <Setter Property="Source" Value="../Images/Triangle.png" />
+        <Setter Property="Source" Value="ms-appx:///Images/Triangle.png" />
     </Style>
 
     <!-- Image de sélection du joueur survolée -->
     <Style x:Key="ImageChooseCharacterSelected" TargetType="Image">
-        <Setter Property="Source" Value="../Images/TriangleSelected.png" />
+        <Setter Property="Source" Value="ms-appx:///Images/TriangleSelected.png" />
     </Style>
 
     <!-- Cadre de la TextBox permettant de saisir son nom -->
@@ -141,7 +141,7 @@
     <Style x:Key="BackgroundGridMenu" TargetType="SplitView">
         <Setter Property="PaneBackground">
             <Setter.Value>
-                <ImageBrush ImageSource="../Images/Background.png"/>
+                <ImageBrush ImageSource="ms-appx:///Images/Background.png"/>
             </Setter.Value>
         </Setter>
     </Style>

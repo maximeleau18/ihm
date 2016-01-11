@@ -17,12 +17,12 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Pokemon.Pages
+namespace Pokemon.Pages.Views
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class Map : Page
+    public sealed partial class MapView : Page
     {
         private Player player;
         private GridManager gridManager;
@@ -53,7 +53,7 @@ namespace Pokemon.Pages
             }
         }
 
-        public Map()
+        public MapView()
         {
             this.InitializeComponent();
 
@@ -299,12 +299,12 @@ namespace Pokemon.Pages
 
         private void TxtReturn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(StartMenuPage));
+            (Window.Current.Content as Frame).Navigate(typeof(StartMenuPageView));
         }
 
         private void TxtPokedex_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(Pokedex));
+            (Window.Current.Content as Frame).Navigate(typeof(PokedexView));
         }
 
         private void TxtBag_Tapped(object sender, TappedRoutedEventArgs e)
@@ -314,7 +314,7 @@ namespace Pokemon.Pages
 
         private void TxtCharacter_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(TrainerCard), this.Player);
+            (Window.Current.Content as Frame).Navigate(typeof(TrainerCardView), this.Player);
         }
 
         private void TxtPokemon_Tapped(object sender, TappedRoutedEventArgs e)

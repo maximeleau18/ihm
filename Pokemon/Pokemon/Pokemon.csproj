@@ -110,35 +110,35 @@
     <Compile Include="Entity\Status.cs" />
     <Compile Include="Entity\StatusObject.cs" />
     <Compile Include="Entity\TypePokemon.cs" />
-    <Compile Include="Pages\BattleView.xaml.cs">
+    <Compile Include="Pages\Views\BattleView.xaml.cs">
       <DependentUpon>BattleView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ChooseCharacter.xaml.cs">
-      <DependentUpon>ChooseCharacter.xaml</DependentUpon>
+    <Compile Include="Pages\Views\ChooseCharacterView.xaml.cs">
+      <DependentUpon>ChooseCharacterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ChooseName.xaml.cs">
-      <DependentUpon>ChooseName.xaml</DependentUpon>
+    <Compile Include="Pages\Views\ChooseNameView.xaml.cs">
+      <DependentUpon>ChooseNameView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FirstTutoScreen.xaml.cs">
-      <DependentUpon>FirstTutoScreen.xaml</DependentUpon>
+    <Compile Include="Pages\Views\FirstTutoScreenView.xaml.cs">
+      <DependentUpon>FirstTutoScreenView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Pages\Views\MainPageView.xaml.cs">
+      <DependentUpon>MainPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Map.xaml.cs">
-      <DependentUpon>Map.xaml</DependentUpon>
+    <Compile Include="Pages\Views\MapView.xaml.cs">
+      <DependentUpon>MapView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Pokedex.xaml.cs">
-      <DependentUpon>Pokedex.xaml</DependentUpon>
+    <Compile Include="Pages\Views\PokedexView.xaml.cs">
+      <DependentUpon>PokedexView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SecondTutoScreen.xaml.cs">
-      <DependentUpon>SecondTutoScreen.xaml</DependentUpon>
+    <Compile Include="Pages\Views\SecondTutoScreenView.xaml.cs">
+      <DependentUpon>SecondTutoScreenView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\StartMenuPage.xaml.cs">
-      <DependentUpon>StartMenuPage.xaml</DependentUpon>
+    <Compile Include="Pages\Views\StartMenuPageView.xaml.cs">
+      <DependentUpon>StartMenuPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TrainerCard.xaml.cs">
-      <DependentUpon>TrainerCard.xaml</DependentUpon>
+    <Compile Include="Pages\Views\TrainerCardView.xaml.cs">
+      <DependentUpon>TrainerCardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\Buttons\AttackButton.xaml.cs">
@@ -1451,43 +1451,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Pages\BattleView.xaml">
+    <Page Include="Pages\Views\BattleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ChooseCharacter.xaml">
+    <Page Include="Pages\Views\ChooseCharacterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ChooseName.xaml">
+    <Page Include="Pages\Views\ChooseNameView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\FirstTutoScreen.xaml">
+    <Page Include="Pages\Views\FirstTutoScreenView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\MainPage.xaml">
+    <Page Include="Pages\Views\MainPageView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\Map.xaml">
+    <Page Include="Pages\Views\MapView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Pokedex.xaml">
+    <Page Include="Pages\Views\PokedexView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\SecondTutoScreen.xaml">
+    <Page Include="Pages\Views\SecondTutoScreenView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\StartMenuPage.xaml">
+    <Page Include="Pages\Views\StartMenuPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\TrainerCard.xaml">
+    <Page Include="Pages\Views\TrainerCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
