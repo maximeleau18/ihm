@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pokemon.Entity;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,11 +20,48 @@ namespace Pokemon.UserControls.Buttons
 {
     public sealed partial class ObjectCategoryButton : UserControl
     {
+        public static readonly DependencyProperty ObjectPokemonNameProperty = DependencyProperty.Register
+           (
+                "ObjectPokemonName",
+                typeof(String),
+                typeof(ObjectCategoryButton),
+                new PropertyMetadata(null)
+           );
+
+        public static readonly DependencyProperty ObjectPokemonPictureProperty = DependencyProperty.Register
+            (
+                "ObjectPokemonPicture",
+                typeof(String),
+                typeof(ObjectCategoryButton),
+                new PropertyMetadata(null)
+            );
+
+        public String ObjectPokemonName
+        {
+            get { return (String)GetValue(ObjectPokemonNameProperty); }
+            set { SetValue(ObjectPokemonNameProperty, value); }
+        }
+
+        public String ObjectPokemonPicture
+        {
+            get { return (String)GetValue(ObjectPokemonPictureProperty); }
+            set { SetValue(ObjectPokemonPictureProperty, value); }
+        }
+
         public ObjectCategoryButton()
         {
             this.InitializeComponent();
+            this.ucObjectCategoryButton.DataContext = this;
+        }    
+
+        private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.Button.Style = (Style)Application.Current.Resources["ObjectButtonSelected"];
         }
 
-
+        private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.Button.Style = (Style)Application.Current.Resources["ObjectButton"];
+        }
     }
 }

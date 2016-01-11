@@ -1,35 +1,101 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    >
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!-- Style des boutons Pokemon par défaut -->
+    <Style x:Key="PokemonDefault" TargetType="Button">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="30" BorderBrush="#662200" BorderThickness="2" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Style des boutons Pokémon survolés -->
+    <Style x:Key="Pokemonselected" TargetType="Button">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="30" BorderBrush="#ffffff" BorderThickness="2" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Style des boutons Type de Pokémon -->
+    <Style x:Key="Type" TargetType="Button">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="10" BorderBrush="#000000" BorderThickness="2" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
     <!-- Fond de page par défaut -->
     <Style x:Key="BackgroundGrid" TargetType="Grid">
+        <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Background">
             <Setter.Value>
                 <ImageBrush ImageSource="..\Images\Background.png"/>
             </Setter.Value>
         </Setter>
     </Style>
-
+    
+    <!-- Style Bordure de la box pokémon dans "carte de dresseur"-->
+    <Style x:Key="BorderPokeBlock" TargetType="Border">
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="BorderBrush" Value="#4D194D" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Background" Value="#993399" />
+    </Style>
+    
+    <!-- Style Bordure de la box pokémon dans "carte de dresseur" survolée -->
+    <Style x:Key="BorderPokeBlockSelected" TargetType="Border">
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="BorderBrush" Value="#FFFFFF" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Background" Value="#993399" />
+    </Style>
+    
     <!-- Woman Icone -->
     <Image x:Key="ImageWomanIcone" >
         <Image.Source>
             <BitmapImage UriSource="../Images/WomanMini.png"></BitmapImage>
         </Image.Source>
     </Image>
+    
     <!-- Man Icone -->
     <Image x:Key="ImageManIcone" >
         <Image.Source>
             <BitmapImage UriSource="../Images/ManMini.png"></BitmapImage>
         </Image.Source>
     </Image>
+    
     <!-- Woman Character -->
     <Image x:Key="WomanCharacter" >
         <Image.Source>
             <BitmapImage UriSource="../Images/Woman.png"></BitmapImage>
         </Image.Source>
     </Image>
+    
     <!-- Woman Character -->
     <Image x:Key="ManCharacter" >
         <Image.Source>
@@ -44,6 +110,65 @@
                 <ImageBrush ImageSource="../Images/Background.png"/>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <!-- Image de sélection du joueur -->
+    <Style x:Key="ImageChooseCharacter" TargetType="Image">
+        <Setter Property="Source" Value="../Images/Triangle.png" />
+    </Style>
+
+    <!-- Image de sélection du joueur survolée -->
+    <Style x:Key="ImageChooseCharacterSelected" TargetType="Image">
+        <Setter Property="Source" Value="../Images/TriangleSelected.png" />
+    </Style>
+
+    <!-- Cadre de la TextBox permettant de saisir son nom -->
+    <Style x:Key="TextBoxChooseName" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderBrush" Value="#cccccc" />
+        <Setter Property="Background" Value="#ffffff" />
+    </Style>
+
+    <!-- Cadre du TextBlock entourant le message du choix du personnage -->
+    <Style x:Key="BorderTextBlock" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderBrush" Value="#cccccc" />
+        <Setter Property="Background" Value="#ffffff" />
+    </Style>
+
+
+    <!-- Fond de page du menu -->
+    <Style x:Key="BackgroundGridMenu" TargetType="SplitView">
+        <Setter Property="PaneBackground">
+            <Setter.Value>
+                <ImageBrush ImageSource="../Images/Background.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Fond de page du bouton pokédex -->
+    <Style x:Key="BackgroundMenuPokedex" TargetType="StackPanel">
+        <Setter Property="Background" Value="#4388CC" />
+    </Style>
+
+    <!-- Fond de page du bouton pokémon -->
+    <Style x:Key="BackgroundMenuPokemon" TargetType="StackPanel">
+        <Setter Property="Background" Value="#993300" />
+    </Style>
+
+    <!-- Fond de page du bouton sac -->
+    <Style x:Key="BackgroundMenuBag" TargetType="StackPanel">
+        <Setter Property="Background" Value="#FF9900" />
+    </Style>
+
+    <!-- Fond de page du bouton personnage -->
+    <Style x:Key="BackgroundMenuCharacter" TargetType="StackPanel">
+        <Setter Property="Background" Value="#993399" />
+    </Style>
+    
+    <!-- Fond de page du bouton retour -->
+    <Style x:Key="BackgroundMenuReturn" TargetType="StackPanel">
+        <Setter Property="Background" Value="#009900" />
     </Style>
 
 </ResourceDictionary>

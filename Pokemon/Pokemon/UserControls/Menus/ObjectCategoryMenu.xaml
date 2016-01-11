@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="Pokemon.UserControls.Menus.ObjectCategoryMenu"
+    x:Class="Pokemon.UserControls.Menus.ObjectPokemon"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Pokemon.UserControls.Menus"
@@ -9,25 +9,27 @@
     xmlns:uControl="using:Pokemon.UserControls.Buttons">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid Style="{StaticResource BackgroundGrid}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
-        <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
-        <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
-        <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
 
-        <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" ></uControl:BackButton >
+            <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" />
 
+        </Grid>
     </Grid>
 </UserControl>

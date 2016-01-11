@@ -5,29 +5,41 @@
     xmlns:local="using:Pokemon.UserControls.Menus"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    xmlns:uControl="using:Pokemon.UserControls.Buttons">
+    xmlns:uControl="using:Pokemon.UserControls.Buttons"
+    mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
-        <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
-        <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
-        <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
-
-        <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" ></uControl:BackButton >
-
+        <Grid Style="{StaticResource BackgroundGrid}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer Grid.ColumnSpan="3" Grid.Row="0">
+                <!--
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
+            -->
+                <ListView x:Name="ListObjectCategory">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <uControl:ObjectCategoryButton ObjectPokemonName="{Binding Name}" ObjectPokemonPicture="{Binding UrlPicture}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>                                
+            </ScrollViewer>
+            <uControl:BackButton Grid.Row="1" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" />
+        </Grid>
     </Grid>
 </UserControl>

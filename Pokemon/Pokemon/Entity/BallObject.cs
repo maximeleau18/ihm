@@ -8,6 +8,8 @@ namespace Pokemon.Entity
 {
     class BallObject : PokemonObject
     {
-
+        public BallObject(String name, String urlPicture) : base (name, urlPicture)
+        {
+        }
     }
 }

@@ -12,8 +12,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Pokemon.Pages;
 
 using Pokemon.Utils;
+using Pokemon.Entity;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -21,6 +23,8 @@ namespace Pokemon.UserControls.Menus
 {
     public sealed partial class BattleMenu : UserControl
     {
+        public RoutedEventHandler RunawayButtonClick;
+
         public BattleMenu()
         {
             this.InitializeComponent();
@@ -95,7 +99,10 @@ namespace Pokemon.UserControls.Menus
 
         private void RunawayButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (RunawayButtonClick != null)
+            {
+                RunawayButtonClick(this, e);
+            }
         }
     }
 }

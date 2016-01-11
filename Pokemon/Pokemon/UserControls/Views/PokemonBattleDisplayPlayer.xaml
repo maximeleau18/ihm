@@ -28,6 +28,6 @@
         </TextBlock>
         <ProgressBar Grid.Column="0" Grid.Row="2" x:Name="playerLifeBar" Background="Green" MinHeight="20" />
         <ProgressBar Grid.Column="0" Grid.Row="3" x:Name="playerXpBar" Background="Blue" MinHeight="20" />
-        <Image Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Source="ms-appx:///Images/kaiminus.png"/>
+        <Image Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Source="ms-appx:///Images/Pokemons/kaiminus.png"/>
     </Grid>
 </UserControl>

@@ -24,6 +24,14 @@ namespace Pokemon.UserControls.Buttons
             this.InitializeComponent();
         }
 
+        private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.Button.Style = (Style)Application.Current.Resources["AttackButtonSelected"];
+        }
 
+        private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.Button.Style = (Style)Application.Current.Resources["AttackButton"];
+        }
     }
 }

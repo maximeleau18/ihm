@@ -22,6 +22,9 @@ namespace Pokemon.Entity
         private List<BattleObject> battlePocket;
         private List<BallObject> ballPocket;
 
+        private int posX;
+        private int posY;
+
         public Player()
         {
 
@@ -114,6 +117,32 @@ namespace Pokemon.Entity
             set
             {
                 pc = value;
+            }
+        }
+
+        public int PosX
+        {
+            get
+            {
+                return posX;
+            }
+
+            set
+            {
+                posX = value;
+            }
+        }
+
+        public int PosY
+        {
+            get
+            {
+                return posY;
+            }
+
+            set
+            {
+                posY = value;
             }
         }
     }

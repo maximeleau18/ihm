@@ -9,24 +9,28 @@
     xmlns:uControl="using:Pokemon.UserControls.Buttons">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid Style="{StaticResource BackgroundGrid}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <uControl:AttackButton Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"></uControl:AttackButton>
-        <uControl:AttackButton Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></uControl:AttackButton>
-        <uControl:AttackButton Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"></uControl:AttackButton>
-        <uControl:AttackButton Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"></uControl:AttackButton>
-        
-        <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" ></uControl:BackButton >
+            
+            <uControl:AttackButton Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"></uControl:AttackButton>
+            <uControl:AttackButton Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></uControl:AttackButton>
+            <uControl:AttackButton Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"></uControl:AttackButton>
+            <uControl:AttackButton Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"></uControl:AttackButton>
+            
+            
+            <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" ></uControl:BackButton >
+        </Grid>
     </Grid>
 </UserControl>

@@ -70,12 +70,12 @@ namespace Pokemon.Pages
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(ChooseCharacter));
+            (Window.Current.Content as Frame).Navigate(typeof(FirstTutoScreen));
         }
 
         private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonSelected"];
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
         private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -85,7 +85,7 @@ namespace Pokemon.Pages
 
         private void btnValidate_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnValidate.Style = (Style)Application.Current.Resources["ButtonSelected"];
+            this.btnValidate.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
         private void btnValidate_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -101,8 +101,13 @@ namespace Pokemon.Pages
             {
 
             }
+            // On chare le nom du joueur
+            this.Player.Name = name.ToUpper();
+            // On définit la position initiale du joueur
+            this.Player.PosX = 30;
+            this.Player.PosY = 15;
             // On charge la page map
-
+            (Window.Current.Content as Frame).Navigate(typeof(Map), this.Player);
         }
     }
 }

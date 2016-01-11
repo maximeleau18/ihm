@@ -26,7 +26,7 @@ namespace Pokemon.UserControls.Buttons
         
         private void Grid_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonSelected"];
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
         private void Grid_PointerExited(object sender, PointerRoutedEventArgs e)
