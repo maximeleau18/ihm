@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pokemon.Entity
 {
-    class Status
+    class StatusPokemon
     {
         private String name;
 

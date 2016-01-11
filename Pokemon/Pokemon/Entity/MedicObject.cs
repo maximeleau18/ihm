@@ -8,24 +8,6 @@ namespace Pokemon.Entity
 {
     class MedicObject : PokemonObject
     {
-        private int pvHeal;
-
-        public int PvHeal
-        {
-            get
-            {
-                return pvHeal;
-            }
-
-            set
-            {
-                pvHeal = value;
-            }
-        }
-
-        public MedicObject(String name, String urlPicture) : base (name, urlPicture)
-        {
-
-        }
-    }    
+        StatusObject status;
+    }
 }

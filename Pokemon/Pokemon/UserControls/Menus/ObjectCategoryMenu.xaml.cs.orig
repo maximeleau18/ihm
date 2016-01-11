@@ -17,9 +17,15 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Menus
 {
+<<<<<<< HEAD
     public sealed partial class ObjectCategoryMenu : UserControl
     {
         public ObjectCategoryMenu()
+=======
+    public sealed partial class ObjectPokemon : UserControl
+    {
+        public ObjectPokemon()
+>>>>>>> origin/Develop
         {
             this.InitializeComponent();
         }
