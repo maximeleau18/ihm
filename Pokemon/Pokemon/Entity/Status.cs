@@ -11,5 +11,10 @@ namespace Pokemon.Entity
         private String name;
 
         private Statistics statsModification;
+
+        public StatusPokemon(String name)
+        {
+
+        }
     }
 }

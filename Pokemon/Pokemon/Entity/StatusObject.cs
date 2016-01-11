@@ -10,7 +10,12 @@ namespace Pokemon.Entity
     {
         private StatusPokemon healedStatus;
 
-        internal Status HealedStatus
+        public StatusObject(String name, String urlPicture, StatusPokemon status) : base(name, urlPicture)
+        {
+            healedStatus = status;
+        }
+
+        internal StatusPokemon HealedStatus
         {
             get
             {
@@ -23,9 +28,6 @@ namespace Pokemon.Entity
             }
         }
 
-        public StatusObject(String name, String urlPicture) : base(name, urlPicture)
-        {
-
-        }
+        
     }
 }
