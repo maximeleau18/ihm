@@ -42,10 +42,13 @@ namespace Pokemon.UserControls.Menus
 
         private void LoadContent()
         {
+            StatusPokemon statusPokemon = new StatusPokemon("Freeze");
+            StatusObject statusObject = new StatusObject("Status", "ms-appx:///Images/ObjectsCategory/status.png", statusPokemon);
+
             BallObject ballObject = new BallObject("Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
             BattleObject battleObject = new BattleObject("Outils de bataille", "ms-appx:///Images/ObjectsCategory/Fist.png");
-            MedicObject medicObject = new MedicObject("Médicaments", "ms-appx:///Images/ObjectsCategory/Medic.png");
-            StatusObject statusObject = new StatusObject("Status", "ms-appx:///Images/ObjectsCategory/status.png");
+            MedicObject medicObject = new MedicObject("Médicaments", "ms-appx:///Images/ObjectsCategory/Medic.png", statusObject);
+            
 
             this.CategoryObjectList.Add(ballObject);
             this.CategoryObjectList.Add(battleObject);
@@ -62,9 +65,5 @@ namespace Pokemon.UserControls.Menus
             }
         }
 
-        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-
-        }
     }
 }

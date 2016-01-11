@@ -11,6 +11,18 @@ namespace Pokemon.Entity
         private String name;
         private String urlPicture;
 
+        
+        public PokemonObject()
+        {
+
+        }
+
+        public PokemonObject(String name, String urlPicture)
+        {
+            this.Name = name;
+            this.UrlPicture = urlPicture;
+        }
+
         public String Name
         {
             get
@@ -37,15 +49,5 @@ namespace Pokemon.Entity
             }
         }
 
-        public PokemonObject()
-        {
-
-        }
-
-        public PokemonObject(String name, String urlPicture)
-        {
-            this.Name = name;
-            this.UrlPicture = urlPicture;
-        }
     }
 }

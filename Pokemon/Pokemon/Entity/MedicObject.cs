@@ -9,5 +9,10 @@ namespace Pokemon.Entity
     class MedicObject : PokemonObject
     {
         StatusObject status;
+
+        public MedicObject(String name, String urlPicture, StatusObject statusObj) : base(name, urlPicture)
+        {
+            status = statusObj;
+        }
     }
 }
