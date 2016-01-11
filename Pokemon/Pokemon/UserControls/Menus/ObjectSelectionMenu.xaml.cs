@@ -23,5 +23,10 @@ namespace Pokemon.UserControls.Menus
         {
             this.InitializeComponent();
         }
+
+        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
     }
 }

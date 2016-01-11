@@ -8,6 +8,6 @@ namespace Pokemon.Entity
 {
     class StatusObject : PokemonObject 
     {
-        private Status healedStatus;
+        private StatusPokemon healedStatus;
     }
 }
