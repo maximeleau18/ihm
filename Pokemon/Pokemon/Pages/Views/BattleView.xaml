@@ -7,11 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:UCMenus="using:Pokemon.UserControls.Menus"
-    xmlns:UCViews="using:Pokemon.UserControls.Views">
+    xmlns:UCViews="using:Pokemon.UserControls.Views"
+    xmlns:UCOther="using:Pokemon.UserControls.Other">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid Style="{StaticResource BackgroundGrid}" >
             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -30,11 +32,15 @@
             <Grid Grid.Column="0" Grid.Row="2" Background="Gray">
                 <UCViews:PokemonBattleDisplayPlayer x:Name="PlayerView" Margin="10, 0, 0, 0" Grid.Column="0" Grid.Row="2"/>
             </Grid>
-            <UCMenus:BattleMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="BattleMenu" Visibility="Visible"></UCMenus:BattleMenu>
-            <UCMenus:AttackMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="AttackMenu" Visibility="Collapsed"></UCMenus:AttackMenu>
-            <UCMenus:PokemonSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="PokemonMenu" Visibility="Collapsed"></UCMenus:PokemonSelectionMenu>
-            <UCMenus:ObjectCategoryMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="ObjectListView" Visibility="Collapsed"></UCMenus:ObjectCategoryMenu>
-            <UCMenus:ObjectSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="SelectedListViewOject" Visibility="Collapsed"></UCMenus:ObjectSelectionMenu>
+            <Grid Grid.Column="0" Grid.Row="3" Background="Gray">
+                <UCOther:Console x:Name="Console" Margin="10, 0, 0, 0" Grid.Column="0" Grid.Row="2"/>
+            </Grid>
+            
+            <UCMenus:BattleMenu             x:Name="BattleMenu" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" Visibility="Visible"></UCMenus:BattleMenu>
+            <UCMenus:AttackMenu             x:Name="AttackMenu" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" Visibility="Collapsed"></UCMenus:AttackMenu>
+            <UCMenus:PokemonSelectionMenu   x:Name="PokemonMenu" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" Visibility="Collapsed"></UCMenus:PokemonSelectionMenu>
+            <UCMenus:ObjectCategoryMenu     x:Name="ObjectListView" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" Visibility="Collapsed"></UCMenus:ObjectCategoryMenu>
+            <UCMenus:ObjectSelectionMenu    x:Name="SelectedListViewObject" Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" Visibility="Collapsed"></UCMenus:ObjectSelectionMenu>
         </Grid>
     </Grid>
 </Page>

@@ -30,6 +30,12 @@ namespace Pokemon.Pages.Views
         {
             this.InitializeComponent();
             this.BattleMenu.RunawayButtonClick += new RoutedEventHandler(RunawayButton_Click);
+
+            this.BattleMenu.setConsole( ref this.Console );            
+            this.AttackMenu.setConsole(ref this.Console);
+            this.PokemonMenu.setConsole(ref this.Console);
+            this.ObjectListView.setConsole(ref this.Console);
+            this.SelectedListViewObject.setConsole(ref this.Console);
         }        
 
         internal Player Player

@@ -36,6 +36,14 @@ namespace Pokemon.UserControls.Buttons
                 new PropertyMetadata(null)
             );
 
+        public static readonly DependencyProperty ObjectPokemonConsoleTextProperty = DependencyProperty.Register
+            (
+                "ObjectPokemonConsoleText",
+                typeof(String),
+                typeof(ObjectCategoryButton),
+                new PropertyMetadata(null)
+            );
+
         public String ObjectPokemonName
         {
             get { return (String)GetValue(ObjectPokemonNameProperty); }
@@ -46,6 +54,12 @@ namespace Pokemon.UserControls.Buttons
         {
             get { return (String)GetValue(ObjectPokemonPictureProperty); }
             set { SetValue(ObjectPokemonPictureProperty, value); }
+        }
+
+        public String ObjectPokemonConsoleText
+        {
+            get { return (String)GetValue(ObjectPokemonConsoleTextProperty); }
+            set { SetValue(ObjectPokemonConsoleTextProperty, value); }
         }
 
         public ObjectCategoryButton()
