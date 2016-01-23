@@ -17,7 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Pokemon.Pages
+namespace Pokemon.Pages.Views
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
@@ -60,7 +60,7 @@ namespace Pokemon.Pages
         
         private void RunawayButton_Click(object sender, RoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(Map), this.Player);
+            (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
         }
     }
 }
