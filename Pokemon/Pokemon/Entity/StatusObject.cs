@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pokemon.Entity
 {
-    class StatusObject : PokemonObject 
+    class StatusObject : PokemonObject , ObjectAsTarget
     {
         private StatusPokemon healedStatus;
 

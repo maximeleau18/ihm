@@ -10,7 +10,13 @@ namespace Pokemon.Entity
     {
         private String name;
 
+        private bool canAttack;
+
+        private bool asStatsModification;
         private Statistics statsModification;
+
+        private bool asLostLifeByRound;
+        private int lostLifeByRound;
 
         public StatusPokemon(String name)
         {

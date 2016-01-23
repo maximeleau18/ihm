@@ -99,15 +99,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Attack.cs" />
     <Compile Include="Entity\BallObject.cs" />
     <Compile Include="Entity\BattleObject.cs" />
     <Compile Include="Entity\GridManager.cs" />
     <Compile Include="Entity\MedicObject.cs" />
+    <Compile Include="Entity\ObjectAsTarget.cs" />
     <Compile Include="Entity\PokemonObject.cs" />
     <Compile Include="Entity\Player.cs" />
     <Compile Include="Entity\Pokemon.cs" />
     <Compile Include="Entity\Statistics.cs" />
-    <Compile Include="Entity\Status.cs" />
+    <Compile Include="Entity\StatusPokemon.cs" />
     <Compile Include="Entity\StatusObject.cs" />
     <Compile Include="Entity\TypePokemon.cs" />
     <Compile Include="Pages\BattleView.xaml.cs">
