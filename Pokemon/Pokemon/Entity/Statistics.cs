@@ -12,8 +12,7 @@ namespace Pokemon.Entity
         private int attack;
         private int armor;
         private int speed;
-
-
+        
         public Statistics()
         {
             life = 0;

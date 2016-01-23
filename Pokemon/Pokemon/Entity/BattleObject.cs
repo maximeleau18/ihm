@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pokemon.Entity
 {
-    class BattleObject : PokemonObject
+    class BattleObject : PokemonObject, ObjectAsTarget
     {
         private Statistics modifiedStats;
 

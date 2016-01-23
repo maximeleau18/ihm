@@ -35,12 +35,15 @@ namespace Pokemon.Entity
             this.Name = _name;
         }
 
-        public void UtiliserObjet(PokemonObject _objet)
+        public void UtiliserObjet(ObjectAsTarget _objet, Pokemon playerPkm)
         {
 
         }
 
-        
+        public void UtiliserObjet(BallObject _objet, Pokemon opponentPokemon)
+        {
+
+        }
 
         public string Name
         {
