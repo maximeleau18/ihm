@@ -23,12 +23,16 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
-            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
-            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
-            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"></uControl:ObjectCategoryButton>
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" 
+                      ObjectPokemonName="Pokéballs" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/Pokeball.png" Tapped="ObjectCategoryButton_Tapped" />
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" 
+                      ObjectPokemonName="Outils de bataille" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/Fist.png"/>
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" 
+                      ObjectPokemonName="Médicaments" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/Medic.png"/>
+            <uControl:ObjectCategoryButton Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" 
+                      ObjectPokemonName="Statut" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/status.png"/>
 
-            <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" />
+           <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" />
 
         </Grid>
     </Grid>

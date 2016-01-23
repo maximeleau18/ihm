@@ -90,7 +90,7 @@ namespace Pokemon.UserControls.Menus
 
         private void ObjectButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (ObjectSelectionMenu item in Helper.FindVisualChildren<ObjectSelectionMenu>(this.Parent as Grid))
+            foreach (ObjectCategoryMenu item in Helper.FindVisualChildren<ObjectCategoryMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;

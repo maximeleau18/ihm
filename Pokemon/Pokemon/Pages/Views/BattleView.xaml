@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0" Grid.Row="0" Background="Gray">
-                <UCViews:PokemonBattleDisplayOpponent Margin="0, 0, 10, 0" x:Name="Opponent" Grid.Column="0" Grid.Row="0"/>
+                <UCViews:PokemonBattleDisplayOpponent x:Name="Opponent" Grid.Column="0" Grid.Row="0"/>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1" Background="Gray">
                 <Image Source="ms-appx:///Images/Stadium.png"></Image>
@@ -33,7 +33,8 @@
             <UCMenus:BattleMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="BattleMenu" Visibility="Visible"></UCMenus:BattleMenu>
             <UCMenus:AttackMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="AttackMenu" Visibility="Collapsed"></UCMenus:AttackMenu>
             <UCMenus:PokemonSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="PokemonMenu" Visibility="Collapsed"></UCMenus:PokemonSelectionMenu>
-            <UCMenus:ObjectSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="ObjectListView" Visibility="Collapsed"></UCMenus:ObjectSelectionMenu>
+            <UCMenus:ObjectCategoryMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="ObjectListView" Visibility="Collapsed"></UCMenus:ObjectCategoryMenu>
+            <UCMenus:ObjectSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="SelectedListViewOject" Visibility="Collapsed"></UCMenus:ObjectSelectionMenu>
         </Grid>
     </Grid>
 </Page>

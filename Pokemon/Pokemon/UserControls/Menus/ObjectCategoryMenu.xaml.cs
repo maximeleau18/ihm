@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Pokemon.Entity;
+using Pokemon.Utils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,10 +25,23 @@ namespace Pokemon.UserControls.Menus
         {
             this.InitializeComponent();
         }
-
+        
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.Parent as Grid))
+            {
+                item.Visibility = Visibility.Visible;
+                Visibility = Visibility.Collapsed;
+            }
+        }
 
+        private void ObjectCategoryButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            foreach (ObjectSelectionMenu item in Helper.FindVisualChildren<ObjectSelectionMenu>(this.Parent as Grid))
+            {
+                item.Visibility = Visibility.Visible;
+                Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

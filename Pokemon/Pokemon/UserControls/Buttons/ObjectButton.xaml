@@ -7,27 +7,36 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Button" Style="{StaticResource ObjectButton}" 
+    <Grid x:Name="ucObjectButton">
+        <Button x:Name="Button" Style="{StaticResource ObjectButton}" 
                 Background="#fdc00d" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited">
 
-            <Grid Margin="6,6,6,6">
+            <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="80*"/>
+                    <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="10*"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Row="2" Grid.Column="0" Source="ms-appx:///Images/MedicObjects/antidote.png"></Image>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.RowSpan="2" Grid.Column="0" Source="{Binding ObjectPokemonPicture, Mode=TwoWay}" Height="60" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></Image>
 
-                <TextBlock Grid.Row="1" Grid.Column="1" Height="Auto" VerticalAlignment="Center">ObjectName</TextBlock>
-                <TextBlock Grid.Row="3" Grid.Column="1" Height="Auto" VerticalAlignment="Center">x5</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ObjectPokemonName, Mode=TwoWay}" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">x5</TextBlock>
+                </Grid>
             </Grid>
         </Button>
     </Grid>

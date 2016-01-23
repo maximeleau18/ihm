@@ -19,9 +19,38 @@ namespace Pokemon.UserControls.Buttons
 {
     public sealed partial class ObjectButton : UserControl
     {
+        public static readonly DependencyProperty ObjectPokemonNameProperty = DependencyProperty.Register
+           (
+                "ObjectPokemonName",
+                typeof(String),
+                typeof(ObjectButton),
+                new PropertyMetadata(null)
+           );
+
+        public static readonly DependencyProperty ObjectPokemonPictureProperty = DependencyProperty.Register
+            (
+                "ObjectPokemonPicture",
+                typeof(String),
+                typeof(ObjectButton),
+                new PropertyMetadata(null)
+            );
+
+        public String ObjectPokemonName
+        {
+            get { return (String)GetValue(ObjectPokemonNameProperty); }
+            set { SetValue(ObjectPokemonNameProperty, value); }
+        }
+
+        public String ObjectPokemonPicture
+        {
+            get { return (String)GetValue(ObjectPokemonPictureProperty); }
+            set { SetValue(ObjectPokemonPictureProperty, value); }
+        }
+
         public ObjectButton()
         {
             this.InitializeComponent();
+            this.ucObjectButton.DataContext = this;
         }
 
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)

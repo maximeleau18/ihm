@@ -42,23 +42,20 @@ namespace Pokemon.UserControls.Menus
 
         private void LoadContent()
         {
-            StatusPokemon statusPokemon = new StatusPokemon("Freeze");
-            StatusObject statusObject = new StatusObject("Status", "ms-appx:///Images/ObjectsCategory/status.png", statusPokemon);
+            BallObject smallBallObject = new BallObject("Petites Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
+            BallObject mediumBallObject = new BallObject("Moyennes Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
+            BallObject hightBallObject = new BallObject("Grandes Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
+            BallObject giantBallObject = new BallObject("Gigantesques Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
 
-            BallObject ballObject = new BallObject("Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
-            BattleObject battleObject = new BattleObject("Outils de bataille", "ms-appx:///Images/ObjectsCategory/Fist.png");
-            MedicObject medicObject = new MedicObject("Médicaments", "ms-appx:///Images/ObjectsCategory/Medic.png", statusObject);
-            
-
-            this.CategoryObjectList.Add(ballObject);
-            this.CategoryObjectList.Add(battleObject);
-            this.CategoryObjectList.Add(medicObject);
-            this.CategoryObjectList.Add(statusObject);
+            this.CategoryObjectList.Add(smallBallObject);
+            this.CategoryObjectList.Add(mediumBallObject);
+            this.CategoryObjectList.Add(hightBallObject);
+            this.CategoryObjectList.Add(giantBallObject);
         }
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.Parent as Grid))
+            foreach (ObjectCategoryMenu item in Helper.FindVisualChildren<ObjectCategoryMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;

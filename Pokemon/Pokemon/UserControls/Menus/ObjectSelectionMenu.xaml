@@ -31,10 +31,10 @@
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                         </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.ItemTemplate>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
                         <DataTemplate>
-                            <uControl:ObjectCategoryButton ObjectPokemonName="{Binding Name}" ObjectPokemonPicture="{Binding UrlPicture}" />
+                            <uControl:ObjectButton ObjectPokemonName="{Binding Name}" ObjectPokemonPicture="{Binding UrlPicture}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>                                

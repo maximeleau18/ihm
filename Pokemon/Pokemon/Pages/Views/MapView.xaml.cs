@@ -88,8 +88,9 @@ namespace Pokemon.Pages.Views
             }
 
             this.TxtCharacter.Content = this.Player.Name;
-            
-            this.GridManager = new GridManager(this.GridMap, 5, 17, 26, 45, 17, 28, this.Player);
+
+            //this.GridManager = new GridManager(this.GridMap, 10, 17, 25, 45, 15, 28, this.Player);
+            this.GridManager = new GridManager(this.GridMap, 15, 30, 25, 45, 16, 29, this.Player);
         }
 
         private void GridMap_KeyUp(object sender, KeyRoutedEventArgs e)
@@ -101,15 +102,16 @@ namespace Pokemon.Pages.Views
                 if (this.GridManager.CurrentRow + 1 <= this.GridManager.DimMapRow)
                 {
                     // Si la case suivante existe
-                    if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow + 1 + this.GridManager.DimMapVisibleRow] != null)
+                    if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow + 1 + ((int)this.GridManager.DimMapVisibleRow / 2)] != null)
                     {
                         // Si la case suivante est visible
-                        if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow + 1 + this.GridManager.DimMapVisibleRow].ActualHeight > 0)
+                        if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow + 1 + ((int)this.GridManager.DimMapVisibleRow / 2)].ActualHeight > 0)
                         {
                             // Si la prochaine case du perso est dans la grid
                             if (this.Player.PosY + 1 <= this.GridManager.DimMapRow)
                             {
                                 // On bouge le personnage sur la map
+                                this.GridManager.CurrentRow++;
                                 this.Player.PosY++;
                                 this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Down");
                                 return;
@@ -117,21 +119,26 @@ namespace Pokemon.Pages.Views
                         }
                         else
                         {
-                            // On bouge la carte et le personnage
+                            // On bouge la carte si la prochaine case n'est pas visible
+                            if (this.GridManager.CurrentRow + 1 > ((int)this.GridManager.DimMapVisibleRow / 2))
+                            {
+                                this.GridManager.MoveMap(0, true, false);
+                            }
+                            // On bouge le joueur
                             this.GridManager.CurrentRow++;
-                            this.GridManager.MoveMap();
                             this.Player.PosY++;
                             this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Down");
-
                         }
                     }
                     else
                     {
                         // Si la prochaine case du perso est l'avant dernière case dans la grid
                         // Afin d'afficher le perso même si la barre des tâches est affichée
-                        if (this.Player.PosY + 1 < this.GridManager.DimMapRow)
+                        if (this.Player.PosY + 1 <= this.GridManager.DimMapRow)
                         {
                             // On bouge le personnage sur la map
+                            this.GridManager.CurrentRow++;
+                            //this.GridManager.MoveMap();
                             this.Player.PosY++;
                             this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Down");
                             return;
@@ -146,15 +153,17 @@ namespace Pokemon.Pages.Views
                 if (this.GridManager.CurrentCol + 1 <= this.GridManager.DimMapCol)
                 {
                     // Si la case suivante existe
-                    if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol + 1 + this.GridManager.DimMapVisibleCol] != null)
+                    if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol + 1 + ((int)this.GridManager.DimMapVisibleCol / 2)] != null)
                     {
                         // Si la case suivante est visible
-                        if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol + 1 + this.GridManager.DimMapVisibleCol].ActualWidth > 0)
+                        int result = this.GridManager.CurrentCol + 1 + ((int)this.GridManager.DimMapVisibleCol / 2);
+                        if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol + 1 + ((int)this.GridManager.DimMapVisibleCol / 2)].ActualWidth > 0)
                         {
                             // Si la prochaine case du perso est dans la grid
                             if (this.Player.PosX + 1 <= this.GridManager.DimMapCol)
                             {
                                 // On bouge le personnage sur la map
+                                this.GridManager.CurrentCol++;
                                 this.Player.PosX++;
                                 this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Right");
                                 return;
@@ -162,12 +171,15 @@ namespace Pokemon.Pages.Views
                         }
                         else
                         {
-                            // On bouge la carte et le personnage
+                            // On bouge la carte si la prochaine case n'est pas visible
+                            if (this.GridManager.CurrentCol + 1 > ((int)this.GridManager.DimMapVisibleCol / 2))
+                            {
+                                this.GridManager.MoveMap(0, false, true);
+                            }
+                            // On bouge le joueur
                             this.GridManager.CurrentCol++;
-                            this.GridManager.MoveMap();
                             this.Player.PosX++;
                             this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Right");
-
                         }
                     }
                     else
@@ -176,6 +188,8 @@ namespace Pokemon.Pages.Views
                         if (this.Player.PosX + 1 <= this.GridManager.DimMapCol)
                         {
                             // On bouge le personnage sur la map
+                            this.GridManager.CurrentCol++;
+                            //this.GridManager.MoveMap();
                             this.Player.PosX++;
                             this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Right");
                             return;
@@ -190,78 +204,122 @@ namespace Pokemon.Pages.Views
                 if (this.GridManager.CurrentCol - 1 >= 0)
                 {
                     // Si la case suivante existe
-                    if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol - 1] != null)
+                    if ((this.GridManager.CurrentCol - 1 - ((int)this.GridManager.DimMapVisibleCol / 2)) >= 0)
                     {
-                        // Si la case précédente est visible
-                        if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol - 1].ActualWidth > 0)
+                        if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol - 1 - ((int)this.GridManager.DimMapVisibleCol / 2)] != null)
+                        {
+                            // Si la case précédente est visible
+                            if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol - 1 - ((int)this.GridManager.DimMapVisibleCol / 2)].ActualWidth > 0)
+                            {
+                                // Si la précédente case du perso est dans la grid
+                                if (this.Player.PosX - 1 >= 0)
+                                {
+                                    this.GridManager.CurrentCol--;
+                                    this.Player.PosX--;
+                                    this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Left");
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                // On bouge la carte si la prochaine case n'est pas visible
+                                if (this.GridManager.CurrentCol - 1 <= (this.GridManager.DimMapCol - ((int)this.GridManager.DimMapVisibleCol / 2)))
+                                {
+                                    int modulo = this.GridManager.DimMapVisibleCol % 2;
+                                    this.GridManager.MoveMap(modulo, false, true);
+                                }
+                                this.GridManager.CurrentCol--;
+                                // On bouge le joueur
+                                this.Player.PosX--;
+                                this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Left");
+                            }
+                        }
+                        else
                         {
                             // Si la précédente case du perso est dans la grid
                             if (this.Player.PosX - 1 >= 0)
                             {
+                                this.GridManager.CurrentCol--;
+                                //this.GridManager.MoveMap();
                                 this.Player.PosX--;
                                 this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Left");
                                 return;
                             }
                         }
-                        else
+                    }
+                    else
+                    {
+                        // Si la précédente case du perso est dans la grid
+                        if (this.Player.PosX - 1 >= 0)
                         {
-                            // On bouge la carte et le personnage
                             this.GridManager.CurrentCol--;
-                            this.GridManager.MoveMap();
                             this.Player.PosX--;
                             this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Left");
+                            return;
                         }
                     }
-                }
-                else
-                {
-                    // Si la précédente case du perso est dans la grid
-                    if (this.Player.PosX - 1 >= 0)
-                    {
-                        this.Player.PosX--;
-                        this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Left");
-                        return;
-                    }
-                } 
+                }            
             }
             if (e.Key == Windows.System.VirtualKey.Up || e.Key == Windows.System.VirtualKey.Z)
             {
                 // On passe de la ligne x à la ligne x - 1 on décale vers le haut d'une case
-                // Si la ligne actuelle + 1 est supérieur à 0
+                // Si la ligne actuelle - 1 est supérieur à 0
                 if (this.GridManager.CurrentRow - 1 >= 0)
                 {
                     // Si la case suivante existe
-                    if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow - 1] != null)
+                    if ((this.GridManager.CurrentRow - ((int)this.GridManager.DimMapVisibleRow / 2)) >= 0)
                     {
-                        // Si la case précédente est visible
-                        if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow - 1].ActualHeight > 0)
+                        if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow - ((int)this.GridManager.DimMapVisibleRow / 2)] != null)
+                        {
+                            // Si la case précédente est visible
+                            if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow - ((int)this.GridManager.DimMapVisibleRow / 2)].ActualHeight > 0)
+                            {
+                                // Si la précédente case du perso est dans la grid
+                                if (this.Player.PosY - 1 >= 0)
+                                {
+                                    this.GridManager.CurrentRow--;
+                                    this.Player.PosY--;
+                                    this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Up");
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                // On bouge la carte et le personnage
+                                if (this.GridManager.CurrentRow - 1 <= (this.GridManager.DimMapRow - ((int)this.GridManager.DimMapVisibleRow / 2)))
+                                {
+                                    int modulo = this.GridManager.DimMapVisibleRow % 2;
+                                    this.GridManager.MoveMap(modulo, true, false);
+                                }
+                                this.GridManager.CurrentRow--;
+                                this.Player.PosY--;
+                                this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Up");
+                            }
+                        }
+                        else
                         {
                             // Si la précédente case du perso est dans la grid
                             if (this.Player.PosY - 1 >= 0)
                             {
+                                this.GridManager.CurrentRow--;
+                                //this.GridManager.MoveMap();
                                 this.Player.PosY--;
                                 this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Up");
                                 return;
                             }
                         }
-                        else
+                    }
+                    else
+                    {
+                        // Si la précédente case du perso est dans la grid
+                        if (this.Player.PosY - 1 >= 0)
                         {
-                            // On bouge la carte et le personnage
                             this.GridManager.CurrentRow--;
-                            this.GridManager.MoveMap();
+                            //this.GridManager.MoveMap();
                             this.Player.PosY--;
                             this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Up");
+                            return;
                         }
-                    }
-                }
-                else
-                {
-                    // Si la précédente case du perso est dans la grid
-                    if (this.Player.PosY - 1 >= 0)
-                    {
-                        this.Player.PosY--;
-                        this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Up");
-                        return;
                     }
                 }
             }
@@ -320,6 +378,11 @@ namespace Pokemon.Pages.Views
         private void TxtPokemon_Tapped(object sender, TappedRoutedEventArgs e)
         {
 
+        }
+
+        private void MapViewGrid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            this.GridManager.SizeChanged(e.NewSize);
         }
     }
 }

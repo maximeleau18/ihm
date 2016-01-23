@@ -62,5 +62,6 @@ namespace Pokemon.Pages.Views
         {
             (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
         }
+
     }
 }
