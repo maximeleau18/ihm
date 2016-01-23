@@ -5,94 +5,40 @@
     xmlns:local="using:Pokemon.Pages.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:my="clr-namespace:Pokemon.Pages.Views"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Style="{StaticResource BackgroundGrid}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="49,95*" />
-                <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="49,95*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="47.5*" />
-                <RowDefinition Height="5*" />
-                <RowDefinition Height="47.5*" />
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Grid.Column="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*" />
-                    <ColumnDefinition Width="90*" />
-                    <ColumnDefinition Width="5*" />
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="TutoMsg1" Foreground="White" Width="auto"
-                                                        FontSize="50" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                        TextWrapping="Wrap"
-                                                        Text="Je vais tout d'abord t'apprendre les choses importantes concernant ce jeu." />
-            </Grid>
-            <Grid Grid.Row="2" Grid.Column="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*" />
-                    <ColumnDefinition Width="90*" />
-                    <ColumnDefinition Width="5*" />
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="1" x:Name="TutoMsg2" Foreground="White" Width="auto"
-                                                        FontSize="50" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                        TextWrapping="Wrap"
-                                                        Text="Touche le sujet que tu veux voir en détail sur la partie droite de l'écran." />            </Grid>
-            <Grid Grid.Column="1" Grid.RowSpan="3" Background="White"></Grid>
-            <Grid Grid.Column="2" Grid.RowSpan="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="35*" />
-                        <RowDefinition Height="30*" />
-                        <RowDefinition Height="35*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*" />
-                        <ColumnDefinition Width="60*" />
-                        <ColumnDefinition Width="20*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Row="1" Grid.Column="1" x:Name="btnCommand" Content="COMMANDE" HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
+    <Grid x:Name="MainLayout" SizeChanged="FirstTuto_SizeChanged">
+        <Grid.Background>
+            <ImageBrush Stretch="None" ImageSource="ms-appx:///Images/Background.png" AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TutoMsg1"                       
+                       Grid.Row="0" Grid.Column="0"
+                       Margin="5"
+                       TextWrapping="Wrap"
+                       Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Text="{Binding DisplayedText, Mode=TwoWay}"
+            />
+            <Button Margin="25" MaxHeight="100" MaxWidth="200"
+                    Grid.Row="0" Grid.Column="1" 
+                    x:Name="btnCommand" Content="COMMANDE" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
                     Style="{StaticResource ButtonParams}" FontSize="20" Tapped="btnCommand_Tapped" PointerEntered="btnCommand_PointerEntered" PointerExited="btnCommand_PointerExited" />
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="35*" />
-                        <RowDefinition Height="30*" />
-                        <RowDefinition Height="35*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*" />
-                        <ColumnDefinition Width="60*" />
-                        <ColumnDefinition Width="20*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Visibility="Collapsed" Grid.Row="1" Grid.Column="1" x:Name="btnAdventure" Content="AVENTURE" HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="20" />
-                </Grid>
-                <Grid Grid.Row="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="35*" />
-                        <RowDefinition Height="30*" />
-                        <RowDefinition Height="35*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*" />
-                        <ColumnDefinition Width="60*" />
-                        <ColumnDefinition Width="20*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Row="1" Grid.Column="1" x:Name="btnBack" Content="PASSER" HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
+
+            <Button Margin="25" MaxHeight="100" MaxWidth="200"
+                    Grid.Row="1" Grid.Column="1" 
+                    x:Name="btnBack" Content="PASSER" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
                     Style="{StaticResource ButtonParams}" FontSize="20" Tapped="btnBack_Tapped" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" />
-                </Grid>
-            </Grid>
-        </Grid>
+              
+
     </Grid>
 </Page>

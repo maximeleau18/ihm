@@ -22,14 +22,46 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class SecondTutoScreenView : Page
     {
+        public String displayedText = "";
+        private int lineWidth = 300;
+
+        public String DisplayedText
+        {
+            get { return (String)GetValue(Tuto2TextProperty); }
+            set { SetValue(Tuto2TextProperty, value); }
+        }
+
+        public static readonly DependencyProperty Tuto2TextProperty = DependencyProperty.Register
+            (
+                "DisplayedText",
+                typeof(String),
+                typeof(SecondTutoScreenView),
+                new PropertyMetadata(null)
+            );
+
         public SecondTutoScreenView()
         {
             this.InitializeComponent();
+            this.TutoMsg2.DataContext = this;
+
+            TutoMsg2.MaxWidth = lineWidth;
+
+            DisplayedText = "Pour te déplacer sur la carte, tu peux utiliser les flèches directionnelles du clavier ou les touches [Z], [Q], [S] et [D].";
+            DisplayedText += "Touche le bouton RETOUR pour revenir à l'écran précédent.";
         }
 
         private void btnNext_Tapped(object sender, TappedRoutedEventArgs e)
         {
             (Window.Current.Content as Frame).Navigate(typeof(ChooseCharacterView));
+        }
+        private void btnNext_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnNext.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
+        }
+
+        private void btnNext_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnNext.Style = (Style)Application.Current.Resources["ButtonParams"];
         }
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
@@ -40,22 +72,16 @@ namespace Pokemon.Pages.Views
         private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             this.btnBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
-
         }
 
         private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             this.btnBack.Style = (Style)Application.Current.Resources["ButtonParams"];
-        }
+        }       
 
-        private void btnNext_PointerEntered(object sender, PointerRoutedEventArgs e)
+        private void SecondTuto_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            this.btnNext.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
-        }
 
-        private void btnNext_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.btnNext.Style = (Style)Application.Current.Resources["ButtonParams"];
         }
     }
 }

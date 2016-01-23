@@ -5,80 +5,47 @@
     xmlns:local="using:Pokemon.Pages.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:my="clr-namespace:Pokemon.Pages.Views"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Style="{StaticResource BackgroundGrid}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="29.95*" />
-                <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="69.95*" />
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="42.5*" />
-                    <RowDefinition Height="42.5*" />
-                    <RowDefinition Height="15*" />
-                </Grid.RowDefinitions>
-                <Image x:Name="ImgJoystick" Grid.Row="0" Source="ms-appx:///Images/Joystick.png" 
-                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="20, 20, 20, 20"/>
-                <Grid Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40*" />
-                        <RowDefinition Height="20*" />
-                        <RowDefinition Height="40*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="15*" />
-                        <ColumnDefinition Width="70*" />
-                        <ColumnDefinition Width="15*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Row="1" Grid.Column="1" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="20" Tapped="btnBack_Tapped" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" 
-                            Visibility="Collapsed" />
-                </Grid>
-            </Grid>
-            <Grid Grid.Column="1" Background="White"></Grid>
-            <Grid Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="42.5*" />
-                    <RowDefinition Height="42.5*" />
-                    <RowDefinition Height="15*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*" />
-                    <ColumnDefinition Width="90*" />
-                    <ColumnDefinition Width="5*" />
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Row="0" Grid.Column="1">
-                    <TextBlock Grid.Row="0" x:Name="TutoMsg3" Margin="10,10,10,10" Foreground="White" Width="auto"
-                                                        FontSize="50" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                        TextWrapping="Wrap"
-                                                        Text="Pour te déplacer sur la carte, tu peux utiliser les flèches directionnelles du clavier ou les touches [Z], [Q], [S] et [D]." />
-                </Grid>
-                <Grid Grid.Row="1" Grid.Column="1">
-                    <TextBlock Grid.Row="0" x:Name="TutoMsg4" Margin="10,10,10,10" Foreground="White" Width="auto"
-                                                        FontSize="50" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                        TextWrapping="Wrap"
-                                                        Text="Touche le bouton RETOUR pour revenir à l'écran précédent." />
-                </Grid>
-                <Grid Grid.Row="2" Grid.Column="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20*" />
-                        <RowDefinition Height="60*" />
-                        <RowDefinition Height="20*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="64*" />
-                        <ColumnDefinition Width="28*" />
-                        <ColumnDefinition Width="8*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Row="1" Grid.Column="1" x:Name="btnNext" Content="SUIVANT" HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="20" Tapped="btnNext_Tapped" PointerEntered="btnNext_PointerEntered" PointerExited="btnNext_PointerExited" />
-                </Grid>
-            </Grid>
-        </Grid>
+    <Grid x:Name="MainLayout" SizeChanged="SecondTuto_SizeChanged">
+        <Grid.Background>
+            <ImageBrush Stretch="None" ImageSource="ms-appx:///Images/Background.png" AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image x:Name="ImgJoystick" 
+               Grid.Row="1" Grid.Column="0"
+               Source="ms-appx:///Images/Joystick.png" 
+               VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="20, 20, 20, 20"/>
+
+        <TextBlock x:Name="TutoMsg2"                       
+                   Grid.Row="0" Grid.Column="0"
+                   Margin="5"
+                   TextWrapping="Wrap"
+                   Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Text="{Binding DisplayedText, Mode=TwoWay}"
+            />
+
+        <Button Margin="25" MaxHeight="100" MaxWidth="200"
+                Grid.Row="0" Grid.Column="1" 
+                x:Name="btnNext" Content="SUIVANT" HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
+                Style="{StaticResource ButtonParams}" FontSize="20" Tapped="btnNext_Tapped" PointerEntered="btnNext_PointerEntered" PointerExited="btnNext_PointerExited" />
+
+        <Button Margin="25" MaxHeight="100" MaxWidth="200"
+                Grid.Row="1" Grid.Column="1" 
+                x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
+                Style="{StaticResource ButtonParams}" FontSize="20" Tapped="btnBack_Tapped" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" />
+
+
     </Grid>
 </Page>
