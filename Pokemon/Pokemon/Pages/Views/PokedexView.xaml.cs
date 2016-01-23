@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pokemon.Entity;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,45 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class PokedexView : Page
     {
+        private Player player;
+
         public PokedexView()
         {
             this.InitializeComponent();
+        }
+
+        internal Player Player
+        {
+            get
+            {
+                return player;
+            }
+
+            set
+            {
+                player = value;
+            }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            this.Player = (Player)e.Parameter;
+        }
+
+        private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
+        }
+
+        private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParams"];
+        }
+
+        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
         }
     }
 }

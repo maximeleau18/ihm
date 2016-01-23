@@ -80,6 +80,10 @@
                         VerticalAlignment="Stretch" BorderThickness="2" Background="#999999" Foreground="#FFFFFF" FontFamily="Arial"
                     Style="{StaticResource Type}" FontSize="12" Margin="10, 20, 10, 20"/>
                 </Grid>
+                <Button Grid.Row="3" Grid.Column="1" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
+                    Style="{StaticResource ButtonParams}" FontSize="16" PointerEntered="btnBack_PointerEntered" PointerExited="btnBack_PointerExited" 
+                        Tapped="btnBack_Tapped" />
             </Grid>
         </Grid>
     </Grid>

@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Pokemon.Pages.Views
-{
+{    
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
@@ -27,10 +27,15 @@ namespace Pokemon.Pages.Views
         private Player player;
         private GridManager gridManager;
 
+        const int MAX_COLUMN        = 45;
+        const int MAX_ROW           = 25;
+        const int VISIBLE_COLUMN    = 29;
+        const int VISIBLE_ROW       = 16;
+
         internal Player Player
         {
             get
-            {
+            {                
                 return player;
             }
 
@@ -89,8 +94,7 @@ namespace Pokemon.Pages.Views
 
             this.TxtCharacter.Content = this.Player.Name;
 
-            //this.GridManager = new GridManager(this.GridMap, 10, 17, 25, 45, 15, 28, this.Player);
-            this.GridManager = new GridManager(this.GridMap, 15, 30, 25, 45, 16, 29, this.Player);
+            this.GridManager = new GridManager(this.GridMap, 15, 30, MAX_ROW, MAX_COLUMN, VISIBLE_ROW, VISIBLE_COLUMN, this.Player);
         }
 
         private void GridMap_KeyUp(object sender, KeyRoutedEventArgs e)
@@ -99,7 +103,7 @@ namespace Pokemon.Pages.Views
             {
                 // On passe de la ligne x à la ligne x + 1 on décale vers le bas d'une case
                 // Si la ligne actuelle + 1 est inférieur à 25
-                if (this.GridManager.CurrentRow + 1 <= this.GridManager.DimMapRow)
+                if (this.GridManager.CurrentRow + 1 <= this.GridManager.DimMapRow - 2)
                 {
                     // Si la case suivante existe
                     if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow + 1 + ((int)this.GridManager.DimMapVisibleRow / 2)] != null)
@@ -150,7 +154,7 @@ namespace Pokemon.Pages.Views
             {
                 // On passe de la colonne y à la colonne y + 1 on décale vers le droite d'une case
                 // Si la colonne actuelle + 1 est inférieur à 45
-                if (this.GridManager.CurrentCol + 1 <= this.GridManager.DimMapCol)
+                if (this.GridManager.CurrentCol + 1 <= this.GridManager.DimMapCol - 2 )
                 {
                     // Si la case suivante existe
                     if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol + 1 + ((int)this.GridManager.DimMapVisibleCol / 2)] != null)
@@ -362,7 +366,7 @@ namespace Pokemon.Pages.Views
 
         private void TxtPokedex_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(PokedexView));
+            (Window.Current.Content as Frame).Navigate(typeof(PokedexView), this.Player);
         }
 
         private void TxtBag_Tapped(object sender, TappedRoutedEventArgs e)

@@ -394,7 +394,7 @@ namespace Pokemon.Entity
         }
 
         public void MovePlayer(int x, int y, String direction)
-        {
+        { 
             this.Player.PosX = x;
             this.Player.PosY = y;
             this.CurrentGrid.Children.Remove(this.PlayerImg);
