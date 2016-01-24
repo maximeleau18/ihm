@@ -7,11 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:UCMenus="using:Pokemon.UserControls.Menus"
-    xmlns:UCViews="using:Pokemon.UserControls.Views">
+    xmlns:UCViews="using:Pokemon.UserControls.Views"
+    xmlns:UCOther="using:Pokemon.UserControls.Other">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid Style="{StaticResource BackgroundGrid}" >
             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>

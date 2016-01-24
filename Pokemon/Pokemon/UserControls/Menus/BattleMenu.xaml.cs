@@ -16,6 +16,7 @@ using Pokemon.Pages;
 
 using Pokemon.Utils;
 using Pokemon.Entity;
+using Pokemon.UserControls.Other;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -25,11 +26,18 @@ namespace Pokemon.UserControls.Menus
     {
         public RoutedEventHandler RunawayButtonClick;
 
+        private Console myConsole;
+
+        public void setConsole(ref Console console)
+        {
+            myConsole = console;
+        }
+        
         public BattleMenu()
         {
             this.InitializeComponent();
         }
-        
+                
         private void AttackButton_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             this.AttackButton.Style = (Style)Application.Current.Resources["AttackButton"];
@@ -72,6 +80,7 @@ namespace Pokemon.UserControls.Menus
         
         private void AttackButton_Click(object sender, RoutedEventArgs e)
         {
+            myConsole.setMessageAttackMenuText();
             foreach (AttackMenu item in Helper.FindVisualChildren<AttackMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
@@ -81,15 +90,17 @@ namespace Pokemon.UserControls.Menus
 
         private void PokemonButton_Click(object sender, RoutedEventArgs e)
         {
+            myConsole.setMessagePokemonSelectionMenuText();
             foreach (PokemonSelectionMenu item in Helper.FindVisualChildren<PokemonSelectionMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;
             }
         }
-
+                
         private void ObjectButton_Click(object sender, RoutedEventArgs e)
         {
+            myConsole.setMessageObjectCategoryMenuText();
             foreach (ObjectCategoryMenu item in Helper.FindVisualChildren<ObjectCategoryMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
@@ -98,7 +109,7 @@ namespace Pokemon.UserControls.Menus
         }
 
         private void RunawayButton_Click(object sender, RoutedEventArgs e)
-        {
+        {           
             if (RunawayButtonClick != null)
             {
                 RunawayButtonClick(this, e);

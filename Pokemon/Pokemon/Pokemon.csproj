@@ -176,6 +176,9 @@
     <Compile Include="UserControls\Menus\ObjectCategoryMenu.xaml.cs">
       <DependentUpon>ObjectCategoryMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Other\Console.xaml.cs">
+      <DependentUpon>Console.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Views\PokemonBattleDisplayOpponent.xaml.cs">
       <DependentUpon>PokemonBattleDisplayOpponent.xaml</DependentUpon>
     </Compile>
@@ -1553,6 +1556,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Menus\ObjectCategoryMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Other\Console.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

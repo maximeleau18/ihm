@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,11 +23,35 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class FirstTutoScreenView : Page
     {
-        public FirstTutoScreenView()
+        public String displayedText = "";
+        private int lineWidth = 300;
+
+        public String DisplayedText
         {
-            this.InitializeComponent();
+            get { return (String)GetValue(Tuto1TextProperty); }
+            set { SetValue(Tuto1TextProperty, value); }
         }
 
+        public static readonly DependencyProperty Tuto1TextProperty = DependencyProperty.Register
+            (
+                "DisplayedText",
+                typeof(String),
+                typeof(FirstTutoScreenView),
+                new PropertyMetadata(null)
+            );
+
+        public FirstTutoScreenView()
+        {         
+            this.InitializeComponent();
+            this.TutoMsg1.DataContext = this;
+
+            TutoMsg1.MaxWidth = lineWidth;
+
+            DisplayedText = "Je vais tout d'abord t'apprendre les choses importantes concernant ce jeu.";
+            DisplayedText += " Touche le sujet que tu veux voir en détail sur la partie droite de l'écran.";
+
+        }
+        
         private void btnCommand_Tapped(object sender, TappedRoutedEventArgs e)
         {
             (Window.Current.Content as Frame).Navigate(typeof(SecondTutoScreenView));
@@ -55,6 +80,11 @@ namespace Pokemon.Pages.Views
         private void btnCommand_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             this.btnCommand.Style = (Style)Application.Current.Resources["ButtonParams"];
+        }
+
+        private void FirstTuto_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+           
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Pokemon.Entity;
+using Pokemon.UserControls.Other;
 using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,13 @@ namespace Pokemon.UserControls.Menus
     public sealed partial class ObjectSelectionMenuPokeballs : UserControl
     {
         private ObservableCollection<PokemonObject> categoryObjectList = new ObservableCollection<PokemonObject>();
-        
+
+        private Console myConsole;
+
+        public void setConsole(ref Console console)
+        {
+            myConsole = console;
+        }
         internal ObservableCollection<PokemonObject> CategoryObjectList
         {
             get
@@ -54,6 +61,7 @@ namespace Pokemon.UserControls.Menus
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            myConsole.setMessageObjectCategoryMenuText();
             foreach (ObjectCategoryMenu item in Helper.FindVisualChildren<ObjectCategoryMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;

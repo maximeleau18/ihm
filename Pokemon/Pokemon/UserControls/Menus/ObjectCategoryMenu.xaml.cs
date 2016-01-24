@@ -1,4 +1,6 @@
 ﻿using Pokemon.Entity;
+using Pokemon.UserControls.Buttons;
+using Pokemon.UserControls.Other;
 using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
@@ -22,6 +24,13 @@ namespace Pokemon.UserControls.Menus
 {
     public sealed partial class ObjectCategoryMenu : UserControl
     {
+        private Console myConsole;
+
+        public void setConsole(ref Console console)
+        {
+            myConsole = console;
+        }
+
         public ObjectCategoryMenu()
         {
             this.InitializeComponent();
@@ -29,6 +38,7 @@ namespace Pokemon.UserControls.Menus
         
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            myConsole.setMessageBattleMenuText();
             foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
@@ -38,6 +48,9 @@ namespace Pokemon.UserControls.Menus
 
         private void ObjectCategoryButtonPokeballs_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            
+            ObjectCategoryButton btn = (ObjectCategoryButton)sender;
+            myConsole.setMessageObjectSelectionMenuText(btn.ObjectPokemonConsoleText);
             foreach (ObjectSelectionMenuPokeballs item in Helper.FindVisualChildren<ObjectSelectionMenuPokeballs>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;

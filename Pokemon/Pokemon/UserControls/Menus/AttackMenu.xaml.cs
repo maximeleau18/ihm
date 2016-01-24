@@ -1,4 +1,5 @@
 ﻿using Pokemon.Entity;
+using Pokemon.UserControls.Other;
 using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace Pokemon.UserControls.Menus
     public sealed partial class AttackMenu : UserControl
     {
         private Entity.Pokemon pokemon;
+        private Console myConsole;
 
         internal Entity.Pokemon Pokemon
         {
@@ -30,13 +32,17 @@ namespace Pokemon.UserControls.Menus
             {
                 return pokemon;
             }
-
             set
             {
                 pokemon = value;
             }
         }
 
+        public void setConsole(ref Console console)
+        {
+            myConsole = console;
+        }
+        
         public AttackMenu()
         {
             this.InitializeComponent();
@@ -65,7 +71,7 @@ namespace Pokemon.UserControls.Menus
         }
 
         private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
+        {            
             this.btnBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
@@ -76,6 +82,7 @@ namespace Pokemon.UserControls.Menus
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            myConsole.setMessageBattleMenuText();
             foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
