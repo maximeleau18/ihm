@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pokemon.Entity;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,10 @@ namespace Pokemon.Pages.Views
         {
             this.InitializeComponent();
         }
+        private void btnNouvellePartie_Click(object sender, RoutedEventArgs e)
+        {
+            (Window.Current.Content as Frame).Navigate(typeof(FirstTutoScreenView));
+        }
 
         private void btnNouvellePartie_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
@@ -47,9 +52,22 @@ namespace Pokemon.Pages.Views
             this.btnContinuer.Style = (Style)Application.Current.Resources["ButtonParams"];
         }
 
-        private void btnNouvellePartie_Click(object sender, RoutedEventArgs e)
+        private void btnContinuer_Click(object sender, RoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(FirstTutoScreenView));
+            String name = "Sacha";
+
+            Player p = new Player();
+
+            // On chare le nom du joueur
+            p.Name = name.ToUpper();
+            // On définit la position initiale du joueur
+            //this.Player.PosX = 30;
+            //this.Player.PosY = 15;
+            p.PosX = 30;
+            p.PosY = 15;
+            p.Sexe = "M";
+            // On charge la page map
+            (Window.Current.Content as Frame).Navigate(typeof(MapView), p);
         }
     }
 }

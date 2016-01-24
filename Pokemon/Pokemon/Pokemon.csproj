@@ -1404,6 +1404,7 @@
     <Content Include="Images\MedicObjects\antidote.png" />
     <Content Include="Images\MedicObjects\potion.png" />
     <Content Include="Images\MedicObjects\Réveil.png" />
+    <Content Include="Images\Menu\cross_icon.jpg" />
     <Content Include="Images\Menu\ManIco.png" />
     <Content Include="Images\Menu\MenuButton.png" />
     <Content Include="Images\Menu\PokedexButton.png" />
