@@ -34,7 +34,10 @@
             <UCMenus:AttackMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="AttackMenu" Visibility="Collapsed"></UCMenus:AttackMenu>
             <UCMenus:PokemonSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="PokemonMenu" Visibility="Collapsed"></UCMenus:PokemonSelectionMenu>
             <UCMenus:ObjectCategoryMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="ObjectListView" Visibility="Collapsed"></UCMenus:ObjectCategoryMenu>
-            <UCMenus:ObjectSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="SelectedListViewOject" Visibility="Collapsed"></UCMenus:ObjectSelectionMenu>
+            <UCMenus:ObjectSelectionMenuPokeballs Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="SelectedListViewPokeballs" Visibility="Collapsed"></UCMenus:ObjectSelectionMenuPokeballs>
+            <UCMenus:ObjectSelectionMenuMedicaments Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="SelectedListViewMedicaments" Visibility="Collapsed"></UCMenus:ObjectSelectionMenuMedicaments>
+            <UCMenus:ObjectSelectionMenuCombats Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="SelectedListViewCombats" Visibility="Collapsed"></UCMenus:ObjectSelectionMenuCombats>
+            <UCMenus:ObjectSelectionMenuStatus Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" x:Name="SelectedListViewStatus" Visibility="Collapsed"></UCMenus:ObjectSelectionMenuStatus>
         </Grid>
     </Grid>
 </Page>

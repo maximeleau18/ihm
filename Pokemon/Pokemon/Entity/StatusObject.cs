@@ -15,6 +15,10 @@ namespace Pokemon.Entity
             healedStatus = status;
         }
 
+        public StatusObject(String name, String urlPicture) : base(name, urlPicture)
+        {
+        }
+
         internal StatusPokemon HealedStatus
         {
             get

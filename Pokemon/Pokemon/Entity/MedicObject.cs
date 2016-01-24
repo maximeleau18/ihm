@@ -14,5 +14,10 @@ namespace Pokemon.Entity
         {
             status = statusObj;
         }
+
+
+        public MedicObject(String name, String urlPicture) : base(name, urlPicture)
+        {
+        }
     }
 }

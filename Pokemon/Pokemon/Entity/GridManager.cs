@@ -161,13 +161,14 @@ namespace Pokemon.Entity
             //this.PlayerImg.Source = new BitmapImage(new Uri(characterPathImg));
             this.Player = player;
 
+            ConstructGrid();
             ContructMap();
 
-            MovePlayer(this.Player.PosX, this.Player.PosY, "Down");
+            MovePlayer();
         }
 
-        private void ContructMap()
-        {
+        private void ConstructGrid()
+        {   
             // On contruit les lignes et les colonnes 
             for (int row = 0; row <= this.DimMapRow; row++)
             {
@@ -178,7 +179,9 @@ namespace Pokemon.Entity
             {
                 this.CurrentGrid.ColumnDefinitions.Add(new ColumnDefinition());
             }
-
+        }
+        private void ContructMap()
+        {
             int compteur = 1;
             //for (int row = 0; row <= this.DimMapRow; row++)
             //{
@@ -231,12 +234,21 @@ namespace Pokemon.Entity
             for (int row = 0; row <= this.DimMapRow; row++)
             {
                 for (int col = 0; col <= this.DimMapCol; col++)
-                {
+                {                    
                     Image img = new Image();
                     img.Source = new BitmapImage(new Uri("ms-appx:///Images/Map/map_" + compteur.ToString("00") + ".png"));
                     this.CurrentGrid.Children.Add(img);
                     Grid.SetRow(img, row);
                     Grid.SetColumn(img, col);
+
+                    if ((col == 29) && (row == 14))
+                    {
+                        Image imgPnj = new Image();
+                        imgPnj.Source = new BitmapImage(new Uri("ms-appx:///Images/Sprites/Sprite_Down_01.png"));
+                        this.CurrentGrid.Children.Add(imgPnj);
+                        Grid.SetRow(imgPnj, row);
+                        Grid.SetColumn(imgPnj, col);
+                    }
                     if (this.CurrentCol - ((int)this.DimMapVisibleCol / 2) - colModulo < 0)
                     {
                         if (col <= (this.CurrentCol - ((int)this.DimMapVisibleCol / 2) - ((int)this.DimMapVisibleCol / 2)) - colModulo * - 1)
@@ -328,23 +340,25 @@ namespace Pokemon.Entity
             }
         }
 
-        public async void SizeChanged(Size newSize)
+        public void SizeChanged(Size newSize)
         {
-            //MessageDialog dialog = new MessageDialog(newSize.Height + " x " + newSize.Width);
-
-            //await dialog.ShowAsync();
-            
             //ColumnDefinitionCollection colDefsColTemp1 = this.CurrentGrid.ColumnDefinitions;
             //RowDefinitionCollection rowDefColTemp1 = this.CurrentGrid.RowDefinitions;
 
             //foreach (var itemColDefs in colDefsColTemp1)
             //{
-            //    if (!itemColDefs.Width.Equals(new GridLength(0))) { itemColDefs.Width = new GridLength(1, GridUnitType.Auto);  }  
+            //    if (!itemColDefs.Width.Equals(new GridLength(0))) { itemColDefs.Width = new GridLength(1, GridUnitType.Auto); }
             //}
             //foreach (var itemRowDefs in rowDefColTemp1)
             //{
             //    if (!itemRowDefs.Height.Equals(new GridLength(0))) { itemRowDefs.Height = new GridLength(1, GridUnitType.Auto); }
             //}
+
+            this.DimMapVisibleCol = (int)newSize.Width / 64;
+            this.DimMapVisibleRow = (int)newSize.Height / 64;
+
+            ContructMap();
+            MovePlayer();
         }
 
         public void MoveMap(int modulo = 0, bool moveRow = false, bool moveCol = false)
@@ -393,13 +407,12 @@ namespace Pokemon.Entity
             }
         }
 
-        public void MovePlayer(int x, int y, String direction)
+        public void MovePlayer()
         { 
-            this.Player.PosX = x;
-            this.Player.PosY = y;
             this.CurrentGrid.Children.Remove(this.PlayerImg);
+            String playerPictureImagePath = this.Player.GetOrientationImagePath();
 
-            this.PlayerImg.Source = new BitmapImage(new Uri("ms-appx:///Images/Sprites/Sprite_" + direction + "_01.png"));
+            this.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
 
             this.CurrentGrid.Children.Add(this.PlayerImg);
             Grid.SetColumn(this.PlayerImg, this.Player.PosX);

@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid x:Name="ucAttackButton">
         <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Button" Style="{StaticResource AttackButton}" 
                 Background="#FF0000" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited" >
             
@@ -20,20 +20,14 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
-                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextAlignment="Center">
-                    TEST
-                </TextBlock>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextAlignment="Center" Text="{Binding AttackName, Mode=TwoWay}" />
 
                 <Border Grid.Row="1" Grid.Column="0" CornerRadius="5" BorderBrush="#000000" BorderThickness="1" Background="Gray"/>
 
-                <TextBlock Margin="6,6,6,6" Grid.Row="1" Grid.Column="0">                         
-                    Normal
-                </TextBlock>
+                <TextBlock Margin="6,6,6,6" Grid.Row="1" Grid.Column="0" Text="{Binding TypeAttackName, Mode=TwoWay}" />
 
-                <TextBlock Margin="6,6,0,0" Grid.Row="1" Grid.Column="1">
-                    PP 25/25
-                </TextBlock>
+                <TextBlock Margin="6,6,0,0" Grid.Row="1" Grid.Column="1" Text="PP 25/25" />
             </Grid>
         </Button>
     </Grid>

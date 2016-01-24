@@ -17,9 +17,12 @@ namespace Pokemon.Entity
         private Statistics baseStats;
         private Statistics actualStats;
         
-        public Pokemon(String _nom, String _description, int _niveau, int _attaque, int _defense, int _vitesse)
+        public Pokemon(String _nom, String _description, int _niveau, TypePokemon _type)
         {
-
+            this.Name = _nom;
+            this.Description = _description;
+            this.Level = _niveau;
+            this.Type = _type;
         }
 
         public void UpdateActualStats(Statistics stats, Boolean replace = false)
@@ -71,6 +74,19 @@ namespace Pokemon.Entity
             {
                 level = value;
             }
-        }       
+        }
+
+        internal TypePokemon Type
+        {
+            get
+            {
+                return type;
+            }
+
+            set
+            {
+                type = value;
+            }
+        }
     }
 }

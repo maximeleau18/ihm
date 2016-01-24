@@ -2,6 +2,7 @@
 using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -35,9 +36,36 @@ namespace Pokemon.UserControls.Menus
             }
         }
 
-        private void ObjectCategoryButton_Tapped(object sender, TappedRoutedEventArgs e)
+        private void ObjectCategoryButtonPokeballs_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            foreach (ObjectSelectionMenu item in Helper.FindVisualChildren<ObjectSelectionMenu>(this.Parent as Grid))
+            foreach (ObjectSelectionMenuPokeballs item in Helper.FindVisualChildren<ObjectSelectionMenuPokeballs>(this.Parent as Grid))
+            {
+                item.Visibility = Visibility.Visible;
+                Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void ObjectCategoryButtonMedicaments_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            foreach (ObjectSelectionMenuMedicaments item in Helper.FindVisualChildren<ObjectSelectionMenuMedicaments>(this.Parent as Grid))
+            {
+                item.Visibility = Visibility.Visible;
+                Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void ObjectCategoryButtonCombats_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            foreach (ObjectSelectionMenuCombats item in Helper.FindVisualChildren<ObjectSelectionMenuCombats>(this.Parent as Grid))
+            {
+                item.Visibility = Visibility.Visible;
+                Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void ObjectCategoryButtonStatus_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            foreach (ObjectSelectionMenuStatus item in Helper.FindVisualChildren<ObjectSelectionMenuStatus>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;

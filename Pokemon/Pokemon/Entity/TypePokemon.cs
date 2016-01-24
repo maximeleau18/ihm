@@ -12,5 +12,23 @@ namespace Pokemon.Entity
 
         private List<TypePokemon> weekAgainst;
         private List<TypePokemon> stringAgainst;
+
+        public String Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+
+        public TypePokemon(String name)
+        {
+            this.Name = name;
+        }
     }
 }

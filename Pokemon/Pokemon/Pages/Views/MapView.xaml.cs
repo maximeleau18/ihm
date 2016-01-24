@@ -29,8 +29,6 @@ namespace Pokemon.Pages.Views
 
         const int MAX_COLUMN        = 45;
         const int MAX_ROW           = 25;
-        const int VISIBLE_COLUMN    = 29;
-        const int VISIBLE_ROW       = 16;
 
         internal Player Player
         {
@@ -81,6 +79,7 @@ namespace Pokemon.Pages.Views
         {
             base.OnNavigatedTo(e);
             this.Player = (Player)e.Parameter;
+            this.Player.CurrentOrientation = Entity.Player.Orientation.Down_0;
 
             if (this.Player.Sexe.Equals("M"))
             {
@@ -93,17 +92,23 @@ namespace Pokemon.Pages.Views
             }
 
             this.TxtCharacter.Content = this.Player.Name;
-
-            this.GridManager = new GridManager(this.GridMap, 15, 30, MAX_ROW, MAX_COLUMN, VISIBLE_ROW, VISIBLE_COLUMN, this.Player);
+            
+            this.GridManager = new GridManager(this.GridMap, this.Player.PosY, this.Player.PosX, MAX_ROW, MAX_COLUMN, 16, 29, this.Player);
         }
 
         private void GridMap_KeyUp(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Down || e.Key == Windows.System.VirtualKey.S)
             {
+                this.GridManager.Player.CurrentOrientation = Entity.Player.Orientation.Down_0;
+                this.GridManager.CurrentGrid.Children.Remove(this.GridManager.PlayerImg);
+                String playerPictureImagePath = this.Player.GetOrientationImagePath();
+
+                this.GridManager.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
+
                 // On passe de la ligne x à la ligne x + 1 on décale vers le bas d'une case
                 // Si la ligne actuelle + 1 est inférieur à 25
-                if (this.GridManager.CurrentRow + 1 <= this.GridManager.DimMapRow - 2)
+                if (this.GridManager.CurrentRow + 1 <= this.GridManager.DimMapRow)
                 {
                     // Si la case suivante existe
                     if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow + 1 + ((int)this.GridManager.DimMapVisibleRow / 2)] != null)
@@ -117,7 +122,7 @@ namespace Pokemon.Pages.Views
                                 // On bouge le personnage sur la map
                                 this.GridManager.CurrentRow++;
                                 this.Player.PosY++;
-                                this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Down");
+                                this.GridManager.MovePlayer();
                                 return;
                             }
                         }
@@ -131,7 +136,7 @@ namespace Pokemon.Pages.Views
                             // On bouge le joueur
                             this.GridManager.CurrentRow++;
                             this.Player.PosY++;
-                            this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Down");
+                            this.GridManager.MovePlayer();
                         }
                     }
                     else
@@ -144,7 +149,7 @@ namespace Pokemon.Pages.Views
                             this.GridManager.CurrentRow++;
                             //this.GridManager.MoveMap();
                             this.Player.PosY++;
-                            this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Down");
+                            this.GridManager.MovePlayer();
                             return;
                         }
                     }
@@ -152,9 +157,15 @@ namespace Pokemon.Pages.Views
             }
             if (e.Key == Windows.System.VirtualKey.Right || e.Key == Windows.System.VirtualKey.D)
             {
+                this.GridManager.Player.CurrentOrientation = Entity.Player.Orientation.Left_0;
+                this.GridManager.CurrentGrid.Children.Remove(this.GridManager.PlayerImg);
+                String playerPictureImagePath = this.Player.GetOrientationImagePath();
+
+                this.GridManager.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
+
                 // On passe de la colonne y à la colonne y + 1 on décale vers le droite d'une case
                 // Si la colonne actuelle + 1 est inférieur à 45
-                if (this.GridManager.CurrentCol + 1 <= this.GridManager.DimMapCol - 2 )
+                if (this.GridManager.CurrentCol + 1 <= this.GridManager.DimMapCol)
                 {
                     // Si la case suivante existe
                     if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol + 1 + ((int)this.GridManager.DimMapVisibleCol / 2)] != null)
@@ -169,7 +180,7 @@ namespace Pokemon.Pages.Views
                                 // On bouge le personnage sur la map
                                 this.GridManager.CurrentCol++;
                                 this.Player.PosX++;
-                                this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Right");
+                                this.GridManager.MovePlayer();
                                 return;
                             }
                         }
@@ -183,7 +194,7 @@ namespace Pokemon.Pages.Views
                             // On bouge le joueur
                             this.GridManager.CurrentCol++;
                             this.Player.PosX++;
-                            this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Right");
+                            this.GridManager.MovePlayer();
                         }
                     }
                     else
@@ -195,7 +206,7 @@ namespace Pokemon.Pages.Views
                             this.GridManager.CurrentCol++;
                             //this.GridManager.MoveMap();
                             this.Player.PosX++;
-                            this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Right");
+                            this.GridManager.MovePlayer();
                             return;
                         }
                     }
@@ -203,6 +214,12 @@ namespace Pokemon.Pages.Views
             }
             if (e.Key == Windows.System.VirtualKey.Left || e.Key == Windows.System.VirtualKey.Q)
             {
+                this.GridManager.Player.CurrentOrientation = Entity.Player.Orientation.Right_0;
+                this.GridManager.CurrentGrid.Children.Remove(this.GridManager.PlayerImg);
+                String playerPictureImagePath = this.Player.GetOrientationImagePath();
+
+                this.GridManager.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
+
                 // On passe de la colonne y à la colonne y - 1 on décale vers la gauche d'une case
                 // Si la colonne actuelle - 1 est supérieur ou égal à 0
                 if (this.GridManager.CurrentCol - 1 >= 0)
@@ -220,7 +237,7 @@ namespace Pokemon.Pages.Views
                                 {
                                     this.GridManager.CurrentCol--;
                                     this.Player.PosX--;
-                                    this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Left");
+                                    this.GridManager.MovePlayer();
                                     return;
                                 }
                             }
@@ -235,7 +252,7 @@ namespace Pokemon.Pages.Views
                                 this.GridManager.CurrentCol--;
                                 // On bouge le joueur
                                 this.Player.PosX--;
-                                this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Left");
+                                this.GridManager.MovePlayer();
                             }
                         }
                         else
@@ -246,7 +263,7 @@ namespace Pokemon.Pages.Views
                                 this.GridManager.CurrentCol--;
                                 //this.GridManager.MoveMap();
                                 this.Player.PosX--;
-                                this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Left");
+                                this.GridManager.MovePlayer();
                                 return;
                             }
                         }
@@ -258,7 +275,7 @@ namespace Pokemon.Pages.Views
                         {
                             this.GridManager.CurrentCol--;
                             this.Player.PosX--;
-                            this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Left");
+                            this.GridManager.MovePlayer();
                             return;
                         }
                     }
@@ -266,6 +283,12 @@ namespace Pokemon.Pages.Views
             }
             if (e.Key == Windows.System.VirtualKey.Up || e.Key == Windows.System.VirtualKey.Z)
             {
+                this.GridManager.Player.CurrentOrientation = Entity.Player.Orientation.Up_0;
+                this.GridManager.CurrentGrid.Children.Remove(this.GridManager.PlayerImg);
+                String playerPictureImagePath = this.Player.GetOrientationImagePath();
+
+                this.GridManager.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
+
                 // On passe de la ligne x à la ligne x - 1 on décale vers le haut d'une case
                 // Si la ligne actuelle - 1 est supérieur à 0
                 if (this.GridManager.CurrentRow - 1 >= 0)
@@ -283,7 +306,7 @@ namespace Pokemon.Pages.Views
                                 {
                                     this.GridManager.CurrentRow--;
                                     this.Player.PosY--;
-                                    this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Up");
+                                    this.GridManager.MovePlayer();
                                     return;
                                 }
                             }
@@ -297,7 +320,7 @@ namespace Pokemon.Pages.Views
                                 }
                                 this.GridManager.CurrentRow--;
                                 this.Player.PosY--;
-                                this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Up");
+                                this.GridManager.MovePlayer();
                             }
                         }
                         else
@@ -308,7 +331,7 @@ namespace Pokemon.Pages.Views
                                 this.GridManager.CurrentRow--;
                                 //this.GridManager.MoveMap();
                                 this.Player.PosY--;
-                                this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Up");
+                                this.GridManager.MovePlayer();
                                 return;
                             }
                         }
@@ -321,7 +344,7 @@ namespace Pokemon.Pages.Views
                             this.GridManager.CurrentRow--;
                             //this.GridManager.MoveMap();
                             this.Player.PosY--;
-                            this.GridManager.MovePlayer(this.Player.PosX, this.Player.PosY, "Up");
+                            this.GridManager.MovePlayer();
                             return;
                         }
                     }

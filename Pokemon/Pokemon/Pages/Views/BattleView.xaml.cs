@@ -53,13 +53,15 @@ namespace Pokemon.Pages.Views
 
         public void CreateNeededObjectsTemporary()
         {
-            Entity.Pokemon kaiminus = new Entity.Pokemon("Kaiminus", "C'est un pokemon eau", 6, 1, 1, 1);
+            TypePokemon typePokemon = new TypePokemon("Eau");
+            Entity.Pokemon kaiminus = new Entity.Pokemon("Kaiminus", "C'est un pokemon eau", 6, typePokemon);
 
             this.Player.Team.Add(kaiminus);
         }
         
         private void RunawayButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Player.PosY++;
             (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
         }
 

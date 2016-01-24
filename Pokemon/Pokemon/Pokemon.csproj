@@ -161,8 +161,17 @@
     <Compile Include="UserControls\Buttons\ObjectCategoryButton.xaml.cs">
       <DependentUpon>ObjectCategoryButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Menus\ObjectSelectionMenu.xaml.cs">
-      <DependentUpon>ObjectSelectionMenu.xaml</DependentUpon>
+    <Compile Include="UserControls\Menus\ObjectSelectionMenuStatus.xaml.cs">
+      <DependentUpon>ObjectSelectionMenuStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Menus\ObjectSelectionMenuCombats.xaml.cs">
+      <DependentUpon>ObjectSelectionMenuCombats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Menus\ObjectSelectionMenuMedicaments.xaml.cs">
+      <DependentUpon>ObjectSelectionMenuMedicaments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Menus\ObjectSelectionMenuPokeballs.xaml.cs">
+      <DependentUpon>ObjectSelectionMenuPokeballs.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Menus\ObjectCategoryMenu.xaml.cs">
       <DependentUpon>ObjectCategoryMenu.xaml</DependentUpon>
@@ -1527,7 +1536,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Menus\ObjectSelectionMenu.xaml">
+    <Page Include="UserControls\Menus\ObjectSelectionMenuStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Menus\ObjectSelectionMenuCombats.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Menus\ObjectSelectionMenuMedicaments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Menus\ObjectSelectionMenuPokeballs.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

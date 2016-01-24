@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pokemon.Entity;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,9 +20,38 @@ namespace Pokemon.UserControls.Buttons
 {
     public sealed partial class AttackButton : UserControl
     {
+        public static readonly DependencyProperty AttackNameProperty = DependencyProperty.Register
+           (
+                "AttackName",
+                typeof(String),
+                typeof(AttackButton),
+                new PropertyMetadata(null)
+           );
+
+        public static readonly DependencyProperty TypeAttackProperty = DependencyProperty.Register
+            (
+                "TypeAttackName",
+                typeof(String),
+                typeof(AttackButton),
+                new PropertyMetadata(null)
+            );
+
+        public String AttackName
+        {
+            get { return (String)GetValue(AttackNameProperty); }
+            set { SetValue(AttackNameProperty, value); }
+        }
+
+        public String TypeAttackName
+        {
+            get { return (String)GetValue(TypeAttackProperty); }
+            set { SetValue(TypeAttackProperty, value); }
+        }
+
         public AttackButton()
         {
             this.InitializeComponent();
+            this.ucAttackButton.DataContext = this;
         }
 
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)

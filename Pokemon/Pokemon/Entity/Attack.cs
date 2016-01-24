@@ -20,11 +20,37 @@ namespace Pokemon.Entity
 
         private bool asStatusDealEffect;
         private StatusPokemon statusDeal;
-
+        
         public Attack(String name, TypePokemon type)
         {
-            this.name = name;
-            this.type = type;
+            this.Name = name;
+            this.Type = type;
+        }
+
+        public String Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+
+        public TypePokemon Type
+        {
+            get
+            {
+                return type;
+            }
+
+            set
+            {
+                type = value;
+            }
         }
 
         public void AddDamage(int damage)

@@ -20,7 +20,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Menus
 {
-    public sealed partial class ObjectSelectionMenu : UserControl
+    public sealed partial class ObjectSelectionMenuMedicaments : UserControl
     {
         private ObservableCollection<PokemonObject> categoryObjectList = new ObservableCollection<PokemonObject>();
         
@@ -31,26 +31,25 @@ namespace Pokemon.UserControls.Menus
                 return categoryObjectList;
             }
         }
-
-        public ObjectSelectionMenu()
+        
+        public ObjectSelectionMenuMedicaments()
         {
             this.InitializeComponent();
             LoadContent();
-            //this.ListObjectCategory.DataContext = this.CategoryObjectList;
             this.ListObjectCategory.ItemsSource = this.CategoryObjectList;
         }
 
         private void LoadContent()
         {
-            BallObject smallBallObject = new BallObject("Petites Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
-            BallObject mediumBallObject = new BallObject("Moyennes Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
-            BallObject hightBallObject = new BallObject("Grandes Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
-            BallObject giantBallObject = new BallObject("Gigantesques Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
+            MedicObject medocs01 = new MedicObject("Médocs 01", "ms-appx:///Images/ObjectsCategory/Medic.png");
+            MedicObject medocs02 = new MedicObject("Médocs 02", "ms-appx:///Images/ObjectsCategory/Medic.png");
+            MedicObject medocs03 = new MedicObject("Médocs 03", "ms-appx:///Images/ObjectsCategory/Medic.png");
+            MedicObject medocs04 = new MedicObject("Médocs 04", "ms-appx:///Images/ObjectsCategory/Medic.png");
 
-            this.CategoryObjectList.Add(smallBallObject);
-            this.CategoryObjectList.Add(mediumBallObject);
-            this.CategoryObjectList.Add(hightBallObject);
-            this.CategoryObjectList.Add(giantBallObject);
+            this.CategoryObjectList.Add(medocs01);
+            this.CategoryObjectList.Add(medocs02);
+            this.CategoryObjectList.Add(medocs03);
+            this.CategoryObjectList.Add(medocs04);
         }
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
