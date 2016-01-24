@@ -22,18 +22,22 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Menus
 {
-    public sealed partial class ObjectCategoryMenu : UserControl
+    public sealed partial class CategoryObjectMenu : UserControl
     {
         private Console myConsole;
 
         public void setConsole(ref Console console)
         {
             myConsole = console;
+            this.Battle.setConsole(ref myConsole);
+            this.Medic.setConsole(ref myConsole);
+            this.Statut.setConsole(ref myConsole);
+            this.Balls.setConsole(ref myConsole);
         }
 
-        public ObjectCategoryMenu()
+        public CategoryObjectMenu()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();            
         }
         
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
@@ -41,18 +45,19 @@ namespace Pokemon.UserControls.Menus
             myConsole.setMessageBattleMenuText();
             foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.Parent as Grid))
             {
+                item.setConsole(ref myConsole);
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;
             }
         }
 
         private void ObjectCategoryButtonPokeballs_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            
+        {            
             ObjectCategoryButton btn = (ObjectCategoryButton)sender;
             myConsole.setMessageObjectSelectionMenuText(btn.ObjectPokemonConsoleText);
-            foreach (ObjectSelectionMenuPokeballs item in Helper.FindVisualChildren<ObjectSelectionMenuPokeballs>(this.Parent as Grid))
+            foreach (PokeballObjectSelectionMenu item in Helper.FindVisualChildren<PokeballObjectSelectionMenu>(this.Parent as Grid))
             {
+                item.setConsole(ref myConsole);
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;
             }
@@ -60,8 +65,11 @@ namespace Pokemon.UserControls.Menus
 
         private void ObjectCategoryButtonMedicaments_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            foreach (ObjectSelectionMenuMedicaments item in Helper.FindVisualChildren<ObjectSelectionMenuMedicaments>(this.Parent as Grid))
+            ObjectCategoryButton btn = (ObjectCategoryButton)sender;
+            myConsole.setMessageObjectSelectionMenuText(btn.ObjectPokemonConsoleText);
+            foreach (MedicObjectSelectionMenu item in Helper.FindVisualChildren<MedicObjectSelectionMenu>(this.Parent as Grid))
             {
+                item.setConsole(ref myConsole);
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;
             }
@@ -69,8 +77,11 @@ namespace Pokemon.UserControls.Menus
 
         private void ObjectCategoryButtonCombats_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            foreach (ObjectSelectionMenuCombats item in Helper.FindVisualChildren<ObjectSelectionMenuCombats>(this.Parent as Grid))
+            ObjectCategoryButton btn = (ObjectCategoryButton)sender;
+            myConsole.setMessageObjectSelectionMenuText(btn.ObjectPokemonConsoleText);
+            foreach (BattleObjectSelectionMenu item in Helper.FindVisualChildren<BattleObjectSelectionMenu>(this.Parent as Grid))
             {
+                item.setConsole(ref myConsole);
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;
             }
@@ -78,8 +89,11 @@ namespace Pokemon.UserControls.Menus
 
         private void ObjectCategoryButtonStatus_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            foreach (ObjectSelectionMenuStatus item in Helper.FindVisualChildren<ObjectSelectionMenuStatus>(this.Parent as Grid))
+            ObjectCategoryButton btn = (ObjectCategoryButton)sender;
+            myConsole.setMessageObjectSelectionMenuText(btn.ObjectPokemonConsoleText);
+            foreach (StatusObjectSelectionMenu item in Helper.FindVisualChildren<StatusObjectSelectionMenu>(this.Parent as Grid))
             {
+                item.setConsole(ref myConsole);
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;
             }

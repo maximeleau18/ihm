@@ -1,4 +1,6 @@
 ﻿using Pokemon.Entity;
+using Pokemon.UserControls.Buttons;
+using Pokemon.UserControls.Other;
 using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
@@ -20,10 +22,15 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Menus
 {
-    public sealed partial class ObjectSelectionMenuMedicaments : UserControl
+    public sealed partial class BattleObjectSelectionMenu : UserControl
     {
         private ObservableCollection<PokemonObject> categoryObjectList = new ObservableCollection<PokemonObject>();
-        
+        private Console myConsole;
+
+        public void setConsole(ref Console console)
+        {
+            myConsole = console;
+        }
         internal ObservableCollection<PokemonObject> CategoryObjectList
         {
             get
@@ -32,7 +39,7 @@ namespace Pokemon.UserControls.Menus
             }
         }
         
-        public ObjectSelectionMenuMedicaments()
+        public BattleObjectSelectionMenu()
         {
             this.InitializeComponent();
             LoadContent();
@@ -41,20 +48,20 @@ namespace Pokemon.UserControls.Menus
 
         private void LoadContent()
         {
-            MedicObject medocs01 = new MedicObject("Médocs 01", "ms-appx:///Images/ObjectsCategory/Medic.png");
-            MedicObject medocs02 = new MedicObject("Médocs 02", "ms-appx:///Images/ObjectsCategory/Medic.png");
-            MedicObject medocs03 = new MedicObject("Médocs 03", "ms-appx:///Images/ObjectsCategory/Medic.png");
-            MedicObject medocs04 = new MedicObject("Médocs 04", "ms-appx:///Images/ObjectsCategory/Medic.png");
+            BattleObject fightObject01 = new BattleObject("Attaque +", "ms-appx:///Images/ObjectsCategory/Fist.png");
+            BattleObject fightObject02 = new BattleObject("Défense +", "ms-appx:///Images/ObjectsCategory/Fist.png");
+            BattleObject fightObject03 = new BattleObject("Vitesse +", "ms-appx:///Images/ObjectsCategory/Fist.png");
+            BattleObject fightObject04 = new BattleObject("Précision +", "ms-appx:///Images/ObjectsCategory/Fist.png");
 
-            this.CategoryObjectList.Add(medocs01);
-            this.CategoryObjectList.Add(medocs02);
-            this.CategoryObjectList.Add(medocs03);
-            this.CategoryObjectList.Add(medocs04);
+            this.CategoryObjectList.Add(fightObject01);
+            this.CategoryObjectList.Add(fightObject02);
+            this.CategoryObjectList.Add(fightObject03);
+            this.CategoryObjectList.Add(fightObject04);
         }
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            foreach (ObjectCategoryMenu item in Helper.FindVisualChildren<ObjectCategoryMenu>(this.Parent as Grid))
+            foreach (CategoryObjectMenu item in Helper.FindVisualChildren<CategoryObjectMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;

@@ -31,6 +31,8 @@ namespace Pokemon.UserControls.Menus
         public void setConsole(ref Console console)
         {
             myConsole = console;
+
+            //SetConsole to Object Button
         }
         internal ObservableCollection<Entity.Pokemon> Pokemons
         {

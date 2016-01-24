@@ -161,20 +161,20 @@
     <Compile Include="UserControls\Buttons\ObjectCategoryButton.xaml.cs">
       <DependentUpon>ObjectCategoryButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Menus\ObjectSelectionMenuStatus.xaml.cs">
-      <DependentUpon>ObjectSelectionMenuStatus.xaml</DependentUpon>
+    <Compile Include="UserControls\Menus\StatusObjectSelectionMenu.xaml.cs">
+      <DependentUpon>StatusObjectSelectionMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Menus\ObjectSelectionMenuCombats.xaml.cs">
-      <DependentUpon>ObjectSelectionMenuCombats.xaml</DependentUpon>
+    <Compile Include="UserControls\Menus\BattleObjectSelectionMenu.xaml.cs">
+      <DependentUpon>BattleObjectSelectionMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Menus\ObjectSelectionMenuMedicaments.xaml.cs">
-      <DependentUpon>ObjectSelectionMenuMedicaments.xaml</DependentUpon>
+    <Compile Include="UserControls\Menus\MedicObjectSelectionMenu.xaml.cs">
+      <DependentUpon>MedicObjectSelectionMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Menus\ObjectSelectionMenuPokeballs.xaml.cs">
-      <DependentUpon>ObjectSelectionMenuPokeballs.xaml</DependentUpon>
+    <Compile Include="UserControls\Menus\PokeballObjectSelectionMenu.xaml.cs">
+      <DependentUpon>PokeballObjectSelectionMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Menus\ObjectCategoryMenu.xaml.cs">
-      <DependentUpon>ObjectCategoryMenu.xaml</DependentUpon>
+    <Compile Include="UserControls\Menus\CategoryObjectMenu.xaml.cs">
+      <DependentUpon>CategoryObjectMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Other\Console.xaml.cs">
       <DependentUpon>Console.xaml</DependentUpon>
@@ -1540,23 +1540,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Menus\ObjectSelectionMenuStatus.xaml">
+    <Page Include="UserControls\Menus\StatusObjectSelectionMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Menus\ObjectSelectionMenuCombats.xaml">
+    <Page Include="UserControls\Menus\BattleObjectSelectionMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Menus\ObjectSelectionMenuMedicaments.xaml">
+    <Page Include="UserControls\Menus\MedicObjectSelectionMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Menus\ObjectSelectionMenuPokeballs.xaml">
+    <Page Include="UserControls\Menus\PokeballObjectSelectionMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Menus\ObjectCategoryMenu.xaml">
+    <Page Include="UserControls\Menus\CategoryObjectMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

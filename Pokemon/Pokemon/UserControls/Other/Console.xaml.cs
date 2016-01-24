@@ -20,11 +20,16 @@ namespace Pokemon.UserControls.Other
     public sealed partial class Console : UserControl
     {
         private String BattleMenuText           = "Choisir une action.";
-        private String ObjectCategoryMenuText   = "Choisir une catégorie d'objet.";
+
+        private String ObjectCategoryMenuText   = "Choisir une catégorie d'objet.";        
         private String ObjectSelectionMenuText  = "Choisir ";
+        private String ObjectText               = "Vous utilisez l'objet ";
+
         private String PokemonSelectionMenuText = "Choisir un pokemon.";
+
         private String AttackMenuText           = "Choisir une attaque.";
         private String AttackText               = "Vous lancez ";
+        
 
         private String displayedText = "";
 
@@ -74,6 +79,10 @@ namespace Pokemon.UserControls.Other
         public void setMessageAttack(String attaqueName)
         {
             DisplayedText = AttackText + attaqueName;
+        }
+        public void setMessageObject(String objectName)
+        {
+            DisplayedText = ObjectText + objectName;
         }
     }
 }

@@ -57,10 +57,10 @@ namespace Pokemon.UserControls.Menus
 
         private void LoadContent(Entity.Pokemon pokemon)
         {
-            Attack attack01 = new Attack("Attack01", pokemon.Type);
-            Attack attack02 = new Attack("Attack02", pokemon.Type);
-            Attack attack03 = new Attack("Attack03", pokemon.Type);
-            Attack attack04 = new Attack("Attack04", pokemon.Type);
+            Attack attack01 = new Attack("Charge", pokemon.Type);
+            Attack attack02 = new Attack("Gros yeux", pokemon.Type);
+            Attack attack03 = new Attack("Griffe", pokemon.Type);
+            Attack attack04 = new Attack("Pistolet à eau", pokemon.Type);
 
             this.ucAttack01.AttackName = attack01.Name;
             this.ucAttack01.TypeAttackName = attack01.Type.Name;

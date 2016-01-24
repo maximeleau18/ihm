@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pokemon.UserControls.Other;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,12 @@ namespace Pokemon.UserControls.Buttons
 {
     public sealed partial class ObjectButton : UserControl
     {
+        private Console myConsole;
+
+        public void setConsole(ref Console console)
+        {
+            myConsole = console;
+        }
         public static readonly DependencyProperty ObjectPokemonNameProperty = DependencyProperty.Register
            (
                 "ObjectPokemonName",
@@ -61,6 +68,12 @@ namespace Pokemon.UserControls.Buttons
         private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             this.Button.Style = (Style)Application.Current.Resources["ObjectButton"];
+        }
+
+        private void Button_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            //Give console to this object
+            //myConsole.setMessageObject(ObjectPokemonName);
         }
     }
 }

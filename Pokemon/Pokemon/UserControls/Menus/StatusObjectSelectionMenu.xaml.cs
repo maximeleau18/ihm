@@ -1,4 +1,6 @@
 ﻿using Pokemon.Entity;
+using Pokemon.UserControls.Buttons;
+using Pokemon.UserControls.Other;
 using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
@@ -20,7 +22,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Menus
 {
-    public sealed partial class ObjectSelectionMenuStatus : UserControl
+    public sealed partial class StatusObjectSelectionMenu : UserControl
     {
         private ObservableCollection<PokemonObject> categoryObjectList = new ObservableCollection<PokemonObject>();
         
@@ -31,8 +33,16 @@ namespace Pokemon.UserControls.Menus
                 return categoryObjectList;
             }
         }
-        
-        public ObjectSelectionMenuStatus()
+        private Console myConsole;
+
+        public void setConsole(ref Console console)
+        {
+            myConsole = console;
+
+            //SetConsole to Object Button
+        }
+
+        public StatusObjectSelectionMenu()
         {
             this.InitializeComponent();
             LoadContent();
@@ -41,10 +51,10 @@ namespace Pokemon.UserControls.Menus
 
         private void LoadContent()
         {
-            StatusObject statusObject01 = new StatusObject("Objet status 01", "ms-appx:///Images/ObjectsCategory/status.png");
-            StatusObject statusObject02 = new StatusObject("Objet status 02", "ms-appx:///Images/ObjectsCategory/status.png");
-            StatusObject statusObject03 = new StatusObject("Objet status 03", "ms-appx:///Images/ObjectsCategory/status.png");
-            StatusObject statusObject04 = new StatusObject("Objet status 04", "ms-appx:///Images/ObjectsCategory/status.png");
+            StatusObject statusObject01 = new StatusObject("Anti-Para", "ms-appx:///Images/ObjectsCategory/status.png");
+            StatusObject statusObject02 = new StatusObject("Réveil", "ms-appx:///Images/ObjectsCategory/status.png");
+            StatusObject statusObject03 = new StatusObject("Antidote", "ms-appx:///Images/ObjectsCategory/status.png");
+            StatusObject statusObject04 = new StatusObject("Rappel", "ms-appx:///Images/ObjectsCategory/status.png");
 
             this.CategoryObjectList.Add(statusObject01);
             this.CategoryObjectList.Add(statusObject02);
@@ -54,7 +64,8 @@ namespace Pokemon.UserControls.Menus
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            foreach (ObjectCategoryMenu item in Helper.FindVisualChildren<ObjectCategoryMenu>(this.Parent as Grid))
+            myConsole.setMessageObjectCategoryMenuText();
+            foreach (CategoryObjectMenu item in Helper.FindVisualChildren<CategoryObjectMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;

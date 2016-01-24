@@ -101,7 +101,7 @@ namespace Pokemon.UserControls.Menus
         private void ObjectButton_Click(object sender, RoutedEventArgs e)
         {
             myConsole.setMessageObjectCategoryMenuText();
-            foreach (ObjectCategoryMenu item in Helper.FindVisualChildren<ObjectCategoryMenu>(this.Parent as Grid))
+            foreach (CategoryObjectMenu item in Helper.FindVisualChildren<CategoryObjectMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;

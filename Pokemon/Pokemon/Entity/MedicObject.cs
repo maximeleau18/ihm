@@ -18,6 +18,7 @@ namespace Pokemon.Entity
 
         public MedicObject(String name, String urlPicture) : base(name, urlPicture)
         {
+
         }
     }
 }

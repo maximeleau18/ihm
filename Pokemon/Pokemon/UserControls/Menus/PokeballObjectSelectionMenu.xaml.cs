@@ -1,4 +1,5 @@
 ﻿using Pokemon.Entity;
+using Pokemon.UserControls.Buttons;
 using Pokemon.UserControls.Other;
 using Pokemon.Utils;
 using System;
@@ -21,7 +22,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Menus
 {
-    public sealed partial class ObjectSelectionMenuPokeballs : UserControl
+    public sealed partial class PokeballObjectSelectionMenu : UserControl
     {
         private ObservableCollection<PokemonObject> categoryObjectList = new ObservableCollection<PokemonObject>();
 
@@ -30,6 +31,8 @@ namespace Pokemon.UserControls.Menus
         public void setConsole(ref Console console)
         {
             myConsole = console;
+
+            //SetConsole to Object Button          
         }
         internal ObservableCollection<PokemonObject> CategoryObjectList
         {
@@ -39,7 +42,7 @@ namespace Pokemon.UserControls.Menus
             }
         }
         
-        public ObjectSelectionMenuPokeballs()
+        public PokeballObjectSelectionMenu()
         {
             this.InitializeComponent();
             LoadContent();
@@ -48,10 +51,10 @@ namespace Pokemon.UserControls.Menus
 
         private void LoadContent()
         {
-            BallObject smallBallObject = new BallObject("Petites Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
-            BallObject mediumBallObject = new BallObject("Moyennes Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
-            BallObject hightBallObject = new BallObject("Grandes Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
-            BallObject giantBallObject = new BallObject("Gigantesques Pokéballs", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
+            BallObject smallBallObject  = new BallObject("Pokéball", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
+            BallObject mediumBallObject = new BallObject("SuperBall", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
+            BallObject hightBallObject  = new BallObject("HyperBall", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
+            BallObject giantBallObject  = new BallObject("Luxe Ball", "ms-appx:///Images/ObjectsCategory/Pokeball.png");
 
             this.CategoryObjectList.Add(smallBallObject);
             this.CategoryObjectList.Add(mediumBallObject);
@@ -62,7 +65,7 @@ namespace Pokemon.UserControls.Menus
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
             myConsole.setMessageObjectCategoryMenuText();
-            foreach (ObjectCategoryMenu item in Helper.FindVisualChildren<ObjectCategoryMenu>(this.Parent as Grid))
+            foreach (CategoryObjectMenu item in Helper.FindVisualChildren<CategoryObjectMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;

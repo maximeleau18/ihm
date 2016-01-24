@@ -1,4 +1,6 @@
 ﻿using Pokemon.Entity;
+using Pokemon.UserControls.Buttons;
+using Pokemon.UserControls.Other;
 using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
@@ -20,7 +22,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Menus
 {
-    public sealed partial class ObjectSelectionMenuCombats : UserControl
+    public sealed partial class MedicObjectSelectionMenu : UserControl
     {
         private ObservableCollection<PokemonObject> categoryObjectList = new ObservableCollection<PokemonObject>();
         
@@ -31,8 +33,15 @@ namespace Pokemon.UserControls.Menus
                 return categoryObjectList;
             }
         }
-        
-        public ObjectSelectionMenuCombats()
+        private Console myConsole;
+
+        public void setConsole(ref Console console)
+        {
+            myConsole = console;
+
+            //SetConsole to Object Button
+        }
+        public MedicObjectSelectionMenu()
         {
             this.InitializeComponent();
             LoadContent();
@@ -41,20 +50,21 @@ namespace Pokemon.UserControls.Menus
 
         private void LoadContent()
         {
-            BattleObject fightObject01 = new BattleObject("Objet de combats 01", "ms-appx:///Images/ObjectsCategory/Fist.png");
-            BattleObject fightObject02 = new BattleObject("Objet de combats 02", "ms-appx:///Images/ObjectsCategory/Fist.png");
-            BattleObject fightObject03 = new BattleObject("Objet de combats 03", "ms-appx:///Images/ObjectsCategory/Fist.png");
-            BattleObject fightObject04 = new BattleObject("Objet de combats 04", "ms-appx:///Images/ObjectsCategory/Fist.png");
+            MedicObject medocs01 = new MedicObject("Potion", "ms-appx:///Images/ObjectsCategory/Medic.png");
+            MedicObject medocs02 = new MedicObject("Super Potion", "ms-appx:///Images/ObjectsCategory/Medic.png");
+            MedicObject medocs03 = new MedicObject("Hyper Potion", "ms-appx:///Images/ObjectsCategory/Medic.png");
+            MedicObject medocs04 = new MedicObject("Potion Max", "ms-appx:///Images/ObjectsCategory/Medic.png");
 
-            this.CategoryObjectList.Add(fightObject01);
-            this.CategoryObjectList.Add(fightObject02);
-            this.CategoryObjectList.Add(fightObject03);
-            this.CategoryObjectList.Add(fightObject04);
+            this.CategoryObjectList.Add(medocs01);
+            this.CategoryObjectList.Add(medocs02);
+            this.CategoryObjectList.Add(medocs03);
+            this.CategoryObjectList.Add(medocs04);
         }
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            foreach (ObjectCategoryMenu item in Helper.FindVisualChildren<ObjectCategoryMenu>(this.Parent as Grid))
+            myConsole.setMessageObjectCategoryMenuText();
+            foreach (CategoryObjectMenu item in Helper.FindVisualChildren<CategoryObjectMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;

@@ -35,8 +35,15 @@ namespace Pokemon.Pages.Views
             this.BattleMenu.setConsole(ref this.Console);
             this.AttackMenu.setConsole(ref this.Console);
             this.PokemonMenu.setConsole(ref this.Console);
-            this.ObjectListView.setConsole(ref this.Console);
+            this.ObjectCategoryMenu.setConsole(ref this.Console);
+
+
             this.SelectedListViewPokeballs.setConsole(ref this.Console);
+            this.SelectedListViewMedicaments.setConsole(ref this.Console);
+            this.SelectedListViewCombats.setConsole(ref this.Console);
+            this.SelectedListViewStatus.setConsole(ref this.Console);
+
+            
         }
         
 

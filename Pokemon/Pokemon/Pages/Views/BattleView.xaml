@@ -39,11 +39,11 @@
             <UCMenus:BattleMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="BattleMenu" Visibility="Visible"></UCMenus:BattleMenu>
             <UCMenus:AttackMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="AttackMenu" Visibility="Collapsed"></UCMenus:AttackMenu>
             <UCMenus:PokemonSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="PokemonMenu" Visibility="Collapsed"></UCMenus:PokemonSelectionMenu>
-            <UCMenus:ObjectCategoryMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="ObjectListView" Visibility="Collapsed"></UCMenus:ObjectCategoryMenu>
-            <UCMenus:ObjectSelectionMenuPokeballs Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="SelectedListViewPokeballs" Visibility="Collapsed"></UCMenus:ObjectSelectionMenuPokeballs>
-            <UCMenus:ObjectSelectionMenuMedicaments Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="SelectedListViewMedicaments" Visibility="Collapsed"></UCMenus:ObjectSelectionMenuMedicaments>
-            <UCMenus:ObjectSelectionMenuCombats Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="SelectedListViewCombats" Visibility="Collapsed"></UCMenus:ObjectSelectionMenuCombats>
-            <UCMenus:ObjectSelectionMenuStatus Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="SelectedListViewStatus" Visibility="Collapsed"></UCMenus:ObjectSelectionMenuStatus>
+            <UCMenus:CategoryObjectMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="ObjectCategoryMenu" Visibility="Collapsed"></UCMenus:CategoryObjectMenu>
+            <UCMenus:PokeballObjectSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="SelectedListViewPokeballs" Visibility="Collapsed"></UCMenus:PokeballObjectSelectionMenu>
+            <UCMenus:MedicObjectSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="SelectedListViewMedicaments" Visibility="Collapsed"></UCMenus:MedicObjectSelectionMenu>
+            <UCMenus:BattleObjectSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="SelectedListViewCombats" Visibility="Collapsed"></UCMenus:BattleObjectSelectionMenu>
+            <UCMenus:StatusObjectSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="SelectedListViewStatus" Visibility="Collapsed"></UCMenus:StatusObjectSelectionMenu>
         </Grid>
     </Grid>
 </Page>
