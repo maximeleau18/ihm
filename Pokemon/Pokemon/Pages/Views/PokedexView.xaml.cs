@@ -1,6 +1,7 @@
 ﻿using Pokemon.Entity;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,25 +25,30 @@ namespace Pokemon.Pages.Views
     public sealed partial class PokedexView : Page
     {
         private Player player;
+        private ObservableCollection<Entity.Pokemon> pokemons = new ObservableCollection<Entity.Pokemon>();        
 
         public PokedexView()
         {
             this.InitializeComponent();
+            LoadContent();
+            this.ListPokemon.ItemsSource = this.Pokemons;
         }
 
-        internal Player Player
+        private void LoadContent()
         {
-            get
-            {
-                return player;
-            }
 
-            set
-            {
-                player = value;
-            }
+            TypePokemon typePokemonEau = new TypePokemon("Eau");
+            TypePokemon typePokemonFeu = new TypePokemon("Feu");
+            Entity.Pokemon kaiminus = new Entity.Pokemon("Kaiminus", "KAIMINUS : &#xD;&#xA;&#xD;&#xA; Même s'il est tout petit, la mâchoire de Kaiminus est très " +
+                "puissante. En pleine croissance, il a un fort besoin de mordiller tout ce qu'il trouve : cailloux, morceaux de bois, et même la main de son " +
+                "dresseur si celui-ci est imprudent. Ce Pokémon ne se rend pas compte de la force de ses morsures, il faut donc s'en méfier. ", 
+                "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemonEau);
+            Entity.Pokemon hericendre = new Entity.Pokemon("Héricendre", "Description Héricendre", "ms-appx:///Images/Pokemons/hericendre.png", 6, typePokemonFeu);
+
+            pokemons.Add(kaiminus);
+            pokemons.Add(hericendre);
         }
-
+        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -62,6 +68,27 @@ namespace Pokemon.Pages.Views
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
             (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
+        }
+        
+        internal Player Player
+        {
+            get
+            {
+                return player;
+            }
+
+            set
+            {
+                player = value;
+            }
+        }
+
+        internal ObservableCollection<Entity.Pokemon> Pokemons
+        {
+            get
+            {
+                return pokemons;
+            }
         }
     }
 }

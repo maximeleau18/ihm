@@ -53,10 +53,10 @@ namespace Pokemon.UserControls.Menus
             TypePokemon typePokemonEau = new TypePokemon("Eau");
             TypePokemon typePokemonFeu = new TypePokemon("Feu");
             Entity.Pokemon kaiminus = new Entity.Pokemon("Kaiminus", "Description Kaiminus", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemonEau);
-            Entity.Pokemon hericendre = new Entity.Pokemon("Héricendre", "Description Héricendre", "ms-appx:///Images/Pokemons/hericendre.png", 6, typePokemonFeu);
+            //Entity.Pokemon hericendre = new Entity.Pokemon("Héricendre", "Description Héricendre", "ms-appx:///Images/Pokemons/hericendre.png", 6, typePokemonFeu);
 
             pokemons.Add(kaiminus);
-            pokemons.Add(hericendre);
+            //pokemons.Add(hericendre);
         }
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
