@@ -1,4 +1,5 @@
 ﻿using Pokemon.Entity;
+using Pokemon.UserControls.Other;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,8 @@ namespace Pokemon.UserControls.Buttons
 {
     public sealed partial class AttackButton : UserControl
     {
+        private Console myConsole;
+
         public static readonly DependencyProperty AttackNameProperty = DependencyProperty.Register
            (
                 "AttackName",
@@ -35,6 +38,10 @@ namespace Pokemon.UserControls.Buttons
                 typeof(AttackButton),
                 new PropertyMetadata(null)
             );
+        public void setConsole(ref Console console)
+        {
+            myConsole = console;
+        }
 
         public String AttackName
         {
@@ -62,6 +69,11 @@ namespace Pokemon.UserControls.Buttons
         private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             this.Button.Style = (Style)Application.Current.Resources["AttackButton"];
+        }
+
+        private void Attack_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            myConsole.setMessageAttack(AttackName);
         }
     }
 }

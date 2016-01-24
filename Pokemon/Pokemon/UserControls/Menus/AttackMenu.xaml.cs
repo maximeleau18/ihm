@@ -41,6 +41,11 @@ namespace Pokemon.UserControls.Menus
         public void setConsole(ref Console console)
         {
             myConsole = console;
+
+            ucAttack01.setConsole(ref myConsole);
+            ucAttack02.setConsole(ref myConsole);
+            ucAttack03.setConsole(ref myConsole);
+            ucAttack04.setConsole(ref myConsole);
         }
         
         public AttackMenu()

@@ -9,7 +9,9 @@
 
     <Grid x:Name="ucAttackButton">
         <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Button" Style="{StaticResource AttackButton}" 
-                Background="#FF0000" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited" >
+                Background="#FF0000" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"
+                Tapped="Attack_Tapped">
             
             <Grid Margin="6,6,6,6">                
                 <Grid.RowDefinitions>

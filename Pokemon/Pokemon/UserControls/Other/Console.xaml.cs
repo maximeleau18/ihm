@@ -24,6 +24,7 @@ namespace Pokemon.UserControls.Other
         private String ObjectSelectionMenuText  = "Choisir ";
         private String PokemonSelectionMenuText = "Choisir un pokemon.";
         private String AttackMenuText           = "Choisir une attaque.";
+        private String AttackText               = "Vous lancez ";
 
         private String displayedText = "";
 
@@ -68,6 +69,11 @@ namespace Pokemon.UserControls.Other
         public void setMessageAttackMenuText()
         {
             DisplayedText = AttackMenuText;
+        }
+
+        public void setMessageAttack(String attaqueName)
+        {
+            DisplayedText = AttackText + attaqueName;
         }
     }
 }

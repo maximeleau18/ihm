@@ -91,7 +91,7 @@ namespace Pokemon.Pages.Views
                 this.CharacterButton.Source = new BitmapImage(new Uri("ms-appx:///Images/Menu/WomanIco.png"));
             }
 
-            this.TxtCharacter.Content = this.Player.Name;
+            this.TxtCharacter.Text = this.Player.Name;
             
             this.GridManager = new GridManager(this.GridMap, this.Player.PosY, this.Player.PosX, MAX_ROW, MAX_COLUMN, 16, 29, this.Player);
         }
@@ -351,65 +351,48 @@ namespace Pokemon.Pages.Views
                 }
             }
         }
+        private void QuitButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (this.MenuSplitView.IsPaneOpen)
+            {
+                Application.Current.Exit();
+            }
+        }
 
         private void MenuButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.MenuSplitView.IsPaneOpen = !this.MenuSplitView.IsPaneOpen;
         }
-
-        private void PokedexButton_Tapped(object sender, TappedRoutedEventArgs e)
+        
+        private void Pokemon_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.MenuSplitView.IsPaneOpen = !this.MenuSplitView.IsPaneOpen;
+            //Open pokemon view
         }
 
-        private void PokemonButton_Tapped(object sender, TappedRoutedEventArgs e)
+        private void Character_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.MenuSplitView.IsPaneOpen = !this.MenuSplitView.IsPaneOpen;
+            if(this.MenuSplitView.IsPaneOpen)
+            {
+                (Window.Current.Content as Frame).Navigate(typeof(TrainerCardView), this.Player);
+            }
         }
-
-        private void CharacterButton_Tapped(object sender, TappedRoutedEventArgs e)
+                
+        private void Bag_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.MenuSplitView.IsPaneOpen = !this.MenuSplitView.IsPaneOpen;
+            //Open Bag view
         }
-
-        private void ReturnButton_Tapped(object sender, TappedRoutedEventArgs e)
+        
+        private void Pokedex_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.MenuSplitView.IsPaneOpen = !this.MenuSplitView.IsPaneOpen;
+            if(this.MenuSplitView.IsPaneOpen)
+            {
+                (Window.Current.Content as Frame).Navigate(typeof(PokedexView), this.Player);
+            }     
         }
-
-        private void BagButton_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.MenuSplitView.IsPaneOpen = !this.MenuSplitView.IsPaneOpen;
-        }
-
-        private void TxtReturn_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            (Window.Current.Content as Frame).Navigate(typeof(StartMenuPageView));
-        }
-
-        private void TxtPokedex_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            (Window.Current.Content as Frame).Navigate(typeof(PokedexView), this.Player);
-        }
-
-        private void TxtBag_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-
-        }
-
-        private void TxtCharacter_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            (Window.Current.Content as Frame).Navigate(typeof(TrainerCardView), this.Player);
-        }
-
-        private void TxtPokemon_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-
-        }
-
+        
         private void MapViewGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             this.GridManager.SizeChanged(e.NewSize);
-        }
+        }        
     }
 }
