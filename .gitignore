@@ -24,3 +24,5 @@ bld/
 
 # Visual Studio 2015 cache/options directory
 .vs/
+Pokemon/Pokemon/UserControls/Menus/AttackMenu.xaml.cs.orig
+Pokemon/Pokemon/Pages/Views/BattleView.xaml.orig
