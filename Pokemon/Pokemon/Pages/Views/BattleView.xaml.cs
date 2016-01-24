@@ -35,7 +35,7 @@ namespace Pokemon.Pages.Views
             this.AttackMenu.setConsole(ref this.Console);
             this.PokemonMenu.setConsole(ref this.Console);
             this.ObjectListView.setConsole(ref this.Console);
-            this.SelectedListViewObject.setConsole(ref this.Console);
+            this.SelectedListViewPokeballs.setConsole(ref this.Console);
         }        
 
         internal Player Player

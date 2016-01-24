@@ -31,11 +31,11 @@
                       
             <uControl:ObjectCategoryButton x:Name="Battle" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" 
                       ObjectPokemonConsoleText="un objet de bataille."                     
-                      ObjectPokemonName="Outils de bataille" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/Fist.png"/>
+                      ObjectPokemonName="Outils de bataille" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/Fist.png"  Tapped="ObjectCategoryButtonCombats_Tapped" />
                       
             <uControl:ObjectCategoryButton x:Name="Medic" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" 
                       ObjectPokemonConsoleText="un médicament."                     
-                      ObjectPokemonName="Médicaments" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/Medic.png" Tapped="ObjectCategoryButtonMedicaments_Tapped" Tapped="ObjectCategoryButtonCombats_Tapped" />
+                      ObjectPokemonName="Médicaments" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/Medic.png" Tapped="ObjectCategoryButtonMedicaments_Tapped" />
 
             <uControl:ObjectCategoryButton x:Name="Statut" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"
                       ObjectPokemonConsoleText="un objet de statut."                     
