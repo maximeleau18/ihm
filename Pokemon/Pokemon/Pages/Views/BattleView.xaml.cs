@@ -60,7 +60,7 @@ namespace Pokemon.Pages.Views
         public void CreateNeededObjectsTemporary()
         {
             TypePokemon typePokemon = new TypePokemon("Eau");
-            Entity.Pokemon kaiminus = new Entity.Pokemon("Kaiminus", "C'est un pokemon eau", 6, typePokemon);
+            Entity.Pokemon kaiminus = new Entity.Pokemon("Kaiminus", "C'est un pokemon eau", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon);
 
             this.Player.Team.Add(kaiminus);
         }

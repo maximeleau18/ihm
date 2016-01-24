@@ -19,9 +19,53 @@ namespace Pokemon.UserControls.Buttons
 {
     public sealed partial class PokemonButton : UserControl
     {
+
+        public static readonly DependencyProperty PokemonNameProperty = DependencyProperty.Register
+           (
+                "PokemonName",
+                typeof(String),
+                typeof(PokemonButton),
+                new PropertyMetadata(null)
+           );
+
+        public static readonly DependencyProperty PokemonUrlPictureProperty = DependencyProperty.Register
+            (
+                "PokemonUrlPicture",
+                typeof(String),
+                typeof(PokemonButton),
+                new PropertyMetadata(null)
+            );
+
+        public static readonly DependencyProperty PokemonLevelProperty = DependencyProperty.Register
+            (
+                "PokemonLevel",
+                typeof(String),
+                typeof(PokemonButton),
+                new PropertyMetadata(null)
+            );
+
+        public String PokemonName
+        {
+            get { return (String)GetValue(PokemonNameProperty); }
+            set { SetValue(PokemonNameProperty, value); }
+        }
+
+        public String PokemonUrlPicture
+        {
+            get { return (String)GetValue(PokemonUrlPictureProperty); }
+            set { SetValue(PokemonUrlPictureProperty, value); }
+        }
+
+        public String PokemonLevel
+        {
+            get { return (String)GetValue(PokemonLevelProperty); }
+            set { SetValue(PokemonLevelProperty, "N. " + value); }
+        }
+
         public PokemonButton()
         {
             this.InitializeComponent();
+            this.ucPokemonButton.DataContext = this;
         }
 
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)

@@ -47,7 +47,7 @@ namespace Pokemon.UserControls.Menus
         {
             this.InitializeComponent();
             TypePokemon typePokemon = new TypePokemon("Eau");
-            LoadContent(new Entity.Pokemon("Kaiminus", "Description Kaiminus", 6, typePokemon));
+            LoadContent(new Entity.Pokemon("Kaiminus", "Description Kaiminus", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon));
         }
 
         private void LoadContent(Entity.Pokemon pokemon)
