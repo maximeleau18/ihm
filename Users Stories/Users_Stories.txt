@@ -1,0 +1,52 @@
+﻿/**************************************************************************
+ * Users_Stories.txt
+ *
+ * Maxime Léau, Mathieu Templier Copyright 2015
+ * Description :
+ * Author(s) : Maxime Léau <maxime.leau@imie-rennes.fr>; Mathieu Templier <mathieu.templier@imie-rennes.fr>
+ * Licence : All right reserved.
+ * Last update : December 07, 2015
+ *
+ **************************************************************************/
+
+- Samuel Késako
+- Sa première console et son premier jeu lui ont été offerts à Noël. Réside chez ses parents. Pas de resources financières particulières sauf aux occasions importantes.
+- 8 ans
+- Primo utilisateur. Utilisation d'un ordinateur de bureau avec les parents jeux d'éducation ADIBOU.
+- Novice. Ses amis possèdent le produit. Il a regardé ses camarades y jouer, mais n'a jamais utilisé lui-même.
+- Il souhaite terminer l'histoire du jeu comme dans le dessin animé.
+- Pour découvrir l'univers des Pokémons
+- Pour faire comme les autres car il se sent exlu des conversations entre copains.
+
+/**************************************************************************/
+
+- Max Sémoi
+- Il possède la plupart des consoles avec des jeux variés. Parents divorcés, il obtient toujours ce qu'il veut. Argent de poche 20€ tous les mois.
+- 13 ans
+- Primo utilisateur. Utilisation des ordinateurs disponibles durant les cours. Manipule les logiciels proposés en cours.
+- Expert. Il joue sur plusieurs consoles de salon et portables mais pas sur PC.
+- Compétition avec ses amis : échanges, combats multijoueurs, monter ses Pokémons à leur meilleur niveau.
+- Patienter dans les transports
+- Il veut principalement se démarquer auprès de ses amis. Etre admiré !
+
+/**************************************************************************/
+
+- Charles Edouard Rodriguez Lacasa
+- Il vit seul. Il est locataire d'un appartement. Dépense 20€ par an dans les jeux vidéos.
+- 30 ans
+- Expert. Développeur logiciel. Il manipule les plupart des OS. Possède des bases solides dans la conception d'un jeu vidéo.
+- Expert. Il joue principalement à des RPG en ligne.
+- Résoudre des énigmes pour débloquer des spécimens rares de Pokémons.
+- Défier des joueurs talentieux afin d'être reconnu dans la communauté des joueurs.
+- Retrouver la nostalgie des jeux de son enfance avec la complexité technique des jeux d'aujourd'hui.
+
+/**************************************************************************/
+
+- Sophie Dapret
+- Vit en collocation avec une amie. Dépensière intempestive pour tout et n'importe quoi. Impatiente.
+- 22 ans
+- Primo-Utilisatrice. Elle possède un ordinateur portable principalement pour faire ses achats en ligne. Elle ne joue pas sur son ordinateur.
+- Primo-Utilisatrice. Elle ne possède pas de console de jeu mais un smartphone. Elle a connu Pokémon dans son enfance et a déjà observée son frère y jouer.
+- Elle utilisera le produit en passe-temps à une fréquence occasionnelle. 
+- Elle désire collectionner les "jolies" Pokémons. La compétition ne l'intéresse pas.
+- Cette application lui plaira si le jeu est rapide à lancer, et que la compétition n'est pas le seul moyen d'obtenir les "jolies" Pokémons.
