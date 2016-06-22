@@ -1,4 +1,4 @@
-﻿using Pokemon.Entity;
+﻿using ClassLibraryEntity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -104,10 +104,8 @@ namespace Pokemon.Pages.Views
             // On chare le nom du joueur
             this.Player.Name = name.ToUpper();
             // On définit la position initiale du joueur
-            //this.Player.PosX = 30;
-            //this.Player.PosY = 15;
-            this.Player.PosX = 30;
-            this.Player.PosY = 15;
+            this.Player.PosX = 0;
+            this.Player.PosY = 0;
             // On charge la page map
             (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
         }

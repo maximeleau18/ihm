@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokemon.Entity
+namespace ClassLibraryEntity
 {
-    class BallObject : PokemonObject
+    public class BallObject : PokemonObject
     {
         public BallObject(String name, String urlPicture) : base (name, urlPicture)
         {

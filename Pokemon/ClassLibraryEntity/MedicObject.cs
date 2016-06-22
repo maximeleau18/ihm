@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokemon.Entity
+namespace ClassLibraryEntity
 {
-    class MedicObject : PokemonObject, ObjectAsTarget
+    public class MedicObject : PokemonObject
     {
         StatusObject status;
 

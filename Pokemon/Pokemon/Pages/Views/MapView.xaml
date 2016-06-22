@@ -8,40 +8,40 @@
     mc:Ignorable="d"
     >
 
-    <Grid x:Name="MapViewGrid" SizeChanged="MapViewGrid_SizeChanged">
+    <Grid x:Name="MapViewGrid">
         <SplitView x:Name="MenuSplitView" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="64" OpenPaneLength="400" Style="{StaticResource BackgroundGridMenu}" Tapped="MenuButton_Tapped">
-        <SplitView.Pane>
-            <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Horizontal" Background="Transparent">
-                    <Image x:Name="MenuButton" Source="ms-appx:///Images/Menu/MenuButton.png" Margin="0,0,15,0"/>
-                    <TextBlock x:Name="TxtMenu" Text="MENU" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" />
-                </StackPanel>
-                        <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokedex}" Tapped="Pokedex_Tapped">
-                    <Image x:Name="PokedexButton" Source="ms-appx:///Images/Menu/PokedexButton.png" Margin="0,0,15,0"/>
-                    <TextBlock Text="Pokédex" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokemon}" Visibility="Collapsed" Tapped="Pokemon_Tapped">
-                    <Image x:Name="PokemonButton" Source="ms-appx:///Images/Menu/PokemonButton.png" Margin="0,0,15,0"  />
-                    <TextBlock Text="Pokémons" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
+            <SplitView.Pane>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Background="Transparent">
+                        <Image x:Name="MenuButton" Source="ms-appx:///Images/Menu/MenuButton.png" Margin="0,0,15,0"/>
+                        <TextBlock x:Name="TxtMenu" Text="MENU" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" />
                     </StackPanel>
-                <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuBag}" Visibility="Collapsed" Tapped="Bag_Tapped">
-                    <Image x:Name="BagButton" Source="ms-appx:///Images/Menu/SacButton.png" Margin="0,0,15,0"  />
-                    <TextBlock Text="Sac" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokedex}" Tapped="Pokedex_Tapped">
+                        <Image x:Name="PokedexButton" Source="ms-appx:///Images/Menu/PokedexButton.png" Margin="0,0,15,0"/>
+                        <TextBlock Text="Pokédex" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokemon}" Visibility="Collapsed" Tapped="Pokemon_Tapped">
+                        <Image x:Name="PokemonButton" Source="ms-appx:///Images/Menu/PokemonButton.png" Margin="0,0,15,0"  />
+                        <TextBlock Text="Pokémons" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuBag}" Visibility="Collapsed" Tapped="Bag_Tapped">
+                        <Image x:Name="BagButton" Source="ms-appx:///Images/Menu/SacButton.png" Margin="0,0,15,0"  />
+                        <TextBlock Text="Sac" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuCharacter}" Visibility="Collapsed" Tapped="Character_Tapped">
+                        <Image x:Name="CharacterButton" Margin="0,0,15,0"   />
+                        <TextBlock x:Name="TxtCharacter" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Background="Red" Tapped="QuitButton_Tapped">
+                        <Image x:Name="QuitButton" Source="ms-appx:///Images/Menu/cross_icon.jpg" Margin="0,0,15,0"/>
+                        <TextBlock Text="Quitter" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuCharacter}" Visibility="Collapsed" Tapped="Character_Tapped">
-                    <Image x:Name="CharacterButton" Margin="0,0,15,0"   />
-                    <TextBlock x:Name="TxtCharacter" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
-                </StackPanel>                
-                <StackPanel Orientation="Horizontal" Background="Red" Tapped="QuitButton_Tapped">
-                    <Image x:Name="QuitButton" Source="ms-appx:///Images/Menu/cross_icon.jpg" Margin="0,0,15,0"/>
-                    <TextBlock Text="Quitter" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
-                </StackPanel>
-            </StackPanel>
-        </SplitView.Pane>
-        <SplitView.Content>
-                <Grid x:Name="GridMap" KeyUp="GridMap_KeyUp">
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid x:Name="playerGridMap">
                 </Grid>
-        </SplitView.Content>
-    </SplitView>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>

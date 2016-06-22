@@ -1,4 +1,4 @@
-﻿using Pokemon.Entity;
+﻿using ClassLibraryEntity;
 using Pokemon.UserControls.Other;
 using Pokemon.Utils;
 using System;
@@ -23,10 +23,10 @@ namespace Pokemon.UserControls.Menus
 {
     public sealed partial class AttackMenu : UserControl
     {
-        private Entity.Pokemon pokemon;
+        private ClassLibraryEntity.Pokemon pokemon;
         private Console myConsole;
 
-        internal Entity.Pokemon Pokemon
+        internal ClassLibraryEntity.Pokemon Pokemon
         {
             get
             {
@@ -52,10 +52,10 @@ namespace Pokemon.UserControls.Menus
         {
             this.InitializeComponent();
             TypePokemon typePokemon = new TypePokemon("Eau");
-            LoadContent(new Entity.Pokemon("Kaiminus", "Description Kaiminus", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon));
+            LoadContent(new ClassLibraryEntity.Pokemon("Kaiminus", "Description Kaiminus", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon));
         }
 
-        private void LoadContent(Entity.Pokemon pokemon)
+        private void LoadContent(ClassLibraryEntity.Pokemon pokemon)
         {
             Attack attack01 = new Attack("Charge", pokemon.Type);
             Attack attack02 = new Attack("Gros yeux", pokemon.Type);

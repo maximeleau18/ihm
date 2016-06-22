@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokemon.Entity
+namespace ClassLibraryEntity
 {
-    class StatusPokemon
+    public class StatusPokemon : EntityBase
     {
         private String name;
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokemon.Entity
+namespace ClassLibraryEntity
 {
-    class Pokemon
+    public class Pokemon : EntityBase
     {
         private String name;
         private String description;
@@ -39,7 +39,7 @@ namespace Pokemon.Entity
             }
         }
 
-        public string Name
+        public String Name
         {
             get
             {
@@ -52,7 +52,7 @@ namespace Pokemon.Entity
             }
         }
 
-        public string Description
+        public String Description
         {
             get
             {
@@ -78,7 +78,7 @@ namespace Pokemon.Entity
             }
         }
 
-        internal TypePokemon Type
+        public TypePokemon Type
         {
             get
             {
@@ -91,7 +91,7 @@ namespace Pokemon.Entity
             }
         }
 
-        public string UrlPicture
+        public String UrlPicture
         {
             get
             {

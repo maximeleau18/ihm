@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokemon.Entity
+namespace ClassLibraryEntity
 {
-    class Player
+    public class Player : EntityBase
     {
         public enum Orientation
         {
@@ -81,27 +81,7 @@ namespace Pokemon.Entity
             this.Name = _name;
 
             orientationPaths = new List<string>();
-
-            //orientationPaths[(int)Orientation.Up_0] = "ms-appx:///Images/Sprites/Sprite_Up_01.png";
-            //orientationPaths[(int)Orientation.Up_1] = "ms-appx:///Images/Sprites/Sprite_Up_02.png";
-            //orientationPaths[(int)Orientation.Up_2] = "ms-appx:///Images/Sprites/Sprite_Up_03.png";
-            //orientationPaths[(int)Orientation.Up_3] = "ms-appx:///Images/Sprites/Sprite_Up_04.png";
-
-            //orientationPaths[(int)Orientation.Down_0] = "ms-appx:///Images/Sprites/Sprite_Down_01.png";
-            //orientationPaths[(int)Orientation.Down_1] = "ms-appx:///Images/Sprites/Sprite_Down_02.png";
-            //orientationPaths[(int)Orientation.Down_2] = "ms-appx:///Images/Sprites/Sprite_Down_03.png";
-            //orientationPaths[(int)Orientation.Down_3] = "ms-appx:///Images/Sprites/Sprite_Down_04.png";
-
-            //orientationPaths[(int)Orientation.Left_0] = "ms-appx:///Images/Sprites/Sprite_Left_01.png";
-            //orientationPaths[(int)Orientation.Left_1] = "ms-appx:///Images/Sprites/Sprite_Left_02.png";
-            //orientationPaths[(int)Orientation.Left_2] = "ms-appx:///Images/Sprites/Sprite_Left_03.png";
-            //orientationPaths[(int)Orientation.Left_3] = "ms-appx:///Images/Sprites/Sprite_Left_04.png";
-
-            //orientationPaths[(int)Orientation.Right_0] = "ms-appx:///Images/Sprites/Sprite_Right_01.png";
-            //orientationPaths[(int)Orientation.Right_1] = "ms-appx:///Images/Sprites/Sprite_Right_02.png";
-            //orientationPaths[(int)Orientation.Right_2] = "ms-appx:///Images/Sprites/Sprite_Right_03.png";
-            //orientationPaths[(int)Orientation.Right_3] = "ms-appx:///Images/Sprites/Sprite_Right_04.png";
-
+            
             orientationPaths.Add("ms-appx:///Images/Sprites/Sprite_Up_01.png");
             orientationPaths.Add("ms-appx:///Images/Sprites/Sprite_Up_02.png");
             orientationPaths.Add("ms-appx:///Images/Sprites/Sprite_Up_03.png");
@@ -129,18 +109,13 @@ namespace Pokemon.Entity
         {
             return orientationPaths[(int)currentOrientation];
         }
-
-        public void UtiliserObjet(ObjectAsTarget _objet, Pokemon playerPkm)
-        {
-
-        }
-
+        
         public void UtiliserObjet(BallObject _objet, Pokemon opponentPokemon)
         {
 
         }
 
-        public string Name
+        public String Name
         {
             get
             {
@@ -153,7 +128,7 @@ namespace Pokemon.Entity
             }
         }
 
-        public string Sexe
+        public String Sexe
         {
             get
             {
@@ -179,7 +154,7 @@ namespace Pokemon.Entity
             }
         }
 
-        public string UrlCharacter
+        public String UrlCharacter
         {
             get
             {
@@ -192,7 +167,7 @@ namespace Pokemon.Entity
             }
         }
 
-        internal List<Pokemon> Team
+        public List<Pokemon> Team
         {
             get
             {
@@ -205,7 +180,7 @@ namespace Pokemon.Entity
             }
         }
 
-        internal List<Pokemon> Pc
+        public List<Pokemon> Pc
         {
             get
             {
@@ -244,7 +219,7 @@ namespace Pokemon.Entity
             }
         }
         
-        internal Orientation CurrentOrientation
+        public Orientation CurrentOrientation
         {
             get
             {

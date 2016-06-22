@@ -15,7 +15,6 @@ using Windows.UI.Xaml.Navigation;
 using Pokemon.Pages;
 
 using Pokemon.Utils;
-using Pokemon.Entity;
 using Pokemon.UserControls.Other;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236

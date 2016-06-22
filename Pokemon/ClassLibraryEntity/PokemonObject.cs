@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokemon.Entity
+namespace ClassLibraryEntity
 {
-    class PokemonObject
+    public class PokemonObject : EntityBase
     {
         private String name;
         private String urlPicture;

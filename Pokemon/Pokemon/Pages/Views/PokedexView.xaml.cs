@@ -1,4 +1,4 @@
-﻿using Pokemon.Entity;
+﻿using ClassLibraryEntity;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,7 +25,7 @@ namespace Pokemon.Pages.Views
     public sealed partial class PokedexView : Page
     {
         private Player player;
-        private ObservableCollection<Entity.Pokemon> pokemons = new ObservableCollection<Entity.Pokemon>();        
+        private ObservableCollection<ClassLibraryEntity.Pokemon> pokemons = new ObservableCollection<ClassLibraryEntity.Pokemon>();        
 
         public PokedexView()
         {
@@ -39,11 +39,11 @@ namespace Pokemon.Pages.Views
 
             TypePokemon typePokemonEau = new TypePokemon("Eau");
             TypePokemon typePokemonFeu = new TypePokemon("Feu");
-            Entity.Pokemon kaiminus = new Entity.Pokemon("Kaiminus", "KAIMINUS : &#xD;&#xA;&#xD;&#xA; Même s'il est tout petit, la mâchoire de Kaiminus est très " +
+            ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "KAIMINUS : &#xD;&#xA;&#xD;&#xA; Même s'il est tout petit, la mâchoire de Kaiminus est très " +
                 "puissante. En pleine croissance, il a un fort besoin de mordiller tout ce qu'il trouve : cailloux, morceaux de bois, et même la main de son " +
                 "dresseur si celui-ci est imprudent. Ce Pokémon ne se rend pas compte de la force de ses morsures, il faut donc s'en méfier. ", 
                 "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemonEau);
-            Entity.Pokemon hericendre = new Entity.Pokemon("Héricendre", "Description Héricendre", "ms-appx:///Images/Pokemons/hericendre.png", 6, typePokemonFeu);
+            ClassLibraryEntity.Pokemon hericendre = new ClassLibraryEntity.Pokemon("Héricendre", "Description Héricendre", "ms-appx:///Images/Pokemons/hericendre.png", 6, typePokemonFeu);
 
             pokemons.Add(kaiminus);
             pokemons.Add(hericendre);
@@ -83,7 +83,7 @@ namespace Pokemon.Pages.Views
             }
         }
 
-        internal ObservableCollection<Entity.Pokemon> Pokemons
+        internal ObservableCollection<ClassLibraryEntity.Pokemon> Pokemons
         {
             get
             {

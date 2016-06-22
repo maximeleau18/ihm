@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokemon.Entity
+namespace ClassLibraryEntity
 {
-    class Statistics
+    public class Statistics : EntityBase
     {
         private int life;
         private int attack;

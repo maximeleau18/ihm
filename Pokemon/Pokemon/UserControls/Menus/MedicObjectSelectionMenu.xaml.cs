@@ -1,4 +1,4 @@
-﻿using Pokemon.Entity;
+﻿using ClassLibraryEntity;
 using Pokemon.UserControls.Buttons;
 using Pokemon.UserControls.Other;
 using Pokemon.Utils;

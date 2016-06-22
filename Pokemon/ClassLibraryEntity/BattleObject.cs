@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokemon.Entity
+namespace ClassLibraryEntity
 {
-    class BattleObject : PokemonObject, ObjectAsTarget
+    public class BattleObject : PokemonObject
     {
         private Statistics modifiedStats;
 
-        internal Statistics ModifiedStats
+        public Statistics ModifiedStats
         {
             get
             {

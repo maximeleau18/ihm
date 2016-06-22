@@ -1,5 +1,4 @@
-﻿using Pokemon.Entity;
-using Pokemon.UserControls.Other;
+﻿using Pokemon.UserControls.Other;
 using System;
 using System.Collections.Generic;
 using System.IO;

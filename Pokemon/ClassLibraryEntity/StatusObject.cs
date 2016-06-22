@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokemon.Entity
+namespace ClassLibraryEntity
 {
-    class StatusObject : PokemonObject , ObjectAsTarget
+    public class StatusObject : PokemonObject
     {
         private StatusPokemon healedStatus;
 

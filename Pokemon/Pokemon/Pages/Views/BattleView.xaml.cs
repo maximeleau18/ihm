@@ -1,4 +1,4 @@
-﻿using Pokemon.Entity;
+﻿using ClassLibraryEntity;
 using Pokemon.UserControls;
 using Pokemon.UserControls.Other;
 using System;
@@ -37,13 +37,10 @@ namespace Pokemon.Pages.Views
             this.PokemonMenu.setConsole(ref this.Console);
             this.ObjectCategoryMenu.setConsole(ref this.Console);
 
-
             this.SelectedListViewPokeballs.setConsole(ref this.Console);
             this.SelectedListViewMedicaments.setConsole(ref this.Console);
             this.SelectedListViewCombats.setConsole(ref this.Console);
-            this.SelectedListViewStatus.setConsole(ref this.Console);
-
-            
+            this.SelectedListViewStatus.setConsole(ref this.Console);            
         }
         
 
@@ -69,7 +66,7 @@ namespace Pokemon.Pages.Views
         public void CreateNeededObjectsTemporary()
         {
             TypePokemon typePokemon = new TypePokemon("Eau");
-            Entity.Pokemon kaiminus = new Entity.Pokemon("Kaiminus", "C'est un pokemon eau", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon);
+            ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "C'est un pokemon eau", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon);
 
             this.Player.Team.Add(kaiminus);
         }

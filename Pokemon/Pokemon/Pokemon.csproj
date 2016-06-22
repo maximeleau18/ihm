@@ -99,19 +99,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Attack.cs" />
-    <Compile Include="Entity\BallObject.cs" />
-    <Compile Include="Entity\BattleObject.cs" />
-    <Compile Include="Entity\GridManager.cs" />
-    <Compile Include="Entity\MedicObject.cs" />
-    <Compile Include="Entity\ObjectAsTarget.cs" />
-    <Compile Include="Entity\PokemonObject.cs" />
-    <Compile Include="Entity\Player.cs" />
-    <Compile Include="Entity\Pokemon.cs" />
-    <Compile Include="Entity\Statistics.cs" />
-    <Compile Include="Entity\StatusPokemon.cs" />
-    <Compile Include="Entity\StatusObject.cs" />
-    <Compile Include="Entity\TypePokemon.cs" />
+    <Compile Include="Utils\GridManager.cs" />
     <Compile Include="Pages\Views\BattleView.xaml.cs">
       <DependentUpon>BattleView.xaml</DependentUpon>
     </Compile>
@@ -1580,6 +1568,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryEntity\ClassLibraryEntity.csproj">
+      <Project>{b7ceba72-d135-471a-9508-3d8658f875ca}</Project>
+      <Name>ClassLibraryEntity</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
