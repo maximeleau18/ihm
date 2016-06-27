@@ -27,10 +27,7 @@ namespace Pokemon.Pages.Views
     {
         private Player player;
         private GridManager gridManager;
-
-        const int MAX_COLUMN        = 45;
-        const int MAX_ROW           = 25;
-
+        
         internal Player Player
         {
             get
@@ -64,17 +61,39 @@ namespace Pokemon.Pages.Views
             // On abonne la grid à l'évènement afin de bouger notre personnage
             this.Loaded += Page_Loaded;
             this.Unloaded += Page_Unloaded;
-            //Window.Current.CoreWindow.SizeChanged += CoreWindow_SizeChanged;
         }
-        
+
+        private void CoreWindow_SizeChanged(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.WindowSizeChangedEventArgs args)
+        {
+            //if (args.Size.Width > 832)
+            //{
+            //    this.GridManager.GridPlayerMap.Width = 1728;
+            //}
+            //else
+            //{
+            //    this.GridManager.GridPlayerMap.Width = 832;
+            //}
+            //if (args.Size.Height > 448)
+            //{
+            //    this.GridManager.GridPlayerMap.Height = 960;
+            //}
+            //else
+            //{
+            //    this.GridManager.GridPlayerMap.Height = 448;
+            //}
+        }
+
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ((Frame)Window.Current.Content).KeyUp += GridMap_KeyUp;
+            Window.Current.CoreWindow.SizeChanged -= CoreWindow_SizeChanged;
+            Window.Current.CoreWindow.SizeChanged += CoreWindow_SizeChanged;
         }
 
         void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             ((Frame)Window.Current.Content).KeyUp -= GridMap_KeyUp;
+            Window.Current.CoreWindow.SizeChanged -= CoreWindow_SizeChanged;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -95,8 +114,8 @@ namespace Pokemon.Pages.Views
 
             this.TxtCharacter.Text = this.Player.Name;
 
-            //this.GridManager = new GridManager(this.GridMap, this.Player.PosY, this.Player.PosX, MAX_ROW, MAX_COLUMN, 16, 29, this.Player);
-            this.GridManager = new GridManager(this.playerGridMap, 26, 46, 15, 27, 0, 0, this.Player);
+            //this.GridManager = new GridManager(this.playerGridMap, 26, 46, 15, 27, 0, 0, this.Player);
+            this.GridManager = new GridManager(this.playerGridMap, 26, 46, 15, 27, 11, 19, this.Player);
         }
 
         private void GridMap_KeyUp(object sender, KeyRoutedEventArgs e)
@@ -260,263 +279,7 @@ namespace Pokemon.Pages.Views
                     this.GridManager.MovePlayer();
                 }                
             }
-        }
-
-        //private void GridMap_KeyUp(object sender, KeyRoutedEventArgs e)
-        //{
-        //    if (e.Key == Windows.System.VirtualKey.Down || e.Key == Windows.System.VirtualKey.S)
-        //    {
-        //        this.GridManager.Player.CurrentOrientation = Player.Orientation.Down_0;
-        //        this.GridManager.CurrentGrid.Children.Remove(this.GridManager.PlayerImg);
-        //        String playerPictureImagePath = this.Player.GetOrientationImagePath();
-
-        //        this.GridManager.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
-
-        //        // On passe de la ligne x à la ligne x + 1 on décale vers le bas d'une case
-        //        // Si la ligne actuelle + 1 est inférieur à 25
-        //        if (this.GridManager.CurrentRow + 1 <= this.GridManager.DimMapRow)
-        //        {
-        //            // Si la case suivante existe
-        //            if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow + 1 + ((int)this.GridManager.DimMapVisibleRow / 2)] != null)
-        //            {
-        //                // Si la case suivante est visible
-        //                if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow + 1 + ((int)this.GridManager.DimMapVisibleRow / 2)].ActualHeight > 0)
-        //                {
-        //                    // Si la prochaine case du perso est dans la grid
-        //                    if (this.Player.PosY + 1 <= this.GridManager.DimMapRow)
-        //                    {
-        //                        // On bouge le personnage sur la map
-        //                        this.GridManager.CurrentRow++;
-        //                        this.Player.PosY++;
-        //                        this.GridManager.MovePlayer();
-        //                        return;
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    // On bouge la carte si la prochaine case n'est pas visible
-        //                    if (this.GridManager.CurrentRow + 1 > ((int)this.GridManager.DimMapVisibleRow / 2))
-        //                    {
-        //                        this.GridManager.MoveMap(0, true, false);
-        //                    }
-        //                    // On bouge le joueur
-        //                    this.GridManager.CurrentRow++;
-        //                    this.Player.PosY++;
-        //                    this.GridManager.MovePlayer();
-        //                }
-        //            }
-        //            else
-        //            {
-        //                // Si la prochaine case du perso est l'avant dernière case dans la grid
-        //                // Afin d'afficher le perso même si la barre des tâches est affichée
-        //                if (this.Player.PosY + 1 <= this.GridManager.DimMapRow)
-        //                {
-        //                    // On bouge le personnage sur la map
-        //                    this.GridManager.CurrentRow++;
-        //                    //this.GridManager.MoveMap();
-        //                    this.Player.PosY++;
-        //                    this.GridManager.MovePlayer();
-        //                    return;
-        //                }
-        //            }
-        //        }           
-        //    }
-        //    if (e.Key == Windows.System.VirtualKey.Right || e.Key == Windows.System.VirtualKey.D)
-        //    {
-        //        this.GridManager.Player.CurrentOrientation = Player.Orientation.Left_0;
-        //        this.GridManager.CurrentGrid.Children.Remove(this.GridManager.PlayerImg);
-        //        String playerPictureImagePath = this.Player.GetOrientationImagePath();
-
-        //        this.GridManager.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
-
-        //        // On passe de la colonne y à la colonne y + 1 on décale vers le droite d'une case
-        //        // Si la colonne actuelle + 1 est inférieur à 45
-        //        if (this.GridManager.CurrentCol + 1 <= this.GridManager.DimMapCol)
-        //        {
-        //            // Si la case suivante existe
-        //            if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol + 1 + ((int)this.GridManager.DimMapVisibleCol / 2)] != null)
-        //            {
-        //                // Si la case suivante est visible
-        //                int result = this.GridManager.CurrentCol + 1 + ((int)this.GridManager.DimMapVisibleCol / 2);
-        //                if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol + 1 + ((int)this.GridManager.DimMapVisibleCol / 2)].ActualWidth > 0)
-        //                {
-        //                    // Si la prochaine case du perso est dans la grid
-        //                    if (this.Player.PosX + 1 <= this.GridManager.DimMapCol)
-        //                    {
-        //                        // On bouge le personnage sur la map
-        //                        this.GridManager.CurrentCol++;
-        //                        this.Player.PosX++;
-        //                        this.GridManager.MovePlayer();
-        //                        return;
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    // On bouge la carte si la prochaine case n'est pas visible
-        //                    if (this.GridManager.CurrentCol + 1 > ((int)this.GridManager.DimMapVisibleCol / 2))
-        //                    {
-        //                        this.GridManager.MoveMap(0, false, true);
-        //                    }
-        //                    // On bouge le joueur
-        //                    this.GridManager.CurrentCol++;
-        //                    this.Player.PosX++;
-        //                    this.GridManager.MovePlayer();
-        //                }
-        //            }
-        //            else
-        //            {
-        //                // Si la prochaine case du perso est dans la grid
-        //                if (this.Player.PosX + 1 <= this.GridManager.DimMapCol)
-        //                {
-        //                    // On bouge le personnage sur la map
-        //                    this.GridManager.CurrentCol++;
-        //                    //this.GridManager.MoveMap();
-        //                    this.Player.PosX++;
-        //                    this.GridManager.MovePlayer();
-        //                    return;
-        //                }
-        //            }
-        //        }
-        //    }
-        //    if (e.Key == Windows.System.VirtualKey.Left || e.Key == Windows.System.VirtualKey.Q)
-        //    {
-        //        this.GridManager.Player.CurrentOrientation = Player.Orientation.Right_0;
-        //        this.GridManager.CurrentGrid.Children.Remove(this.GridManager.PlayerImg);
-        //        String playerPictureImagePath = this.Player.GetOrientationImagePath();
-
-        //        this.GridManager.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
-
-        //        // On passe de la colonne y à la colonne y - 1 on décale vers la gauche d'une case
-        //        // Si la colonne actuelle - 1 est supérieur ou égal à 0
-        //        if (this.GridManager.CurrentCol - 1 >= 0)
-        //        {
-        //            // Si la case suivante existe
-        //            if ((this.GridManager.CurrentCol - 1 - ((int)this.GridManager.DimMapVisibleCol / 2)) >= 0)
-        //            {
-        //                if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol - 1 - ((int)this.GridManager.DimMapVisibleCol / 2)] != null)
-        //                {
-        //                    // Si la case précédente est visible
-        //                    if (this.GridManager.CurrentGrid.ColumnDefinitions[this.GridManager.CurrentCol - 1 - ((int)this.GridManager.DimMapVisibleCol / 2)].ActualWidth > 0)
-        //                    {
-        //                        // Si la précédente case du perso est dans la grid
-        //                        if (this.Player.PosX - 1 >= 0)
-        //                        {
-        //                            this.GridManager.CurrentCol--;
-        //                            this.Player.PosX--;
-        //                            this.GridManager.MovePlayer();
-        //                            return;
-        //                        }
-        //                    }
-        //                    else
-        //                    {
-        //                        // On bouge la carte si la prochaine case n'est pas visible
-        //                        if (this.GridManager.CurrentCol - 1 <= (this.GridManager.DimMapCol - ((int)this.GridManager.DimMapVisibleCol / 2)))
-        //                        {
-        //                            int modulo = this.GridManager.DimMapVisibleCol % 2;
-        //                            this.GridManager.MoveMap(modulo, false, true);
-        //                        }
-        //                        this.GridManager.CurrentCol--;
-        //                        // On bouge le joueur
-        //                        this.Player.PosX--;
-        //                        this.GridManager.MovePlayer();
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    // Si la précédente case du perso est dans la grid
-        //                    if (this.Player.PosX - 1 >= 0)
-        //                    {
-        //                        this.GridManager.CurrentCol--;
-        //                        //this.GridManager.MoveMap();
-        //                        this.Player.PosX--;
-        //                        this.GridManager.MovePlayer();
-        //                        return;
-        //                    }
-        //                }
-        //            }
-        //            else
-        //            {
-        //                // Si la précédente case du perso est dans la grid
-        //                if (this.Player.PosX - 1 >= 0)
-        //                {
-        //                    this.GridManager.CurrentCol--;
-        //                    this.Player.PosX--;
-        //                    this.GridManager.MovePlayer();
-        //                    return;
-        //                }
-        //            }
-        //        }            
-        //    }
-        //    if (e.Key == Windows.System.VirtualKey.Up || e.Key == Windows.System.VirtualKey.Z)
-        //    {
-        //        this.GridManager.Player.CurrentOrientation = Player.Orientation.Up_0;
-        //        this.GridManager.CurrentGrid.Children.Remove(this.GridManager.PlayerImg);
-        //        String playerPictureImagePath = this.Player.GetOrientationImagePath();
-
-        //        this.GridManager.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
-
-        //        // On passe de la ligne x à la ligne x - 1 on décale vers le haut d'une case
-        //        // Si la ligne actuelle - 1 est supérieur à 0
-        //        if (this.GridManager.CurrentRow - 1 >= 0)
-        //        {
-        //            // Si la case suivante existe
-        //            if ((this.GridManager.CurrentRow - ((int)this.GridManager.DimMapVisibleRow / 2)) >= 0)
-        //            {
-        //                if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow - ((int)this.GridManager.DimMapVisibleRow / 2)] != null)
-        //                {
-        //                    // Si la case précédente est visible
-        //                    if (this.GridManager.CurrentGrid.RowDefinitions[this.GridManager.CurrentRow - ((int)this.GridManager.DimMapVisibleRow / 2)].ActualHeight > 0)
-        //                    {
-        //                        // Si la précédente case du perso est dans la grid
-        //                        if (this.Player.PosY - 1 >= 0)
-        //                        {
-        //                            this.GridManager.CurrentRow--;
-        //                            this.Player.PosY--;
-        //                            this.GridManager.MovePlayer();
-        //                            return;
-        //                        }
-        //                    }
-        //                    else
-        //                    {
-        //                        // On bouge la carte et le personnage
-        //                        if (this.GridManager.CurrentRow - 1 <= (this.GridManager.DimMapRow - ((int)this.GridManager.DimMapVisibleRow / 2)))
-        //                        {
-        //                            int modulo = this.GridManager.DimMapVisibleRow % 2;
-        //                            this.GridManager.MoveMap(modulo, true, false);
-        //                        }
-        //                        this.GridManager.CurrentRow--;
-        //                        this.Player.PosY--;
-        //                        this.GridManager.MovePlayer();
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    // Si la précédente case du perso est dans la grid
-        //                    if (this.Player.PosY - 1 >= 0)
-        //                    {
-        //                        this.GridManager.CurrentRow--;
-        //                        //this.GridManager.MoveMap();
-        //                        this.Player.PosY--;
-        //                        this.GridManager.MovePlayer();
-        //                        return;
-        //                    }
-        //                }
-        //            }
-        //            else
-        //            {
-        //                // Si la précédente case du perso est dans la grid
-        //                if (this.Player.PosY - 1 >= 0)
-        //                {
-        //                    this.GridManager.CurrentRow--;
-        //                    //this.GridManager.MoveMap();
-        //                    this.Player.PosY--;
-        //                    this.GridManager.MovePlayer();
-        //                    return;
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
+        }        
 
         private void QuitButton_Tapped(object sender, TappedRoutedEventArgs e)
         {

@@ -104,8 +104,10 @@ namespace Pokemon.Pages.Views
             // On chare le nom du joueur
             this.Player.Name = name.ToUpper();
             // On définit la position initiale du joueur
-            this.Player.PosX = 0;
-            this.Player.PosY = 0;
+            //this.Player.PosX = 0;
+            //this.Player.PosY = 0;
+            this.Player.PosX = 31;
+            this.Player.PosY = 14;
             // On charge la page map
             (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
         }

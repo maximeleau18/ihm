@@ -1,4 +1,5 @@
-﻿using Pokemon.Pages.Views;
+﻿using Microsoft.Azure.Engagement;
+using Pokemon.Pages.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -43,6 +44,7 @@ namespace Pokemon
         /// <param name="e">Détails concernant la requête et le processus de lancement.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            InitEngagement(e);
 
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -105,5 +107,21 @@ namespace Pokemon
             //TODO: enregistrez l'état de l'application et arrêtez toute activité en arrière-plan
             deferral.Complete();
         }
+
+        protected override void OnActivated(IActivatedEventArgs e)
+        {
+            InitEngagement(e);
+
+            //... rest of the code
+        }
+
+        private void InitEngagement(IActivatedEventArgs e)
+        {
+            EngagementAgent.Instance.Init(e);
+
+            //... rest of the code
+        }
+
     }
+
 }

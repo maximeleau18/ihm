@@ -17,9 +17,8 @@ namespace Pokemon.Utils
 {
     public class GridManager
     {
-        private Grid currentGrid;
         private Grid gridPlayerMap;
-        private String[,] tabImagesSource;
+        private BitmapImage[,] tabImagesSource;
         private int maxRow;
         private int maxCol;
         private int playAreaMaxCol;
@@ -115,19 +114,19 @@ namespace Pokemon.Utils
             this.Player = player;
 
             ConstructTabImagesSource();
-            ConstructGridPlayerMap(this.CurrentRow, this.PlayAreaMaxRow, this.CurrentCol, this.PlayAreaMaxCol);
+            ConstructGridPlayerMap(0, this.PlayAreaMaxRow, 0, this.PlayAreaMaxCol);
             MovePlayer();
         }
 
         private void ConstructTabImagesSource()
         {
-            this.tabImagesSource = new String[26, 46];
+            this.tabImagesSource = new BitmapImage[this.MaxRow, this.MaxCol];
             int count = 1;
-            for (int row = 0; row < 26; row++)
+            for (int row = 0; row < this.MaxRow; row++)
             {
-                for (int col = 0; col < 46; col++)
+                for (int col = 0; col < this.MaxCol; col++)
                 {
-                    this.tabImagesSource[row, col] = "ms-appx:///Images/Map/map_" + count.ToString("00") + ".png";
+                    this.tabImagesSource[row, col] = new BitmapImage(new Uri("ms-appx:///Images/Map/map_" + count.ToString("00") + ".png"));
 
                     count++;
                 }
@@ -137,9 +136,13 @@ namespace Pokemon.Utils
         private void ConstructGridPlayerMap(int startRow, int endRow, int startCol, int endCol)
         {
             // On définit les dimensions de la grid
-            this.GridPlayerMap.Width = 1728;
-            this.GridPlayerMap.Height = 960;
-            // On contruit la grid avec les dimensions de l'affichage du plateau de jeu (par défaut large)
+            this.GridPlayerMap.MaxWidth = 1728;
+            this.GridPlayerMap.MinWidth = 832;
+            this.GridPlayerMap.MaxHeight = 960;
+            this.GridPlayerMap.MinHeight = 448;
+            int i = this.CurrentRow;
+            int j = this.CurrentCol;
+            // On construit la grid avec les dimensions de l'affichage du plateau de jeu
             for (int row = startRow; row < endRow; row++)
             {
                 this.GridPlayerMap.RowDefinitions.Add(new RowDefinition());
@@ -149,17 +152,28 @@ namespace Pokemon.Utils
             {
                 this.GridPlayerMap.ColumnDefinitions.Add(new ColumnDefinition());
             }
-
             for (int row = startRow; row < endRow; row++)
             {
+                j = this.CurrentCol;
                 for (int col = startCol; col < endCol; col++)
                 {
                     Image img = new Image();
-                    img.Source = new BitmapImage(new Uri(this.tabImagesSource[row, col]));
+                    img.Source = this.tabImagesSource[i, j];
                     this.GridPlayerMap.Children.Add(img);
                     Grid.SetRow(img, row);
                     Grid.SetColumn(img, col);
+
+                    if (j == 29 && i == 14)
+                    {
+                        Image imgPnj = new Image();
+                        imgPnj.Source = new BitmapImage(new Uri("ms-appx:///Images/Sprites/Sprite_Down_01.png"));
+                        this.GridPlayerMap.Children.Add(imgPnj);
+                        Grid.SetRow(imgPnj, row);
+                        Grid.SetColumn(imgPnj, col);
+                    }
+                    j++;
                 }
+                i++;
             }
         }
         
@@ -167,17 +181,27 @@ namespace Pokemon.Utils
         {
             int i = this.CurrentRow;
             int j = this.CurrentCol;
-            
-            for (int row = 0; row < this.PlayAreaMaxRow; row++)
+
+            this.GridPlayerMap.Children.Clear();
+            for (int row = 0; row < this.GridPlayerMap.RowDefinitions.Count; row++)
             {
                 j = this.CurrentCol;
-                for (int col = 0; col < this.PlayAreaMaxCol; col++)
+                for (int col = 0; col < this.GridPlayerMap.ColumnDefinitions.Count; col++)
                 {
                     Image img = new Image();
-                    img.Source = new BitmapImage(new Uri(this.tabImagesSource[i, j]));
+                    img.Source = this.tabImagesSource[i, j];
                     this.GridPlayerMap.Children.Add(img);
                     Grid.SetRow(img, row);
                     Grid.SetColumn(img, col);
+
+                    if (j == 29 && i == 14)
+                    {
+                        Image imgPnj = new Image();
+                        imgPnj.Source = new BitmapImage(new Uri("ms-appx:///Images/Sprites/Sprite_Down_01.png"));
+                        this.GridPlayerMap.Children.Add(imgPnj);
+                        Grid.SetRow(imgPnj, row);
+                        Grid.SetColumn(imgPnj, col);
+                    }
                     j++;
                 }
                 i++;
