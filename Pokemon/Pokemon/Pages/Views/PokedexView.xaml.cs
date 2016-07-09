@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity;
+using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,7 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class PokedexView : Page
     {
-        private Player player;
+        private GridManager gridManager;
         private ObservableCollection<ClassLibraryEntity.Pokemon> pokemons = new ObservableCollection<ClassLibraryEntity.Pokemon>();        
 
         public PokedexView()
@@ -52,7 +53,7 @@ namespace Pokemon.Pages.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            this.Player = (Player)e.Parameter;
+            this.GridManager = (GridManager)e.Parameter;
         }
 
         private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
@@ -67,19 +68,19 @@ namespace Pokemon.Pages.Views
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
+            (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
         }
         
-        internal Player Player
+        internal GridManager GridManager
         {
             get
             {
-                return player;
+                return gridManager;
             }
 
             set
             {
-                player = value;
+                gridManager = value;
             }
         }
 

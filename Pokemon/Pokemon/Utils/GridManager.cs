@@ -67,7 +67,9 @@ namespace Pokemon.Utils
         public Grid GridPlayerMap
         {
             get { return gridPlayerMap; }
-            set { gridPlayerMap = value; }
+            set {
+                gridPlayerMap = value;
+            }
         }
 
         public Image PlayerImg
@@ -99,6 +101,20 @@ namespace Pokemon.Utils
         public GridManager()
         {
 
+        }
+
+        public GridManager(int maxRow, int maxCol, int playAreaMaxRow, int playAreaMaxCol, int currentRow, int currentCol, Player player)
+        {
+            this.CurrentRow = currentRow;
+            this.CurrentCol = currentCol;
+            this.MaxRow = maxRow;
+            this.MaxCol = maxCol;
+            this.PlayAreaMaxRow = playAreaMaxRow;
+            this.PlayAreaMaxCol = playAreaMaxCol;
+            this.PlayerImg = new Image();
+            this.Player = player;
+
+            ConstructTabImagesSource();
         }
 
         public GridManager(Grid gridPlayerMap, int maxRow, int maxCol, int playAreaMaxRow, int playAreaMaxCol, int currentRow, int currentCol, Player player)
@@ -133,7 +149,7 @@ namespace Pokemon.Utils
             }
         }
 
-        private void ConstructGridPlayerMap(int startRow, int endRow, int startCol, int endCol)
+        public void ConstructGridPlayerMap(int startRow, int endRow, int startCol, int endCol)
         {
             // On définit les dimensions de la grid
             this.GridPlayerMap.MaxWidth = 1728;
@@ -213,13 +229,15 @@ namespace Pokemon.Utils
             this.GridPlayerMap.Children.Remove(this.PlayerImg);
             String playerPictureImagePath = this.Player.GetOrientationImagePath();
 
+            this.PlayerImg = new Image();
             this.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
+            
             this.GridPlayerMap.Children.Add(this.PlayerImg);
             Grid.SetColumn(this.PlayerImg, this.Player.PosX - this.CurrentCol);
             Grid.SetRow(this.PlayerImg, this.Player.PosY - this.CurrentRow);
 
             if ((this.Player.PosX == 29) && (this.Player.PosY == 15)){
-                (Window.Current.Content as Frame).Navigate(typeof(BattleView), this.Player);
+                (Window.Current.Content as Frame).Navigate(typeof(BattleView), this);
             }
         }
     }

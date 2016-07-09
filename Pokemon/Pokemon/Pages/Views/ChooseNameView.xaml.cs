@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity;
+using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -108,8 +109,10 @@ namespace Pokemon.Pages.Views
             //this.Player.PosY = 0;
             this.Player.PosX = 31;
             this.Player.PosY = 14;
+
+            GridManager gridManager = new GridManager(26, 46, 15, 27, 11, 19, this.Player);
             // On charge la page map
-            (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
+            (Window.Current.Content as Frame).Navigate(typeof(MapView), gridManager);
         }
     }
 }

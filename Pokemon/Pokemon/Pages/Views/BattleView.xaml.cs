@@ -1,6 +1,7 @@
 ﻿using ClassLibraryEntity;
 using Pokemon.UserControls;
 using Pokemon.UserControls.Other;
+using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,7 +26,7 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class BattleView : Page
     {
-        private Player player;
+        private GridManager gridManager;
 
         public BattleView()
         {
@@ -44,23 +45,23 @@ namespace Pokemon.Pages.Views
         }
         
 
-        internal Player Player
+        internal GridManager GridManager
         {
             get
             {
-                return player;
+                return gridManager;
             }
 
             set
             {
-                player = value;
+                gridManager = value;
             }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            this.Player = (Player)e.Parameter;
+            this.GridManager = (GridManager)e.Parameter;
         }
 
         public void CreateNeededObjectsTemporary()
@@ -68,13 +69,13 @@ namespace Pokemon.Pages.Views
             TypePokemon typePokemon = new TypePokemon("Eau");
             ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "C'est un pokemon eau", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon);
 
-            this.Player.Team.Add(kaiminus);
+            this.GridManager.Player.Team.Add(kaiminus);
         }
         
         private void RunawayButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Player.PosY++;
-            (Window.Current.Content as Frame).Navigate(typeof(MapView), this.Player);
+            this.GridManager.Player.PosY++;
+            (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
         }
 
     }

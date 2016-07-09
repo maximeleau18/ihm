@@ -99,8 +99,11 @@ namespace Pokemon.Pages.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            this.Player = (Player)e.Parameter;
+            this.GridManager = (GridManager)e.Parameter;
+            this.Player = this.GridManager.Player;
             this.Player.CurrentOrientation = Player.Orientation.Down_0;
+            this.GridManager.GridPlayerMap = this.playerGridMap;
+            this.GridManager.ConstructGridPlayerMap(0, this.GridManager.PlayAreaMaxRow, 0, this.GridManager.PlayAreaMaxCol);
 
             if (this.Player.Sexe.Equals("M"))
             {
@@ -115,7 +118,8 @@ namespace Pokemon.Pages.Views
             this.TxtCharacter.Text = this.Player.Name;
 
             //this.GridManager = new GridManager(this.playerGridMap, 26, 46, 15, 27, 0, 0, this.Player);
-            this.GridManager = new GridManager(this.playerGridMap, 26, 46, 15, 27, 11, 19, this.Player);
+            //this.GridManager = new GridManager(this.playerGridMap, 26, 46, 15, 27, 11, 19, this.Player);
+            this.GridManager.MovePlayer();
         }
 
         private void GridMap_KeyUp(object sender, KeyRoutedEventArgs e)
@@ -316,7 +320,7 @@ namespace Pokemon.Pages.Views
         {
             if(this.MenuSplitView.IsPaneOpen)
             {
-                (Window.Current.Content as Frame).Navigate(typeof(PokedexView), this.Player);
+                (Window.Current.Content as Frame).Navigate(typeof(PokedexView), this.GridManager);
             }     
         }   
     }
