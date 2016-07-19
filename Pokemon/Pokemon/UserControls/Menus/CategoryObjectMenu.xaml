@@ -23,23 +23,6 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <uControl:ObjectCategoryButton x:Name="Balls" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" 
-                      ObjectPokemonConsoleText="une pokéball."
-                      ObjectPokemonName="Pokéballs" 
-                      ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/Pokeball.png" 
-                      Tapped="ObjectCategoryButtonPokeballs_Tapped" />
-                      
-            <uControl:ObjectCategoryButton x:Name="Battle" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" 
-                      ObjectPokemonConsoleText="un objet de bataille."                     
-                      ObjectPokemonName="Outils de bataille" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/Fist.png"  Tapped="ObjectCategoryButtonCombats_Tapped" />
-                      
-            <uControl:ObjectCategoryButton x:Name="Medic" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" 
-                      ObjectPokemonConsoleText="un médicament."                     
-                      ObjectPokemonName="Médicaments" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/Medic.png" Tapped="ObjectCategoryButtonMedicaments_Tapped" />
-
-            <uControl:ObjectCategoryButton x:Name="Statut" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"
-                      ObjectPokemonConsoleText="un objet de statut."                     
-                      ObjectPokemonName="Statut" ObjectPokemonPicture="ms-appx:///Images/ObjectsCategory/status.png" Tapped="ObjectCategoryButtonStatus_Tapped" />
 
            <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" />
 

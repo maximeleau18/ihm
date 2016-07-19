@@ -36,12 +36,7 @@ namespace Pokemon.Pages.Views
             this.BattleMenu.setConsole(ref this.Console);
             this.AttackMenu.setConsole(ref this.Console);
             this.PokemonMenu.setConsole(ref this.Console);
-            this.ObjectCategoryMenu.setConsole(ref this.Console);
-
-            this.SelectedListViewPokeballs.setConsole(ref this.Console);
-            this.SelectedListViewMedicaments.setConsole(ref this.Console);
-            this.SelectedListViewCombats.setConsole(ref this.Console);
-            this.SelectedListViewStatus.setConsole(ref this.Console);            
+            this.ObjectCategoryMenu.setConsole(ref this.Console);      
         }
         
 
@@ -66,10 +61,10 @@ namespace Pokemon.Pages.Views
 
         public void CreateNeededObjectsTemporary()
         {
-            TypePokemon typePokemon = new TypePokemon("Eau");
-            ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "C'est un pokemon eau", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon);
+            //TypePokemon typePokemon = new TypePokemon("Eau");
+            //ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "C'est un pokemon eau", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon);
 
-            this.GridManager.Player.Team.Add(kaiminus);
+            //this.GridManager.Player.Team.Add(kaiminus);
         }
         
         private void RunawayButton_Click(object sender, RoutedEventArgs e)

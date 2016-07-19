@@ -30,9 +30,7 @@ namespace Pokemon.UserControls.Other
         private String AttackMenuText           = "Choisir une attaque.";
         private String AttackText               = "Vous lancez ";
         
-
-        private String displayedText = "";
-
+        
         public String DisplayedText
         {
             get { return (String)GetValue(ConsoleTextProperty); }

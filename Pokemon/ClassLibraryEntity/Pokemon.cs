@@ -8,99 +8,160 @@ namespace ClassLibraryEntity
 {
     public class Pokemon : EntityBase
     {
-        private String name;
-        private String description;
-        private String urlPicture;
-        private int level;
+        private int id;
+        private String surnom;
+        private int niveau;
+        private DateTime captureLe;
+        private TypeDePokemon typeDePokemon;
+        private PersonnageNonJoueur personnageNonJoueur;
+        private Attaque attaque1;
+        private Attaque attaque2;
+        private Attaque attaque3;
+        private Attaque attaque4;
 
-        private TypePokemon type;
+        public Pokemon() { }
 
-        private Statistics baseStats;
-        private Statistics actualStats;
-        
-        public Pokemon(String _nom, String _description, String _urlPicture, int _niveau, TypePokemon _type)
+        public Pokemon(int id, string surnom, int niveau, DateTime captureLe, TypeDePokemon typeDePokemon, PersonnageNonJoueur personnageNonJoueur, Attaque attaque1, Attaque attaque2, Attaque attaque3, Attaque attaque4)
         {
-            this.Name = _nom;
-            this.Description = _description;
-            this.UrlPicture = _urlPicture;
-            this.Level = _niveau;
-            this.Type = _type;
+            this.id = id;
+            this.surnom = surnom;
+            this.niveau = niveau;
+            this.captureLe = captureLe;
+            this.typeDePokemon = typeDePokemon;
+            this.personnageNonJoueur = personnageNonJoueur;
+            this.attaque1 = attaque1;
+            this.attaque2 = attaque2;
+            this.attaque3 = attaque3;
+            this.attaque4 = attaque4;
         }
 
-        public void UpdateActualStats(Statistics stats, Boolean replace = false)
-        {
-            if (replace)
-            {
-                actualStats = stats;
-            }
-            else
-            {
-
-            }
-        }
-
-        public String Name
+        public int Id
         {
             get
             {
-                return name;
+                return id;
             }
 
             set
             {
-                name = value;
+                id = value;
             }
         }
 
-        public String Description
+        public string Surnom
         {
             get
             {
-                return description;
+                return surnom;
             }
 
             set
             {
-                description = value;
+                surnom = value;
             }
         }
 
-        public int Level
+        public int Niveau
         {
             get
             {
-                return level;
+                return niveau;
             }
 
             set
             {
-                level = value;
+                niveau = value;
             }
         }
 
-        public TypePokemon Type
+        public DateTime CaptureLe
         {
             get
             {
-                return type;
+                return captureLe;
             }
 
             set
             {
-                type = value;
+                captureLe = value;
             }
         }
 
-        public String UrlPicture
+        public TypeDePokemon TypeDePokemon
         {
             get
             {
-                return urlPicture;
+                return typeDePokemon;
             }
 
             set
             {
-                urlPicture = value;
+                typeDePokemon = value;
+            }
+        }
+
+        public PersonnageNonJoueur PersonnageNonJoueur
+        {
+            get
+            {
+                return personnageNonJoueur;
+            }
+
+            set
+            {
+                personnageNonJoueur = value;
+            }
+        }
+
+        public Attaque Attaque1
+        {
+            get
+            {
+                return attaque1;
+            }
+
+            set
+            {
+                attaque1 = value;
+            }
+        }
+
+        public Attaque Attaque2
+        {
+            get
+            {
+                return attaque2;
+            }
+
+            set
+            {
+                attaque2 = value;
+            }
+        }
+
+        public Attaque Attaque3
+        {
+            get
+            {
+                return attaque3;
+            }
+
+            set
+            {
+                attaque3 = value;
+            }
+        }
+
+        public Attaque Attaque4
+        {
+            get
+            {
+                return attaque4;
+            }
+
+            set
+            {
+                attaque4 = value;
             }
         }
     }

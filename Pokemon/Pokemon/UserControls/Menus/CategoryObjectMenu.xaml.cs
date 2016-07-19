@@ -28,10 +28,6 @@ namespace Pokemon.UserControls.Menus
         public void setConsole(ref Console console)
         {
             myConsole = console;
-            this.Battle.setConsole(ref myConsole);
-            this.Medic.setConsole(ref myConsole);
-            this.Statut.setConsole(ref myConsole);
-            this.Balls.setConsole(ref myConsole);
         }
 
         public CategoryObjectMenu()
@@ -48,54 +44,6 @@ namespace Pokemon.UserControls.Menus
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;
             }
-        }
-
-        private void ObjectCategoryButtonPokeballs_Tapped(object sender, TappedRoutedEventArgs e)
-        {            
-            ObjectCategoryButton btn = (ObjectCategoryButton)sender;
-            myConsole.setMessageObjectSelectionMenuText(btn.ObjectPokemonConsoleText);
-            foreach (PokeballObjectSelectionMenu item in Helper.FindVisualChildren<PokeballObjectSelectionMenu>(this.Parent as Grid))
-            {
-                item.setConsole(ref myConsole);
-                item.Visibility = Visibility.Visible;
-                Visibility = Visibility.Collapsed;
-            }
-        }
-
-        private void ObjectCategoryButtonMedicaments_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            ObjectCategoryButton btn = (ObjectCategoryButton)sender;
-            myConsole.setMessageObjectSelectionMenuText(btn.ObjectPokemonConsoleText);
-            foreach (MedicObjectSelectionMenu item in Helper.FindVisualChildren<MedicObjectSelectionMenu>(this.Parent as Grid))
-            {
-                item.setConsole(ref myConsole);
-                item.Visibility = Visibility.Visible;
-                Visibility = Visibility.Collapsed;
-            }
-        }
-
-        private void ObjectCategoryButtonCombats_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            ObjectCategoryButton btn = (ObjectCategoryButton)sender;
-            myConsole.setMessageObjectSelectionMenuText(btn.ObjectPokemonConsoleText);
-            foreach (BattleObjectSelectionMenu item in Helper.FindVisualChildren<BattleObjectSelectionMenu>(this.Parent as Grid))
-            {
-                item.setConsole(ref myConsole);
-                item.Visibility = Visibility.Visible;
-                Visibility = Visibility.Collapsed;
-            }
-        }
-
-        private void ObjectCategoryButtonStatus_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            ObjectCategoryButton btn = (ObjectCategoryButton)sender;
-            myConsole.setMessageObjectSelectionMenuText(btn.ObjectPokemonConsoleText);
-            foreach (StatusObjectSelectionMenu item in Helper.FindVisualChildren<StatusObjectSelectionMenu>(this.Parent as Grid))
-            {
-                item.setConsole(ref myConsole);
-                item.Visibility = Visibility.Visible;
-                Visibility = Visibility.Collapsed;
-            }
-        }
+        }        
     }
 }

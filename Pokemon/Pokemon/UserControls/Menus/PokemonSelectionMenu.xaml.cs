@@ -52,12 +52,12 @@ namespace Pokemon.UserControls.Menus
         private void LoadContent()
         {
 
-            TypePokemon typePokemonEau = new TypePokemon("Eau");
-            TypePokemon typePokemonFeu = new TypePokemon("Feu");
-            ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "Description Kaiminus", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemonEau);
+            //TypePokemon typePokemonEau = new TypePokemon("Eau");
+            //TypePokemon typePokemonFeu = new TypePokemon("Feu");
+            //ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "Description Kaiminus", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemonEau);
             //Entity.Pokemon hericendre = new Entity.Pokemon("Héricendre", "Description Héricendre", "ms-appx:///Images/Pokemons/hericendre.png", 6, typePokemonFeu);
 
-            pokemons.Add(kaiminus);
+            //pokemons.Add(kaiminus);
             //pokemons.Add(hericendre);
         }
 

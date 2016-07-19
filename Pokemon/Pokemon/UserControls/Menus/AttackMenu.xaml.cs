@@ -26,7 +26,7 @@ namespace Pokemon.UserControls.Menus
         private ClassLibraryEntity.Pokemon pokemon;
         private Console myConsole;
 
-        internal ClassLibraryEntity.Pokemon Pokemon
+        public ClassLibraryEntity.Pokemon Pokemon
         {
             get
             {
@@ -51,28 +51,28 @@ namespace Pokemon.UserControls.Menus
         public AttackMenu()
         {
             this.InitializeComponent();
-            TypePokemon typePokemon = new TypePokemon("Eau");
-            LoadContent(new ClassLibraryEntity.Pokemon("Kaiminus", "Description Kaiminus", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon));
+            LoadContent();
         }
 
-        private void LoadContent(ClassLibraryEntity.Pokemon pokemon)
+        private void LoadContent()
         {
-            Attack attack01 = new Attack("Charge", pokemon.Type);
-            Attack attack02 = new Attack("Gros yeux", pokemon.Type);
-            Attack attack03 = new Attack("Griffe", pokemon.Type);
-            Attack attack04 = new Attack("Pistolet à eau", pokemon.Type);
+            // Load 4 Pokemon's Attacks from API
+            Attaque attack1 = this.Pokemon.Attaque1;
+            Attaque attack2 = this.Pokemon.Attaque2;
+            Attaque attack3 = this.Pokemon.Attaque3;
+            Attaque attack4 = this.Pokemon.Attaque4;
 
-            this.ucAttack01.AttackName = attack01.Name;
-            this.ucAttack01.TypeAttackName = attack01.Type.Name;
+            this.ucAttack01.AttackName = attack1.Nom;
+            this.ucAttack01.TypeAttackName = attack1.TypeAttaque.Nom;
 
-            this.ucAttack02.AttackName = attack02.Name;
-            this.ucAttack02.TypeAttackName = attack02.Type.Name;
+            this.ucAttack02.AttackName = attack2.Nom;
+            this.ucAttack02.TypeAttackName = attack2.TypeAttaque.Nom;
+            
+            this.ucAttack03.AttackName = attack3.Nom;
+            this.ucAttack03.TypeAttackName = attack3.TypeAttaque.Nom;
 
-            this.ucAttack03.AttackName = attack03.Name;
-            this.ucAttack03.TypeAttackName = attack03.Type.Name;
-
-            this.ucAttack04.AttackName = attack04.Name;
-            this.ucAttack04.TypeAttackName = attack04.Type.Name;
+            this.ucAttack04.AttackName = attack4.Nom;
+            this.ucAttack04.TypeAttackName = attack4.TypeAttaque.Nom;
         }
 
         private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)

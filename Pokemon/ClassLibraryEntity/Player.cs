@@ -33,19 +33,8 @@ namespace ClassLibraryEntity
 
         private String name;
         private String sexe;
-        private String urlCharacter;
         private Orientation currentOrientation;
-        private int money;
         
-        private List<Pokemon> pokedex;
-        private List<Pokemon> team;
-        private List<Pokemon> pc;
-
-        private List<MedicObject> medicPocket;
-        private List<StatusObject> statusPocket;
-        private List<BattleObject> battlePocket;
-        private List<BallObject> ballPocket;
-
         private int posX;
         private int posY;
 
@@ -76,9 +65,9 @@ namespace ClassLibraryEntity
             orientationPaths.Add("ms-appx:///Images/Sprites/Sprite_Right_04.png");
         }
 
-        public Player(String _name)
+        public Player(String name)
         {
-            this.Name = _name;
+            this.Name = name;
 
             orientationPaths = new List<string>();
             
@@ -110,11 +99,6 @@ namespace ClassLibraryEntity
             return orientationPaths[(int)currentOrientation];
         }
         
-        public void UtiliserObjet(BallObject _objet, Pokemon opponentPokemon)
-        {
-
-        }
-
         public String Name
         {
             get
@@ -140,59 +124,7 @@ namespace ClassLibraryEntity
                 sexe = value;
             }
         }
-
-        public int Money
-        {
-            get
-            {
-                return money;
-            }
-
-            set
-            {
-                money = value;
-            }
-        }
-
-        public String UrlCharacter
-        {
-            get
-            {
-                return urlCharacter;
-            }
-
-            set
-            {
-                urlCharacter = value;
-            }
-        }
-
-        public List<Pokemon> Team
-        {
-            get
-            {
-                return team;
-            }
-
-            set
-            {
-                team = value;
-            }
-        }
-
-        public List<Pokemon> Pc
-        {
-            get
-            {
-                return pc;
-            }
-
-            set
-            {
-                pc = value;
-            }
-        }
-
+        
         public int PosX
         {
             get

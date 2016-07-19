@@ -38,16 +38,16 @@ namespace Pokemon.Pages.Views
         private void LoadContent()
         {
 
-            TypePokemon typePokemonEau = new TypePokemon("Eau");
-            TypePokemon typePokemonFeu = new TypePokemon("Feu");
-            ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "KAIMINUS : &#xD;&#xA;&#xD;&#xA; Même s'il est tout petit, la mâchoire de Kaiminus est très " +
-                "puissante. En pleine croissance, il a un fort besoin de mordiller tout ce qu'il trouve : cailloux, morceaux de bois, et même la main de son " +
-                "dresseur si celui-ci est imprudent. Ce Pokémon ne se rend pas compte de la force de ses morsures, il faut donc s'en méfier. ", 
-                "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemonEau);
-            ClassLibraryEntity.Pokemon hericendre = new ClassLibraryEntity.Pokemon("Héricendre", "Description Héricendre", "ms-appx:///Images/Pokemons/hericendre.png", 6, typePokemonFeu);
+            //TypePokemon typePokemonEau = new TypePokemon("Eau");
+            //TypePokemon typePokemonFeu = new TypePokemon("Feu");
+            //ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "KAIMINUS : &#xD;&#xA;&#xD;&#xA; Même s'il est tout petit, la mâchoire de Kaiminus est très " +
+            //    "puissante. En pleine croissance, il a un fort besoin de mordiller tout ce qu'il trouve : cailloux, morceaux de bois, et même la main de son " +
+            //    "dresseur si celui-ci est imprudent. Ce Pokémon ne se rend pas compte de la force de ses morsures, il faut donc s'en méfier. ", 
+            //    "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemonEau);
+            //ClassLibraryEntity.Pokemon hericendre = new ClassLibraryEntity.Pokemon("Héricendre", "Description Héricendre", "ms-appx:///Images/Pokemons/hericendre.png", 6, typePokemonFeu);
 
-            pokemons.Add(kaiminus);
-            pokemons.Add(hericendre);
+            //pokemons.Add(kaiminus);
+            //pokemons.Add(hericendre);
         }
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
