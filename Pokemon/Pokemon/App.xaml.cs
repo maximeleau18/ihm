@@ -117,7 +117,9 @@ namespace Pokemon
 
         private void InitEngagement(IActivatedEventArgs e)
         {
+            EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init(e);
+            EngagementReach.Instance.Init(e);
 
             //... rest of the code
         }

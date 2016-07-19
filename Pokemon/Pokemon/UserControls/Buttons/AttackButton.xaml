@@ -1,20 +1,20 @@
-﻿<UserControl
+﻿<base:BaseUserControl
     x:Class="Pokemon.UserControls.Buttons.AttackButton"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Pokemon.UserControls.Buttons"
+    xmlns:base="using:Pokemon.UserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="ucAttackButton">
+    <Grid>
         <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Button" Style="{StaticResource AttackButton}" 
                 Background="#FF0000" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"
-                Tapped="Attack_Tapped">
+                PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited">
             
             <Grid Margin="6,6,6,6">                
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
@@ -23,14 +23,16 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextAlignment="Center" Text="{Binding AttackName, Mode=TwoWay}" />
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextAlignment="Center" x:Name="attaqueNameTxtB" Text="{Binding Attaque.Nom}" />
 
                 <Border Grid.Row="1" Grid.Column="0" CornerRadius="5" BorderBrush="#000000" BorderThickness="1" Background="Gray"/>
 
-                <TextBlock Margin="6,6,6,6" Grid.Row="1" Grid.Column="0" Text="{Binding TypeAttackName, Mode=TwoWay}" />
+                <TextBlock Margin="6,6,6,6" Grid.Row="1" Grid.Column="0" x:Name="attaqueTypeAttaqueNameTxtB" Text="{Binding Attaque.TypeAttaque.Nom}" />
 
-                <TextBlock Margin="6,6,0,0" Grid.Row="1" Grid.Column="1" Text="PP 25/25" />
+                <TextBlock Margin="6,6,0,0" Grid.Row="1" Grid.Column="1" x:Name="attaquePuissanceTxtB" Text="{Binding Attaque.Puissance}" />
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextAlignment="Center" x:Name="attaqueDegatsTxtB" Text="{Binding Attaque.Degats}" />
             </Grid>
         </Button>
     </Grid>
-</UserControl>
+</base:BaseUserControl>

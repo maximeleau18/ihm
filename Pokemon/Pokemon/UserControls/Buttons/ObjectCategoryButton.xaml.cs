@@ -1,4 +1,5 @@
-﻿using Pokemon.UserControls.Other;
+﻿using ClassLibraryEntity;
+using Pokemon.UserControls.Other;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,61 +19,26 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Buttons
 {
-    public sealed partial class ObjectCategoryButton : UserControl
+    public sealed partial class ObjectCategoryButton : BaseUserControl
     {
-        private Console myConsole;
+        private TypeObjet typeObjet;
 
-        public void setConsole(ref Console console)
+        public TypeObjet TypeObjet
         {
-            myConsole = console;
-        }
-        public static readonly DependencyProperty ObjectPokemonNameProperty = DependencyProperty.Register
-           (
-                "ObjectPokemonName",
-                typeof(String),
-                typeof(ObjectCategoryButton),
-                new PropertyMetadata(null)
-           );
-
-        public static readonly DependencyProperty ObjectPokemonPictureProperty = DependencyProperty.Register
-            (
-                "ObjectPokemonPicture",
-                typeof(String),
-                typeof(ObjectCategoryButton),
-                new PropertyMetadata(null)
-            );
-
-        public static readonly DependencyProperty ObjectPokemonConsoleTextProperty = DependencyProperty.Register
-            (
-                "ObjectPokemonConsoleText",
-                typeof(String),
-                typeof(ObjectCategoryButton),
-                new PropertyMetadata(null)
-            );
-
-        public String ObjectPokemonName
-        {
-            get { return (String)GetValue(ObjectPokemonNameProperty); }
-            set { SetValue(ObjectPokemonNameProperty, value); }
-        }
-
-        public String ObjectPokemonPicture
-        {
-            get { return (String)GetValue(ObjectPokemonPictureProperty); }
-            set { SetValue(ObjectPokemonPictureProperty, value); }
-        }
-
-        public String ObjectPokemonConsoleText
-        {
-            get { return (String)GetValue(ObjectPokemonConsoleTextProperty); }
-            set { SetValue(ObjectPokemonConsoleTextProperty, value); }
+            get{ return typeObjet; }
+            set
+            {
+                typeObjet = value;
+                base.OnPropertyChanged("TypeObjet");
+            }
         }
 
         public ObjectCategoryButton()
         {
             this.InitializeComponent();
-            this.ucObjectCategoryButton.DataContext = this;
-        }    
+            this.DataContext = this;
+        }
+
 
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
@@ -83,10 +49,6 @@ namespace Pokemon.UserControls.Buttons
         {
             this.Button.Style = (Style)Application.Current.Resources["ObjectButton"];
         }
-
-        private void Button_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.myConsole.setMessageObject(ObjectPokemonName);
-        }
+        
     }
 }

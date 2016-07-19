@@ -59,7 +59,7 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <uControl:PokemonButton PokemonName="{Binding Name}" PokemonUrlPicture="{Binding UrlPicture}" PokemonLevel="{Binding Level}" />
+                                <uControl:PokemonButton />
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

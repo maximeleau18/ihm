@@ -24,22 +24,23 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0" Grid.Row="0" Background="Gray">
-                <UCViews:PokemonBattleDisplayOpponent x:Name="Opponent"/>
+                <UCViews:PokemonBattleDisplayOpponent x:Name="opponentView"/>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1" Background="Gray">
                 <Image Source="ms-appx:///Images/Stadium.png"></Image>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="2" Background="Gray">
-                <UCViews:PokemonBattleDisplayPlayer x:Name="PlayerView" Margin="10, 0, 0, 0" />
+                <UCViews:PokemonBattleDisplayPlayer x:Name="playerView" Margin="10, 0, 0, 0" />
             </Grid>
             <Grid Grid.Column="0" Grid.Row="3" Background="Gray">
-                <UCOther:Console x:Name="Console" Margin="10, 0, 0, 0" />
+                <UCOther:Console x:Name="ucConsole" Margin="10, 0, 0, 0" />
             </Grid>
             
-            <UCMenus:BattleMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="BattleMenu" Visibility="Visible"></UCMenus:BattleMenu>
-            <UCMenus:AttackMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="AttackMenu" Visibility="Collapsed"></UCMenus:AttackMenu>
-            <UCMenus:PokemonSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="PokemonMenu" Visibility="Collapsed"></UCMenus:PokemonSelectionMenu>
-            <UCMenus:CategoryObjectMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="ObjectCategoryMenu" Visibility="Collapsed"></UCMenus:CategoryObjectMenu>
+            <UCMenus:BattleMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="battleMenu" Visibility="Visible"></UCMenus:BattleMenu>
+            <UCMenus:PokemonSelectionMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="pokemonSelectionMenu" Visibility="Collapsed"></UCMenus:PokemonSelectionMenu>
+            <UCMenus:CategoryObjectMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="categoryObjectMenu" Visibility="Collapsed"></UCMenus:CategoryObjectMenu>
+            <UCMenus:AttackMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="attackMenu" Visibility="Collapsed"></UCMenus:AttackMenu>
+            <UCMenus:ObjectMenu Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" x:Name="objectMenu" Visibility="Collapsed"></UCMenus:ObjectMenu>
         </Grid>
     </Grid>
 </Page>

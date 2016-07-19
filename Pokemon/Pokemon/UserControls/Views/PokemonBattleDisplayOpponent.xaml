@@ -17,13 +17,9 @@
             <ColumnDefinition Width="40*"/>
             <ColumnDefinition Width="60*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="1" Grid.Row="0" x:Name="opponentName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" >
-        	<Run Text="Héricendre"/>
-        </TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="1" x:Name="opponentLevel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" >
-        	<Run Text="N.6"/>
-        </TextBlock>
-        <ProgressBar Grid.Column="1" Grid.Row="2" x:Name="opponentLifeBar" Background="Green" MinHeight="20" />
-        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="ms-appx:///Images/Pokemons/hericendre.png"/>
+        <TextBlock Grid.Column="0" Grid.Row="0" x:Name="opponentPokemonName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" Text="Héricendre" />
+        <TextBlock Grid.Column="0" Grid.Row="1" x:Name="opponentPokemonLevel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" Text="N.6"/>
+        <ProgressBar Grid.Column="0" Grid.Row="2" x:Name="opponentPokemonLifeBar" Background="Green" MinHeight="20" />
+        <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Source="ms-appx:///Images/Pokemons/hericendre.png"/>
     </Grid>
 </UserControl>

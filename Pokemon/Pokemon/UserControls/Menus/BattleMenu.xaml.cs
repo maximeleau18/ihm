@@ -23,28 +23,12 @@ namespace Pokemon.UserControls.Menus
 {
     public sealed partial class BattleMenu : UserControl
     {
-        public RoutedEventHandler RunawayButtonClick;
-
-        private Console myConsole;
-
-        public void setConsole(ref Console console)
-        {
-            myConsole = console;
-        }
+        public RoutedEventHandler RunawayButtonTapped;
         
         public BattleMenu()
         {
             this.InitializeComponent();
-        }
-                
-        private void AttackButton_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.AttackButton.Style = (Style)Application.Current.Resources["AttackButton"];
-        }
-
-        private void AttackButton_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            this.AttackButton.Style = (Style)Application.Current.Resources["AttackButtonSelected"];
+            this.DataContext = this;
         }
 
         private void PokemonButton_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -77,41 +61,11 @@ namespace Pokemon.UserControls.Menus
             this.RunawayButton.Style = (Style)Application.Current.Resources["RunawayButtonSelected"];
         }
         
-        private void AttackButton_Click(object sender, RoutedEventArgs e)
+        private void RunawayButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            myConsole.setMessageAttackMenuText();
-            foreach (AttackMenu item in Helper.FindVisualChildren<AttackMenu>(this.Parent as Grid))
+            if (RunawayButtonTapped != null)
             {
-                item.Visibility = Visibility.Visible;
-                Visibility = Visibility.Collapsed;
-            }
-        }
-
-        private void PokemonButton_Click(object sender, RoutedEventArgs e)
-        {
-            myConsole.setMessagePokemonSelectionMenuText();
-            foreach (PokemonSelectionMenu item in Helper.FindVisualChildren<PokemonSelectionMenu>(this.Parent as Grid))
-            {
-                item.Visibility = Visibility.Visible;
-                Visibility = Visibility.Collapsed;
-            }
-        }
-                
-        private void ObjectButton_Click(object sender, RoutedEventArgs e)
-        {
-            myConsole.setMessageObjectCategoryMenuText();
-            foreach (CategoryObjectMenu item in Helper.FindVisualChildren<CategoryObjectMenu>(this.Parent as Grid))
-            {
-                item.Visibility = Visibility.Visible;
-                Visibility = Visibility.Collapsed;
-            }
-        }
-
-        private void RunawayButton_Click(object sender, RoutedEventArgs e)
-        {           
-            if (RunawayButtonClick != null)
-            {
-                RunawayButtonClick(this, e);
+                RunawayButtonTapped(this, e);
             }
         }
     }

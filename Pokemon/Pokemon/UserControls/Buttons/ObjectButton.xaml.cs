@@ -1,4 +1,5 @@
-﻿using Pokemon.UserControls.Other;
+﻿using ClassLibraryEntity;
+using Pokemon.UserControls.Other;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,48 +19,26 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Buttons
 {
-    public sealed partial class ObjectButton : UserControl
+    public sealed partial class ObjectButton : BaseUserControl
     {
-        private Console myConsole;
+        private Objet objet;
 
-        public void setConsole(ref Console console)
+        public Objet Objet
         {
-            myConsole = console;
-        }
-        public static readonly DependencyProperty ObjectPokemonNameProperty = DependencyProperty.Register
-           (
-                "ObjectPokemonName",
-                typeof(String),
-                typeof(ObjectButton),
-                new PropertyMetadata(null)
-           );
-
-        public static readonly DependencyProperty ObjectPokemonPictureProperty = DependencyProperty.Register
-            (
-                "ObjectPokemonPicture",
-                typeof(String),
-                typeof(ObjectButton),
-                new PropertyMetadata(null)
-            );
-
-        public String ObjectPokemonName
-        {
-            get { return (String)GetValue(ObjectPokemonNameProperty); }
-            set { SetValue(ObjectPokemonNameProperty, value); }
-        }
-
-        public String ObjectPokemonPicture
-        {
-            get { return (String)GetValue(ObjectPokemonPictureProperty); }
-            set { SetValue(ObjectPokemonPictureProperty, value); }
+            get{ return objet; }
+            set
+            {
+                objet = value;
+                base.OnPropertyChanged("Objet");
+            }
         }
 
         public ObjectButton()
         {
             this.InitializeComponent();
-            this.ucObjectButton.DataContext = this;
+            this.DataContext = this;
         }
-
+        
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             this.Button.Style = (Style)Application.Current.Resources["ObjectButtonSelected"];
@@ -68,12 +47,6 @@ namespace Pokemon.UserControls.Buttons
         private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             this.Button.Style = (Style)Application.Current.Resources["ObjectButton"];
-        }
-
-        private void Button_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            //Give console to this object
-            //myConsole.setMessageObject(ObjectPokemonName);
         }
     }
 }

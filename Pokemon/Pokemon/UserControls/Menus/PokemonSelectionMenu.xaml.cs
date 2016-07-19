@@ -24,46 +24,54 @@ namespace Pokemon.UserControls.Menus
 {
     public sealed partial class PokemonSelectionMenu : UserControl
     {
-        private ObservableCollection<ClassLibraryEntity.Pokemon> pokemons = new ObservableCollection<ClassLibraryEntity.Pokemon>();
+        private ObservableCollection<ClassLibraryEntity.Pokemon> pokemons;
         
-        private Console myConsole;
-
-        public void setConsole(ref Console console)
-        {
-            myConsole = console;
-
-            //SetConsole to Object Button
-        }
-        internal ObservableCollection<ClassLibraryEntity.Pokemon> Pokemons
+        public ObservableCollection<ClassLibraryEntity.Pokemon> Pokemons
         {
             get
             {
                 return pokemons;
+            }
+            set
+            {
+                pokemons = value;
+            }
+        }
+
+        private ListView itemsListPokemons;
+
+        public ListView ItemsListPokemons
+        {
+            get
+            {
+                return itemsListPokemons;
+            }
+
+            set
+            {
+                itemsListPokemons = value;
             }
         }
 
         public PokemonSelectionMenu()
         {
             this.InitializeComponent();
-            LoadContent();
-            this.ListPokemon.ItemsSource = this.Pokemons;
+            this.pokemons = new ObservableCollection<ClassLibraryEntity.Pokemon>();
+            this.listPokemon.ItemsSource = this.pokemons;
+            this.ItemsListPokemons = this.listPokemon;
         }
 
-        private void LoadContent()
+        public void LoadItems(List<ClassLibraryEntity.Pokemon> pokemons)
         {
-
-            //TypePokemon typePokemonEau = new TypePokemon("Eau");
-            //TypePokemon typePokemonFeu = new TypePokemon("Feu");
-            //ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "Description Kaiminus", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemonEau);
-            //Entity.Pokemon hericendre = new Entity.Pokemon("Héricendre", "Description Héricendre", "ms-appx:///Images/Pokemons/hericendre.png", 6, typePokemonFeu);
-
-            //pokemons.Add(kaiminus);
-            //pokemons.Add(hericendre);
+            this.pokemons.Clear();
+            foreach (var item in pokemons)
+            {
+                this.pokemons.Add(item);
+            }
         }
 
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            myConsole.setMessageBattleMenuText();
             foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.Parent as Grid))
             {
                 item.Visibility = Visibility.Visible;

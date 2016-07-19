@@ -1,12 +1,10 @@
-﻿using Pokemon.UserControls.Buttons;
-using Pokemon.UserControls.Other;
-using Pokemon.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using ClassLibraryEntity;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -16,61 +14,62 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using ClassLibraryEntity;
+using Pokemon.Utils;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace Pokemon.UserControls.Menus
 {
-    public sealed partial class CategoryObjectMenu : UserControl
+    public sealed partial class ObjectMenu : UserControl
     {
-        private ObservableCollection<ClassLibraryEntity.TypeObjet> typesObjets;
+        private ObservableCollection<ClassLibraryEntity.Objet> objets;
 
-        public ObservableCollection<TypeObjet> TypesObjets
+        public ObservableCollection<Objet> Objets
         {
             get
             {
-                return typesObjets;
+                return objets;
             }
 
             set
             {
-                typesObjets = value;
+                objets = value;
             }
         }
 
-        private ListView itemsListTypesObjets;
+        private ListView itemsListObjets;
 
-        public ListView ItemsListTypesObjets
+        public ListView ItemsListObjets
         {
             get
             {
-                return itemsListTypesObjets;
+                return itemsListObjets;
             }
 
             set
             {
-                itemsListTypesObjets = value;
+                itemsListObjets = value;
+            }
+        }
+
+
+        public ObjectMenu()
+        {
+            this.InitializeComponent();
+            this.objets = new ObservableCollection<ClassLibraryEntity.Objet>();
+            this.listObjet.ItemsSource = this.objets;
+            this.ItemsListObjets = this.listObjet;
+        }
+
+        public void LoadItems(List<ClassLibraryEntity.Objet> objets)
+        {
+            this.objets.Clear();
+            foreach (var item in objets)
+            {
+                this.objets.Add(item);
             }
         }
         
-        public CategoryObjectMenu()
-        {
-            this.InitializeComponent();
-            this.typesObjets = new ObservableCollection<TypeObjet>();
-            this.listTypeObjet.ItemsSource = this.typesObjets;
-            this.ItemsListTypesObjets = this.listTypeObjet;
-        }
-
-        public void LoadItems(List<ClassLibraryEntity.TypeObjet> typesObjets)
-        {
-            this.typesObjets.Clear();
-            foreach (var item in typesObjets)
-            {
-                this.typesObjets.Add(item);
-            }
-        }
-
         private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
             foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.Parent as Grid))
@@ -78,6 +77,6 @@ namespace Pokemon.UserControls.Menus
                 item.Visibility = Visibility.Visible;
                 Visibility = Visibility.Collapsed;
             }
-        }        
+        }
     }
 }

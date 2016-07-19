@@ -17,70 +17,24 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Other
 {
-    public sealed partial class Console : UserControl
+    public sealed partial class Console : BaseUserControl
     {
-        private String BattleMenuText           = "Choisir une action.";
+        private String displayedMessage;
 
-        private String ObjectCategoryMenuText   = "Choisir une catégorie d'objet.";        
-        private String ObjectSelectionMenuText  = "Choisir ";
-        private String ObjectText               = "Vous utilisez l'objet ";
-
-        private String PokemonSelectionMenuText = "Choisir un pokemon.";
-
-        private String AttackMenuText           = "Choisir une attaque.";
-        private String AttackText               = "Vous lancez ";
-        
-        
-        public String DisplayedText
+        public string DisplayedMessage
         {
-            get { return (String)GetValue(ConsoleTextProperty); }
-            set { SetValue(ConsoleTextProperty, value); }
+            get{ return displayedMessage; }
+            set
+            {
+                displayedMessage = value;
+                base.OnPropertyChanged("Console");
+            }
         }
-
-        public static readonly DependencyProperty ConsoleTextProperty = DependencyProperty.Register
-            (
-                "DisplayedText",
-                typeof(String),
-                typeof(Console),
-                new PropertyMetadata(null)
-            );
 
         public Console()
         {
-            this.InitializeComponent();            
-            this.console.DataContext = this;
-
-            setMessageBattleMenuText();
-        }
-
-        public void setMessageBattleMenuText()
-        {
-            DisplayedText = BattleMenuText;
-        }
-        public void setMessageObjectCategoryMenuText()
-        {
-            DisplayedText = ObjectCategoryMenuText;
-        }
-        public void setMessageObjectSelectionMenuText(String category)
-        {
-            DisplayedText = ObjectSelectionMenuText + category;
-        }
-        public void setMessagePokemonSelectionMenuText()
-        {
-            DisplayedText = PokemonSelectionMenuText;
-        }
-        public void setMessageAttackMenuText()
-        {
-            DisplayedText = AttackMenuText;
-        }
-
-        public void setMessageAttack(String attaqueName)
-        {
-            DisplayedText = AttackText + attaqueName;
-        }
-        public void setMessageObject(String objectName)
-        {
-            DisplayedText = ObjectText + objectName;
+            this.InitializeComponent();
+            this.DataContext = this;       
         }
     }
 }

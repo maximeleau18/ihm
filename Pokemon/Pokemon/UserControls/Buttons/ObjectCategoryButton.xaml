@@ -1,14 +1,15 @@
-﻿<UserControl
+﻿<base:BaseUserControl
     x:Class="Pokemon.UserControls.Buttons.ObjectCategoryButton"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:base="using:Pokemon.UserControls"
     xmlns:local="using:Pokemon.UserControls.Buttons"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
     mc:Ignorable="d">
 
-    <Grid x:Name="ucObjectCategoryButton">
-        <Button x:Name="Button" Style="{StaticResource ObjectButton}" Tapped="Button_Tapped"
+    <Grid>
+        <Button x:Name="Button" Style="{StaticResource ObjectButton}"
                 Background="#fdc00d" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PointerEntered="Button_PointerEntered" 
                 PointerExited="Button_PointerExited">
             <Grid>
@@ -17,10 +18,10 @@
                     <ColumnDefinition Width="10*"/>
                     <ColumnDefinition Width="50*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Source="{Binding ObjectPokemonPicture, Mode=TwoWay}" VerticalAlignment="Center" Height="60" HorizontalAlignment="Center" />
+                <Image Grid.Column="0" x:Name="typeObjetImage" Source="{Binding TypeObjet.Id}" VerticalAlignment="Center" Height="60" HorizontalAlignment="Center" />
 
-                <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ObjectPokemonName, Mode=TwoWay}" />
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="typeObjetNomTxtB" Text="{Binding TypeObjet.Nom}" />
             </Grid>
         </Button>
     </Grid>
-</UserControl>
+</base:BaseUserControl>

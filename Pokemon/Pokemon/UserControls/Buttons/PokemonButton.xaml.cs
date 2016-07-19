@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Pokemon.UserControls.Menus;
+using Pokemon.Utils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,60 +14,30 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ClassLibraryEntity;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace Pokemon.UserControls.Buttons
 {
-    public sealed partial class PokemonButton : UserControl
+    public sealed partial class PokemonButton : BaseUserControl
     {
-
-        public static readonly DependencyProperty PokemonNameProperty = DependencyProperty.Register
-           (
-                "PokemonName",
-                typeof(String),
-                typeof(PokemonButton),
-                new PropertyMetadata(null)
-           );
-
-        public static readonly DependencyProperty PokemonUrlPictureProperty = DependencyProperty.Register
-            (
-                "PokemonUrlPicture",
-                typeof(String),
-                typeof(PokemonButton),
-                new PropertyMetadata(null)
-            );
-
-        public static readonly DependencyProperty PokemonLevelProperty = DependencyProperty.Register
-            (
-                "PokemonLevel",
-                typeof(String),
-                typeof(PokemonButton),
-                new PropertyMetadata(null)
-            );
-
-        public String PokemonName
+        private ClassLibraryEntity.Pokemon pokemon;
+        
+        public ClassLibraryEntity.Pokemon Pokemon
         {
-            get { return (String)GetValue(PokemonNameProperty); }
-            set { SetValue(PokemonNameProperty, value); }
-        }
-
-        public String PokemonUrlPicture
-        {
-            get { return (String)GetValue(PokemonUrlPictureProperty); }
-            set { SetValue(PokemonUrlPictureProperty, value); }
-        }
-
-        public String PokemonLevel
-        {
-            get { return (String)GetValue(PokemonLevelProperty); }
-            set { SetValue(PokemonLevelProperty, "N. " + value); }
+            get{ return pokemon; }
+            set
+            {
+                pokemon = value;
+                base.OnPropertyChanged("Pokemon");
+            }
         }
 
         public PokemonButton()
         {
             this.InitializeComponent();
-            this.ucPokemonButton.DataContext = this;
+            this.DataContext = this;
         }
 
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
@@ -77,5 +49,6 @@ namespace Pokemon.UserControls.Buttons
         {
             this.Button.Style = (Style)Application.Current.Resources["PokemonButton"];
         }
+        
     }
 }

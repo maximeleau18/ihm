@@ -1,7 +1,10 @@
 ﻿using ClassLibraryEntity;
 using Pokemon.UserControls;
+using Pokemon.UserControls.Menus;
 using Pokemon.UserControls.Other;
+using Pokemon.UserControls.Views;
 using Pokemon.Utils;
+using Pokemon.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,20 +30,7 @@ namespace Pokemon.Pages.Views
     public sealed partial class BattleView : Page
     {
         private GridManager gridManager;
-
-        public BattleView()
-        {
-            this.InitializeComponent();
-            this.BattleMenu.RunawayButtonClick += new RoutedEventHandler(RunawayButton_Click);
-
-            this.BattleMenu.setConsole(ref this.Console);
-            this.AttackMenu.setConsole(ref this.Console);
-            this.PokemonMenu.setConsole(ref this.Console);
-            this.ObjectCategoryMenu.setConsole(ref this.Console);      
-        }
-        
-
-        internal GridManager GridManager
+        public GridManager GridManager
         {
             get
             {
@@ -52,26 +42,34 @@ namespace Pokemon.Pages.Views
                 gridManager = value;
             }
         }
+        private BattleViewModel battleViewModel;
+        public BattleMenu BattleMenu { get; set; }
+        public AttackMenu AttackMenu { get; set; }
+        public PokemonSelectionMenu PokemonSelectionMenu { get; set; }
+        public CategoryObjectMenu CategoryObjectMenu { get; set; }
+        public ObjectMenu ObjectMenu { get; set; }
+        public PokemonBattleDisplayOpponent OpponentView { get; set; }        
+        public PokemonBattleDisplayPlayer PlayerView { get; set; }
+
+        public BattleView()
+        {
+            this.InitializeComponent();
+
+            this.BattleMenu = this.battleMenu;
+            this.AttackMenu = this.attackMenu;
+            this.PokemonSelectionMenu = this.pokemonSelectionMenu;
+            this.CategoryObjectMenu = this.categoryObjectMenu;
+            this.ObjectMenu = this.objectMenu;
+            this.OpponentView = this.opponentView;
+            this.PlayerView = this.playerView;
+
+            this.battleViewModel = new BattleViewModel(this); 
+        }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             this.GridManager = (GridManager)e.Parameter;
         }
-
-        public void CreateNeededObjectsTemporary()
-        {
-            //TypePokemon typePokemon = new TypePokemon("Eau");
-            //ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "C'est un pokemon eau", "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemon);
-
-            //this.GridManager.Player.Team.Add(kaiminus);
-        }
-        
-        private void RunawayButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.GridManager.Player.PosY++;
-            (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
-        }
-
     }
 }

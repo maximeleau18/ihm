@@ -23,12 +23,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!--<uControl:PokemonButton x:Name="ucPokemon01" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"></uControl:PokemonButton>
-            <uControl:PokemonButton x:Name="ucPokemon02" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></uControl:PokemonButton>
-            <uControl:PokemonButton x:Name="ucPokemon03" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"></uControl:PokemonButton>
-            <uControl:PokemonButton x:Name="ucPokemon04" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"></uControl:PokemonButton>-->
             <ScrollViewer Grid.RowSpan="4" Grid.ColumnSpan="3">
-                <ListView x:Name="ListPokemon">
+                <ListView x:Name="listPokemon">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -36,7 +32,7 @@
                 </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                            <uControl:PokemonButton PokemonName="{Binding Name}" PokemonUrlPicture="{Binding UrlPicture}" PokemonLevel="{Binding Level}" />
+                            <uControl:PokemonButton />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

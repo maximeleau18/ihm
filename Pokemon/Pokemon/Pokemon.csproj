@@ -107,6 +107,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\overlay\EngagementPageOverlay.cs" />
+    <Compile Include="UserControls\Base\BaseUserControl.cs" />
+    <Compile Include="UserControls\Menus\ObjectMenu.xaml.cs">
+      <DependentUpon>ObjectMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\GridManager.cs" />
     <Compile Include="Pages\Views\BattleView.xaml.cs">
       <DependentUpon>BattleView.xaml</DependentUpon>
@@ -176,6 +180,7 @@
       <DependentUpon>PokemonSelectionMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Helper.cs" />
+    <Compile Include="ViewModels\BattleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -1511,6 +1516,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Menus\CategoryObjectMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Menus\ObjectMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

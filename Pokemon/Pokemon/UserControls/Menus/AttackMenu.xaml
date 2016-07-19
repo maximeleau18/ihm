@@ -22,32 +22,13 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
-            <!--<ItemsControl x:Name="Attacks" Grid.RowSpan="4" Grid.ColumnSpan="3">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                        </Grid>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <uControl:AttackButton AttackName="{Binding Name}" TypeAttackName="{Binding Type.Name}"></uControl:AttackButton>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>-->
+            
             <uControl:AttackButton x:Name="ucAttack01" Grid.Row="0" Grid.ColumnSpan="3"></uControl:AttackButton>
             <uControl:AttackButton x:Name="ucAttack02" Grid.Row="1" Grid.ColumnSpan="3"></uControl:AttackButton>
             <uControl:AttackButton x:Name="ucAttack03" Grid.Row="2" Grid.ColumnSpan="3"></uControl:AttackButton>
             <uControl:AttackButton x:Name="ucAttack04" Grid.Row="3" Grid.ColumnSpan="3"></uControl:AttackButton>
             
-            <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" ></uControl:BackButton >
+            <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" ></uControl:BackButton>
         </Grid>
     </Grid>
 </UserControl>

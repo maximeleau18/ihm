@@ -1,4 +1,6 @@
-﻿using Pokemon.UserControls.Other;
+﻿using ClassLibraryEntity;
+using Pokemon.UserControls;
+using Pokemon.UserControls.Other;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,46 +20,24 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Buttons
 {
-    public sealed partial class AttackButton : UserControl
+    public sealed partial class AttackButton : BaseUserControl
     {
-        private Console myConsole;
+        private Attaque attaque;
 
-        public static readonly DependencyProperty AttackNameProperty = DependencyProperty.Register
-           (
-                "AttackName",
-                typeof(String),
-                typeof(AttackButton),
-                new PropertyMetadata(null)
-           );
-
-        public static readonly DependencyProperty TypeAttackProperty = DependencyProperty.Register
-            (
-                "TypeAttackName",
-                typeof(String),
-                typeof(AttackButton),
-                new PropertyMetadata(null)
-            );
-        public void setConsole(ref Console console)
+        public Attaque Attaque
         {
-            myConsole = console;
-        }
-
-        public String AttackName
-        {
-            get { return (String)GetValue(AttackNameProperty); }
-            set { SetValue(AttackNameProperty, value); }
-        }
-
-        public String TypeAttackName
-        {
-            get { return (String)GetValue(TypeAttackProperty); }
-            set { SetValue(TypeAttackProperty, value); }
+            get { return attaque; }
+            set
+            {
+                attaque = value;
+                base.OnPropertyChanged("Attaque");
+            }
         }
 
         public AttackButton()
         {
             this.InitializeComponent();
-            this.ucAttackButton.DataContext = this;
+            this.DataContext = this;
         }
 
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
@@ -68,11 +48,6 @@ namespace Pokemon.UserControls.Buttons
         private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             this.Button.Style = (Style)Application.Current.Resources["AttackButton"];
-        }
-
-        private void Attack_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            myConsole.setMessageAttack(AttackName);
-        }
+        }        
     }
 }

@@ -14,20 +14,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60*"/>
             <ColumnDefinition Width="40*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" x:Name="playerName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" >
-        	<Run Text="Kaiminus"/>
-        </TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="1" x:Name="playerLevel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" >
-        	<Run Text="N.6"/>
-        </TextBlock>
-        <ProgressBar Grid.Column="0" Grid.Row="2" x:Name="playerLifeBar" Background="Green" MinHeight="20" />
-        <ProgressBar Grid.Column="0" Grid.Row="3" x:Name="playerXpBar" Background="Blue" MinHeight="20" />
-        <Image Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Source="ms-appx:///Images/Pokemons/kaiminus.png"/>
+        <TextBlock Grid.Column="1" Grid.Row="0" x:Name="playerName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" Text="Kaiminus" />
+        <TextBlock Grid.Column="1" Grid.Row="1" x:Name="playerLevel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" Text="N.6" />
+        <ProgressBar Grid.Column="1" Grid.Row="2" x:Name="playerLifeBar" Background="Green" MinHeight="20" />
+        <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Source="ms-appx:///Images/Pokemons/kaiminus.png"/>
     </Grid>
 </UserControl>
