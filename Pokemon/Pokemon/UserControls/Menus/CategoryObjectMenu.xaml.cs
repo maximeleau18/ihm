@@ -40,7 +40,7 @@ namespace Pokemon.UserControls.Menus
         }
 
         private ListView itemsListTypesObjets;
-
+        
         public ListView ItemsListTypesObjets
         {
             get

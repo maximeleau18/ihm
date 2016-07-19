@@ -16,6 +16,7 @@ namespace Pokemon.ViewModels
     {
         private BattleView battleView;
         private PersonnageNonJoueur personnageNonJoueur;
+        private PersonnageNonJoueur opponentPersonnageNonJoueur;
         private GridManager gridManager;
 
         public BattleView BattleView
@@ -42,6 +43,18 @@ namespace Pokemon.ViewModels
                 personnageNonJoueur = value;
             }
         }
+        public PersonnageNonJoueur OpponentPersonnageNonJoueur
+        {
+            get
+            {
+                return opponentPersonnageNonJoueur;
+            }
+
+            set
+            {
+                opponentPersonnageNonJoueur = value;
+            }
+        }
         public GridManager GridManager
         {
             get
@@ -60,11 +73,45 @@ namespace Pokemon.ViewModels
             this.BattleView = battleView;
             this.GridManager = this.BattleView.GridManager;
             this.Init();
-            this.Bind();
         }
 
         public void Init()
         {
+            // Generate utils objects
+            Profession profession = new Profession(1, "Champion");
+            TypeAttaque typeAttaqueEau = new TypeAttaque(1, "Eau");
+            TypeAttaque typeAttaqueFeu = new TypeAttaque(2, "Feu");
+            TypeAttaque typeAttaqueTerre = new TypeAttaque(3, "Terre");
+            TypeAttaque typeAttaqueAir = new TypeAttaque(4, "Air");
+            // Generate Opponent
+            TypeDePokemon typeDePokemonPikachu = new TypeDePokemon(1, "Pikachu", 25, 18, 100, 1);
+            Attaque attaquePikachu1 = new Attaque(1, "Attaque1Eau", 1, 25, typeAttaqueEau);
+            Attaque attaquePikachu2 = new Attaque(2, "Attaque2Feu", 1, 18, typeAttaqueFeu);
+            Attaque attaquePikachu3 = new Attaque(3, "Attaque3Terre", 1, 15, typeAttaqueTerre);
+            Attaque attaquePikachu4 = new Attaque(4, "Attaque4Air", 1, 16, typeAttaqueAir);
+            this.OpponentPersonnageNonJoueur = new PersonnageNonJoueur(1, "MechantMonsieur", "Méchant Descrip", profession);
+            ClassLibraryEntity.Pokemon pokemonOpponent = new ClassLibraryEntity.Pokemon(1, "Pikapika", 5, DateTime.Now, typeDePokemonPikachu, this.OpponentPersonnageNonJoueur, attaquePikachu1, attaquePikachu2, attaquePikachu3, attaquePikachu4);
+            // Generate Player
+            TypeDePokemon typeDePokemonBulbi = new TypeDePokemon(1, "Bulbizar", 25, 18, 100, 1);
+            Attaque attaqueBulbi1 = new Attaque(5, "Attaque5Terre", 1, 25, typeAttaqueTerre);
+            Attaque attaqueBulbi2 = new Attaque(6, "Attaque6Feu", 1, 18, typeAttaqueFeu);
+            Attaque attaqueBulbi3 = new Attaque(7, "Attaque7Eau", 1, 15, typeAttaqueEau);
+            Attaque attaqueBulbi4 = new Attaque(8, "Attaque8Air", 1, 16, typeAttaqueAir);
+            this.PersonnageNonJoueur = new PersonnageNonJoueur(2, "GentilMonsieur", "Gentil Descrip", profession);
+            ClassLibraryEntity.Pokemon pokemonPlayer = new ClassLibraryEntity.Pokemon(2, "Bulibi", 7, DateTime.Now, typeDePokemonBulbi, this.PersonnageNonJoueur, attaqueBulbi1, attaqueBulbi2, attaqueBulbi3, attaqueBulbi4);
+            List<ClassLibraryEntity.Pokemon> listPokemonPlayer = new List<ClassLibraryEntity.Pokemon>();
+            listPokemonPlayer.Add(pokemonPlayer);
+            TypeObjet typeObjetPokeball = new TypeObjet(1, "Pokéballs");
+            TypeObjet typeObjetCombat = new TypeObjet(2, "Combat");
+            List<TypeObjet> listTypeObjetPlayer = new List<TypeObjet>();
+            listTypeObjetPlayer.Add(typeObjetPokeball);
+            listTypeObjetPlayer.Add(typeObjetCombat);
+
+            this.BattleView.PokemonSelectionMenu.LoadItems(listPokemonPlayer);
+            this.BattleView.CategoryObjectMenu.LoadItems(listTypeObjetPlayer);
+            
+            this.Bind();
+
             // Get pokemons of pnj from API
             //this.BattleView.PokemonSelectionMenu.LoadItems(myPokemons);
             // Get types objets of pnj from API
@@ -74,17 +121,19 @@ namespace Pokemon.ViewModels
 
         public void Bind()
         {
-            this.BattleView.PokemonSelectionMenu.ItemsListPokemons.SelectionChanged += this.ItemListPokemons_SelectionChanged;
-            this.BattleView.CategoryObjectMenu.ItemsListTypesObjets.SelectionChanged += this.ItemListTypesObjets_SelectionChanged;
-            this.BattleView.BattleMenu.RunawayButtonTapped += this.RunawayButton_Tapped;
+            this.BattleView.BattleMenu.ButtonPokemon.Tapped += this.PokemonButton_Tapped;
+            this.BattleView.BattleMenu.ButtonTypeObjet.Tapped += TypeObjetButton_Tapped;
+            this.BattleView.PokemonSelectionMenu.ItemsListPokemons.SelectionChanged += ItemsListPokemons_SelectionChanged;
+            this.BattleView.CategoryObjectMenu.ItemsListTypesObjets.SelectionChanged += ItemsListTypesObjets_SelectionChanged;
+            this.BattleView.BattleMenu.ButtonRunaway.Tapped += this.RunawayButton_Tapped;
         }
 
-        private void ItemListPokemons_SelectionChanged(object sender, Windows.UI.Xaml.Controls.SelectionChangedEventArgs e)
+        private void ItemsListPokemons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.BattleView.Parent as Grid))
+            foreach (AttackMenu item in Helper.FindVisualChildren<AttackMenu>(this.BattleView.GridBattleView as Grid))
             {
                 item.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                item.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                //item.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             }
             ClassLibraryEntity.Pokemon selectedPokemon = e.AddedItems[0] as ClassLibraryEntity.Pokemon;
             this.BattleView.AttackMenu.AttackButton1.Attaque = selectedPokemon.Attaque1;
@@ -93,22 +142,39 @@ namespace Pokemon.ViewModels
             this.BattleView.AttackMenu.AttackButton4.Attaque = selectedPokemon.Attaque4;
         }
 
-        private void ItemListTypesObjets_SelectionChanged(object sender, Windows.UI.Xaml.Controls.SelectionChangedEventArgs e)
+        private void ItemsListTypesObjets_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.BattleView.Parent as Grid))
+            foreach (ObjectMenu item in Helper.FindVisualChildren<ObjectMenu>(this.BattleView.GridBattleView as Grid))
             {
                 item.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                item.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                //item.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             }
             ClassLibraryEntity.TypeObjet selectedTypeObjet = e.AddedItems[0] as ClassLibraryEntity.TypeObjet;
             // Get objets of type objet of pnj from API
             //this.BattleView.ObjectMenu.LoadItems(myObjets);
         }
-
+                
         private void RunawayButton_Tapped(object sender, RoutedEventArgs e)
         {
             this.GridManager.Player.PosY++;
             (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
+        }
+
+
+        private void PokemonButton_Tapped(object sender, RoutedEventArgs e)
+        {
+            foreach (PokemonSelectionMenu item in Helper.FindVisualChildren<PokemonSelectionMenu>(this.BattleView.GridBattleView as Grid))
+            {
+                item.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+        }
+
+        private void TypeObjetButton_Tapped(object sender, RoutedEventArgs e)
+        {
+            foreach (CategoryObjectMenu item in Helper.FindVisualChildren<CategoryObjectMenu>(this.BattleView.GridBattleView as Grid))
+            {
+                item.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
         }
     }
 }

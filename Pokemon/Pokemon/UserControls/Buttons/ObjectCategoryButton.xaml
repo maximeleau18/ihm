@@ -18,9 +18,9 @@
                     <ColumnDefinition Width="10*"/>
                     <ColumnDefinition Width="50*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" x:Name="typeObjetImage" Source="{Binding TypeObjet.Id}" VerticalAlignment="Center" Height="60" HorizontalAlignment="Center" />
+                <Image Grid.Column="0" x:Name="typeObjetImage" Source="{Binding Id}" VerticalAlignment="Center" Height="60" HorizontalAlignment="Center" />
 
-                <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="typeObjetNomTxtB" Text="{Binding TypeObjet.Nom}" />
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="typeObjetNomTxtB" Text="{Binding Nom}" />
             </Grid>
         </Button>
     </Grid>

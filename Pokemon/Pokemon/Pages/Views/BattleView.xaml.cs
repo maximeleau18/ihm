@@ -42,6 +42,19 @@ namespace Pokemon.Pages.Views
                 gridManager = value;
             }
         }
+        private Grid gridBattleView;
+        public Grid GridBattleView
+        {
+            get
+            {
+                return gridBattleView;
+            }
+
+            set
+            {
+                gridBattleView = value;
+            }
+        }
         private BattleViewModel battleViewModel;
         public BattleMenu BattleMenu { get; set; }
         public AttackMenu AttackMenu { get; set; }
@@ -50,6 +63,7 @@ namespace Pokemon.Pages.Views
         public ObjectMenu ObjectMenu { get; set; }
         public PokemonBattleDisplayOpponent OpponentView { get; set; }        
         public PokemonBattleDisplayPlayer PlayerView { get; set; }
+
 
         public BattleView()
         {
@@ -62,6 +76,7 @@ namespace Pokemon.Pages.Views
             this.ObjectMenu = this.objectMenu;
             this.OpponentView = this.opponentView;
             this.PlayerView = this.playerView;
+            this.GridBattleView = this.mainGridBattleView;
 
             this.battleViewModel = new BattleViewModel(this); 
         }
@@ -70,6 +85,7 @@ namespace Pokemon.Pages.Views
         {
             base.OnNavigatedTo(e);
             this.GridManager = (GridManager)e.Parameter;
+            this.battleViewModel.GridManager = this.GridManager;
         }
     }
 }

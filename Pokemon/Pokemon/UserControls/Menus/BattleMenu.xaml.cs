@@ -23,50 +23,86 @@ namespace Pokemon.UserControls.Menus
 {
     public sealed partial class BattleMenu : UserControl
     {
-        public RoutedEventHandler RunawayButtonTapped;
-        
+        private Button buttonPokemon;
+        private Button buttonTypeObjet;
+        private Button buttonRunaway;
+
+        public Button ButtonPokemon
+        {
+            get
+            {
+                return buttonPokemon;
+            }
+
+            set
+            {
+                buttonPokemon = value;
+            }
+        }
+
+        public Button ButtonTypeObjet
+        {
+            get
+            {
+                return buttonTypeObjet;
+            }
+
+            set
+            {
+                buttonTypeObjet = value;
+            }
+        }
+
+        public Button ButtonRunaway
+        {
+            get
+            {
+                return buttonRunaway;
+            }
+
+            set
+            {
+                buttonRunaway = value;
+            }
+        }
+
         public BattleMenu()
         {
             this.InitializeComponent();
+            this.ButtonPokemon = this.pokemonButton;
+            this.ButtonTypeObjet = this.objectTypeButton;
+            this.ButtonRunaway = this.runawayButton;
             this.DataContext = this;
         }
 
         private void PokemonButton_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            this.PokemonButton.Style = (Style)Application.Current.Resources["PokemonButton"];
+            this.pokemonButton.Style = (Style)Application.Current.Resources["PokemonButton"];
         }
 
         private void PokemonButton_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.PokemonButton.Style = (Style)Application.Current.Resources["PokemonButtonSelected"];
+            this.pokemonButton.Style = (Style)Application.Current.Resources["PokemonButtonSelected"];
         }
 
-        private void ObjectButton_PointerExited(object sender, PointerRoutedEventArgs e)
+        private void ObjectTypeButton_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            this.ObjectButton.Style = (Style)Application.Current.Resources["ObjectButton"];
+            this.objectTypeButton.Style = (Style)Application.Current.Resources["ObjectButton"];
         }
 
-        private void ObjectButton_PointerEntered(object sender, PointerRoutedEventArgs e)
+        private void ObjectTypeButton_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.ObjectButton.Style = (Style)Application.Current.Resources["ObjectButtonSelected"];
+            this.objectTypeButton.Style = (Style)Application.Current.Resources["ObjectButtonSelected"];
         }
 
         private void RunawayButton_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            this.RunawayButton.Style = (Style)Application.Current.Resources["RunawayButton"];
+            this.runawayButton.Style = (Style)Application.Current.Resources["RunawayButton"];
         }
 
         private void RunawayButton_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            this.RunawayButton.Style = (Style)Application.Current.Resources["RunawayButtonSelected"];
-        }
-        
-        private void RunawayButton_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            if (RunawayButtonTapped != null)
-            {
-                RunawayButtonTapped(this, e);
-            }
+            this.runawayButton.Style = (Style)Application.Current.Resources["RunawayButtonSelected"];
         }
     }
 }

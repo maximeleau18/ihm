@@ -36,7 +36,7 @@ namespace Pokemon.UserControls.Buttons
         public ObjectCategoryButton()
         {
             this.InitializeComponent();
-            this.DataContext = this;
+            //this.DataContext = this;
         }
 
 

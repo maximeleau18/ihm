@@ -37,7 +37,7 @@ namespace Pokemon.UserControls.Buttons
         public PokemonButton()
         {
             this.InitializeComponent();
-            this.DataContext = this;
+            //this.DataContext = this;
         }
 
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
