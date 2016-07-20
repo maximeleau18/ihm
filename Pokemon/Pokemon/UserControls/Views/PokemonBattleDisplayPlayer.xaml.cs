@@ -17,11 +17,39 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Views
 {
-    public sealed partial class PokemonBattleDisplayPlayer : UserControl
-    {
+    public sealed partial class PokemonBattleDisplayPlayer : BaseUserControl
+    {        
+        private int actualPv;
+
+        public int ActualPv
+        {
+            get
+            {
+                return actualPv;
+            }
+            set
+            {
+                actualPv = value;
+                base.OnPropertyChanged("ActualPv");
+            }
+        }
+
+        private ClassLibraryEntity.Pokemon pokemon;
+
+        public ClassLibraryEntity.Pokemon Pokemon
+        {
+            get { return pokemon; }
+            set
+            {
+                pokemon = value;
+                base.OnPropertyChanged("Pokemon");
+            }
+        }
+
         public PokemonBattleDisplayPlayer()
         {
             this.InitializeComponent();
+            this.DataContext = this;
         }
     }
 }

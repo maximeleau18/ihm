@@ -28,11 +28,51 @@
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="BorderBrush" Value="#ffffff" />
+                            <Setter Property="BorderThickness" Value="2" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Background" Value="#CC9C0A" />
                         </Style>
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <uControl:ObjectButton />
+                            <Grid Margin="6,6,6,6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Row="0" Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="10*"/>
+                                        <RowDefinition Height="80*"/>
+                                        <RowDefinition Height="10*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10*"/>
+                                        <ColumnDefinition Width="80*"/>
+                                        <ColumnDefinition Width="10*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Row="1" Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Grid.Column="0" x:Name="objetImage" Source="{Binding Id}" Height="60" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+
+                                        <TextBlock Grid.Row="0" Grid.Column="1" x:Name="objetNomTxtB" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Nom}" />
+                                        <TextBlock Grid.Row="1" Grid.Column="1" x:Name="objetQuantiteTxtB" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Quantite}" />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

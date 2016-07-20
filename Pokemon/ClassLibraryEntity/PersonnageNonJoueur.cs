@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite.Net.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace ClassLibraryEntity
         private String nom;
         private String description;
         private Profession profession;
+        private int professionId;
 
         public PersonnageNonJoueur() { }
 
@@ -23,6 +25,8 @@ namespace ClassLibraryEntity
             this.Profession = profession;
         }
 
+        [PrimaryKey, AutoIncrement]
+        [Column("id")]
         public int Id
         {
             get
@@ -36,6 +40,7 @@ namespace ClassLibraryEntity
             }
         }
 
+        [Column("nom")]
         public string Nom
         {
             get
@@ -49,6 +54,7 @@ namespace ClassLibraryEntity
             }
         }
 
+        [Column("description")]
         public string Description
         {
             get
@@ -62,6 +68,7 @@ namespace ClassLibraryEntity
             }
         }
 
+        [Ignore]
         public Profession Profession
         {
             get
@@ -73,6 +80,24 @@ namespace ClassLibraryEntity
             {
                 profession = value;
             }
+        }
+        [Column("profession_id")]
+        public int ProfessionId
+        {
+            get
+            {
+                return professionId;
+            }
+
+            set
+            {
+                professionId = value;
+            }
+        }
+
+        public override string ToString()
+        {
+            return this.Id.ToString();
         }
     }
 }

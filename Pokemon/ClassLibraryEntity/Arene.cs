@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ClassLibraryEntity
 {
     public class Arene : EntityBase
-    {
+    {       
         private int id;
         private String nom;
         private Position position;
@@ -24,7 +24,7 @@ namespace ClassLibraryEntity
             this.badge = badge;
             this.maitre = maitre;
         }
-
+        
         public int Id
         {
             get

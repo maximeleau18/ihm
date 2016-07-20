@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure.Engagement.Overlay;
+﻿using ClassLibraryEntity;
+using Microsoft.Azure.Engagement.Overlay;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,5 +33,22 @@ namespace Pokemon.Pages.Views
         {
             (Window.Current.Content as Frame).Navigate(typeof(StartMenuPageView));
         }
+
+        //private void InitializeDb()
+        //{
+        //    SQLiteManager<Profession> managerProfession = new SQLiteManager<Profession>();
+        //    Profession professionChampion = new Profession();
+        //    professionChampion.Nom = "Champion";
+        //    managerProfession.Insert(professionChampion);
+
+        //    SQLiteManager<PersonnageNonJoueur> managerPnj = new SQLiteManager<PersonnageNonJoueur>();
+        //    PersonnageNonJoueur pnj = new PersonnageNonJoueur();
+        //    pnj.Id = 8000;
+        //    pnj.Nom = "Sacha2";
+        //    pnj.Description = "J'aime les pokémons2";
+        //    pnj.ProfessionId = managerProfession.Get(professionChampion).Id;
+        //    managerPnj.Insert(pnj);
+
+        //}
     }
 }

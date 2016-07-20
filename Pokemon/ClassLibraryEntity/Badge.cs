@@ -18,7 +18,7 @@ namespace ClassLibraryEntity
             this.Id = id;
             this.Nom = nom;
         }
-
+        
         public int Id
         {
             get
@@ -31,7 +31,7 @@ namespace ClassLibraryEntity
                 id = value;
             }
         }
-
+        
         public string Nom
         {
             get

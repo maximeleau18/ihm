@@ -24,18 +24,50 @@
             </Grid.ColumnDefinitions>
 
             <ScrollViewer Grid.RowSpan="4" Grid.ColumnSpan="3">
-                <ListView x:Name="listPokemon">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                            <uControl:PokemonButton />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                <ListView x:Name="listPokemon" IsItemClickEnabled="true">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="BorderBrush" Value="#ffffff" />
+                            <Setter Property="BorderThickness" Value="2" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Background" Value="#662200" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="6,6,6,6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Row="0" Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="6*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" x:Name="pokemonImage" Source="{Binding TypeDePokemon.NumPokedex}" />
+
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Margin="6,6,6,6" x:Name="pokemonSurnomTxtB" Text="{Binding Surnom}" />
+
+                                    <TextBlock Grid.Row="0" Grid.Column="2" Margin="6,6,6,6" x:Name="pokemonNiveauTxtB" Text="{Binding Niveau}" />
+
+                                    <ProgressBar Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="pokemonPvPB" Background="Green" Value="{Binding TypeDePokemon.Pv}" Maximum="{Binding TypeDePokemon.Pv}" IsIndeterminate="False"></ProgressBar>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </ScrollViewer>
 
             <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" />
