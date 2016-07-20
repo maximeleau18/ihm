@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity;
+using Microsoft.Azure.Engagement.Overlay;
 using Pokemon.Utils;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Pokemon.Pages.Views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class MapView : Page
+    public sealed partial class MapView : EngagementPageOverlay
     {
         private Player player;
         private GridManager gridManager;
@@ -59,7 +60,7 @@ namespace Pokemon.Pages.Views
             this.InitializeComponent();
 
             // On abonne la grid à l'évènement afin de bouger notre personnage
-            this.Loaded += Page_Loaded;
+            base.Loaded += Page_Loaded;
             this.Unloaded += Page_Unloaded;
         }
 

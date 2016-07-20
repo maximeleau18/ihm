@@ -4,6 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -69,12 +70,12 @@ namespace Microsoft.Azure.Engagement.Overlay
       // Add webviews to the container but leave the first index to the page's content.
       Container.Children.Insert(1, Banner);
       Container.Children.Insert(2, Interstitial);
-    }
+    }        
 
-    /// <summary>
-    /// Gets the <see cref="WebView"/> element hosting the in-app banner (notifications).
-    /// </summary>
-    protected WebView Banner
+        /// <summary>
+        /// Gets the <see cref="WebView"/> element hosting the in-app banner (notifications).
+        /// </summary>
+        protected WebView Banner
     {
       get;
       private set;
