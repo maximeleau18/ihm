@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity;
+using Microsoft.Azure.Engagement;
 using Microsoft.Azure.Engagement.Overlay;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace Pokemon.Pages.Views
         public MainPageView()
         {
             this.InitializeComponent();
+            //String deviceId = EngagementAgent.Instance.GetDeviceId();
         }
 
         private void Image_Tapped(object sender, TappedRoutedEventArgs e)

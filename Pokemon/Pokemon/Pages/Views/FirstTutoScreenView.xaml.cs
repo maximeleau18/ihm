@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Azure.Engagement;
+using Microsoft.Azure.Engagement.Overlay;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -21,37 +23,43 @@ namespace Pokemon.Pages.Views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class FirstTutoScreenView : Page
+    public sealed partial class FirstTutoScreenView : EngagementPageOverlay
     {
         public String displayedText = "";
         private int lineWidth = 300;
 
-        public String DisplayedText
-        {
-            get { return (String)GetValue(Tuto1TextProperty); }
-            set { SetValue(Tuto1TextProperty, value); }
-        }
+        //public String DisplayedText
+        //{
+        //    get { return (String)GetValue(Tuto1TextProperty); }
+        //    set { SetValue(Tuto1TextProperty, value); }
+        //}
 
-        public static readonly DependencyProperty Tuto1TextProperty = DependencyProperty.Register
-            (
-                "DisplayedText",
-                typeof(String),
-                typeof(FirstTutoScreenView),
-                new PropertyMetadata(null)
-            );
+        //public static readonly DependencyProperty Tuto1TextProperty = DependencyProperty.Register
+        //    (
+        //        "DisplayedText",
+        //        typeof(String),
+        //        typeof(FirstTutoScreenView),
+        //        new PropertyMetadata(null)
+        //    );
 
         public FirstTutoScreenView()
         {         
             this.InitializeComponent();
-            this.TutoMsg1.DataContext = this;
+            //this.TutoMsg1.DataContext = this;
 
-            TutoMsg1.MaxWidth = lineWidth;
+            //TutoMsg1.MaxWidth = lineWidth;
 
-            DisplayedText = "Je vais tout d'abord t'apprendre les choses importantes concernant ce jeu.";
-            DisplayedText += " Touche le sujet que tu veux voir en détail sur la partie droite de l'écran.";
+            //DisplayedText = "Je vais tout d'abord t'apprendre les choses importantes concernant ce jeu.";
+            //DisplayedText += " Touche le sujet que tu veux voir en détail sur la partie droite de l'écran.";
 
         }
-        
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            EngagementAgent.Instance.StartActivity("PageStart");
+            base.OnNavigatedTo(e);
+        }
+
         private void btnCommand_Tapped(object sender, TappedRoutedEventArgs e)
         {
             (Window.Current.Content as Frame).Navigate(typeof(SecondTutoScreenView));
@@ -82,9 +90,5 @@ namespace Pokemon.Pages.Views
             this.btnCommand.Style = (Style)Application.Current.Resources["ButtonParams"];
         }
 
-        private void FirstTuto_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-           
-        }
     }
 }
