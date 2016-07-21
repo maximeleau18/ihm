@@ -32,7 +32,7 @@ namespace ClassLibraryEntity
             }
         }
 
-        public string Nom
+        public String Nom
         {
             get
             {

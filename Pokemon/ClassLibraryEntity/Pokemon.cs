@@ -48,7 +48,7 @@ namespace ClassLibraryEntity
             }
         }
 
-        public string Surnom
+        public String Surnom
         {
             get
             {

@@ -40,7 +40,7 @@ namespace ClassLibraryEntity
             }
         }
 
-        public string Nom
+        public String Nom
         {
             get
             {
@@ -53,7 +53,7 @@ namespace ClassLibraryEntity
             }
         }
 
-        public string Prenom
+        public String Prenom
         {
             get
             {
@@ -66,7 +66,7 @@ namespace ClassLibraryEntity
             }
         }
 
-        public string Login
+        public String Login
         {
             get
             {
@@ -79,7 +79,7 @@ namespace ClassLibraryEntity
             }
         }
 
-        public string Password
+        public String Password
         {
             get
             {

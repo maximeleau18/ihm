@@ -14,6 +14,7 @@ namespace ClassLibraryEntity
         private int defense;
         private int pv;
         private int numPokedex;
+        private String urlImage;
 
         public TypeDePokemon() { }
 
@@ -40,7 +41,7 @@ namespace ClassLibraryEntity
             }
         }
 
-        public string Nom
+        public String Nom
         {
             get
             {
@@ -102,6 +103,19 @@ namespace ClassLibraryEntity
             set
             {
                 numPokedex = value;
+            }
+        }
+
+        public String UrlImage
+        {
+            get
+            {
+                return urlImage;
+            }
+
+            set
+            {
+                urlImage = "pokemon_back_" + this.NumPokedex.ToString() + ";pokemon_front_" + this.NumPokedex.ToString();
             }
         }
     }

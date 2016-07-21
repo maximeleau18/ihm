@@ -14,6 +14,7 @@ namespace ClassLibraryEntity
         private String description;
         private Profession profession;
         private int professionId;
+        private String urlImage;
 
         public PersonnageNonJoueur() { }
 
@@ -41,7 +42,7 @@ namespace ClassLibraryEntity
         }
 
         [Column("nom")]
-        public string Nom
+        public String Nom
         {
             get
             {
@@ -55,7 +56,7 @@ namespace ClassLibraryEntity
         }
 
         [Column("description")]
-        public string Description
+        public String Description
         {
             get
             {
@@ -81,6 +82,20 @@ namespace ClassLibraryEntity
                 profession = value;
             }
         }
+        
+        public String UrlImage
+        {
+            get
+            {
+                return urlImage;
+            }
+
+            set
+            {
+                urlImage = value;
+            }
+        }
+
         [Column("profession_id")]
         public int ProfessionId
         {

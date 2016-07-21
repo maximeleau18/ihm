@@ -10,6 +10,7 @@ namespace ClassLibraryEntity
     {
         private int id;
         private String nom;
+        private String urlImage;
 
         public TypeObjet() { }
         
@@ -32,7 +33,7 @@ namespace ClassLibraryEntity
             }
         }
 
-        public string Nom
+        public String Nom
         {
             get
             {
@@ -42,6 +43,19 @@ namespace ClassLibraryEntity
             set
             {
                 nom = value;
+            }
+        }
+
+        public String UrlImage
+        {
+            get
+            {
+                return urlImage;
+            }
+
+            set
+            {
+                urlImage = value;
             }
         }
 

@@ -36,7 +36,7 @@ namespace ClassLibraryEntity
         }
 
         [Column("nom")]
-        public string Nom
+        public String Nom
         {
             get
             {

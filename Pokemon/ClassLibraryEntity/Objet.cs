@@ -13,6 +13,7 @@ namespace ClassLibraryEntity
         private int quantite;
         private TypeObjet typeObjet;
         private PersonnageNonJoueur personnageNonJoueur;
+        private String urlImage;
 
         public Objet() { }
 
@@ -38,7 +39,7 @@ namespace ClassLibraryEntity
             }
         }
 
-        public string Nom
+        public String Nom
         {
             get
             {
@@ -87,6 +88,19 @@ namespace ClassLibraryEntity
             set
             {
                 personnageNonJoueur = value;
+            }
+        }
+
+        public String UrlImage
+        {
+            get
+            {
+                return urlImage;
+            }
+
+            set
+            {
+                urlImage = value;
             }
         }
     }
