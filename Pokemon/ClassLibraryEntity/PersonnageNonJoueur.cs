@@ -110,6 +110,15 @@ namespace ClassLibraryEntity
             }
         }
 
+        public List<Pokemon> Pokemons { get; set; }
+
+        public List<Objet> Objets { get; set; }
+
+        public String UrlImagePNJ
+        {
+            get { return "ms-appx:///Images/PNJ/" + this.Nom + ".png"; }
+        }
+
         public override string ToString()
         {
             return this.Id.ToString();

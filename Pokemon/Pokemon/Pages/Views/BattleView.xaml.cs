@@ -2,7 +2,7 @@
 using Pokemon.UserControls;
 using Pokemon.UserControls.Menus;
 using Pokemon.UserControls.Other;
-using Pokemon.UserControls.Views;
+using Pokemon.UserControls.Fight;
 using Pokemon.Utils;
 using Pokemon.ViewModels;
 using System;

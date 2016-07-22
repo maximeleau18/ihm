@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:UCMenus="using:Pokemon.UserControls.Menus"
-    xmlns:UCViews="using:Pokemon.UserControls.Views"
+    xmlns:UCViews="using:Pokemon.UserControls.Fight"
     xmlns:UCOther="using:Pokemon.UserControls.Other">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

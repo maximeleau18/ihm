@@ -95,6 +95,316 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Images\PNJ\Auguste.png" />
+    <Content Include="Images\PNJ\Giovanni.png" />
+    <Content Include="Images\PNJ\Koga.png" />
+    <Content Include="Images\PNJ\Major Bob.png" />
+    <Content Include="Images\PNJ\Morgane.png" />
+    <Content Include="Images\PNJ\Ondine.png" />
+    <Content Include="Images\PNJ\Pierre.png" />
+    <Content Include="Images\PNJ\Érika.png" />
+    <Content Include="Images\Pokemons\pokemon_back_1.png" />
+    <Content Include="Images\Pokemons\pokemon_back_10.png" />
+    <Content Include="Images\Pokemons\pokemon_back_100.png" />
+    <Content Include="Images\Pokemons\pokemon_back_101.png" />
+    <Content Include="Images\Pokemons\pokemon_back_102.png" />
+    <Content Include="Images\Pokemons\pokemon_back_103.png" />
+    <Content Include="Images\Pokemons\pokemon_back_104.png" />
+    <Content Include="Images\Pokemons\pokemon_back_105.png" />
+    <Content Include="Images\Pokemons\pokemon_back_106.png" />
+    <Content Include="Images\Pokemons\pokemon_back_107.png" />
+    <Content Include="Images\Pokemons\pokemon_back_108.png" />
+    <Content Include="Images\Pokemons\pokemon_back_109.png" />
+    <Content Include="Images\Pokemons\pokemon_back_11.png" />
+    <Content Include="Images\Pokemons\pokemon_back_110.png" />
+    <Content Include="Images\Pokemons\pokemon_back_111.png" />
+    <Content Include="Images\Pokemons\pokemon_back_112.png" />
+    <Content Include="Images\Pokemons\pokemon_back_113.png" />
+    <Content Include="Images\Pokemons\pokemon_back_114.png" />
+    <Content Include="Images\Pokemons\pokemon_back_115.png" />
+    <Content Include="Images\Pokemons\pokemon_back_116.png" />
+    <Content Include="Images\Pokemons\pokemon_back_117.png" />
+    <Content Include="Images\Pokemons\pokemon_back_118.png" />
+    <Content Include="Images\Pokemons\pokemon_back_119.png" />
+    <Content Include="Images\Pokemons\pokemon_back_12.png" />
+    <Content Include="Images\Pokemons\pokemon_back_120.png" />
+    <Content Include="Images\Pokemons\pokemon_back_121.png" />
+    <Content Include="Images\Pokemons\pokemon_back_122.png" />
+    <Content Include="Images\Pokemons\pokemon_back_123.png" />
+    <Content Include="Images\Pokemons\pokemon_back_124.png" />
+    <Content Include="Images\Pokemons\pokemon_back_125.png" />
+    <Content Include="Images\Pokemons\pokemon_back_126.png" />
+    <Content Include="Images\Pokemons\pokemon_back_127.png" />
+    <Content Include="Images\Pokemons\pokemon_back_128.png" />
+    <Content Include="Images\Pokemons\pokemon_back_129.png" />
+    <Content Include="Images\Pokemons\pokemon_back_13.png" />
+    <Content Include="Images\Pokemons\pokemon_back_130.png" />
+    <Content Include="Images\Pokemons\pokemon_back_131.png" />
+    <Content Include="Images\Pokemons\pokemon_back_132.png" />
+    <Content Include="Images\Pokemons\pokemon_back_133.png" />
+    <Content Include="Images\Pokemons\pokemon_back_134.png" />
+    <Content Include="Images\Pokemons\pokemon_back_135.png" />
+    <Content Include="Images\Pokemons\pokemon_back_136.png" />
+    <Content Include="Images\Pokemons\pokemon_back_137.png" />
+    <Content Include="Images\Pokemons\pokemon_back_138.png" />
+    <Content Include="Images\Pokemons\pokemon_back_139.png" />
+    <Content Include="Images\Pokemons\pokemon_back_14.png" />
+    <Content Include="Images\Pokemons\pokemon_back_140.png" />
+    <Content Include="Images\Pokemons\pokemon_back_141.png" />
+    <Content Include="Images\Pokemons\pokemon_back_142.png" />
+    <Content Include="Images\Pokemons\pokemon_back_143.png" />
+    <Content Include="Images\Pokemons\pokemon_back_144.png" />
+    <Content Include="Images\Pokemons\pokemon_back_145.png" />
+    <Content Include="Images\Pokemons\pokemon_back_146.png" />
+    <Content Include="Images\Pokemons\pokemon_back_147.png" />
+    <Content Include="Images\Pokemons\pokemon_back_148.png" />
+    <Content Include="Images\Pokemons\pokemon_back_149.png" />
+    <Content Include="Images\Pokemons\pokemon_back_15.png" />
+    <Content Include="Images\Pokemons\pokemon_back_150.png" />
+    <Content Include="Images\Pokemons\pokemon_back_151.png" />
+    <Content Include="Images\Pokemons\pokemon_back_16.png" />
+    <Content Include="Images\Pokemons\pokemon_back_17.png" />
+    <Content Include="Images\Pokemons\pokemon_back_18.png" />
+    <Content Include="Images\Pokemons\pokemon_back_19.png" />
+    <Content Include="Images\Pokemons\pokemon_back_2.png" />
+    <Content Include="Images\Pokemons\pokemon_back_20.png" />
+    <Content Include="Images\Pokemons\pokemon_back_21.png" />
+    <Content Include="Images\Pokemons\pokemon_back_22.png" />
+    <Content Include="Images\Pokemons\pokemon_back_23.png" />
+    <Content Include="Images\Pokemons\pokemon_back_24.png" />
+    <Content Include="Images\Pokemons\pokemon_back_25.png" />
+    <Content Include="Images\Pokemons\pokemon_back_26.png" />
+    <Content Include="Images\Pokemons\pokemon_back_27.png" />
+    <Content Include="Images\Pokemons\pokemon_back_28.png" />
+    <Content Include="Images\Pokemons\pokemon_back_29.png" />
+    <Content Include="Images\Pokemons\pokemon_back_3.png" />
+    <Content Include="Images\Pokemons\pokemon_back_30.png" />
+    <Content Include="Images\Pokemons\pokemon_back_31.png" />
+    <Content Include="Images\Pokemons\pokemon_back_32.png" />
+    <Content Include="Images\Pokemons\pokemon_back_33.png" />
+    <Content Include="Images\Pokemons\pokemon_back_34.png" />
+    <Content Include="Images\Pokemons\pokemon_back_35.png" />
+    <Content Include="Images\Pokemons\pokemon_back_36.png" />
+    <Content Include="Images\Pokemons\pokemon_back_37.png" />
+    <Content Include="Images\Pokemons\pokemon_back_38.png" />
+    <Content Include="Images\Pokemons\pokemon_back_39.png" />
+    <Content Include="Images\Pokemons\pokemon_back_4.png" />
+    <Content Include="Images\Pokemons\pokemon_back_40.png" />
+    <Content Include="Images\Pokemons\pokemon_back_41.png" />
+    <Content Include="Images\Pokemons\pokemon_back_42.png" />
+    <Content Include="Images\Pokemons\pokemon_back_43.png" />
+    <Content Include="Images\Pokemons\pokemon_back_44.png" />
+    <Content Include="Images\Pokemons\pokemon_back_45.png" />
+    <Content Include="Images\Pokemons\pokemon_back_46.png" />
+    <Content Include="Images\Pokemons\pokemon_back_47.png" />
+    <Content Include="Images\Pokemons\pokemon_back_48.png" />
+    <Content Include="Images\Pokemons\pokemon_back_49.png" />
+    <Content Include="Images\Pokemons\pokemon_back_5.png" />
+    <Content Include="Images\Pokemons\pokemon_back_50.png" />
+    <Content Include="Images\Pokemons\pokemon_back_51.png" />
+    <Content Include="Images\Pokemons\pokemon_back_52.png" />
+    <Content Include="Images\Pokemons\pokemon_back_53.png" />
+    <Content Include="Images\Pokemons\pokemon_back_54.png" />
+    <Content Include="Images\Pokemons\pokemon_back_55.png" />
+    <Content Include="Images\Pokemons\pokemon_back_56.png" />
+    <Content Include="Images\Pokemons\pokemon_back_57.png" />
+    <Content Include="Images\Pokemons\pokemon_back_58.png" />
+    <Content Include="Images\Pokemons\pokemon_back_59.png" />
+    <Content Include="Images\Pokemons\pokemon_back_6.png" />
+    <Content Include="Images\Pokemons\pokemon_back_60.png" />
+    <Content Include="Images\Pokemons\pokemon_back_61.png" />
+    <Content Include="Images\Pokemons\pokemon_back_62.png" />
+    <Content Include="Images\Pokemons\pokemon_back_63.png" />
+    <Content Include="Images\Pokemons\pokemon_back_64.png" />
+    <Content Include="Images\Pokemons\pokemon_back_65.png" />
+    <Content Include="Images\Pokemons\pokemon_back_66.png" />
+    <Content Include="Images\Pokemons\pokemon_back_67.png" />
+    <Content Include="Images\Pokemons\pokemon_back_68.png" />
+    <Content Include="Images\Pokemons\pokemon_back_69.png" />
+    <Content Include="Images\Pokemons\pokemon_back_7.png" />
+    <Content Include="Images\Pokemons\pokemon_back_70.png" />
+    <Content Include="Images\Pokemons\pokemon_back_71.png" />
+    <Content Include="Images\Pokemons\pokemon_back_72.png" />
+    <Content Include="Images\Pokemons\pokemon_back_73.png" />
+    <Content Include="Images\Pokemons\pokemon_back_74.png" />
+    <Content Include="Images\Pokemons\pokemon_back_75.png" />
+    <Content Include="Images\Pokemons\pokemon_back_76.png" />
+    <Content Include="Images\Pokemons\pokemon_back_77.png" />
+    <Content Include="Images\Pokemons\pokemon_back_78.png" />
+    <Content Include="Images\Pokemons\pokemon_back_79.png" />
+    <Content Include="Images\Pokemons\pokemon_back_8.png" />
+    <Content Include="Images\Pokemons\pokemon_back_80.png" />
+    <Content Include="Images\Pokemons\pokemon_back_81.png" />
+    <Content Include="Images\Pokemons\pokemon_back_82.png" />
+    <Content Include="Images\Pokemons\pokemon_back_83.png" />
+    <Content Include="Images\Pokemons\pokemon_back_84.png" />
+    <Content Include="Images\Pokemons\pokemon_back_85.png" />
+    <Content Include="Images\Pokemons\pokemon_back_86.png" />
+    <Content Include="Images\Pokemons\pokemon_back_87.png" />
+    <Content Include="Images\Pokemons\pokemon_back_88.png" />
+    <Content Include="Images\Pokemons\pokemon_back_89.png" />
+    <Content Include="Images\Pokemons\pokemon_back_9.png" />
+    <Content Include="Images\Pokemons\pokemon_back_90.png" />
+    <Content Include="Images\Pokemons\pokemon_back_91.png" />
+    <Content Include="Images\Pokemons\pokemon_back_92.png" />
+    <Content Include="Images\Pokemons\pokemon_back_93.png" />
+    <Content Include="Images\Pokemons\pokemon_back_94.png" />
+    <Content Include="Images\Pokemons\pokemon_back_95.png" />
+    <Content Include="Images\Pokemons\pokemon_back_96.png" />
+    <Content Include="Images\Pokemons\pokemon_back_97.png" />
+    <Content Include="Images\Pokemons\pokemon_back_98.png" />
+    <Content Include="Images\Pokemons\pokemon_back_99.png" />
+    <Content Include="Images\Pokemons\pokemon_front_1.png" />
+    <Content Include="Images\Pokemons\pokemon_front_10.png" />
+    <Content Include="Images\Pokemons\pokemon_front_100.png" />
+    <Content Include="Images\Pokemons\pokemon_front_101.png" />
+    <Content Include="Images\Pokemons\pokemon_front_102.png" />
+    <Content Include="Images\Pokemons\pokemon_front_103.png" />
+    <Content Include="Images\Pokemons\pokemon_front_104.png" />
+    <Content Include="Images\Pokemons\pokemon_front_105.png" />
+    <Content Include="Images\Pokemons\pokemon_front_106.png" />
+    <Content Include="Images\Pokemons\pokemon_front_107.png" />
+    <Content Include="Images\Pokemons\pokemon_front_108.png" />
+    <Content Include="Images\Pokemons\pokemon_front_109.png" />
+    <Content Include="Images\Pokemons\pokemon_front_11.png" />
+    <Content Include="Images\Pokemons\pokemon_front_110.png" />
+    <Content Include="Images\Pokemons\pokemon_front_111.png" />
+    <Content Include="Images\Pokemons\pokemon_front_112.png" />
+    <Content Include="Images\Pokemons\pokemon_front_113.png" />
+    <Content Include="Images\Pokemons\pokemon_front_114.png" />
+    <Content Include="Images\Pokemons\pokemon_front_115.png" />
+    <Content Include="Images\Pokemons\pokemon_front_116.png" />
+    <Content Include="Images\Pokemons\pokemon_front_117.png" />
+    <Content Include="Images\Pokemons\pokemon_front_118.png" />
+    <Content Include="Images\Pokemons\pokemon_front_119.png" />
+    <Content Include="Images\Pokemons\pokemon_front_12.png" />
+    <Content Include="Images\Pokemons\pokemon_front_120.png" />
+    <Content Include="Images\Pokemons\pokemon_front_121.png" />
+    <Content Include="Images\Pokemons\pokemon_front_122.png" />
+    <Content Include="Images\Pokemons\pokemon_front_123.png" />
+    <Content Include="Images\Pokemons\pokemon_front_124.png" />
+    <Content Include="Images\Pokemons\pokemon_front_125.png" />
+    <Content Include="Images\Pokemons\pokemon_front_126.png" />
+    <Content Include="Images\Pokemons\pokemon_front_127.png" />
+    <Content Include="Images\Pokemons\pokemon_front_128.png" />
+    <Content Include="Images\Pokemons\pokemon_front_129.png" />
+    <Content Include="Images\Pokemons\pokemon_front_13.png" />
+    <Content Include="Images\Pokemons\pokemon_front_130.png" />
+    <Content Include="Images\Pokemons\pokemon_front_131.png" />
+    <Content Include="Images\Pokemons\pokemon_front_132.png" />
+    <Content Include="Images\Pokemons\pokemon_front_133.png" />
+    <Content Include="Images\Pokemons\pokemon_front_134.png" />
+    <Content Include="Images\Pokemons\pokemon_front_135.png" />
+    <Content Include="Images\Pokemons\pokemon_front_136.png" />
+    <Content Include="Images\Pokemons\pokemon_front_137.png" />
+    <Content Include="Images\Pokemons\pokemon_front_138.png" />
+    <Content Include="Images\Pokemons\pokemon_front_139.png" />
+    <Content Include="Images\Pokemons\pokemon_front_14.png" />
+    <Content Include="Images\Pokemons\pokemon_front_140.png" />
+    <Content Include="Images\Pokemons\pokemon_front_141.png" />
+    <Content Include="Images\Pokemons\pokemon_front_142.png" />
+    <Content Include="Images\Pokemons\pokemon_front_143.png" />
+    <Content Include="Images\Pokemons\pokemon_front_144.png" />
+    <Content Include="Images\Pokemons\pokemon_front_145.png" />
+    <Content Include="Images\Pokemons\pokemon_front_146.png" />
+    <Content Include="Images\Pokemons\pokemon_front_147.png" />
+    <Content Include="Images\Pokemons\pokemon_front_148.png" />
+    <Content Include="Images\Pokemons\pokemon_front_149.png" />
+    <Content Include="Images\Pokemons\pokemon_front_15.png" />
+    <Content Include="Images\Pokemons\pokemon_front_150.png" />
+    <Content Include="Images\Pokemons\pokemon_front_151.png" />
+    <Content Include="Images\Pokemons\pokemon_front_16.png" />
+    <Content Include="Images\Pokemons\pokemon_front_17.png" />
+    <Content Include="Images\Pokemons\pokemon_front_18.png" />
+    <Content Include="Images\Pokemons\pokemon_front_19.png" />
+    <Content Include="Images\Pokemons\pokemon_front_2.png" />
+    <Content Include="Images\Pokemons\pokemon_front_20.png" />
+    <Content Include="Images\Pokemons\pokemon_front_21.png" />
+    <Content Include="Images\Pokemons\pokemon_front_22.png" />
+    <Content Include="Images\Pokemons\pokemon_front_23.png" />
+    <Content Include="Images\Pokemons\pokemon_front_24.png" />
+    <Content Include="Images\Pokemons\pokemon_front_25.png" />
+    <Content Include="Images\Pokemons\pokemon_front_26.png" />
+    <Content Include="Images\Pokemons\pokemon_front_27.png" />
+    <Content Include="Images\Pokemons\pokemon_front_28.png" />
+    <Content Include="Images\Pokemons\pokemon_front_29.png" />
+    <Content Include="Images\Pokemons\pokemon_front_3.png" />
+    <Content Include="Images\Pokemons\pokemon_front_30.png" />
+    <Content Include="Images\Pokemons\pokemon_front_31.png" />
+    <Content Include="Images\Pokemons\pokemon_front_32.png" />
+    <Content Include="Images\Pokemons\pokemon_front_33.png" />
+    <Content Include="Images\Pokemons\pokemon_front_34.png" />
+    <Content Include="Images\Pokemons\pokemon_front_35.png" />
+    <Content Include="Images\Pokemons\pokemon_front_36.png" />
+    <Content Include="Images\Pokemons\pokemon_front_37.png" />
+    <Content Include="Images\Pokemons\pokemon_front_38.png" />
+    <Content Include="Images\Pokemons\pokemon_front_39.png" />
+    <Content Include="Images\Pokemons\pokemon_front_4.png" />
+    <Content Include="Images\Pokemons\pokemon_front_40.png" />
+    <Content Include="Images\Pokemons\pokemon_front_41.png" />
+    <Content Include="Images\Pokemons\pokemon_front_42.png" />
+    <Content Include="Images\Pokemons\pokemon_front_43.png" />
+    <Content Include="Images\Pokemons\pokemon_front_44.png" />
+    <Content Include="Images\Pokemons\pokemon_front_45.png" />
+    <Content Include="Images\Pokemons\pokemon_front_46.png" />
+    <Content Include="Images\Pokemons\pokemon_front_47.png" />
+    <Content Include="Images\Pokemons\pokemon_front_48.png" />
+    <Content Include="Images\Pokemons\pokemon_front_49.png" />
+    <Content Include="Images\Pokemons\pokemon_front_5.png" />
+    <Content Include="Images\Pokemons\pokemon_front_50.png" />
+    <Content Include="Images\Pokemons\pokemon_front_51.png" />
+    <Content Include="Images\Pokemons\pokemon_front_52.png" />
+    <Content Include="Images\Pokemons\pokemon_front_53.png" />
+    <Content Include="Images\Pokemons\pokemon_front_54.png" />
+    <Content Include="Images\Pokemons\pokemon_front_55.png" />
+    <Content Include="Images\Pokemons\pokemon_front_56.png" />
+    <Content Include="Images\Pokemons\pokemon_front_57.png" />
+    <Content Include="Images\Pokemons\pokemon_front_58.png" />
+    <Content Include="Images\Pokemons\pokemon_front_59.png" />
+    <Content Include="Images\Pokemons\pokemon_front_6.png" />
+    <Content Include="Images\Pokemons\pokemon_front_60.png" />
+    <Content Include="Images\Pokemons\pokemon_front_61.png" />
+    <Content Include="Images\Pokemons\pokemon_front_62.png" />
+    <Content Include="Images\Pokemons\pokemon_front_63.png" />
+    <Content Include="Images\Pokemons\pokemon_front_64.png" />
+    <Content Include="Images\Pokemons\pokemon_front_65.png" />
+    <Content Include="Images\Pokemons\pokemon_front_66.png" />
+    <Content Include="Images\Pokemons\pokemon_front_67.png" />
+    <Content Include="Images\Pokemons\pokemon_front_68.png" />
+    <Content Include="Images\Pokemons\pokemon_front_69.png" />
+    <Content Include="Images\Pokemons\pokemon_front_7.png" />
+    <Content Include="Images\Pokemons\pokemon_front_70.png" />
+    <Content Include="Images\Pokemons\pokemon_front_71.png" />
+    <Content Include="Images\Pokemons\pokemon_front_72.png" />
+    <Content Include="Images\Pokemons\pokemon_front_73.png" />
+    <Content Include="Images\Pokemons\pokemon_front_74.png" />
+    <Content Include="Images\Pokemons\pokemon_front_75.png" />
+    <Content Include="Images\Pokemons\pokemon_front_76.png" />
+    <Content Include="Images\Pokemons\pokemon_front_77.png" />
+    <Content Include="Images\Pokemons\pokemon_front_78.png" />
+    <Content Include="Images\Pokemons\pokemon_front_79.png" />
+    <Content Include="Images\Pokemons\pokemon_front_8.png" />
+    <Content Include="Images\Pokemons\pokemon_front_80.png" />
+    <Content Include="Images\Pokemons\pokemon_front_81.png" />
+    <Content Include="Images\Pokemons\pokemon_front_82.png" />
+    <Content Include="Images\Pokemons\pokemon_front_83.png" />
+    <Content Include="Images\Pokemons\pokemon_front_84.png" />
+    <Content Include="Images\Pokemons\pokemon_front_85.png" />
+    <Content Include="Images\Pokemons\pokemon_front_86.png" />
+    <Content Include="Images\Pokemons\pokemon_front_87.png" />
+    <Content Include="Images\Pokemons\pokemon_front_88.png" />
+    <Content Include="Images\Pokemons\pokemon_front_89.png" />
+    <Content Include="Images\Pokemons\pokemon_front_9.png" />
+    <Content Include="Images\Pokemons\pokemon_front_90.png" />
+    <Content Include="Images\Pokemons\pokemon_front_91.png" />
+    <Content Include="Images\Pokemons\pokemon_front_92.png" />
+    <Content Include="Images\Pokemons\pokemon_front_93.png" />
+    <Content Include="Images\Pokemons\pokemon_front_94.png" />
+    <Content Include="Images\Pokemons\pokemon_front_95.png" />
+    <Content Include="Images\Pokemons\pokemon_front_96.png" />
+    <Content Include="Images\Pokemons\pokemon_front_97.png" />
+    <Content Include="Images\Pokemons\pokemon_front_98.png" />
+    <Content Include="Images\Pokemons\pokemon_front_99.png" />
     <Content Include="Resources\EngagementConfiguration.xml" />
     <Content Include="Resources\html\EngagementAnnouncement.html" />
     <Content Include="Resources\html\EngagementNotification.html" />
@@ -108,6 +418,9 @@
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Views\ChoosePNJView.xaml.cs">
+      <DependentUpon>ChoosePNJView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\overlay\EngagementPageOverlay.cs" />
     <Compile Include="UserControls\Base\BaseUserControl.cs" />
@@ -170,10 +483,10 @@
     <Compile Include="UserControls\Other\Console.xaml.cs">
       <DependentUpon>Console.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Views\PokemonBattleDisplayOpponent.xaml.cs">
+    <Compile Include="UserControls\Fight\PokemonBattleDisplayOpponent.xaml.cs">
       <DependentUpon>PokemonBattleDisplayOpponent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Views\PokemonBattleDisplayPlayer.xaml.cs">
+    <Compile Include="UserControls\Fight\PokemonBattleDisplayPlayer.xaml.cs">
       <DependentUpon>PokemonBattleDisplayPlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Buttons\PokemonButton.xaml.cs">
@@ -184,6 +497,7 @@
     </Compile>
     <Compile Include="Utils\Helper.cs" />
     <Compile Include="ViewModels\BattleViewModel.cs" />
+    <Compile Include="ViewModels\ChoosePNJViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -1456,6 +1770,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\Views\ChoosePNJView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Views\FirstTutoScreenView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1530,11 +1848,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Views\PokemonBattleDisplayOpponent.xaml">
+    <Page Include="UserControls\Fight\PokemonBattleDisplayOpponent.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Views\PokemonBattleDisplayPlayer.xaml">
+    <Page Include="UserControls\Fight\PokemonBattleDisplayPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1553,9 +1871,7 @@
       <Name>ClassLibraryEntity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Pokemons\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

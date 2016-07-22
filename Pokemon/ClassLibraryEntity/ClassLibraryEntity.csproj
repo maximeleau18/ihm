@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ApiManager.cs" />
     <Compile Include="Arene.cs" />
     <Compile Include="Attaque.cs" />
     <Compile Include="Badge.cs" />

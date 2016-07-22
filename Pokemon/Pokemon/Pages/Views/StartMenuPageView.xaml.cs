@@ -29,7 +29,7 @@ namespace Pokemon.Pages.Views
         }
         private void btnNouvellePartie_Click(object sender, RoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(FirstTutoScreenView));
+            (Window.Current.Content as Frame).Navigate(typeof(ChoosePNJView));
         }
 
         private void btnNouvellePartie_PointerEntered(object sender, PointerRoutedEventArgs e)

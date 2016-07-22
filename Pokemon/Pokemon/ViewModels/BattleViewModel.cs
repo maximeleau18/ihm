@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity;
+using ClassLibraryEntity.API;
 using Pokemon.Pages.Views;
 using Pokemon.UserControls.Menus;
 using Pokemon.Utils;
@@ -73,6 +74,7 @@ namespace Pokemon.ViewModels
             this.BattleView = battleView;
             this.GridManager = this.BattleView.GridManager;
             this.Init();
+            this.InitApiData();
             this.Bind();
         }
 
@@ -85,7 +87,7 @@ namespace Pokemon.ViewModels
             TypeAttaque typeAttaqueTerre = new TypeAttaque(3, "Terre");
             TypeAttaque typeAttaqueAir = new TypeAttaque(4, "Air");
             // Generate Opponent
-            TypeDePokemon typeDePokemonPikachu = new TypeDePokemon(1, "Pikachu", 25, 18, 100, 1);
+            TypeDePokemon typeDePokemonPikachu = new TypeDePokemon(1, "Pikachu", 25, 18, 100, 1, "");
             Attaque attaquePikachu1 = new Attaque(1, "Attaque1Eau", 1, 25, typeAttaqueEau);
             Attaque attaquePikachu2 = new Attaque(2, "Attaque2Feu", 1, 18, typeAttaqueFeu);
             Attaque attaquePikachu3 = new Attaque(3, "Attaque3Terre", 1, 15, typeAttaqueTerre);
@@ -94,32 +96,42 @@ namespace Pokemon.ViewModels
             ClassLibraryEntity.Pokemon pokemonOpponent = new ClassLibraryEntity.Pokemon(1, "Pikapika", 5, DateTime.Now, typeDePokemonPikachu, this.OpponentPersonnageNonJoueur, attaquePikachu1, attaquePikachu2, attaquePikachu3, attaquePikachu4);
 
             this.BattleView.OpponentView.Pokemon = pokemonOpponent;
-            this.BattleView.OpponentView.ActualPv = 50;       
-            // Generate Player
-            TypeDePokemon typeDePokemonBulbi = new TypeDePokemon(1, "Bulbizar", 25, 18, 100, 1);
-            Attaque attaqueBulbi1 = new Attaque(5, "Attaque5Terre", 1, 25, typeAttaqueTerre);
-            Attaque attaqueBulbi2 = new Attaque(6, "Attaque6Feu", 1, 18, typeAttaqueFeu);
-            Attaque attaqueBulbi3 = new Attaque(7, "Attaque7Eau", 1, 15, typeAttaqueEau);
-            Attaque attaqueBulbi4 = new Attaque(8, "Attaque8Air", 1, 16, typeAttaqueAir);
-            this.PersonnageNonJoueur = new PersonnageNonJoueur(2, "GentilMonsieur", "Gentil Descrip", profession);
-            ClassLibraryEntity.Pokemon pokemonPlayer = new ClassLibraryEntity.Pokemon(2, "Bulibi", 7, DateTime.Now, typeDePokemonBulbi, this.PersonnageNonJoueur, attaqueBulbi1, attaqueBulbi2, attaqueBulbi3, attaqueBulbi4);
-            List<ClassLibraryEntity.Pokemon> listPokemonPlayer = new List<ClassLibraryEntity.Pokemon>();
-            listPokemonPlayer.Add(pokemonPlayer);
-            TypeObjet typeObjetBalls = new TypeObjet(1, "Balls");
-            TypeObjet typeObjetStandards = new TypeObjet(2, "Standards");
-            List<TypeObjet> listTypeObjetPlayer = new List<TypeObjet>();
-            listTypeObjetPlayer.Add(typeObjetBalls);
-            listTypeObjetPlayer.Add(typeObjetStandards);
-                     
-            this.BattleView.PokemonSelectionMenu.LoadItems(listPokemonPlayer);
-            this.BattleView.CategoryObjectMenu.LoadItems(listTypeObjetPlayer);        
+            this.BattleView.OpponentView.ActualPv = pokemonOpponent.TypeDePokemon.Pv;
+            //Generate Player
+            //TypeDePokemon typeDePokemonBulbi = new TypeDePokemon(1, "Bulbizarre", 25, 18, 100, 1, "");
+            //typeDePokemonBulbi.UrlImage = typeDePokemonBulbi.UrlImage.Split(';')[0];
+            //Attaque attaqueBulbi1 = new Attaque(5, "Attaque5Terre", 1, 25, typeAttaqueTerre);
+            //Attaque attaqueBulbi2 = new Attaque(6, "Attaque6Feu", 1, 18, typeAttaqueFeu);
+            //Attaque attaqueBulbi3 = new Attaque(7, "Attaque7Eau", 1, 15, typeAttaqueEau);
+            //Attaque attaqueBulbi4 = new Attaque(8, "Attaque8Air", 1, 16, typeAttaqueAir);
+            //this.PersonnageNonJoueur = new PersonnageNonJoueur(2, "GentilMonsieur", "Gentil Descrip", profession);
+            //ClassLibraryEntity.Pokemon pokemonPlayer = new ClassLibraryEntity.Pokemon(2, "Bulibi", 7, DateTime.Now, typeDePokemonBulbi, this.PersonnageNonJoueur, attaqueBulbi1, attaqueBulbi2, attaqueBulbi3, attaqueBulbi4);
+            //List<ClassLibraryEntity.Pokemon> listPokemonPlayer = new List<ClassLibraryEntity.Pokemon>();
+            //listPokemonPlayer.Add(pokemonPlayer);
+            //TypeObjet typeObjetBalls = new TypeObjet(1, "Balls");
+            //TypeObjet typeObjetStandards = new TypeObjet(2, "Standards");
+            //List<TypeObjet> listTypeObjetPlayer = new List<TypeObjet>();
+            //listTypeObjetPlayer.Add(typeObjetBalls);
+            //listTypeObjetPlayer.Add(typeObjetStandards);
+
+            //this.BattleView.PokemonSelectionMenu.LoadItems(listPokemonPlayer);
+            //this.BattleView.CategoryObjectMenu.LoadItems(listTypeObjetPlayer);
 
             // Get pokemons of pnj from API
-            //this.BattleView.PokemonSelectionMenu.LoadItems(myPokemons);
-            // Get types objets of pnj from API
-            //this.BattleView.CategoryObjectMenu.LoadItems(myTypesObjets);
+
+           //this.BattleView.PokemonSelectionMenu.LoadItems(myPokemons);
+           // Get types objets of pnj from API
+           // this.BattleView.CategoryObjectMenu.LoadItems(myTypesObjets);
 
         }
+        
+        public async void InitApiData()
+        {
+            ClassLibraryEntity.API.ApiManager apiManager = new ClassLibraryEntity.API.ApiManager();
+            PersonnageNonJoueur pnj = await apiManager.GetFromApi<PersonnageNonJoueur>(1);
+            this.BattleView.PokemonSelectionMenu.LoadItems(pnj.Pokemons);
+        }
+
 
         public void Bind()
         {
@@ -165,7 +177,7 @@ namespace Pokemon.ViewModels
             this.BattleView.AttackMenu.AttackButton4.Attaque = selectedPokemon.Attaque4;
             // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
             this.BattleView.PlayerView.Pokemon = selectedPokemon;
-            this.BattleView.PlayerView.ActualPv = 75;
+            this.BattleView.PlayerView.ActualPv = selectedPokemon.TypeDePokemon.Pv;
         }
                         
         private void RunawayButton_Tapped(object sender, RoutedEventArgs e)

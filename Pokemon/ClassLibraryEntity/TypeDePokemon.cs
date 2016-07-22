@@ -18,7 +18,7 @@ namespace ClassLibraryEntity
 
         public TypeDePokemon() { }
 
-        public TypeDePokemon(int id, string nom, int attaque, int defense, int pv, int numPokedex)
+        public TypeDePokemon(int id, String nom, int attaque, int defense, int pv, int numPokedex, String urlImage)
         {
             this.id = id;
             this.nom = nom;
@@ -26,6 +26,7 @@ namespace ClassLibraryEntity
             this.defense = defense;
             this.pv = pv;
             this.numPokedex = numPokedex;
+            this.urlImage = urlImage;
         }
 
         public int Id
@@ -115,8 +116,18 @@ namespace ClassLibraryEntity
 
             set
             {
-                urlImage = "pokemon_back_" + this.NumPokedex.ToString() + ";pokemon_front_" + this.NumPokedex.ToString();
+                urlImage = value;
             }
+        }
+
+        public String ImagePokemonFront
+        {
+            get { return "ms-appx:///Images/Pokemons/pokemon_front_" + this.NumPokedex.ToString() + ".png"; }
+        }
+        
+        public String ImagePokemonBack
+        {
+            get { return "ms-appx:///Images/Pokemons/pokemon_back_" + this.NumPokedex.ToString() + ".png"; }
         }
     }
 }

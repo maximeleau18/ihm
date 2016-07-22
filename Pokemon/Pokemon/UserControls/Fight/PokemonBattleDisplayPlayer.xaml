@@ -1,0 +1,36 @@
+﻿<base:BaseUserControl
+    x:Class="Pokemon.UserControls.Fight.PokemonBattleDisplayPlayer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pokemon.UserControls.Fight"
+    xmlns:base="using:Pokemon.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Margin="10, 10, 10, 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Grid.Row="0" x:Name="pokemonPlayerNomTxtB" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" Text="{Binding Pokemon.TypeDePokemon.Pv}" />
+            <TextBlock Grid.Column="1" Grid.Row="1" x:Name="pokemonPlayerNiveauTxtB" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" Text="{Binding ActualPv}" />
+            <ProgressBar Grid.Column="1" Grid.Row="2" x:Name="pokemonPlayerPVTxtB" Background="Green" MinHeight="20" Maximum="{Binding Pokemon.TypeDePokemon.Pv}" Value="{Binding ActualPv}" Minimum="0" IsIndeterminate="False" />
+            <Image Grid.Column="0" x:Name="pokemonPlayerLifeBar" Grid.Row="1" Grid.RowSpan="3" Source="{Binding Pokemon.TypeDePokemon.ImagePokemonBack}"/>
+        </Grid>
+    </Grid>
+</base:BaseUserControl>

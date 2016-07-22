@@ -21,13 +21,13 @@ namespace Pokemon.UserControls.Other
     {
         private String displayedMessage;
 
-        public string DisplayedMessage
+        public String DisplayedMessage
         {
             get{ return displayedMessage; }
             set
             {
                 displayedMessage = value;
-                base.OnPropertyChanged("Console");
+                base.OnPropertyChanged("DisplayedMessage");
             }
         }
 

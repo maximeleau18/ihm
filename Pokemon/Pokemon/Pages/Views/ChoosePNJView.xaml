@@ -1,0 +1,103 @@
+﻿<Page
+    x:Class="Pokemon.Pages.Views.ChoosePNJView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pokemon.Pages.Views"
+    xmlns:UCOther="using:Pokemon.UserControls.Other"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Style="{StaticResource BackgroundGrid}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="60*" />
+                <RowDefinition Height="20*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="49.95*" />
+                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="49.95*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <!-- UserControl PNJ Details-->
+                </Grid>
+            </Grid>
+            <Border Margin="10" Grid.Row="2" Grid.Column="0" Style="{StaticResource BorderTextBlock}" />
+            <Border Margin="10" Grid.Row="2" Grid.Column="0" />
+            <Grid Grid.Row="2" Grid.Column="0">
+                <UCOther:Console Grid.Row="1" Grid.Column="1"  x:Name="ucConsole" />
+            </Grid>
+            <Grid Grid.RowSpan="4" Grid.Column="1" Background="#FFFFFF" />
+            <Grid Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+                <ScrollViewer>
+                    <ListView x:Name="listPNJ" IsItemClickEnabled="true">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderBrush" Value="#ffffff" />
+                                <Setter Property="BorderThickness" Value="2" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="6,6,6,6">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="60*"/>
+                                        <ColumnDefinition Width="20*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Row="0" Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" x:Name="pnjImage" Source="{Binding UrlImagePNJ}" Height="160" />
+
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Margin="6,6,6,6" x:Name="pnjNomTxtB" Text="{Binding Nom}" />
+
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Margin="6,6,6,6" x:Name="pnjDescriptionTxtB" Text="{Binding Description}" />
+
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Margin="6,6,6,6" x:Name="pnjProfessionTxtB" Text="{Binding Profession.Nom}" />
+
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45*" />
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="45*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="1" Grid.Column="0" x:Name="btnValidate" Content="VALIDER" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
+                    Style="{StaticResource ButtonParams}" FontSize="20" />
+                
+                <Button Grid.Row="1" Grid.Column="2" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
+                    Style="{StaticResource ButtonParams}" FontSize="20" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
