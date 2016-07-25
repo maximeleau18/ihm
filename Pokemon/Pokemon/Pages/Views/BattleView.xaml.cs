@@ -63,8 +63,7 @@ namespace Pokemon.Pages.Views
         public ObjectMenu ObjectMenu { get; set; }
         public PokemonBattleDisplayOpponent OpponentView { get; set; }        
         public PokemonBattleDisplayPlayer PlayerView { get; set; }
-
-
+        
         public BattleView()
         {
             this.InitializeComponent();
@@ -78,14 +77,13 @@ namespace Pokemon.Pages.Views
             this.PlayerView = this.playerView;
             this.GridBattleView = this.mainGridBattleView;
 
-            this.battleViewModel = new BattleViewModel(this); 
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
             this.GridManager = (GridManager)e.Parameter;
-            this.battleViewModel.GridManager = this.GridManager;
+
+            this.battleViewModel = new BattleViewModel(this);
         }
     }
 }

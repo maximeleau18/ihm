@@ -5,8 +5,7 @@
     xmlns:local="using:Pokemon.Pages.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"    
-    xmlns:uControl="using:Pokemon.UserControls.Buttons">
+    mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid Style="{StaticResource BackgroundGrid}">
@@ -17,15 +16,15 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="35*" />
-                    <RowDefinition Height="65*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="80*" />
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <Image Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch"
+                    <Image Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" x:Name="pokemonImage"
                            HorizontalAlignment="Left" Margin="10, 10, 10, 10"/>
                 </Grid>
                 <Grid Grid.Row="1">
-                   <TextBlock x:Name="test" Grid.Row="0" Margin="10,10,10,10" Foreground="White" Width="auto"
+                   <TextBlock x:Name="descriptionPokemonTxtB" Grid.Row="0" Margin="10,10,10,10" Foreground="White" Width="auto"
                                                         FontSize="12" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Center"
                                                         TextWrapping="Wrap" />
                 </Grid>
@@ -45,11 +44,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-
-                <!--<uControl:PokemonButton x:Name="ucPokemon01" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"></uControl:PokemonButton>
-            <uControl:PokemonButton x:Name="ucPokemon02" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></uControl:PokemonButton>
-            <uControl:PokemonButton x:Name="ucPokemon03" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"></uControl:PokemonButton>
-            <uControl:PokemonButton x:Name="ucPokemon04" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"></uControl:PokemonButton>-->
+                
                 <ScrollViewer Grid.RowSpan="4" Grid.ColumnSpan="3">
                     <ListView x:Name="ListPokemon">
                         <ListView.ItemContainerStyle>
@@ -59,13 +54,15 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <uControl:PokemonButton />
+                               
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </ScrollViewer>
-                
-                <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" />
+
+                <Button Grid.Row="4" Grid.Column="3" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
+                    Style="{StaticResource ButtonParams}" FontSize="20"  />
 
             </Grid>
         </Grid>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,10 @@ namespace ClassLibraryEntity
         private String password;
         private PersonnageNonJoueur personnageNonJoueur;
 
+        
         public Dresseur() { }
 
+        [JsonConstructor]
         public Dresseur(int id, string nom, string prenom, string login, string password, PersonnageNonJoueur personnageNonJoueur)
         {
             this.id = id;
@@ -25,8 +28,10 @@ namespace ClassLibraryEntity
             this.login = login;
             this.password = password;
             this.personnageNonJoueur = personnageNonJoueur;
-        }
+        }        
 
+        
+        [JsonProperty(PropertyName = "id")]
         public int Id
         {
             get
@@ -40,6 +45,7 @@ namespace ClassLibraryEntity
             }
         }
 
+        [JsonProperty(PropertyName = "nom")]
         public String Nom
         {
             get
@@ -53,6 +59,7 @@ namespace ClassLibraryEntity
             }
         }
 
+        [JsonProperty(PropertyName = "prenom")]
         public String Prenom
         {
             get
@@ -66,6 +73,7 @@ namespace ClassLibraryEntity
             }
         }
 
+        [JsonProperty(PropertyName = "login")]
         public String Login
         {
             get
@@ -79,6 +87,7 @@ namespace ClassLibraryEntity
             }
         }
 
+        [JsonProperty(PropertyName = "motDePasse")]
         public String Password
         {
             get
@@ -91,7 +100,7 @@ namespace ClassLibraryEntity
                 password = value;
             }
         }
-
+        
         public PersonnageNonJoueur PersonnageNonJoueur
         {
             get
@@ -102,6 +111,20 @@ namespace ClassLibraryEntity
             set
             {
                 personnageNonJoueur = value;
+            }
+        }
+        
+        [JsonProperty(PropertyName = "personnageNonJoueur")]
+        public int personnageNonJoueurId
+        {
+            get
+            {
+                return this.PersonnageNonJoueur.Id;
+            }
+
+            set
+            {
+                id = value;
             }
         }
     }

@@ -422,6 +422,9 @@
     <Compile Include="Pages\Views\ChoosePNJView.xaml.cs">
       <DependentUpon>ChoosePNJView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Views\CompleteDresseurView.xaml.cs">
+      <DependentUpon>CompleteDresseurView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\overlay\EngagementPageOverlay.cs" />
     <Compile Include="UserControls\Base\BaseUserControl.cs" />
     <Compile Include="UserControls\Menus\ObjectMenu.xaml.cs">
@@ -430,15 +433,6 @@
     <Compile Include="Utils\GridManager.cs" />
     <Compile Include="Pages\Views\BattleView.xaml.cs">
       <DependentUpon>BattleView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Views\ChooseCharacterView.xaml.cs">
-      <DependentUpon>ChooseCharacterView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Views\ChooseNameView.xaml.cs">
-      <DependentUpon>ChooseNameView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Views\FirstTutoScreenView.xaml.cs">
-      <DependentUpon>FirstTutoScreenView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Views\MainPageView.xaml.cs">
       <DependentUpon>MainPageView.xaml</DependentUpon>
@@ -449,33 +443,15 @@
     <Compile Include="Pages\Views\PokedexView.xaml.cs">
       <DependentUpon>PokedexView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Views\SecondTutoScreenView.xaml.cs">
-      <DependentUpon>SecondTutoScreenView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Views\StartMenuPageView.xaml.cs">
       <DependentUpon>StartMenuPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Views\TrainerCardView.xaml.cs">
-      <DependentUpon>TrainerCardView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\Buttons\AttackButton.xaml.cs">
-      <DependentUpon>AttackButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Menus\AttackMenu.xaml.cs">
       <DependentUpon>AttackMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Menus\BattleMenu.xaml.cs">
       <DependentUpon>BattleMenu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Buttons\BackButton.xaml.cs">
-      <DependentUpon>BackButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Buttons\ObjectButton.xaml.cs">
-      <DependentUpon>ObjectButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Buttons\ObjectCategoryButton.xaml.cs">
-      <DependentUpon>ObjectCategoryButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Menus\CategoryObjectMenu.xaml.cs">
       <DependentUpon>CategoryObjectMenu.xaml</DependentUpon>
@@ -489,15 +465,15 @@
     <Compile Include="UserControls\Fight\PokemonBattleDisplayPlayer.xaml.cs">
       <DependentUpon>PokemonBattleDisplayPlayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Buttons\PokemonButton.xaml.cs">
-      <DependentUpon>PokemonButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Menus\PokemonSelectionMenu.xaml.cs">
       <DependentUpon>PokemonSelectionMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Helper.cs" />
     <Compile Include="ViewModels\BattleViewModel.cs" />
     <Compile Include="ViewModels\ChoosePNJViewModel.cs" />
+    <Compile Include="ViewModels\CompleteDresseurViewModel.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\StartMenuPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -1762,19 +1738,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Views\ChooseCharacterView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Views\ChooseNameView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Pages\Views\ChoosePNJView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Views\FirstTutoScreenView.xaml">
+    <Page Include="Pages\Views\CompleteDresseurView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1790,15 +1758,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Views\SecondTutoScreenView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\Views\StartMenuPageView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Views\TrainerCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1812,27 +1772,11 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="UserControls\Buttons\AttackButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControls\Menus\AttackMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Menus\BattleMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Buttons\BackButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Buttons\ObjectButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Buttons\ObjectCategoryButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1853,10 +1797,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Fight\PokemonBattleDisplayPlayer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Buttons\PokemonButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

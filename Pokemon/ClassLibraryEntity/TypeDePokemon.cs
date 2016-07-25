@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -120,11 +121,13 @@ namespace ClassLibraryEntity
             }
         }
 
+        [JsonIgnore]
         public String ImagePokemonFront
         {
             get { return "ms-appx:///Images/Pokemons/pokemon_front_" + this.NumPokedex.ToString() + ".png"; }
         }
-        
+
+        [JsonIgnore]
         public String ImagePokemonBack
         {
             get { return "ms-appx:///Images/Pokemons/pokemon_back_" + this.NumPokedex.ToString() + ".png"; }

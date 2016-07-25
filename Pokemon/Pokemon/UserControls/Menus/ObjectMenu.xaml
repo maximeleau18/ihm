@@ -5,8 +5,7 @@
     xmlns:local="using:Pokemon.UserControls.Menus"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    xmlns:uControl="using:Pokemon.UserControls.Buttons">
+    mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid Style="{StaticResource BackgroundGrid}" >
@@ -78,7 +77,9 @@
                 </ListView>
             </ScrollViewer>
 
-            <uControl:BackButton Grid.Row="4" Grid.Column="3" x:Name="btnBack" Tapped="btnBack_Tapped" />
+            <Button Grid.Row="4" Grid.Column="3" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
+                    Style="{StaticResource ButtonParams}" FontSize="20" />
 
         </Grid>
     </Grid>

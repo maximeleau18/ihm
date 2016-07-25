@@ -170,5 +170,12 @@
     <Style x:Key="BackgroundMenuReturn" TargetType="StackPanel">
         <Setter Property="Background" Value="#009900" />
     </Style>
-
+    
+    <!-- Style pour les progressbar -->
+    <Style x:Key="ProgressBarDefault" TargetType="ProgressBar">
+        <Setter Property="Foreground" Value="Green" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
 </ResourceDictionary>

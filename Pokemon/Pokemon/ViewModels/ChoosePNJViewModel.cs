@@ -13,6 +13,7 @@ namespace Pokemon.ViewModels
     public class ChoosePNJViewModel
     {
         private ChoosePNJView choosePNJView;
+        private PersonnageNonJoueur pnj;
         public ChoosePNJView ChoosePNJView
         {
             get
@@ -25,14 +26,28 @@ namespace Pokemon.ViewModels
                 choosePNJView = value;
             }
         }
+        public PersonnageNonJoueur Pnj
+        {
+            get
+            {
+                return pnj;
+            }
+
+            set
+            {
+                pnj = value;
+            }
+        }
 
         public ChoosePNJViewModel(ChoosePNJView choosePNJView)
         {
             this.ChoosePNJView = choosePNJView;
+            this.ChoosePNJView.Console.DisplayedMessage = "Choisi un personnage dans la liste de droite.";
+            this.ChoosePNJView.SelectedPnj = Visibility.Collapsed;
             this.Init();
             this.Bind();
         }
-
+        
         public async void Init()
         {
             ClassLibraryEntity.API.ApiManager manager = new ClassLibraryEntity.API.ApiManager();
@@ -52,7 +67,7 @@ namespace Pokemon.ViewModels
 
         private void ButtonValidate_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            (Window.Current.Content as Frame).Navigate(typeof(ChooseNameView));
+            (Window.Current.Content as Frame).Navigate(typeof(CompleteDresseurView), this.Pnj);
         }
 
         private void ButtonValidate_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
@@ -67,7 +82,10 @@ namespace Pokemon.ViewModels
 
         private void ItemsListPnjs_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.ChoosePNJView.Console.DisplayedMessage = "Regarde mes pokémons et clique sur VALIDER.";
+            PersonnageNonJoueur pnjSelected = e.ClickedItem as PersonnageNonJoueur;
+            this.Pnj = pnjSelected;
+            this.ChoosePNJView.Console.DisplayedMessage = "Regarde les pokémons de \"" + pnjSelected.Nom + "\" dans la liste de droite puis clique sur VALIDER.";
+            this.ChoosePNJView.SelectedPnj = Visibility.Visible;
         }
 
         private void ButtonBack_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)

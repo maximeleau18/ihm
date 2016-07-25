@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity;
+using Pokemon.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,37 +24,54 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class StartMenuPageView : Page
     {
+        private Button buttonStartGameOnline;
+        private Button buttonContinueGameOnline;
+        private StartMenuPageViewModel startMenuPageViewModel;
+        
+        public Button ButtonStartGameOnline
+        {
+            get
+            {
+                return buttonStartGameOnline;
+            }
+
+            set
+            {
+                buttonStartGameOnline = value;
+            }
+        }
+        public Button ButtonContinueGameOnline
+        {
+            get
+            {
+                return buttonContinueGameOnline;
+            }
+
+            set
+            {
+                buttonContinueGameOnline = value;
+            }
+        }
+        public StartMenuPageViewModel StartMenuPageViewModel
+        {
+            get
+            {
+                return startMenuPageViewModel;
+            }
+
+            set
+            {
+                startMenuPageViewModel = value;
+            }
+        }
+
         public StartMenuPageView()
         {
             this.InitializeComponent();
-        }
-        private void btnNouvellePartie_Click(object sender, RoutedEventArgs e)
-        {
-            (Window.Current.Content as Frame).Navigate(typeof(ChoosePNJView));
-        }
+            this.ButtonStartGameOnline = this.btnStartGameOnline;
+            this.ButtonContinueGameOnline = this.btnContinueGameOnline;
 
-        private void btnNouvellePartie_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            this.btnNouvellePartie.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
-        }
-
-        private void btnNouvellePartie_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.btnNouvellePartie.Style = (Style)Application.Current.Resources["ButtonParams"];
-        }
-
-        private void btnContinuer_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            this.btnContinuer.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
-        }
-
-        private void btnContinuer_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.btnContinuer.Style = (Style)Application.Current.Resources["ButtonParams"];
-        }
-
-        private void btnContinuer_Click(object sender, RoutedEventArgs e)
-        {
+            this.StartMenuPageViewModel = new StartMenuPageViewModel(this);
         }
     }
 }

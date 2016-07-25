@@ -74,35 +74,6 @@ namespace Pokemon.UserControls.Menus
             this.ButtonRunaway = this.runawayButton;
             this.DataContext = this;
         }
-
-        private void PokemonButton_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.pokemonButton.Style = (Style)Application.Current.Resources["PokemonButton"];
-        }
-
-        private void PokemonButton_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            this.pokemonButton.Style = (Style)Application.Current.Resources["PokemonButtonSelected"];
-        }
-
-        private void ObjectTypeButton_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.objectTypeButton.Style = (Style)Application.Current.Resources["ObjectButton"];
-        }
-
-        private void ObjectTypeButton_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            this.objectTypeButton.Style = (Style)Application.Current.Resources["ObjectButtonSelected"];
-        }
-
-        private void RunawayButton_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.runawayButton.Style = (Style)Application.Current.Resources["RunawayButton"];
-        }
-
-        private void RunawayButton_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            this.runawayButton.Style = (Style)Application.Current.Resources["RunawayButtonSelected"];
-        }
+        
     }
 }

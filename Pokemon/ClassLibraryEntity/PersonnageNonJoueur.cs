@@ -1,4 +1,5 @@
-﻿using SQLite.Net.Attributes;
+﻿using Newtonsoft.Json;
+using SQLite.Net.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -114,6 +115,7 @@ namespace ClassLibraryEntity
 
         public List<Objet> Objets { get; set; }
 
+        [JsonIgnore]
         public String UrlImagePNJ
         {
             get { return "ms-appx:///Images/PNJ/" + this.Nom + ".png"; }

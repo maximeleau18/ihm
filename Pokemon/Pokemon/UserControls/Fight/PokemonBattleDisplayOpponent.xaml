@@ -25,9 +25,40 @@
                 <ColumnDefinition Width="40*"/>
                 <ColumnDefinition Width="60*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Grid.Row="0" x:Name="opponentPokemonNomTxtB" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" Text="{Binding Pokemon.TypeDePokemon.Nom}" />
-            <TextBlock Grid.Column="0" Grid.Row="1" x:Name="opponentPokemonNiveauTxtB" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="Auto" Height="Auto" Text="{Binding Pokemon.Niveau}"/>
-            <ProgressBar Grid.Column="0" Grid.Row="2" x:Name="opponentPokemonPVLifeBar" Background="Green" MinHeight="20" Maximum="{Binding Pokemon.TypeDePokemon.Pv}" Value="{Binding ActualPv}" Minimum="0" IsIndeterminate="False" />
+            <TextBlock Grid.Column="0" Grid.Row="0" x:Name="pokemonOpponentNomTxtB" TextAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" 
+                       Width="Auto" Height="Auto" Text="{Binding Pokemon.TypeDePokemon.Nom}" FontSize="22"/>
+            <Grid Grid.Row="1" Grid.Column="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="0,0,6,0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="Auto" Height="Auto"
+                           Text="Niv. " />
+                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="pokemonOpponentNiveauTxtB" HorizontalAlignment="Left" TextWrapping="Wrap" 
+                           VerticalAlignment="Center" Width="Auto" Height="Auto" Text="{Binding Pokemon.Niveau}" />
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="45*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,6,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="Auto" Height="Auto"
+                           Text="{Binding Pokemon.TypeDePokemon.Pv}" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="Auto" Height="Auto"
+                           Text="/" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="Auto" Height="Auto"
+                           Text="{Binding MaximumPv}" />
+                <ProgressBar Grid.Row="1" Grid.ColumnSpan="3" x:Name="pokemonOpponentPVTxtB" MinHeight="20" Style="{StaticResource ProgressBarDefault}"
+                         Maximum="100" Value="{Binding ActualPv}" Minimum="0" IsIndeterminate="False" VerticalAlignment="Top" Margin="0,6,0,0" />
+            </Grid>
             <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Source="{Binding Pokemon.TypeDePokemon.ImagePokemonFront}"/>
         </Grid>
     </Grid>    

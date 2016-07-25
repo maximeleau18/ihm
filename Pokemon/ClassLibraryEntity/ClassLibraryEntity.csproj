@@ -114,6 +114,7 @@
     <Compile Include="base\EnityBase.cs" />
     <Compile Include="Combat.cs" />
     <Compile Include="Dresseur.cs" />
+    <Compile Include="MessageErreur.cs" />
     <Compile Include="Objet.cs" />
     <Compile Include="PersonnageNonJoueur.cs" />
     <Compile Include="Player.cs" />

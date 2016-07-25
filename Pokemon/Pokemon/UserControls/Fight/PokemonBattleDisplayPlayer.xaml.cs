@@ -19,9 +19,9 @@ namespace Pokemon.UserControls.Fight
 {
     public sealed partial class PokemonBattleDisplayPlayer : BaseUserControl
     {        
-        private int actualPv;
+        private double actualPv;
 
-        public int ActualPv
+        public double ActualPv
         {
             get
             {
@@ -33,6 +33,23 @@ namespace Pokemon.UserControls.Fight
                 base.OnPropertyChanged("ActualPv");
             }
         }
+
+        private double maximumPv;
+
+        public double MaximumPv
+        {
+            get
+            {
+                return maximumPv;
+            }
+
+            set
+            {
+                maximumPv = value;
+                base.OnPropertyChanged("MaximumPv");
+            }
+        }
+
 
         private ClassLibraryEntity.Pokemon pokemon;
 

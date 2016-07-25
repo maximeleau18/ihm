@@ -52,13 +52,28 @@ namespace Pokemon.UserControls.Menus
             }
         }
 
+        private Button buttonBack;
 
+        public Button ButtonBack
+        {
+            get
+            {
+                return buttonBack;
+            }
+
+            set
+            {
+                buttonBack = value;
+            }
+        }
+        
         public ObjectMenu()
         {
             this.InitializeComponent();
             this.objets = new ObservableCollection<ClassLibraryEntity.Objet>();
             this.listObjet.ItemsSource = this.objets;
             this.ItemsListObjets = this.listObjet;
+            this.ButtonBack = this.btnBack;
         }
 
         public void LoadItems(List<ClassLibraryEntity.Objet> objets)
@@ -70,13 +85,5 @@ namespace Pokemon.UserControls.Menus
             }
         }
         
-        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.Parent as Grid))
-            {
-                item.Visibility = Visibility.Visible;
-                Visibility = Visibility.Collapsed;
-            }
-        }
     }
 }

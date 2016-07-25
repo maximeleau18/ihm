@@ -56,7 +56,29 @@ namespace ClassLibraryEntity.API
             using (Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient())
             {
                 Windows.Web.Http.HttpRequestMessage message = new Windows.Web.Http.HttpRequestMessage(
-                    Windows.Web.Http.HttpMethod.Post, new Uri("http://127.0.0.1:8000/api/"));
+                    Windows.Web.Http.HttpMethod.Post, new Uri("http://127.0.0.1:8000/api/" + typeof(T).Name.ToLower()));
+                message.Content = new Windows.Web.Http.HttpStringContent(
+                    JsonConvert.SerializeObject(item));
+                
+                message.Content.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
+                Windows.Web.Http.HttpResponseMessage response = await client.SendRequestAsync(message);
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    isOk = true;
+                }
+            }
+
+            return isOk;
+        }
+
+        public async Task<T> PostToApiAndReceiveData<T>(T item)
+        {
+
+            using (Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient())
+            {
+                Windows.Web.Http.HttpRequestMessage message = new Windows.Web.Http.HttpRequestMessage(
+                    Windows.Web.Http.HttpMethod.Post, new Uri("http://127.0.0.1:8000/api/" + typeof(T).Name.ToLower()));
                 message.Content = new Windows.Web.Http.HttpStringContent(
                     JsonConvert.SerializeObject(item));
 
@@ -65,11 +87,39 @@ namespace ClassLibraryEntity.API
 
                 if (response.IsSuccessStatusCode)
                 {
-                    isOk = true;
+                    String result = await response.Content.ReadAsStringAsync();
+                    item = JsonConvert. DeserializeObject<T>(result);
                 }
             }
 
-            return isOk;
+            return item;
+        }
+
+        public String PostToApiAndReceiveDataSync<T>(T item)
+        {
+            String result;
+
+            using (Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient())
+            {
+                Windows.Web.Http.HttpRequestMessage message = new Windows.Web.Http.HttpRequestMessage(
+                    Windows.Web.Http.HttpMethod.Post, new Uri("http://127.0.0.1:8000/api/" + typeof(T).Name.ToLower()));
+                message.Content = new Windows.Web.Http.HttpStringContent(
+                    JsonConvert.SerializeObject(item));
+
+                message.Content.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
+                Windows.Web.Http.HttpResponseMessage response  = Task.Run(async () => await client.SendRequestAsync(message)).Result;
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    result = response.Content.ReadAsStringAsync().GetResults();
+                }
+                else
+                {
+                    result = response.Content.ReadAsStringAsync().GetResults();
+                }
+            }
+
+            return result;
         }
     }
 }

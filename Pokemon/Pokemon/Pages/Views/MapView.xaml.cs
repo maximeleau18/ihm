@@ -29,7 +29,7 @@ namespace Pokemon.Pages.Views
         private Player player;
         private GridManager gridManager;
         
-        internal Player Player
+        public Player Player
         {
             get
             {                
@@ -42,7 +42,7 @@ namespace Pokemon.Pages.Views
             }
         }
 
-        internal GridManager GridManager
+        public GridManager GridManager
         {
             get
             {
@@ -63,38 +63,15 @@ namespace Pokemon.Pages.Views
             base.Loaded += Page_Loaded;
             this.Unloaded += Page_Unloaded;
         }
-
-        private void CoreWindow_SizeChanged(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.WindowSizeChangedEventArgs args)
-        {
-            //if (args.Size.Width > 832)
-            //{
-            //    this.GridManager.GridPlayerMap.Width = 1728;
-            //}
-            //else
-            //{
-            //    this.GridManager.GridPlayerMap.Width = 832;
-            //}
-            //if (args.Size.Height > 448)
-            //{
-            //    this.GridManager.GridPlayerMap.Height = 960;
-            //}
-            //else
-            //{
-            //    this.GridManager.GridPlayerMap.Height = 448;
-            //}
-        }
-
+        
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ((Frame)Window.Current.Content).KeyUp += GridMap_KeyUp;
-            Window.Current.CoreWindow.SizeChanged -= CoreWindow_SizeChanged;
-            Window.Current.CoreWindow.SizeChanged += CoreWindow_SizeChanged;
         }
 
         void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             ((Frame)Window.Current.Content).KeyUp -= GridMap_KeyUp;
-            Window.Current.CoreWindow.SizeChanged -= CoreWindow_SizeChanged;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -105,19 +82,7 @@ namespace Pokemon.Pages.Views
             this.Player.CurrentOrientation = Player.Orientation.Down_0;
             this.GridManager.GridPlayerMap = this.playerGridMap;
             this.GridManager.ConstructGridPlayerMap(0, this.GridManager.PlayAreaMaxRow, 0, this.GridManager.PlayAreaMaxCol);
-
-            if (this.Player.Sexe.Equals("M"))
-            {
-                this.CharacterButton.Source = new BitmapImage(new Uri("ms-appx:///Images/Menu/ManIco.png"));
-            }
-
-            if (this.Player.Sexe.Equals("F"))
-            {
-                this.CharacterButton.Source = new BitmapImage(new Uri("ms-appx:///Images/Menu/WomanIco.png"));
-            }
-
-            this.TxtCharacter.Text = this.Player.Name;
-
+            
             //this.GridManager = new GridManager(this.playerGridMap, 26, 46, 15, 27, 0, 0, this.Player);
             //this.GridManager = new GridManager(this.playerGridMap, 26, 46, 15, 27, 11, 19, this.Player);
             this.GridManager.MovePlayer();
@@ -298,25 +263,7 @@ namespace Pokemon.Pages.Views
         {
             this.MenuSplitView.IsPaneOpen = !this.MenuSplitView.IsPaneOpen;
         }
-        
-        private void Pokemon_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            //Open pokemon view
-        }
-
-        private void Character_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            if(this.MenuSplitView.IsPaneOpen)
-            {
-                (Window.Current.Content as Frame).Navigate(typeof(TrainerCardView), this.Player);
-            }
-        }
-                
-        private void Bag_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            //Open Bag view
-        }
-        
+                                       
         private void Pokedex_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if(this.MenuSplitView.IsPaneOpen)

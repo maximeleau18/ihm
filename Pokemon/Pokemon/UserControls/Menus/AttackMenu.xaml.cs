@@ -1,5 +1,4 @@
 ﻿using ClassLibraryEntity;
-using Pokemon.UserControls.Buttons;
 using Pokemon.UserControls.Other;
 using Pokemon.Utils;
 using System;
@@ -22,39 +21,80 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pokemon.UserControls.Menus
 {
-    public sealed partial class AttackMenu : UserControl
+    public sealed partial class AttackMenu : BaseUserControl
     {        
-        public AttackButton AttackButton1 { get; set; }
-        public AttackButton AttackButton2 { get; set; }
-        public AttackButton AttackButton3 { get; set; }
-        public AttackButton AttackButton4 { get; set; }
+        public Button AttackButton1 { get; set; }
+        public Button AttackButton2 { get; set; }
+        public Button AttackButton3 { get; set; }
+        public Button AttackButton4 { get; set; }
+        public Button ButtonBack { get; set; }
+        private Attaque attaque01;
+        private Attaque attaque02;
+        private Attaque attaque03;
+        private Attaque attaque04;
+        public Attaque Attaque01
+        {
+            get
+            {
+                return attaque01;
+            }
+
+            set
+            {
+                attaque01 = value;
+                base.OnPropertyChanged("Attaque01");
+            }
+        }
+        public Attaque Attaque02
+        {
+            get
+            {
+                return attaque02;
+            }
+
+            set
+            {
+                attaque02 = value;
+                base.OnPropertyChanged("Attaque02");
+            }
+        }
+        public Attaque Attaque03
+        {
+            get
+            {
+                return attaque03;
+            }
+
+            set
+            {
+                attaque03 = value;
+                base.OnPropertyChanged("Attaque03");
+            }
+        }
+        public Attaque Attaque04
+        {
+            get
+            {
+                return attaque04;
+            }
+
+            set
+            {
+                attaque04 = value;
+                base.OnPropertyChanged("Attaque04");
+            }
+        }
 
         public AttackMenu()
         {
             this.InitializeComponent();
-            this.AttackButton1 = this.ucAttack01;
-            this.AttackButton2 = this.ucAttack02;
-            this.AttackButton3 = this.ucAttack03;
-            this.AttackButton4 = this.ucAttack04;
+            this.AttackButton1 = this.buttonAttack01;
+            this.AttackButton2 = this.buttonAttack02;
+            this.AttackButton3 = this.buttonAttack03;
+            this.AttackButton4 = this.buttonAttack04;
+            this.ButtonBack = this.btnBack;
+            this.DataContext = this;
         }
-
-        private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {            
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
-        }
-
-        private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParams"];
-        }
-
-        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.Parent as Grid))
-            {
-                item.Visibility = Visibility.Visible;
-                Visibility = Visibility.Collapsed;
-            }
-        }
+        
     }
 }

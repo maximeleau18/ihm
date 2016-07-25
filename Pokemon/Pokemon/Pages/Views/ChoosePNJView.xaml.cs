@@ -3,6 +3,7 @@ using Pokemon.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,8 +24,12 @@ namespace Pokemon.Pages.Views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class ChoosePNJView : Page
+    public sealed partial class ChoosePNJView : Page, INotifyPropertyChanged
     {
+
+        private Visibility selectedPnj;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private ChoosePNJViewModel choosePNJViewModel;
 
@@ -115,6 +120,20 @@ namespace Pokemon.Pages.Views
             }
         }
 
+        public Visibility SelectedPnj
+        {
+            get
+            {
+                return selectedPnj;
+            }
+
+            set
+            {
+                selectedPnj = value;
+                OnPropertyChanged("SelectedPnj");
+            }
+        }
+
         public ChoosePNJView()
         {
             this.InitializeComponent();
@@ -125,6 +144,7 @@ namespace Pokemon.Pages.Views
             this.ItemsListPnjs = this.listPNJ;
             this.Console = this.ucConsole;
             this.ChoosePNJViewModel = new ChoosePNJViewModel(this);
+            this.DataContext = this;
         }
 
         public void LoadItems(List<ClassLibraryEntity.PersonnageNonJoueur> pnjs)
@@ -135,6 +155,15 @@ namespace Pokemon.Pages.Views
                 this.pnjs.Add(item);
             }
         }
-        
+
+        public void OnPropertyChanged(String name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
     }
 }

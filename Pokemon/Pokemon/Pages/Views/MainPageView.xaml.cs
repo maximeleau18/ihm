@@ -1,6 +1,5 @@
-﻿using ClassLibraryEntity;
-using Microsoft.Azure.Engagement;
-using Microsoft.Azure.Engagement.Overlay;
+﻿using Microsoft.Azure.Engagement.Overlay;
+using Pokemon.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,32 +24,40 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class MainPageView : EngagementPageOverlay
     {
+        private Image startImage;
+        private MainPageViewModel mainPageViewModel;
+
+
+        public Image StartImage
+        {
+            get
+            {
+                return startImage;
+            }
+
+            set
+            {
+                startImage = value;
+            }
+        }
+        public MainPageViewModel MainPageViewModel
+        {
+            get
+            {
+                return mainPageViewModel;
+            }
+
+            set
+            {
+                mainPageViewModel = value;
+            }
+        }
+
         public MainPageView()
         {
             this.InitializeComponent();
-            //String deviceId = EngagementAgent.Instance.GetDeviceId();
-        }
-
-        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            (Window.Current.Content as Frame).Navigate(typeof(StartMenuPageView));
-        }
-
-        //private void InitializeDb()
-        //{
-        //    SQLiteManager<Profession> managerProfession = new SQLiteManager<Profession>();
-        //    Profession professionChampion = new Profession();
-        //    professionChampion.Nom = "Champion";
-        //    managerProfession.Insert(professionChampion);
-
-        //    SQLiteManager<PersonnageNonJoueur> managerPnj = new SQLiteManager<PersonnageNonJoueur>();
-        //    PersonnageNonJoueur pnj = new PersonnageNonJoueur();
-        //    pnj.Id = 8000;
-        //    pnj.Nom = "Sacha2";
-        //    pnj.Description = "J'aime les pokémons2";
-        //    pnj.ProfessionId = managerProfession.Get(professionChampion).Id;
-        //    managerPnj.Insert(pnj);
-
-        //}
+            this.StartImage = this.mainPageImage;
+            this.MainPageViewModel = new MainPageViewModel(this);
+        }       
     }
 }

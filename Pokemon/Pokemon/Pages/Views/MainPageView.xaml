@@ -9,6 +9,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image Source="ms-appx:///Images/Demarrage.png" Tapped="Image_Tapped"/>
+        <Image x:Name="mainPageImage" Source="ms-appx:///Images/Demarrage.png" />
     </Grid>
 </engagement:EngagementPageOverlay>

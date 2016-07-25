@@ -90,11 +90,11 @@
                     <ColumnDefinition Width="10*" />
                     <ColumnDefinition Width="45*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="1" Grid.Column="0" x:Name="btnValidate" Content="VALIDER" HorizontalAlignment="Stretch"
+                <Button Margin="6,0,0,6" Grid.Row="1" Grid.Column="0" x:Name="btnValidate" Content="VALIDER" HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="20" />
+                    Style="{StaticResource ButtonParams}" FontSize="20" Visibility="{Binding SelectedPnj}" />
                 
-                <Button Grid.Row="1" Grid.Column="2" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
+                <Button Margin="0,0,6,6" Grid.Row="1" Grid.Column="2" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
                     Style="{StaticResource ButtonParams}" FontSize="20" />
             </Grid>

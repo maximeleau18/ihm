@@ -26,52 +26,9 @@ namespace Pokemon.Pages.Views
     public sealed partial class PokedexView : Page
     {
         private GridManager gridManager;
-        private ObservableCollection<ClassLibraryEntity.Pokemon> pokemons = new ObservableCollection<ClassLibraryEntity.Pokemon>();        
+        private ObservableCollection<ClassLibraryEntity.Pokemon> pokemons = new ObservableCollection<ClassLibraryEntity.Pokemon>();
 
-        public PokedexView()
-        {
-            this.InitializeComponent();
-            LoadContent();
-            this.ListPokemon.ItemsSource = this.Pokemons;
-        }
-
-        private void LoadContent()
-        {
-
-            //TypePokemon typePokemonEau = new TypePokemon("Eau");
-            //TypePokemon typePokemonFeu = new TypePokemon("Feu");
-            //ClassLibraryEntity.Pokemon kaiminus = new ClassLibraryEntity.Pokemon("Kaiminus", "KAIMINUS : &#xD;&#xA;&#xD;&#xA; Même s'il est tout petit, la mâchoire de Kaiminus est très " +
-            //    "puissante. En pleine croissance, il a un fort besoin de mordiller tout ce qu'il trouve : cailloux, morceaux de bois, et même la main de son " +
-            //    "dresseur si celui-ci est imprudent. Ce Pokémon ne se rend pas compte de la force de ses morsures, il faut donc s'en méfier. ", 
-            //    "ms-appx:///Images/Pokemons/kaiminus.png", 6, typePokemonEau);
-            //ClassLibraryEntity.Pokemon hericendre = new ClassLibraryEntity.Pokemon("Héricendre", "Description Héricendre", "ms-appx:///Images/Pokemons/hericendre.png", 6, typePokemonFeu);
-
-            //pokemons.Add(kaiminus);
-            //pokemons.Add(hericendre);
-        }
-        
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            this.GridManager = (GridManager)e.Parameter;
-        }
-
-        private void btnBack_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
-        }
-
-        private void btnBack_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            this.btnBack.Style = (Style)Application.Current.Resources["ButtonParams"];
-        }
-
-        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
-        }
-        
-        internal GridManager GridManager
+        public GridManager GridManager
         {
             get
             {
@@ -83,13 +40,31 @@ namespace Pokemon.Pages.Views
                 gridManager = value;
             }
         }
-
-        internal ObservableCollection<ClassLibraryEntity.Pokemon> Pokemons
+        public ObservableCollection<ClassLibraryEntity.Pokemon> Pokemons
         {
             get
             {
                 return pokemons;
             }
         }
+
+        public PokedexView()
+        {
+            this.InitializeComponent();
+            this.ListPokemon.ItemsSource = this.Pokemons;
+        }
+                
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            this.GridManager = (GridManager)e.Parameter;
+        }
+        
+
+        //private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
+        //}
+        
     }
 }

@@ -1,5 +1,4 @@
 ﻿using ClassLibraryEntity;
-using Pokemon.UserControls.Buttons;
 using Pokemon.UserControls.Other;
 using Pokemon.Utils;
 using System;
@@ -53,12 +52,28 @@ namespace Pokemon.UserControls.Menus
             }
         }
 
+        public Button ButtonBack
+        {
+            get
+            {
+                return buttonBack;
+            }
+
+            set
+            {
+                buttonBack = value;
+            }
+        }
+
+        private Button buttonBack;
+
         public PokemonSelectionMenu()
         {
             this.InitializeComponent();
             this.pokemons = new ObservableCollection<ClassLibraryEntity.Pokemon>();
             this.listPokemon.ItemsSource = this.pokemons;
             this.ItemsListPokemons = this.listPokemon;
+            this.ButtonBack = this.btnBack;
         }
 
         public void LoadItems(List<ClassLibraryEntity.Pokemon> pokemons)
@@ -69,14 +84,6 @@ namespace Pokemon.UserControls.Menus
                 this.pokemons.Add(item);
             }
         }
-
-        private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            foreach (BattleMenu item in Helper.FindVisualChildren<BattleMenu>(this.Parent as Grid))
-            {
-                item.Visibility = Visibility.Visible;
-                Visibility = Visibility.Collapsed;
-            }
-        }
+        
     }
 }

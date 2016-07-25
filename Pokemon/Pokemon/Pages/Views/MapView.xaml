@@ -3,11 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Pokemon.Pages.Views"
-    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    >
+    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
+    mc:Ignorable="d">
 
     <Grid x:Name="MapViewGrid">
         <SplitView x:Name="MenuSplitView" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="64" OpenPaneLength="400" Style="{StaticResource BackgroundGridMenu}" Tapped="MenuButton_Tapped">
@@ -20,18 +19,6 @@
                     <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokedex}" Tapped="Pokedex_Tapped">
                         <Image x:Name="PokedexButton" Source="ms-appx:///Images/Menu/PokedexButton.png" Margin="0,0,15,0"/>
                         <TextBlock Text="Pokédex" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokemon}" Visibility="Collapsed" Tapped="Pokemon_Tapped">
-                        <Image x:Name="PokemonButton" Source="ms-appx:///Images/Menu/PokemonButton.png" Margin="0,0,15,0"  />
-                        <TextBlock Text="Pokémons" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuBag}" Visibility="Collapsed" Tapped="Bag_Tapped">
-                        <Image x:Name="BagButton" Source="ms-appx:///Images/Menu/SacButton.png" Margin="0,0,15,0"  />
-                        <TextBlock Text="Sac" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuCharacter}" Visibility="Collapsed" Tapped="Character_Tapped">
-                        <Image x:Name="CharacterButton" Margin="0,0,15,0"   />
-                        <TextBlock x:Name="TxtCharacter" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Background="Red" Tapped="QuitButton_Tapped">
                         <Image x:Name="QuitButton" Source="ms-appx:///Images/Menu/cross_icon.jpg" Margin="0,0,15,0"/>
