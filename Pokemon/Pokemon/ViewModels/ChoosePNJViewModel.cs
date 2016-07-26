@@ -48,13 +48,18 @@ namespace Pokemon.ViewModels
             this.Bind();
         }
         
-        public async void Init()
+        private async void Init()
         {
             ClassLibraryEntity.API.ApiManager manager = new ClassLibraryEntity.API.ApiManager();
+            this.ChoosePNJView.MainGrid.Visibility = Visibility.Collapsed;
+            this.ChoosePNJView.RingLoader.ProgressRingText.Text = "Chargement...";
+            this.ChoosePNJView.RingLoader.Visibility = Visibility.Visible;
             this.ChoosePNJView.LoadItems(await manager.GetListFromApi<List<PersonnageNonJoueur>>());
+            this.ChoosePNJView.RingLoader.Visibility = Visibility.Collapsed;
+            this.ChoosePNJView.MainGrid.Visibility = Visibility.Visible;
         }
 
-        public void Bind()
+        private void Bind()
         {
             this.ChoosePNJView.ButtonBack.Tapped += ButtonBack_Tapped;
             this.ChoosePNJView.ButtonValidate.Tapped += ButtonValidate_Tapped;

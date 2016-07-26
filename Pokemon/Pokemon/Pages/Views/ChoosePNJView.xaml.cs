@@ -26,6 +26,9 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class ChoosePNJView : Page, INotifyPropertyChanged
     {
+        private RingLoader ringLoader;
+
+        private Grid mainGrid;
 
         private Visibility selectedPnj;
 
@@ -133,6 +136,32 @@ namespace Pokemon.Pages.Views
                 OnPropertyChanged("SelectedPnj");
             }
         }
+        
+        public RingLoader RingLoader
+        {
+            get
+            {
+                return ringLoader;
+            }
+
+            set
+            {
+                ringLoader = value;
+            }
+        }
+
+        public Grid MainGrid
+        {
+            get
+            {
+                return mainGrid;
+            }
+
+            set
+            {
+                mainGrid = value;
+            }
+        }
 
         public ChoosePNJView()
         {
@@ -143,6 +172,8 @@ namespace Pokemon.Pages.Views
             this.listPNJ.ItemsSource = this.pnjs;
             this.ItemsListPnjs = this.listPNJ;
             this.Console = this.ucConsole;
+            this.RingLoader = this.ucRingLoader;
+            this.MainGrid = this.currentGrid;
             this.ChoosePNJViewModel = new ChoosePNJViewModel(this);
             this.DataContext = this;
         }

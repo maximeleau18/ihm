@@ -58,50 +58,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <!-- Style Bordure de la box pokémon dans "carte de dresseur"-->
-    <Style x:Key="BorderPokeBlock" TargetType="Border">
-        <Setter Property="CornerRadius" Value="20" />
-        <Setter Property="BorderBrush" Value="#4D194D" />
-        <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="Background" Value="#993399" />
-    </Style>
-    
-    <!-- Style Bordure de la box pokémon dans "carte de dresseur" survolée -->
-    <Style x:Key="BorderPokeBlockSelected" TargetType="Border">
-        <Setter Property="CornerRadius" Value="20" />
-        <Setter Property="BorderBrush" Value="#FFFFFF" />
-        <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="Background" Value="#993399" />
-    </Style>
-    
-    <!-- Woman Icone -->
-    <Image x:Key="ImageWomanIcone" >
-        <Image.Source>
-            <BitmapImage UriSource="ms-appx:///Images/WomanMini.png"></BitmapImage>
-        </Image.Source>
-    </Image>
-    
-    <!-- Man Icone -->
-    <Image x:Key="ImageManIcone" >
-        <Image.Source>
-            <BitmapImage UriSource="ms-appx:///Images/ManMini.png"></BitmapImage>
-        </Image.Source>
-    </Image>
-    
-    <!-- Woman Character -->
-    <Image x:Key="WomanCharacter" >
-        <Image.Source>
-            <BitmapImage UriSource="ms-appx:///Images/Woman.png"></BitmapImage>
-        </Image.Source>
-    </Image>
-    
-    <!-- Woman Character -->
-    <Image x:Key="ManCharacter" >
-        <Image.Source>
-            <BitmapImage UriSource="ms-appx:///Images/Wan.png"></BitmapImage>
-        </Image.Source>
-    </Image>
 	
     <!-- Fond de page Map -->
     <Style x:Key="BackgroundGridMap" TargetType="Grid">
@@ -111,31 +67,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-    <!-- Image de sélection du joueur -->
-    <Style x:Key="ImageChooseCharacter" TargetType="Image">
-        <Setter Property="Source" Value="ms-appx:///Images/Triangle.png" />
-    </Style>
-
-    <!-- Image de sélection du joueur survolée -->
-    <Style x:Key="ImageChooseCharacterSelected" TargetType="Image">
-        <Setter Property="Source" Value="ms-appx:///Images/TriangleSelected.png" />
-    </Style>
-
-    <!-- Cadre de la TextBox permettant de saisir son nom -->
-    <Style x:Key="TextBoxChooseName" TargetType="Border">
-        <Setter Property="CornerRadius" Value="10" />
-        <Setter Property="BorderBrush" Value="#cccccc" />
-        <Setter Property="Background" Value="#ffffff" />
-    </Style>
-
-    <!-- Cadre du TextBlock entourant le message du choix du personnage -->
-    <Style x:Key="BorderTextBlock" TargetType="Border">
-        <Setter Property="CornerRadius" Value="10" />
-        <Setter Property="BorderBrush" Value="#cccccc" />
-        <Setter Property="Background" Value="#ffffff" />
-    </Style>
-
 
     <!-- Fond de page du menu -->
     <Style x:Key="BackgroundGridMenu" TargetType="SplitView">
@@ -156,26 +87,31 @@
         <Setter Property="Background" Value="#993300" />
     </Style>
 
-    <!-- Fond de page du bouton sac -->
-    <Style x:Key="BackgroundMenuBag" TargetType="StackPanel">
-        <Setter Property="Background" Value="#FF9900" />
+    <!-- Fond de page du bouton quitter -->
+    <Style x:Key="BackgroundMenuQuit" TargetType="StackPanel">
+        <Setter Property="Background" Value="Red" />
+    </Style>
+    
+    <!-- Bordure entourant les textblocks Console -->
+    <Style x:Key="BorderTextBlock" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderBrush" Value="White" />
+        <Setter Property="BorderThickness" Value="2" />
     </Style>
 
-    <!-- Fond de page du bouton personnage -->
-    <Style x:Key="BackgroundMenuCharacter" TargetType="StackPanel">
-        <Setter Property="Background" Value="#993399" />
+    <!-- Bordure entourant les textbox de la View ComposeDresseur -->
+    <Style x:Key="TextBoxChooseName" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderBrush" Value="#cccccc" />
+        <Setter Property="Background" Value="White" />
     </Style>
-    
-    <!-- Fond de page du bouton retour -->
-    <Style x:Key="BackgroundMenuReturn" TargetType="StackPanel">
-        <Setter Property="Background" Value="#009900" />
-    </Style>
-    
+
     <!-- Style pour les progressbar -->
     <Style x:Key="ProgressBarDefault" TargetType="ProgressBar">
         <Setter Property="Foreground" Value="Green" />
         <Setter Property="Background" Value="White" />
         <Setter Property="BorderBrush" Value="Black" />
         <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Background" Value="White" />
     </Style>
 </ResourceDictionary>

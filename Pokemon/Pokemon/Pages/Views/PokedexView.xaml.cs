@@ -1,5 +1,6 @@
 ﻿using ClassLibraryEntity;
 using Pokemon.Utils;
+using Pokemon.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,7 +26,9 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class PokedexView : Page
     {
+        private PokedexViewModel pokedexViewModel;
         private GridManager gridManager;
+        private Button buttonBack;
         private ObservableCollection<ClassLibraryEntity.Pokemon> pokemons = new ObservableCollection<ClassLibraryEntity.Pokemon>();
 
         public GridManager GridManager
@@ -47,24 +50,31 @@ namespace Pokemon.Pages.Views
                 return pokemons;
             }
         }
+        public Button ButtonBack
+        {
+            get
+            {
+                return buttonBack;
+            }
+
+            set
+            {
+                buttonBack = value;
+            }
+        }
 
         public PokedexView()
         {
             this.InitializeComponent();
-            this.ListPokemon.ItemsSource = this.Pokemons;
+            this.ButtonBack = this.btnBack;
         }
                 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             this.GridManager = (GridManager)e.Parameter;
+            this.pokedexViewModel = new PokedexViewModel(this);
         }
-        
-
-        //private void btnBack_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
-        //}
-        
+                
     }
 }

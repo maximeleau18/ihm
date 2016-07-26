@@ -8,21 +8,30 @@
     xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
     mc:Ignorable="d">
 
-    <Grid x:Name="MapViewGrid">
-        <SplitView x:Name="MenuSplitView" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="64" OpenPaneLength="400" Style="{StaticResource BackgroundGridMenu}" Tapped="MenuButton_Tapped">
+    <Grid x:Name="mapViewGrid">
+        <SplitView x:Name="menuSplitView" DisplayMode="CompactOverlay" IsPaneOpen="False" 
+                   CompactPaneLength="64" OpenPaneLength="400" Style="{StaticResource BackgroundGridMenu}">
             <SplitView.Pane>
-                <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical" x:Name="menuStackPanel">
                     <StackPanel Orientation="Horizontal" Background="Transparent">
-                        <Image x:Name="MenuButton" Source="ms-appx:///Images/Menu/MenuButton.png" Margin="0,0,15,0"/>
-                        <TextBlock x:Name="TxtMenu" Text="MENU" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center" />
+                        <Image Source="ms-appx:///Images/Menu/MenuButton.png" 
+                               Margin="0,0,15,0"/>
+                        <TextBlock Text="MENU" FontSize="18" Foreground="#ffffff" 
+                                   VerticalAlignment="Center" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokedex}" Tapped="Pokedex_Tapped">
-                        <Image x:Name="PokedexButton" Source="ms-appx:///Images/Menu/PokedexButton.png" Margin="0,0,15,0"/>
-                        <TextBlock Text="Pokédex" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokedex}"
+                                x:Name="menuPokedexStackPanel">
+                        <Image Source="ms-appx:///Images/Menu/PokedexButton.png" 
+                               Margin="0,0,15,0"/>
+                        <TextBlock Text="Pokédex" FontSize="18" Foreground="#ffffff" 
+                                   VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Background="Red" Tapped="QuitButton_Tapped">
-                        <Image x:Name="QuitButton" Source="ms-appx:///Images/Menu/cross_icon.jpg" Margin="0,0,15,0"/>
-                        <TextBlock Text="Quitter" FontSize="18" Foreground="#ffffff" VerticalAlignment="Center"></TextBlock>
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuQuit}"
+                                x:Name="menuQuitStackPanel">
+                        <Image Source="ms-appx:///Images/Menu/cross_icon.jpg" 
+                               Margin="0,0,15,0"/>
+                        <TextBlock Text="Quitter" FontSize="18" Foreground="#ffffff" 
+                                   VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
                 </StackPanel>
             </SplitView.Pane>

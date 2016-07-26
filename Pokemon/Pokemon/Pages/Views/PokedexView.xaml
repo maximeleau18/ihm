@@ -46,7 +46,7 @@
                 </Grid.ColumnDefinitions>
                 
                 <ScrollViewer Grid.RowSpan="4" Grid.ColumnSpan="3">
-                    <ListView x:Name="ListPokemon">
+                    <ListView x:Name="listPokemon">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />               

@@ -32,7 +32,7 @@ namespace Pokemon.ViewModels
             this.Bind();
         }
 
-        public void Bind()
+        private void Bind()
         {
             this.StartMenuPage.ButtonStartGameOnline.Tapped += ButtonStartGameOnline_Tapped;
             this.StartMenuPage.ButtonStartGameOnline.PointerEntered += ButtonStartGameOnline_PointerEntered;

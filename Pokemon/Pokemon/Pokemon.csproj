@@ -430,6 +430,9 @@
     <Compile Include="UserControls\Menus\ObjectMenu.xaml.cs">
       <DependentUpon>ObjectMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Other\RingLoader.xaml.cs">
+      <DependentUpon>RingLoader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\GridManager.cs" />
     <Compile Include="Pages\Views\BattleView.xaml.cs">
       <DependentUpon>BattleView.xaml</DependentUpon>
@@ -473,6 +476,8 @@
     <Compile Include="ViewModels\ChoosePNJViewModel.cs" />
     <Compile Include="ViewModels\CompleteDresseurViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\MapViewModel.cs" />
+    <Compile Include="ViewModels\PokedexViewModel.cs" />
     <Compile Include="ViewModels\StartMenuPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -482,9 +487,7 @@
     <None Include="Pokemon_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\CarteDresseur.png" />
     <Content Include="Images\Demarrage.png" />
-    <Content Include="Images\Joystick.png" />
     <Content Include="Images\Map\Map_01.png" />
     <Content Include="Images\Map\Map_02.png" />
     <Content Include="Images\Map\Map_03.png" />
@@ -1682,17 +1685,9 @@
     <Content Include="Images\Map\Map_998.png" />
     <Content Include="Images\Map\Map_999.png" />
     <Content Include="Images\Menu\cross_icon.jpg" />
-    <Content Include="Images\Menu\ManIco.png" />
     <Content Include="Images\Menu\MenuButton.png" />
     <Content Include="Images\Menu\PokedexButton.png" />
-    <Content Include="Images\Menu\PokemonButton.png" />
-    <Content Include="Images\Menu\ReturnButton.png" />
-    <Content Include="Images\Menu\SacButton.png" />
-    <Content Include="Images\Menu\WomanIco.png" />
     <Content Include="Images\Background.png" />
-    <Content Include="Images\Chen.png" />
-    <Content Include="Images\Man.png" />
-    <Content Include="Images\ManMini.png" />
     <Content Include="Images\Menu.png" />
     <Content Include="Images\Sprites\Sprite_Down.png" />
     <Content Include="Images\Sprites\Sprite_Down_01.png" />
@@ -1716,10 +1711,6 @@
     <Content Include="Images\Sprites\Sprite_Up_04.png" />
     <Content Include="Images\Stadium.png" />
     <Content Include="Images\TonNom.png" />
-    <Content Include="Images\Triangle.png" />
-    <Content Include="Images\TriangleSelected.png" />
-    <Content Include="Images\Woman.png" />
-    <Content Include="Images\WomanMini.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -1801,6 +1792,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Menus\PokemonSelectionMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Other\RingLoader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

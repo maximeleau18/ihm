@@ -9,7 +9,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Style="{StaticResource BackgroundGrid}" >
+        <UCOther:RingLoader x:Name="ucRingLoader" Grid.Row="0" Grid.Column="0" Visibility="Collapsed" />
+        <Grid x:Name="currentGrid" Style="{StaticResource BackgroundGrid}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20*" />
                 <RowDefinition Height="60*" />

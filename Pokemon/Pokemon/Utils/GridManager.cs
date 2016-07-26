@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 using Pokemon.Pages.Views;
 using Windows.UI.Popups;
+using Windows.ApplicationModel.Core;
 
 namespace Pokemon.Utils
 {
@@ -144,10 +145,8 @@ namespace Pokemon.Utils
             this.PlayerImg = new Image();
             this.Player = player;
             this.PersonnageNonJoueur = personnageNonJoueur;
-
-            ConstructTabImagesSource();
+            
             ConstructGridPlayerMap(0, this.PlayAreaMaxRow, 0, this.PlayAreaMaxCol);
-            MovePlayer();
         }
 
         private void ConstructTabImagesSource()
@@ -167,6 +166,8 @@ namespace Pokemon.Utils
 
         public void ConstructGridPlayerMap(int startRow, int endRow, int startCol, int endCol)
         {
+            ConstructTabImagesSource();
+
             // On définit les dimensions de la grid
             this.GridPlayerMap.MaxWidth = 1728;
             this.GridPlayerMap.MinWidth = 832;
@@ -207,8 +208,10 @@ namespace Pokemon.Utils
                 }
                 i++;
             }
+
+            MovePlayer();
         }
-        
+
         public void MoveMap()
         {
             int i = this.CurrentRow;
@@ -242,17 +245,19 @@ namespace Pokemon.Utils
 
         public void MovePlayer()
         {
+
             this.GridPlayerMap.Children.Remove(this.PlayerImg);
             String playerPictureImagePath = this.Player.GetOrientationImagePath();
 
             this.PlayerImg = new Image();
             this.PlayerImg.Source = new BitmapImage(new Uri(playerPictureImagePath));
-            
+
             this.GridPlayerMap.Children.Add(this.PlayerImg);
             Grid.SetColumn(this.PlayerImg, this.Player.PosX - this.CurrentCol);
             Grid.SetRow(this.PlayerImg, this.Player.PosY - this.CurrentRow);
 
-            if ((this.Player.PosX == 29) && (this.Player.PosY == 15)){
+            if ((this.Player.PosX == 29) && (this.Player.PosY == 15))
+            {
                 (Window.Current.Content as Frame).Navigate(typeof(BattleView), this);
             }
         }

@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity;
+using Pokemon.UserControls.Other;
 using Pokemon.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,8 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class CompleteDresseurView : Page, INotifyPropertyChanged
     {
+        private Grid mainGrid;
+        private RingLoader ringLoader;
         private Button buttonValidate;
         private Button buttonBack;
         private TextBox textBoxLastName;
@@ -223,6 +226,30 @@ namespace Pokemon.Pages.Views
                 personnageNonJoueur = value;
             }
         }
+        public Grid MainGrid
+        {
+            get
+            {
+                return mainGrid;
+            }
+
+            set
+            {
+                mainGrid = value;
+            }
+        }
+        public RingLoader RingLoader
+        {
+            get
+            {
+                return ringLoader;
+            }
+
+            set
+            {
+                ringLoader = value;
+            }
+        }
 
         public CompleteDresseurView()
         {
@@ -239,6 +266,8 @@ namespace Pokemon.Pages.Views
             this.TextBlockLoginError = this.errorLoginTxtB;
             this.TextBlockPasswordError = this.errorPassworxdTxtB;
             this.TextBlockConfirmationError = this.errorConfirmationTxtB;
+            this.RingLoader = this.ucRingLoader;
+            this.MainGrid = this.currentGrid;
 
             this.CompleteDresseurViewModel = new CompleteDresseurViewModel(this);
             this.DataContext = this;

@@ -9,8 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using System.Windows.Input;
 using Windows.UI.Xaml.Media;
 
 namespace Pokemon.ViewModels
@@ -20,6 +22,7 @@ namespace Pokemon.ViewModels
         private CompleteDresseurView completeDresseurView;
         private Dresseur dresseur;
         private MessageErreur errorsForm;
+        private String responseApi;
 
         public CompleteDresseurView CompleteDresseurView
         {
@@ -59,6 +62,19 @@ namespace Pokemon.ViewModels
             }
         }
 
+        public String ResponseApi
+        {
+            get
+            {
+                return responseApi;
+            }
+
+            set
+            {
+                responseApi = value;
+            }
+        }
+
         public CompleteDresseurViewModel(CompleteDresseurView completeDresseurView)
         {
             this.CompleteDresseurView = completeDresseurView;
@@ -66,7 +82,7 @@ namespace Pokemon.ViewModels
             this.Bind();
         }
 
-        public void Bind()
+        private void Bind()
         {
             this.CompleteDresseurView.Loaded += CompleteDresseurView_Loaded;
             this.CompleteDresseurView.ButtonBack.Tapped += ButtonBack_Tapped;
@@ -85,13 +101,7 @@ namespace Pokemon.ViewModels
         private void CompleteDresseurView_Loaded(object sender, RoutedEventArgs e)
         {
             this.CompleteDresseurView.TextBoxLastName.Focus(FocusState.Keyboard);
-        }
-
-        private String CreateDresseur(Dresseur dresseur)
-        {
-            ClassLibraryEntity.API.ApiManager manager = new ClassLibraryEntity.API.ApiManager();
-            return manager.PostToApiAndReceiveDataSync<Dresseur>(dresseur);
-        }
+        }        
 
         private Boolean ValidateDresseur()
         {
@@ -250,42 +260,53 @@ namespace Pokemon.ViewModels
             this.CompleteDresseurView.ButtonValidate.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
-        private void ButtonValidate_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private async  void ButtonValidate_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
+            this.CompleteDresseurView.MainGrid.Visibility = Visibility.Collapsed;
+            this.CompleteDresseurView.RingLoader.ProgressRingText.Text = "Création du compte...";
+            this.CompleteDresseurView.RingLoader.Visibility = Visibility.Visible;
             if (ValidateDresseur())
-            {
+            {                
                 Dresseur dresseur = new Dresseur();
                 dresseur.Nom = this.CompleteDresseurView.TextBoxLastName.Text.Trim();
                 dresseur.Prenom = this.CompleteDresseurView.TextBoxFirstName.Text.Trim();
                 dresseur.Login = this.CompleteDresseurView.TextBoxLogin.Text.Trim();
                 dresseur.Password = this.CompleteDresseurView.TextBoxPassword.Password.Trim();
                 dresseur.PersonnageNonJoueur = this.CompleteDresseurView.PersonnageNonJoueur;
-                String message = this.CreateDresseur(dresseur);
-
-                // Check if errors exist
-                if (message.Contains("errors"))
-                {
-                    this.ErrorsForm = JsonConvert.DeserializeObject<MessageErreur>(message);
-                    this.CompleteDresseurView.TextBlockLoginError.Text = this.ErrorsForm.messages[0];
-                    this.CompleteDresseurView.TextBoxLogin.Background = new SolidColorBrush(Colors.DarkRed);
-                }
-                else
-                {
-                    this.Dresseur = JsonConvert.DeserializeObject<Dresseur>(message);
-                    Player player = new Player();
-                    player.Name = dresseur.PersonnageNonJoueur.Nom.ToUpper();
-                    // On définit la position initiale du joueur
-                    //this.Player.PosX = 0;
-                    //this.Player.PosY = 0;
-                    player.PosX = 31;
-                    player.PosY = 14;
-
-                    GridManager gridManager = new GridManager(26, 46, 15, 27, 11, 19, player, dresseur.PersonnageNonJoueur);
-                    // On charge la page map
-                    (Window.Current.Content as Frame).Navigate(typeof(MapView), gridManager);
-                }
+                ClassLibraryEntity.API.ApiManager manager = new ClassLibraryEntity.API.ApiManager();
+                this.ResponseApi = await manager.PostToApiAndReceiveDataAsync<Dresseur>(dresseur);
+                this.GetResults();
             }
-         }
+        }
+
+        private void GetResults()
+        {
+            // Check if errors exist
+            if (this.ResponseApi.Contains("errors"))
+            {
+
+                this.CompleteDresseurView.MainGrid.Visibility = Visibility.Visible;
+                this.CompleteDresseurView.RingLoader.Visibility = Visibility.Collapsed;
+                this.ErrorsForm = JsonConvert.DeserializeObject<MessageErreur>(this.ResponseApi);
+                this.CompleteDresseurView.TextBlockLoginError.Text = this.ErrorsForm.messages[0];
+                this.CompleteDresseurView.TextBoxLogin.Background = new SolidColorBrush(Colors.DarkRed);
+            }
+            else
+            {
+                this.Dresseur = JsonConvert.DeserializeObject<Dresseur>(this.ResponseApi);
+                Player player = new Player();
+                player.Name = dresseur.PersonnageNonJoueur.Nom.ToUpper();
+                // On définit la position initiale du joueur
+                //this.Player.PosX = 0;
+                //this.Player.PosY = 0;
+                player.PosX = 31;
+                player.PosY = 14;
+
+                GridManager gridManager = new GridManager(26, 46, 15, 27, 11, 19, player, dresseur.PersonnageNonJoueur);
+                // On charge la page map
+                (Window.Current.Content as Frame).Navigate(typeof(MapView), gridManager);
+            }
+        }
         
         private void ButtonBack_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
