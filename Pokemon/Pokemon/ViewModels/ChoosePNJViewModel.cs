@@ -68,6 +68,19 @@ namespace Pokemon.ViewModels
             this.ChoosePNJView.ButtonValidate.PointerEntered += ButtonValidate_PointerEntered;
             this.ChoosePNJView.ButtonValidate.PointerExited += ButtonValidate_PointerExited;
             this.ChoosePNJView.ItemsListPnjs.ItemClick += ItemsListPnjs_ItemClick;
+            this.ChoosePNJView.PnjPokemons.ItemsListPokemons.ItemClick += ItemsListPokemons_ItemClick;
+        }
+
+        private void ItemsListPokemons_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ClassLibraryEntity.Pokemon selectedPokemon = e.ClickedItem as ClassLibraryEntity.Pokemon;
+            this.ChoosePNJView.Console.DisplayedMessage = "Regarde les attaques de \"" + selectedPokemon.TypeDePokemon.Nom + "\" puis lorsque tu as choisi " +
+                "clique sur VALIDER.";
+            this.ChoosePNJView.PnjPokemonsAttacks.Visibility = Visibility.Visible;
+            this.ChoosePNJView.PnjPokemonsAttacks.Attaque01 = selectedPokemon.Attaque1;
+            this.ChoosePNJView.PnjPokemonsAttacks.Attaque02 = selectedPokemon.Attaque2;
+            this.ChoosePNJView.PnjPokemonsAttacks.Attaque03 = selectedPokemon.Attaque3;
+            this.ChoosePNJView.PnjPokemonsAttacks.Attaque04 = selectedPokemon.Attaque4;
         }
 
         private void ButtonValidate_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
@@ -91,6 +104,8 @@ namespace Pokemon.ViewModels
             this.Pnj = pnjSelected;
             this.ChoosePNJView.Console.DisplayedMessage = "Regarde les pokémons de \"" + pnjSelected.Nom + "\" dans la liste de droite puis clique sur VALIDER.";
             this.ChoosePNJView.SelectedPnj = Visibility.Visible;
+            this.ChoosePNJView.PnjPokemons.LoadItems(pnjSelected.Pokemons);
+            this.ChoosePNJView.PnjPokemonsAttacks.Visibility = Visibility.Collapsed;
         }
 
         private void ButtonBack_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)

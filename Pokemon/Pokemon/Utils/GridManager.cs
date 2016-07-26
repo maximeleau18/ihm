@@ -256,10 +256,10 @@ namespace Pokemon.Utils
             Grid.SetColumn(this.PlayerImg, this.Player.PosX - this.CurrentCol);
             Grid.SetRow(this.PlayerImg, this.Player.PosY - this.CurrentRow);
 
-            if ((this.Player.PosX == 29) && (this.Player.PosY == 15))
-            {
-                (Window.Current.Content as Frame).Navigate(typeof(BattleView), this);
-            }
+            //if ((this.Player.PosX == 29) && (this.Player.PosY == 15))
+            //{
+            //    (Window.Current.Content as Frame).Navigate(typeof(BattleView), this);
+            //}
         }
     }
 }

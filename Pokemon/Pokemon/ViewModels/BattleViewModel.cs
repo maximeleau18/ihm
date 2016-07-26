@@ -369,7 +369,7 @@ namespace Pokemon.ViewModels
                         
         private void RunawayButton_Tapped(object sender, RoutedEventArgs e)
         {
-            this.GridManager.Player.PosY++;
+            //this.GridManager.Player.PosY++;
             (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
         }
 

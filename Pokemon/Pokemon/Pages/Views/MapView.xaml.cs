@@ -32,6 +32,7 @@ namespace Pokemon.Pages.Views
         private StackPanel menuSP;
         private StackPanel menuPokedexSP;
         private StackPanel menuQuitSP;
+        private StackPanel menuDuelSP;
         private Grid mapGrid;
         private Grid playerGrid;
         private MapViewModel mapViewModel;
@@ -140,6 +141,19 @@ namespace Pokemon.Pages.Views
             }
         }
 
+        public StackPanel MenuDuelSP
+        {
+            get
+            {
+                return menuDuelSP;
+            }
+
+            set
+            {
+                menuDuelSP = value;
+            }
+        }
+
         public MapView()
         {
             this.InitializeComponent();
@@ -149,6 +163,7 @@ namespace Pokemon.Pages.Views
             this.MenuSP = this.menuStackPanel;
             this.MenuPokedexSP = this.menuPokedexStackPanel;
             this.MenuQuitSP = this.menuQuitStackPanel;
+            this.MenuDuelSP = this.menuDuelStackPanel;
         }
         
         protected override void OnNavigatedTo(NavigationEventArgs e)

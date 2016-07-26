@@ -26,6 +26,13 @@
                         <TextBlock Text="Pokédex" FontSize="18" Foreground="#ffffff" 
                                    VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuDuel}"
+                                x:Name="menuDuelStackPanel">
+                        <Image Source="ms-appx:///Images/Menu/MenuDuel.png" 
+                               Margin="0,0,15,0"/>
+                        <TextBlock Text="Combattre" FontSize="18" Foreground="#000000" 
+                                   VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuQuit}"
                                 x:Name="menuQuitStackPanel">
                         <Image Source="ms-appx:///Images/Menu/cross_icon.jpg" 

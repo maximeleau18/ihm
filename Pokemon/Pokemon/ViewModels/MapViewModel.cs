@@ -78,10 +78,19 @@ namespace Pokemon.ViewModels
             this.MapView.MenuSP.Tapped += MenuSP_Tapped;
             this.MapView.MenuPokedexSP.Tapped += MenuPokedexSP_Tapped;
             this.MapView.MenuQuitSP.Tapped += MenuQuitSP_Tapped;
-            this.MapView.MapGrid.KeyUp += MapGrid_KeyUp;
+            this.MapView.MenuDuelSP.Tapped += MenuDuelSP_Tapped;
+            this.MapView.MapGrid.KeyDown += MapGrid_KeyDown;
         }
-        
-        private void MapGrid_KeyUp(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+
+        private void MenuDuelSP_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            if (this.MapView.SplitView.IsPaneOpen)
+            {
+                (Window.Current.Content as Frame).Navigate(typeof(BattleView), this.GridManager);
+            }
+        }
+
+        private void MapGrid_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Down || e.Key == Windows.System.VirtualKey.S)
             {

@@ -1,28 +1,21 @@
-﻿<UserControl
-    x:Class="Pokemon.UserControls.Menus.PokemonSelectionMenu"
+﻿<local:BaseUserControl
+    x:Class="Pokemon.UserControls.Pokemons.PnjPokemons"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Pokemon.UserControls.Menus"
+    xmlns:local="using:Pokemon.UserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Style="{StaticResource BackgroundGrid}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <ScrollViewer Grid.RowSpan="4" Grid.ColumnSpan="3">
+            <ScrollViewer Grid.Row="0" Grid.Column="0">
                 <ListView x:Name="listPokemon" IsItemClickEnabled="true">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
@@ -48,7 +41,6 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="2*"/>
@@ -56,7 +48,7 @@
                                         <ColumnDefinition Width="2*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" x:Name="pokemonImage" Source="{Binding TypeDePokemon.ImagePokemonFront}" />
+                                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" x:Name="pokemonImage" Source="{Binding TypeDePokemon.ImagePokemonFront}" />
 
                                     <TextBlock Grid.Row="0" Grid.Column="1" Margin="6,6,6,6" x:Name="pokemonSurnomTxtB" Text="{Binding TypeDePokemon.Nom}" />
 
@@ -72,40 +64,34 @@
                                         <TextBlock Grid.Row="0" Grid.Column="1" x:Name="pokemonNiveauTxtB" Text="{Binding Niveau}" />
                                     </Grid>
 
-                                    <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="45*"/>
-                                            <ColumnDefinition Width="10*"/>
-                                            <ColumnDefinition Width="45*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,6,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                                    <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45*"/>
+                                        <ColumnDefinition Width="10*"/>
+                                        <ColumnDefinition Width="45*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,6,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
                                                    Width="Auto" Height="Auto"
                                                    Text="{Binding TypeDePokemon.Pv}" />
-                                        <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
                                                    Width="Auto" Height="Auto"
                                                    Text="/" />
-                                        <TextBlock Grid.Row="0" Grid.Column="2" Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                                    <TextBlock Grid.Row="0" Grid.Column="2" Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
                                                    Width="Auto" Height="Auto"
                                                    Text="{Binding TypeDePokemon.Pv}" />
-                                        <ProgressBar Grid.Row="1" Grid.ColumnSpan="3" MinHeight="20" Style="{StaticResource ProgressBarDefault}"
+                                    <ProgressBar Grid.Row="1" Grid.ColumnSpan="3" MinHeight="20" Style="{StaticResource ProgressBarDefault}"
                                                      Maximum="100" Value="100" Minimum="0" IsIndeterminate="False" VerticalAlignment="Top" 
                                                      Margin="0,6,0,0" />
-                                    </Grid>                                    
+                                </Grid>
                                 </Grid>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollViewer>
-
-            <Button Grid.Row="4" Grid.Column="3" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
-                    Style="{StaticResource ButtonParams}" FontSize="20" />
-
         </Grid>
-    </Grid>
-</UserControl>
+</local:BaseUserControl>

@@ -48,7 +48,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <!-- Fond de page par défaut -->
     <Style x:Key="BackgroundGrid" TargetType="Grid">
         <Setter Property="BorderThickness" Value="2" />
@@ -82,15 +82,15 @@
         <Setter Property="Background" Value="#4388CC" />
     </Style>
 
-    <!-- Fond de page du bouton pokémon -->
-    <Style x:Key="BackgroundMenuPokemon" TargetType="StackPanel">
-        <Setter Property="Background" Value="#993300" />
-    </Style>
-
     <!-- Fond de page du bouton quitter -->
     <Style x:Key="BackgroundMenuQuit" TargetType="StackPanel">
         <Setter Property="Background" Value="Red" />
     </Style>
+
+    <!-- Fond de page du bouton duel -->
+    <Style x:Key="BackgroundMenuDuel" TargetType="StackPanel">
+        <Setter Property="Background" Value="White" />
+    </Style>    
     
     <!-- Bordure entourant les textblocks Console -->
     <Style x:Key="BorderTextBlock" TargetType="Border">

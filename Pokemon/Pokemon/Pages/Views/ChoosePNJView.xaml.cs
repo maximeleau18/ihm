@@ -1,4 +1,5 @@
 ﻿using Pokemon.UserControls.Other;
+using Pokemon.UserControls.Pokemons;
 using Pokemon.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,10 @@ namespace Pokemon.Pages.Views
     /// </summary>
     public sealed partial class ChoosePNJView : Page, INotifyPropertyChanged
     {
+        private PnjPokemons pnjPokemons;
+
+        private PnjPokemonsAttacks pnjPokemonsAttacks;
+
         private RingLoader ringLoader;
 
         private Grid mainGrid;
@@ -163,6 +168,32 @@ namespace Pokemon.Pages.Views
             }
         }
 
+        public PnjPokemons PnjPokemons
+        {
+            get
+            {
+                return pnjPokemons;
+            }
+
+            set
+            {
+                pnjPokemons = value;
+            }
+        }
+
+        public PnjPokemonsAttacks PnjPokemonsAttacks
+        {
+            get
+            {
+                return pnjPokemonsAttacks;
+            }
+
+            set
+            {
+                pnjPokemonsAttacks = value;
+            }
+        }
+
         public ChoosePNJView()
         {
             this.InitializeComponent();
@@ -174,6 +205,8 @@ namespace Pokemon.Pages.Views
             this.Console = this.ucConsole;
             this.RingLoader = this.ucRingLoader;
             this.MainGrid = this.currentGrid;
+            this.PnjPokemons = this.ucPnjPokemons;
+            this.PnjPokemonsAttacks = this.ucPnjPokemonsAttacks;
             this.ChoosePNJViewModel = new ChoosePNJViewModel(this);
             this.DataContext = this;
         }

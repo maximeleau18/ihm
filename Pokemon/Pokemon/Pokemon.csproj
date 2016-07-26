@@ -95,6 +95,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Images\Menu\MenuDuel.png" />
     <Content Include="Images\PNJ\Auguste.png" />
     <Content Include="Images\PNJ\Giovanni.png" />
     <Content Include="Images\PNJ\Koga.png" />
@@ -432,6 +433,12 @@
     </Compile>
     <Compile Include="UserControls\Other\RingLoader.xaml.cs">
       <DependentUpon>RingLoader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Pokemons\PnjPokemons.xaml.cs">
+      <DependentUpon>PnjPokemons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Pokemons\PnjPokemonsAttacks.xaml.cs">
+      <DependentUpon>PnjPokemonsAttacks.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\GridManager.cs" />
     <Compile Include="Pages\Views\BattleView.xaml.cs">
@@ -1796,6 +1803,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Other\RingLoader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Pokemons\PnjPokemons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Pokemons\PnjPokemonsAttacks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
