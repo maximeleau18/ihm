@@ -426,6 +426,9 @@
     <Compile Include="Pages\Views\CompleteDresseurView.xaml.cs">
       <DependentUpon>CompleteDresseurView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Views\ConnexionView.xaml.cs">
+      <DependentUpon>ConnexionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\overlay\EngagementPageOverlay.cs" />
     <Compile Include="UserControls\Base\BaseUserControl.cs" />
     <Compile Include="UserControls\Menus\ObjectMenu.xaml.cs">
@@ -482,6 +485,7 @@
     <Compile Include="ViewModels\BattleViewModel.cs" />
     <Compile Include="ViewModels\ChoosePNJViewModel.cs" />
     <Compile Include="ViewModels\CompleteDresseurViewModel.cs" />
+    <Compile Include="ViewModels\ConnexionViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\PokedexViewModel.cs" />
@@ -1741,6 +1745,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Views\CompleteDresseurView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Views\ConnexionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

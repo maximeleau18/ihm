@@ -9,8 +9,11 @@ namespace ClassLibraryEntity
 {
     public class MessageErreur
     {
-        [JsonProperty(PropertyName = "errors")]
-        public List<String> messages { get; set; }
+        [JsonProperty(PropertyName = "errors_login")]
+        public List<String> messagesErreursLogin { get; set; }
+
+        [JsonProperty(PropertyName = "errors_password")]
+        public List<String> messagesErreursPassword { get; set; }
 
         public MessageErreur() { }
         

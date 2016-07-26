@@ -260,7 +260,7 @@ namespace Pokemon.ViewModels
             this.CompleteDresseurView.ButtonValidate.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
-        private async  void ButtonValidate_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private async void ButtonValidate_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             this.CompleteDresseurView.MainGrid.Visibility = Visibility.Collapsed;
             this.CompleteDresseurView.RingLoader.ProgressRingText.Text = "Création du compte...";
@@ -282,13 +282,12 @@ namespace Pokemon.ViewModels
         private void GetResults()
         {
             // Check if errors exist
-            if (this.ResponseApi.Contains("errors"))
+            if (this.ResponseApi.Contains("errors_login"))
             {
-
                 this.CompleteDresseurView.MainGrid.Visibility = Visibility.Visible;
                 this.CompleteDresseurView.RingLoader.Visibility = Visibility.Collapsed;
                 this.ErrorsForm = JsonConvert.DeserializeObject<MessageErreur>(this.ResponseApi);
-                this.CompleteDresseurView.TextBlockLoginError.Text = this.ErrorsForm.messages[0];
+                this.CompleteDresseurView.TextBlockLoginError.Text = this.ErrorsForm.messagesErreursLogin[0];
                 this.CompleteDresseurView.TextBoxLogin.Background = new SolidColorBrush(Colors.DarkRed);
             }
             else

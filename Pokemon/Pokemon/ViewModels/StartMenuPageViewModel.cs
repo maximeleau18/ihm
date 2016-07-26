@@ -54,7 +54,7 @@ namespace Pokemon.ViewModels
 
         private void ButtonContinueGameOnline_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            
+            (Window.Current.Content as Frame).Navigate(typeof(ConnexionView));
         }
 
         private void ButtonStartGameOnline_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)

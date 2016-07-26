@@ -24,24 +24,17 @@ namespace Pokemon.Pages.Views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class CompleteDresseurView : Page, INotifyPropertyChanged
+    public sealed partial class ConnexionView : Page, INotifyPropertyChanged
     {
         private Grid mainGrid;
         private RingLoader ringLoader;
         private Button buttonValidate;
         private Button buttonBack;
-        private TextBox textBoxLastName;
-        private TextBox textBoxFirstName;
         private TextBox textBoxLogin;
         private PasswordBox textBoxPassword;
-        private PasswordBox textBoxConfirmation;
-        private CompleteDresseurViewModel completeDresseurViewModel;
         private TextBlock textBlockPasswordError;
-        private TextBlock textBlockConfirmationError;
-        private TextBlock textBlockFirstNameError;
-        private TextBlock textBlockLastNameError;
         private TextBlock textBlockLoginError;
-        private PersonnageNonJoueur personnageNonJoueur;
+        private ConnexionViewModel connexionViewModel;
         private Visibility formValid;
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -68,31 +61,7 @@ namespace Pokemon.Pages.Views
             {
                 buttonBack = value;
             }
-        }
-        public TextBox TextBoxLastName
-        {
-            get
-            {
-                return textBoxLastName;
-            }
-
-            set
-            {
-                textBoxLastName = value;
-            }
-        }
-        public TextBox TextBoxFirstName
-        {
-            get
-            {
-                return textBoxFirstName;
-            }
-
-            set
-            {
-                textBoxFirstName = value;
-            }
-        }
+        }       
         public TextBox TextBoxLogin
         {
             get
@@ -117,30 +86,6 @@ namespace Pokemon.Pages.Views
                 textBoxPassword = value;
             }
         }
-        public PasswordBox TextBoxConfirmation
-        {
-            get
-            {
-                return textBoxConfirmation;
-            }
-
-            set
-            {
-                textBoxConfirmation = value;
-            }
-        }
-        public CompleteDresseurViewModel CompleteDresseurViewModel
-        {
-            get
-            {
-                return completeDresseurViewModel;
-            }
-
-            set
-            {
-                completeDresseurViewModel = value;
-            }
-        }
         public TextBlock TextBlockPasswordError
         {
             get
@@ -151,18 +96,6 @@ namespace Pokemon.Pages.Views
             set
             {
                 textBlockPasswordError = value;
-            }
-        }
-        public TextBlock TextBlockConfirmationError
-        {
-            get
-            {
-                return textBlockConfirmationError;
-            }
-
-            set
-            {
-                textBlockConfirmationError = value;
             }
         }
         public Visibility FormValid
@@ -178,30 +111,6 @@ namespace Pokemon.Pages.Views
                 OnPropertyChanged("FormValid");
             }
         }
-        public TextBlock TextBlockFirstNameError
-        {
-            get
-            {
-                return textBlockFirstNameError;
-            }
-
-            set
-            {
-                textBlockFirstNameError = value;
-            }
-        }
-        public TextBlock TextBlockLastNameError
-        {
-            get
-            {
-                return textBlockLastNameError;
-            }
-
-            set
-            {
-                textBlockLastNameError = value;
-            }
-        }
         public TextBlock TextBlockLoginError
         {
             get
@@ -212,18 +121,6 @@ namespace Pokemon.Pages.Views
             set
             {
                 textBlockLoginError = value;
-            }
-        }
-        public PersonnageNonJoueur PersonnageNonJoueur
-        {
-            get
-            {
-                return personnageNonJoueur;
-            }
-
-            set
-            {
-                personnageNonJoueur = value;
             }
         }
         public Grid MainGrid
@@ -250,26 +147,32 @@ namespace Pokemon.Pages.Views
                 ringLoader = value;
             }
         }
+        public ConnexionViewModel ConnexionViewModel
+        {
+            get
+            {
+                return connexionViewModel;
+            }
 
-        public CompleteDresseurView()
+            set
+            {
+                connexionViewModel = value;
+            }
+        }
+
+        public ConnexionView()
         {
             this.InitializeComponent();
             this.ButtonBack = this.btnBack;
             this.ButtonValidate = this.btnValidate;
-            this.TextBoxLastName = this.nomTxtB;
-            this.TextBoxFirstName = this.prenomTxtB;
             this.TextBoxLogin = this.loginTxtB;
             this.TextBoxPassword = this.passwordTxtB;
-            this.TextBoxConfirmation = this.confirmationTxtB;
-            this.TextBlockLastNameError = this.errorNomTxtB;
-            this.TextBlockFirstNameError = this.errorPrenomTxtB;
             this.TextBlockLoginError = this.errorLoginTxtB;
             this.TextBlockPasswordError = this.errorPasswordTxtB;
-            this.TextBlockConfirmationError = this.errorConfirmationTxtB;
             this.RingLoader = this.ucRingLoader;
             this.MainGrid = this.currentGrid;
 
-            this.CompleteDresseurViewModel = new CompleteDresseurViewModel(this);
+            this.ConnexionViewModel = new ConnexionViewModel(this);
             this.DataContext = this;
         }
 
@@ -280,11 +183,6 @@ namespace Pokemon.Pages.Views
             {
                 handler(this, new PropertyChangedEventArgs(name));
             }
-        }
-        
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            this.PersonnageNonJoueur = (PersonnageNonJoueur)e.Parameter;
         }
     }
 }

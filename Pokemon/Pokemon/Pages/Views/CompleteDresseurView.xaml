@@ -110,7 +110,7 @@
                                      MaxLength="100" />
                     </Grid>
                 </Border>
-                <TextBlock Grid.Row="7" Grid.Column="3" x:Name="errorPassworxdTxtB" TextWrapping="WrapWholeWords" TextAlignment="Left" HorizontalAlignment="Stretch" 
+                <TextBlock Grid.Row="7" Grid.Column="3" x:Name="errorPasswordTxtB" TextWrapping="WrapWholeWords" TextAlignment="Left" HorizontalAlignment="Stretch" 
                            VerticalAlignment="Center" Text="" Margin="6,0,0,0" Foreground="Red" FontSize="20" />
                 <!-- Confirmation -->
                 <TextBlock Grid.Row="9" Grid.Column="1" FontSize="30" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Stretch" Text="CONFIRMATION :"
