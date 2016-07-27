@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity;
+using Microsoft.Azure.Engagement.Overlay;
 using Pokemon.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace Pokemon.Pages.Views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class StartMenuPageView : Page
+    public sealed partial class StartMenuPageView : EngagementPageOverlay
     {
         private Button buttonStartGameOnline;
         private Button buttonContinueGameOnline;

@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity;
+using Microsoft.Azure.Engagement.Overlay;
 using Pokemon.Utils;
 using Pokemon.ViewModels;
 using System;
@@ -24,7 +25,7 @@ namespace Pokemon.Pages.Views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class PokedexView : Page
+    public sealed partial class PokedexView : EngagementPageOverlay
     {
         private PokedexViewModel pokedexViewModel;
         private GridManager gridManager;

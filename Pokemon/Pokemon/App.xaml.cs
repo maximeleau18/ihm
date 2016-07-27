@@ -2,6 +2,7 @@
 using Pokemon.Pages.Views;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -30,6 +31,19 @@ namespace Pokemon
         /// </summary>
         public App()
         {
+            EngagementReach.Instance.DataPushStringReceived += (body) =>
+            {
+                Debug.WriteLine("String data push message received: " + body);
+                return true;
+            };
+
+            EngagementReach.Instance.DataPushBase64Received += (decodedBody, encodedBody) =>
+            {
+                Debug.WriteLine("Base64 data push message received: " + encodedBody);
+                // Do something useful with decodedBody like updating an image view
+                return true;
+            };
+
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
                 Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);

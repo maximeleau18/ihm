@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity;
+using Microsoft.Azure.Engagement.Overlay;
 using Pokemon.UserControls.Other;
 using Pokemon.ViewModels;
 using System;
@@ -24,7 +25,7 @@ namespace Pokemon.Pages.Views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class ConnexionView : Page, INotifyPropertyChanged
+    public sealed partial class ConnexionView : EngagementPageOverlay, INotifyPropertyChanged
     {
         private Grid mainGrid;
         private RingLoader ringLoader;

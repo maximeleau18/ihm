@@ -1,8 +1,9 @@
-﻿<Page
+﻿<engagement:EngagementPageOverlay
     x:Class="Pokemon.Pages.Views.ChoosePNJView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Pokemon.Pages.Views"
+    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
     xmlns:UCPokemons="using:Pokemon.UserControls.Pokemons"
     xmlns:UCOther="using:Pokemon.UserControls.Other"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -105,4 +106,4 @@
             </Grid>
         </Grid>
     </Grid>
-</Page>
+</engagement:EngagementPageOverlay>

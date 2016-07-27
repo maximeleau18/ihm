@@ -32,7 +32,7 @@ namespace Pokemon.ViewModels
         {
             this.MainPageView = mainPageView;
             this.Bind();
-            //String deviceId = EngagementAgent.Instance.GetDeviceId();
+            String deviceId = EngagementAgent.Instance.GetDeviceId();
         }
         
         //private void InitializeDb()

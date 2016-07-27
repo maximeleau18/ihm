@@ -358,11 +358,11 @@
     <Language Code="zu-za" InMinimumRequirementSet="true" />
   </SupportedLocales>
   <ProductReservedInfo>
-    <MainPackageIdentityName>60295MaximeLEAU.PokemonMaximeLeau</MainPackageIdentityName>
+    <MainPackageIdentityName>60295MaximeLEAU.91151BED7DE3</MainPackageIdentityName>
     <ReservedNames>
-      <ReservedName>PokemonMaximeLeau</ReservedName>
+      <ReservedName>PokemonML</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames />
-  <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9NBLGGH4SW8M" />
+  <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9NBLGGH4TL46" />
 </StoreAssociation>
