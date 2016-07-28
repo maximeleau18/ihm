@@ -179,7 +179,7 @@ namespace Pokemon.ViewModels
                 player.PosX = 31;
                 player.PosY = 14;
 
-                GridManager gridManager = new GridManager(26, 46, 15, 27, 11, 19, player, dresseur.PersonnageNonJoueur);
+                GridManager gridManager = new GridManager(26, 46, 15, 27, 11, 19, player, dresseur);
                 // On charge la page map
                 (Window.Current.Content as Frame).Navigate(typeof(MapView), gridManager);
             }

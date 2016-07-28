@@ -21,7 +21,7 @@
             <Button Grid.Row="1" x:Name="objectTypeButton" Content="Types Objets" Style="{StaticResource ObjectButton}" 
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#fdc00d" Foreground="White" />
 
-            <Button Grid.Row="2" x:Name="runawayButton" Content="Fuite" Style="{StaticResource RunawayButton}" 
+            <Button Grid.Row="2" x:Name="runawayButton" Content="Quitter le combat" Style="{StaticResource RunawayButton}" 
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#0000FF" Foreground="White" />
         </Grid>
     </Grid>

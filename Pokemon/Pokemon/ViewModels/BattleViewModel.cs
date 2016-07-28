@@ -1,5 +1,6 @@
 ﻿using ClassLibraryEntity;
 using ClassLibraryEntity.API;
+using Newtonsoft.Json;
 using Pokemon.Pages.Views;
 using Pokemon.UserControls.Menus;
 using Pokemon.Utils;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -74,7 +76,7 @@ namespace Pokemon.ViewModels
             TypeAttaque typeAttaqueTerre = new TypeAttaque(3, "Terre");
             TypeAttaque typeAttaqueAir = new TypeAttaque(4, "Air");
             // Generate Opponent
-            TypeDePokemon typeDePokemonBulbi = new TypeDePokemon(1, "Bulbizarre", 25, 18, 100, 1, "");
+            TypeDePokemon typeDePokemonBulbi = new TypeDePokemon(1, "Bulbizarre", 25, 18, 125, 1, "");
             Attaque attaqueBulbi1 = new Attaque(1, "Attaque1Eau", 1, 25, typeAttaqueEau);
             Attaque attaqueBulbi2 = new Attaque(2, "Attaque2Feu", 1, 18, typeAttaqueFeu);
             Attaque attaqueBulbi3 = new Attaque(3, "Attaque3Terre", 1, 15, typeAttaqueTerre);
@@ -86,26 +88,26 @@ namespace Pokemon.ViewModels
             this.BattleView.OpponentView.MaximumPv = pokemonOpponent.TypeDePokemon.Pv;
             this.BattleView.OpponentView.ActualPv = (pokemonOpponent.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
 
-            this.BattleView.PokemonSelectionMenu.LoadItems(this.GridManager.PersonnageNonJoueur.Pokemons);
+            this.BattleView.PokemonSelectionMenu.LoadItems(this.GridManager.Dresseur.PersonnageNonJoueur.Pokemons);
             // Get the list of TypeObjet from Objets owned by the PersonnageNonJoueur
             List<TypeObjet> typesObjets = new List<TypeObjet>();
             TypeObjet currentTypeObjet = new TypeObjet();
             currentTypeObjet.Id = 0;
 
-            for (int i = 0; i < this.GridManager.PersonnageNonJoueur.Objets.Count - 1; i++)
+            for (int i = 0; i < this.GridManager.Dresseur.PersonnageNonJoueur.Objets.Count - 1; i++)
             {
-                if (this.GridManager.PersonnageNonJoueur.Objets[i].TypeObjet.Id != currentTypeObjet.Id)
+                if (this.GridManager.Dresseur.PersonnageNonJoueur.Objets[i].TypeObjet.Id != currentTypeObjet.Id)
                 {
-                    typesObjets.Add(this.GridManager.PersonnageNonJoueur.Objets[i].TypeObjet);
+                    typesObjets.Add(this.GridManager.Dresseur.PersonnageNonJoueur.Objets[i].TypeObjet);
                 }
-                currentTypeObjet = this.GridManager.PersonnageNonJoueur.Objets[i].TypeObjet;
+                currentTypeObjet = this.GridManager.Dresseur.PersonnageNonJoueur.Objets[i].TypeObjet;
             }
             this.BattleView.CategoryObjectMenu.LoadItems(typesObjets);
         }
                 
         private void Bind()
         {
-            this.BattleView.BattleMenu.ButtonPokemon.Tapped += this.PokemonButton_Tapped;
+            this.BattleView.BattleMenu.ButtonPokemon.Tapped += PokemonButton_Tapped;
             this.BattleView.BattleMenu.ButtonPokemon.PointerEntered += ButtonPokemon_PointerEntered;
             this.BattleView.BattleMenu.ButtonPokemon.PointerExited += ButtonPokemon_PointerExited;
 
@@ -127,7 +129,7 @@ namespace Pokemon.ViewModels
             this.BattleView.ObjectMenu.ButtonBack.PointerEntered += ButtonBackObjectMenu_PointerEntered;
             this.BattleView.ObjectMenu.ButtonBack.PointerExited += ButtonBackObjectMenu_PointerExited;
 
-            this.BattleView.BattleMenu.ButtonRunaway.Tapped += this.RunawayButton_Tapped;
+            this.BattleView.BattleMenu.ButtonRunaway.Tapped += RunawayButton_Tapped;
             this.BattleView.BattleMenu.ButtonRunaway.PointerEntered += ButtonRunaway_PointerEntered;
             this.BattleView.BattleMenu.ButtonRunaway.PointerExited += ButtonRunaway_PointerExited;
 
@@ -247,11 +249,33 @@ namespace Pokemon.ViewModels
             this.BattleView.AttackMenu.ButtonBack.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
-        private void ButtonBackAttackMenu_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void ButtonBackAttackMenu_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            foreach (AttackMenu item in Helper.FindVisualChildren<AttackMenu>(this.BattleView.GridBattleView as Grid))
+            //foreach (AttackMenu item in Helper.FindVisualChildren<AttackMenu>(this.BattleView.GridBattleView as Grid))
+            //{
+            //    item.Visibility = Visibility.Collapsed;
+            //}
+            MessageDialog dialog = new MessageDialog("Voulez-vous vraiment abandonner le combat ? Vous serez considéré comme perdant.");
+            dialog.Title = "Confirmation";
+            dialog.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
+            dialog.Commands.Add(new UICommand { Label = "Non", Id = 1 });
+            dialog.Commands.Add(new UICommand { Label = "Annuler", Id = 2 });
+
+            var res = await dialog.ShowAsync();
+
+            switch ((Int32)res.Id)
             {
-                item.Visibility = Visibility.Collapsed;
+                case 0:
+                    (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
+                    break;
+                case 1:
+                    // Still in the fight view
+                    break;
+                case 2:
+                    // Do nothing
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -347,10 +371,10 @@ namespace Pokemon.ViewModels
             }
 
             ClassLibraryEntity.TypeObjet selectedTypeObjet = e.ClickedItem as ClassLibraryEntity.TypeObjet;
-            this.BattleView.ObjectMenu.LoadItems(this.GridManager.PersonnageNonJoueur.Objets.Where((x) => x.TypeObjet.Id == selectedTypeObjet.Id).ToList());
+            this.BattleView.ObjectMenu.LoadItems(this.GridManager.Dresseur.PersonnageNonJoueur.Objets.Where((x) => x.TypeObjet.Id == selectedTypeObjet.Id).ToList());
         }
 
-        private void ItemsListPokemons_ItemClick(object sender, ItemClickEventArgs e)
+        private async void ItemsListPokemons_ItemClick(object sender, ItemClickEventArgs e)
         {
             foreach (AttackMenu item in Helper.FindVisualChildren<AttackMenu>(this.BattleView.GridBattleView as Grid))
             {
@@ -365,11 +389,23 @@ namespace Pokemon.ViewModels
             this.BattleView.PlayerView.Pokemon = selectedPokemon;
             this.BattleView.PlayerView.MaximumPv = selectedPokemon.TypeDePokemon.Pv;
             this.BattleView.PlayerView.ActualPv = (selectedPokemon.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
+            // Create a fight
+            Combat combat = new Combat();
+            combat.Dresseur1 = this.GridManager.Dresseur;
+            combat.Pokemon1 = selectedPokemon;
+            combat.LanceLe = DateTime.Now;
+            combat.Dresseur1Vainqueur = false;
+            combat.Pokemon1Vainqueur = false;
+            combat.Dresseur2Vainqueur = false;
+            combat.Pokemon2Vainqueur = false;
+            // Create instance of fight to api
+            ApiManager manager = new ApiManager();
+            String apiResponse = await manager.PostToApiAndReceiveDataAsync<Combat>(combat);
+            combat = JsonConvert.DeserializeObject<Combat>(apiResponse);
         }
                         
         private void RunawayButton_Tapped(object sender, RoutedEventArgs e)
-        {
-            //this.GridManager.Player.PosY++;
+        {                       
             (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
         }
 

@@ -65,7 +65,7 @@
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <Image Grid.RowSpan="2" Grid.Column="0" x:Name="objetImage" Source="{Binding Id}" Height="60" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                                        <Image Grid.RowSpan="2" Grid.Column="0" x:Name="objetImage" Height="60" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
 
                                         <TextBlock Grid.Row="0" Grid.Column="1" x:Name="objetNomTxtB" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Nom}" />
                                         <TextBlock Grid.Row="1" Grid.Column="1" x:Name="objetQuantiteTxtB" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Quantite}" />

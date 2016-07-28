@@ -28,7 +28,7 @@ namespace Pokemon.Utils
         private int currentCol;
         private Image playerImg;
         private Player player;
-        private PersonnageNonJoueur personnageNonJoueur;              
+        private Dresseur dresseur;              
 
         public int CurrentRow
         {
@@ -100,16 +100,16 @@ namespace Pokemon.Utils
             }
         }
 
-        public PersonnageNonJoueur PersonnageNonJoueur
+        public Dresseur Dresseur
         {
             get
             {
-                return personnageNonJoueur;
+                return dresseur;
             }
 
             set
             {
-                personnageNonJoueur = value;
+                dresseur = value;
             }
         }
 
@@ -118,7 +118,7 @@ namespace Pokemon.Utils
 
         }
 
-        public GridManager(int maxRow, int maxCol, int playAreaMaxRow, int playAreaMaxCol, int currentRow, int currentCol, Player player, PersonnageNonJoueur personnageNonJoueur)
+        public GridManager(int maxRow, int maxCol, int playAreaMaxRow, int playAreaMaxCol, int currentRow, int currentCol, Player player, Dresseur dresseur)
         {
             this.CurrentRow = currentRow;
             this.CurrentCol = currentCol;
@@ -128,12 +128,12 @@ namespace Pokemon.Utils
             this.PlayAreaMaxCol = playAreaMaxCol;
             this.PlayerImg = new Image();
             this.Player = player;
-            this.PersonnageNonJoueur = personnageNonJoueur;
+            this.Dresseur = dresseur;
 
             ConstructTabImagesSource();
         }
 
-        public GridManager(Grid gridPlayerMap, int maxRow, int maxCol, int playAreaMaxRow, int playAreaMaxCol, int currentRow, int currentCol, Player player, PersonnageNonJoueur personnageNonJoueur)
+        public GridManager(Grid gridPlayerMap, int maxRow, int maxCol, int playAreaMaxRow, int playAreaMaxCol, int currentRow, int currentCol, Player player, Dresseur dresseur)
         {
             this.GridPlayerMap = gridPlayerMap;
             this.CurrentRow = currentRow;
@@ -144,7 +144,7 @@ namespace Pokemon.Utils
             this.PlayAreaMaxCol = playAreaMaxCol;
             this.PlayerImg = new Image();
             this.Player = player;
-            this.PersonnageNonJoueur = personnageNonJoueur;
+            this.Dresseur = dresseur;
             
             ConstructGridPlayerMap(0, this.PlayAreaMaxRow, 0, this.PlayAreaMaxCol);
         }

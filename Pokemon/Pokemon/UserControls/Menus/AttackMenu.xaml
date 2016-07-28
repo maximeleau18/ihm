@@ -171,7 +171,7 @@
                 </Grid>
             </Button>
 
-            <Button Grid.Row="4" Grid.Column="3" x:Name="btnBack" Content="RETOUR" HorizontalAlignment="Stretch"
+            <Button Grid.Row="4" Grid.Column="3" x:Name="btnBack" Content="ABANDONNER" HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch" BorderThickness="2" Background="#FF009900" Foreground="White" FontFamily="Arial"
                     Style="{StaticResource ButtonParams}" FontSize="20"></Button>
             

@@ -120,6 +120,8 @@ namespace ClassLibraryEntity
                 urlImage = value;
             }
         }
+        
+        public List<Pokemon> Pokemons { get; set; }
 
         [JsonIgnore]
         public String ImagePokemonFront
