@@ -16,9 +16,10 @@ namespace ClassLibraryEntity
         private Profession profession;
         private int professionId;
         private String urlImage;
+        private List<Pokemon> pokemons;
 
         public PersonnageNonJoueur() { }
-
+        
         public PersonnageNonJoueur(int id, string nom, string description, Profession profession)
         {
             this.Id = id;
@@ -110,9 +111,20 @@ namespace ClassLibraryEntity
                 professionId = value;
             }
         }
+        
+        public List<Pokemon> Pokemons
+        {
 
-        public List<Pokemon> Pokemons { get; set; }
-
+            get
+            {
+                return pokemons;
+            }
+            set
+            {
+                pokemons = value;
+            }
+        }
+        
         public List<Objet> Objets { get; set; }
 
         [JsonIgnore]

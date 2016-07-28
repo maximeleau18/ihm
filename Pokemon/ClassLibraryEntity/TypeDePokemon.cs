@@ -121,8 +121,6 @@ namespace ClassLibraryEntity
             }
         }
         
-        public List<Pokemon> Pokemons { get; set; }
-
         [JsonIgnore]
         public String ImagePokemonFront
         {

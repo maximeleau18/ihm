@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace ClassLibraryEntity
         private Attaque attaque4;
 
         public Pokemon() { }
-
+        
         public Pokemon(int id, string surnom, int niveau, DateTime captureLe, TypeDePokemon typeDePokemon, PersonnageNonJoueur personnageNonJoueur, Attaque attaque1, Attaque attaque2, Attaque attaque3, Attaque attaque4)
         {
             this.id = id;
@@ -100,6 +101,7 @@ namespace ClassLibraryEntity
             }
         }
 
+        [JsonIgnore]
         public PersonnageNonJoueur PersonnageNonJoueur
         {
             get

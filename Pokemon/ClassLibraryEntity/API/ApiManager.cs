@@ -108,7 +108,7 @@ namespace ClassLibraryEntity.API
                     Windows.Web.Http.HttpMethod.Post, new Uri(urlApi + typeof(T).Name.ToLower()));
                 message.Content = new Windows.Web.Http.HttpStringContent(
                     JsonConvert.SerializeObject(item));
-
+                
                 message.Content.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
                 Windows.Web.Http.HttpResponseMessage response  = Task.Run(async () => await client.SendRequestAsync(message)).Result;
                 

@@ -165,12 +165,12 @@ namespace Pokemon.ViewModels
         {
             // Launch Attack01 against the opponent
             // Get actual PV 
-            double actualPv = (this.BattleView.OpponentView.ActualPv * 100) / this.BattleView.OpponentView.MaximumPv;
+            int actualPv = this.BattleView.OpponentView.Pokemon.TypeDePokemon.Pv;
             actualPv = actualPv - this.BattleView.AttackMenu.Attaque01.Puissance * this.BattleView.AttackMenu.Attaque01.Degats;
             ClassLibraryEntity.Pokemon pokemonOpponent = this.BattleView.OpponentView.Pokemon;
-            pokemonOpponent.TypeDePokemon.Pv = (int)actualPv;
+            pokemonOpponent.TypeDePokemon.Pv = actualPv;
             this.BattleView.OpponentView.Pokemon = pokemonOpponent;
-            this.BattleView.OpponentView.ActualPv = (actualPv / this.BattleView.OpponentView.MaximumPv) * 100;
+            this.BattleView.OpponentView.ActualPv = (pokemonOpponent.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
         }
 
         private void AttackButton2_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -187,12 +187,12 @@ namespace Pokemon.ViewModels
         {
             // Launch Attack02 against the opponent
             // Get actual PV 
-            double actualPv = (this.BattleView.OpponentView.ActualPv * 100) / this.BattleView.OpponentView.MaximumPv;
+            int actualPv = this.BattleView.OpponentView.Pokemon.TypeDePokemon.Pv;
             actualPv = actualPv - this.BattleView.AttackMenu.Attaque02.Puissance * this.BattleView.AttackMenu.Attaque02.Degats;
             ClassLibraryEntity.Pokemon pokemonOpponent = this.BattleView.OpponentView.Pokemon;
-            pokemonOpponent.TypeDePokemon.Pv = (int)actualPv;
+            pokemonOpponent.TypeDePokemon.Pv = actualPv;
             this.BattleView.OpponentView.Pokemon = pokemonOpponent;
-            this.BattleView.OpponentView.ActualPv = (actualPv / this.BattleView.OpponentView.MaximumPv) * 100;
+            this.BattleView.OpponentView.ActualPv = (pokemonOpponent.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
         }
 
         private void AttackButton3_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -209,12 +209,12 @@ namespace Pokemon.ViewModels
         {
             // Launch Attack03 against the opponent
             // Get actual PV 
-            double actualPv = (this.BattleView.OpponentView.ActualPv * 100) / this.BattleView.OpponentView.MaximumPv;
+            int actualPv = this.BattleView.OpponentView.Pokemon.TypeDePokemon.Pv;
             actualPv = actualPv - this.BattleView.AttackMenu.Attaque03.Puissance * this.BattleView.AttackMenu.Attaque03.Degats;
             ClassLibraryEntity.Pokemon pokemonOpponent = this.BattleView.OpponentView.Pokemon;
-            pokemonOpponent.TypeDePokemon.Pv = (int)actualPv;
+            pokemonOpponent.TypeDePokemon.Pv = actualPv;
             this.BattleView.OpponentView.Pokemon = pokemonOpponent;
-            this.BattleView.OpponentView.ActualPv = (actualPv / this.BattleView.OpponentView.MaximumPv) * 100;
+            this.BattleView.OpponentView.ActualPv = (pokemonOpponent.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
         }
 
         private void AttackButton4_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -231,12 +231,12 @@ namespace Pokemon.ViewModels
         {
             // Launch Attack04 against the opponent
             // Get actual PV 
-            double actualPv = (this.BattleView.OpponentView.ActualPv * 100) / this.BattleView.OpponentView.MaximumPv;
+            int actualPv = this.BattleView.OpponentView.Pokemon.TypeDePokemon.Pv;
             actualPv = actualPv - this.BattleView.AttackMenu.Attaque04.Puissance * this.BattleView.AttackMenu.Attaque04.Degats;
             ClassLibraryEntity.Pokemon pokemonOpponent = this.BattleView.OpponentView.Pokemon;
-            pokemonOpponent.TypeDePokemon.Pv = (int)actualPv;
+            pokemonOpponent.TypeDePokemon.Pv = actualPv;
             this.BattleView.OpponentView.Pokemon = pokemonOpponent;
-            this.BattleView.OpponentView.ActualPv = (actualPv / this.BattleView.OpponentView.MaximumPv) * 100;
+            this.BattleView.OpponentView.ActualPv = (pokemonOpponent.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
         }
 
         private void ButtonBackAttackMenu_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -400,8 +400,9 @@ namespace Pokemon.ViewModels
             combat.Pokemon2Vainqueur = false;
             // Create instance of fight to api
             ApiManager manager = new ApiManager();
-            String apiResponse = await manager.PostToApiAndReceiveDataAsync<Combat>(combat);
-            combat = JsonConvert.DeserializeObject<Combat>(apiResponse);
+            //String apiResponse = manager.PostToApiAndReceiveDataSync<Combat>(combat);
+            //combat = JsonConvert.DeserializeObject<Combat>(apiResponse);
+            combat = await manager.PostToApiAndReceiveData<Combat>(combat);
         }
                         
         private void RunawayButton_Tapped(object sender, RoutedEventArgs e)
