@@ -1,5 +1,6 @@
 ﻿using ClassLibraryEntity;
 using ClassLibraryEntity.API;
+using Microsoft.Azure.Engagement;
 using Newtonsoft.Json;
 using Pokemon.Pages.Views;
 using Pokemon.UserControls.Menus;
@@ -400,11 +401,19 @@ namespace Pokemon.ViewModels
             combat.Pokemon2Vainqueur = false;
             // Create instance of fight to api
             ApiManager manager = new ApiManager();
-            //String apiResponse = manager.PostToApiAndReceiveDataSync<Combat>(combat);
-            //combat = JsonConvert.DeserializeObject<Combat>(apiResponse);
             combat = await manager.PostToApiAndReceiveData<Combat>(combat);
+
+            // Get the opponent which join fight
+            Dresseur opponentPlayer = await manager.GetFromApi<Dresseur>(2);
+            ClassLibraryEntity.Pokemon opponentPokemon = await manager.GetFromApi<ClassLibraryEntity.Pokemon>(12);
+
+            combat.Dresseur2 = opponentPlayer;
+            combat.Pokemon2 = opponentPokemon;
+            // Put updated dresseur2 and pokemon2 
+            combat = await manager.PutToApiAndReceiveData<Combat>(combat, combat.Id);
+
         }
-                        
+        
         private void RunawayButton_Tapped(object sender, RoutedEventArgs e)
         {                       
             (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
@@ -425,5 +434,5 @@ namespace Pokemon.ViewModels
                 item.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
         }
-    }
+}
 }

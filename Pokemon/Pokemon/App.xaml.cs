@@ -1,4 +1,6 @@
-﻿using Microsoft.Azure.Engagement;
+﻿using ClassLibraryEntity;
+using Microsoft.Azure.Engagement;
+using Newtonsoft.Json;
 using Pokemon.Pages.Views;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,6 +36,7 @@ namespace Pokemon
         {
             EngagementReach.Instance.DataPushStringReceived += (body) =>
             {
+                Combat c = JsonConvert.DeserializeObject<Combat>(body);
                 Debug.WriteLine("String data push message received: " + body);
                 return true;
             };
@@ -43,6 +47,7 @@ namespace Pokemon
                 // Do something useful with decodedBody like updating an image view
                 return true;
             };
+            
 
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
                 Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
@@ -50,7 +55,7 @@ namespace Pokemon
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
-
+        
         /// <summary>
         /// Invoqué lorsque l'application est lancée normalement par l'utilisateur final.  D'autres points d'entrée
         /// seront utilisés par exemple au moment du lancement de l'application pour l'ouverture d'un fichier spécifique.
