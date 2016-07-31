@@ -40,6 +40,7 @@
     <!-- AttackButton-->
     <Style x:Key="AttackButton" TargetType="Button">
         <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="#FF0000" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -57,6 +58,25 @@
     <!-- Hilight AttackButton -->
     <Style x:Key="AttackButtonSelected" TargetType="Button">
         <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="#FF0000" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" BorderBrush="#ffffff" Background="{TemplateBinding Background}"
+                                BorderThickness="2">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Disable AttackButton -->
+    <Style x:Key="AttackButtonDisable" TargetType="Button">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background" Value="Gray" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">

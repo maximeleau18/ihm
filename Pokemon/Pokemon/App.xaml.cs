@@ -10,8 +10,10 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -36,7 +38,16 @@ namespace Pokemon
         {
             EngagementReach.Instance.DataPushStringReceived += (body) =>
             {
-                Combat c = JsonConvert.DeserializeObject<Combat>(body);
+                CombatManager combatManager = JsonConvert.DeserializeObject<CombatManager>(body);
+
+                CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    var frame = (Frame)Window.Current.Content;
+                    var page = (BattleView)frame.Content;
+
+                    page.BattleViewModel.ReceiveDataPush(combatManager);
+                });
+                
                 Debug.WriteLine("String data push message received: " + body);
                 return true;
             };

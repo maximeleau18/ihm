@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -93,8 +94,10 @@ namespace ClassLibraryEntity.API
                     String result = await response.Content.ReadAsStringAsync();
                     item = JsonConvert. DeserializeObject<T>(result);
                 }
-            }
 
+                Debug.WriteLine(message.Content.ToString());
+                Debug.WriteLine(response.Content.ToString());
+            }
             return item;
         }
 
@@ -187,6 +190,26 @@ namespace ClassLibraryEntity.API
 
             return item;
 
+        }
+        
+        public async Task<Boolean> DeleteToApi<T>(T item, Int32 id)
+        {
+            Boolean isOk = false;
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(urlApi);
+                HttpResponseMessage response = await client.DeleteAsync(typeof(T).Name.ToLower() + "/" + id);
+
+                response.EnsureSuccessStatusCode();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    isOk = true;
+                }
+            }
+
+            return isOk;
         }
     }
 

@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
             
             <Button x:Name="buttonAttack01" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource AttackButton}" 
-                Background="#FF0000" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 <Grid Margin="6,6,6,6">
                     <Grid.RowDefinitions>
@@ -61,7 +61,7 @@
             </Button>
 
             <Button x:Name="buttonAttack02" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource AttackButton}" 
-                Background="#FF0000" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 <Grid Margin="6,6,6,6">
                     <Grid.RowDefinitions>
@@ -98,7 +98,7 @@
             </Button>
 
             <Button x:Name="buttonAttack03" Grid.Row="2" Grid.ColumnSpan="3" Style="{StaticResource AttackButton}" 
-                Background="#FF0000" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 <Grid Margin="6,6,6,6">
                     <Grid.RowDefinitions>
@@ -135,7 +135,7 @@
             </Button>
 
             <Button x:Name="buttonAttack04" Grid.Row="3" Grid.ColumnSpan="3" Style="{StaticResource AttackButton}" 
-                Background="#FF0000" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
                 <Grid Margin="6,6,6,6">
                     <Grid.RowDefinitions>

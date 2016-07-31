@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -22,6 +24,8 @@ namespace Pokemon.ViewModels
         private BattleView battleView;
         private PersonnageNonJoueur opponentPersonnageNonJoueur;
         private GridManager gridManager;
+        private CombatManager combatManager;
+        private ClassLibraryEntity.Pokemon selectedPokemon;
 
         public BattleView BattleView
         {
@@ -59,6 +63,30 @@ namespace Pokemon.ViewModels
                 gridManager = value;
             }
         }
+        public ClassLibraryEntity.Pokemon SelectedPokemon
+        {
+            get
+            {
+                return selectedPokemon;
+            }
+
+            set
+            {
+                selectedPokemon = value;
+            }
+        }
+        public CombatManager CombatManager
+        {
+            get
+            {
+                return combatManager;
+            }
+
+            set
+            {
+                combatManager = value;
+            }
+        }
 
         public BattleViewModel(BattleView battleView)
         {
@@ -70,25 +98,6 @@ namespace Pokemon.ViewModels
 
         private void Init()
         {
-            // Generate utils objects
-            Profession profession = new Profession(1, "Champion");
-            TypeAttaque typeAttaqueEau = new TypeAttaque(1, "Eau");
-            TypeAttaque typeAttaqueFeu = new TypeAttaque(2, "Feu");
-            TypeAttaque typeAttaqueTerre = new TypeAttaque(3, "Terre");
-            TypeAttaque typeAttaqueAir = new TypeAttaque(4, "Air");
-            // Generate Opponent
-            TypeDePokemon typeDePokemonBulbi = new TypeDePokemon(1, "Bulbizarre", 25, 18, 125, 1, "");
-            Attaque attaqueBulbi1 = new Attaque(1, "Attaque1Eau", 1, 25, typeAttaqueEau);
-            Attaque attaqueBulbi2 = new Attaque(2, "Attaque2Feu", 1, 18, typeAttaqueFeu);
-            Attaque attaqueBulbi3 = new Attaque(3, "Attaque3Terre", 1, 15, typeAttaqueTerre);
-            Attaque attaqueBulbi4 = new Attaque(4, "Attaque4Air", 1, 16, typeAttaqueAir);
-            this.OpponentPersonnageNonJoueur = new PersonnageNonJoueur(1, "MechantMonsieur", "Méchant Descrip", profession);
-            ClassLibraryEntity.Pokemon pokemonOpponent = new ClassLibraryEntity.Pokemon(1, "Bulbi", 5, DateTime.Now, typeDePokemonBulbi, this.OpponentPersonnageNonJoueur, attaqueBulbi1, attaqueBulbi2, attaqueBulbi3, attaqueBulbi4);
-
-            this.BattleView.OpponentView.Pokemon = pokemonOpponent;
-            this.BattleView.OpponentView.MaximumPv = pokemonOpponent.TypeDePokemon.Pv;
-            this.BattleView.OpponentView.ActualPv = (pokemonOpponent.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
-
             this.BattleView.PokemonSelectionMenu.LoadItems(this.GridManager.Dresseur.PersonnageNonJoueur.Pokemons);
             // Get the list of TypeObjet from Objets owned by the PersonnageNonJoueur
             List<TypeObjet> typesObjets = new List<TypeObjet>();
@@ -117,6 +126,9 @@ namespace Pokemon.ViewModels
             this.BattleView.BattleMenu.ButtonTypeObjet.PointerExited += ButtonTypeObjet_PointerExited;
 
             this.BattleView.PokemonSelectionMenu.ItemsListPokemons.ItemClick += ItemsListPokemons_ItemClick;
+            this.BattleView.PokemonSelectionMenu.ButtonValidate.Tapped += ButtonValidatePokemonSelectionMenu_Tapped;
+            this.BattleView.PokemonSelectionMenu.ButtonValidate.PointerEntered += ButtonValidatePokemonSelectionMenu_PointerEntered;
+            this.BattleView.PokemonSelectionMenu.ButtonValidate.PointerExited += ButtonValidatePokemonSelectionMenu_PointerExited;
             this.BattleView.PokemonSelectionMenu.ButtonBack.Tapped += ButtonBackPokemonSelectionMenu_Tapped;
             this.BattleView.PokemonSelectionMenu.ButtonBack.PointerEntered += ButtonBackPokemonSelectionMenu_PointerEntered;
             this.BattleView.PokemonSelectionMenu.ButtonBack.PointerExited += ButtonBackPokemonSelectionMenu_PointerExited;
@@ -141,15 +153,125 @@ namespace Pokemon.ViewModels
             this.BattleView.AttackMenu.AttackButton1.Tapped += AttackButton1_Tapped;
             this.BattleView.AttackMenu.AttackButton1.PointerEntered += AttackButton1_PointerEntered;
             this.BattleView.AttackMenu.AttackButton1.PointerExited += AttackButton1_PointerExited;
+            this.BattleView.AttackMenu.AttackButton1.IsEnabledChanged += AttackButton1_IsEnabledChanged;
             this.BattleView.AttackMenu.AttackButton2.Tapped += AttackButton2_Tapped;
             this.BattleView.AttackMenu.AttackButton2.PointerEntered += AttackButton2_PointerEntered;
             this.BattleView.AttackMenu.AttackButton2.PointerExited += AttackButton2_PointerExited;
+            this.BattleView.AttackMenu.AttackButton2.IsEnabledChanged += AttackButton2_IsEnabledChanged;
             this.BattleView.AttackMenu.AttackButton3.Tapped += AttackButton3_Tapped;
             this.BattleView.AttackMenu.AttackButton3.PointerEntered += AttackButton3_PointerEntered;
             this.BattleView.AttackMenu.AttackButton3.PointerExited += AttackButton3_PointerExited;
+            this.BattleView.AttackMenu.AttackButton3.IsEnabledChanged += AttackButton3_IsEnabledChanged;
             this.BattleView.AttackMenu.AttackButton4.Tapped += AttackButton4_Tapped;
             this.BattleView.AttackMenu.AttackButton4.PointerEntered += AttackButton4_PointerEntered;
             this.BattleView.AttackMenu.AttackButton4.PointerExited += AttackButton4_PointerExited;
+            this.BattleView.AttackMenu.AttackButton4.IsEnabledChanged += AttackButton4_IsEnabledChanged;
+        }
+
+        private void AttackButton4_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.BattleView.AttackMenu.AttackButton4.IsEnabled)
+            {
+                this.BattleView.AttackMenu.AttackButton4.Style = (Style)Application.Current.Resources["AttackButton"];
+            }
+            else
+            {
+                this.BattleView.AttackMenu.AttackButton4.Style = (Style)Application.Current.Resources["AttackButtonDisable"];
+            }
+        }
+
+        private void AttackButton3_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.BattleView.AttackMenu.AttackButton3.IsEnabled)
+            {
+                this.BattleView.AttackMenu.AttackButton3.Style = (Style)Application.Current.Resources["AttackButton"];
+            }
+            else
+            {
+                this.BattleView.AttackMenu.AttackButton3.Style = (Style)Application.Current.Resources["AttackButtonDisable"];
+            }
+        }
+
+        private void AttackButton2_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.BattleView.AttackMenu.AttackButton2.IsEnabled)
+            {
+                this.BattleView.AttackMenu.AttackButton2.Style = (Style)Application.Current.Resources["AttackButton"];
+            }
+            else
+            {
+                this.BattleView.AttackMenu.AttackButton2.Style = (Style)Application.Current.Resources["AttackButtonDisable"];
+            }
+        }
+
+        private void AttackButton1_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.BattleView.AttackMenu.AttackButton1.IsEnabled)
+            {
+                this.BattleView.AttackMenu.AttackButton1.Style = (Style)Application.Current.Resources["AttackButton"];
+            }
+            else
+            {
+                this.BattleView.AttackMenu.AttackButton1.Style = (Style)Application.Current.Resources["AttackButtonDisable"];
+            }
+        }
+
+        private async void ButtonValidatePokemonSelectionMenu_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            // Display the ing loader
+            this.BattleView.RingLoader.Visibility = Visibility.Visible;
+            this.BattleView.RingLoader.ProgressRingText.Text = "Recherche un adversaire";
+            this.BattleView.GridBattleView.Visibility = Visibility.Collapsed;
+            // Create a fight
+            this.CombatManager = new CombatManager();
+
+            this.CombatManager.Combat = await this.CombatManager.StartNewFight(this.GridManager.Dresseur, this.SelectedPokemon);
+            //this.CombatManager.Combat = await this.CombatManager.WaitingForDressseur2(this.CombatManager.Combat);
+            
+            if (this.CombatManager.Combat.Dresseur2 == null)
+            {
+                MessageDialog dialog = new MessageDialog("Aucun adversaire n'a été trouvé...");
+                dialog.Title = "Oups";
+                await dialog.ShowAsync();
+
+                // Delete the fight and the campaign
+                await this.CombatManager.DeleteFight(this.CombatManager.Combat);
+                
+                this.BattleView.RingLoader.Visibility = Visibility.Collapsed;
+                this.BattleView.GridBattleView.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                this.BattleView.RingLoader.Visibility = Visibility.Collapsed;
+                this.BattleView.RingLoader.ProgressRingText.Text = "Recherche un adversaire";
+                this.BattleView.GridBattleView.Visibility = Visibility.Visible;
+
+                // Display pokmeons's attacks
+                foreach (AttackMenu item in Helper.FindVisualChildren<AttackMenu>(this.BattleView.GridBattleView as Grid))
+                {
+                    item.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                }
+                this.BattleView.AttackMenu.Attaque01 = this.CombatManager.Combat.Pokemon1.Attaque1;
+                this.BattleView.AttackMenu.Attaque02 = this.CombatManager.Combat.Pokemon1.Attaque2;
+                this.BattleView.AttackMenu.Attaque03 = this.CombatManager.Combat.Pokemon1.Attaque3;
+                this.BattleView.AttackMenu.Attaque04 = this.CombatManager.Combat.Pokemon1.Attaque4;
+                // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
+                this.BattleView.PlayerView.Pokemon = this.CombatManager.Combat.Pokemon1;
+                this.BattleView.PlayerView.MaximumPv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
+                this.BattleView.PlayerView.ActualPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
+                // Binding opponent Pokemon to usercontrol PokemonBattleDisplayOpponent when datapush received
+
+            }
+        }
+
+        private void ButtonValidatePokemonSelectionMenu_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            this.BattleView.PokemonSelectionMenu.ButtonValidate.Style = (Style)Application.Current.Resources["ButtonParams"];
+        }
+
+        private void ButtonValidatePokemonSelectionMenu_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            this.BattleView.PokemonSelectionMenu.ButtonValidate.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
         private void AttackButton1_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -166,12 +288,18 @@ namespace Pokemon.ViewModels
         {
             // Launch Attack01 against the opponent
             // Get actual PV 
-            int actualPv = this.BattleView.OpponentView.Pokemon.TypeDePokemon.Pv;
-            actualPv = actualPv - this.BattleView.AttackMenu.Attaque01.Puissance * this.BattleView.AttackMenu.Attaque01.Degats;
-            ClassLibraryEntity.Pokemon pokemonOpponent = this.BattleView.OpponentView.Pokemon;
-            pokemonOpponent.TypeDePokemon.Pv = actualPv;
-            this.BattleView.OpponentView.Pokemon = pokemonOpponent;
-            this.BattleView.OpponentView.ActualPv = (pokemonOpponent.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
+            this.CombatManager.Pokemon = this.CombatManager.Combat.Pokemon2;
+            this.CombatManager.ActualPvPokemon = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+            this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque01;
+            this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Nom + " attaque " +
+                                                            this.CombatManager.Attaque.Nom;
+            // Disable attack buttons
+            this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton3.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton4.IsEnabled = false;
+
+            this.CombatManager.LaunchAttackAgainstOpponent(this.CombatManager);
         }
 
         private void AttackButton2_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -188,12 +316,18 @@ namespace Pokemon.ViewModels
         {
             // Launch Attack02 against the opponent
             // Get actual PV 
-            int actualPv = this.BattleView.OpponentView.Pokemon.TypeDePokemon.Pv;
-            actualPv = actualPv - this.BattleView.AttackMenu.Attaque02.Puissance * this.BattleView.AttackMenu.Attaque02.Degats;
-            ClassLibraryEntity.Pokemon pokemonOpponent = this.BattleView.OpponentView.Pokemon;
-            pokemonOpponent.TypeDePokemon.Pv = actualPv;
-            this.BattleView.OpponentView.Pokemon = pokemonOpponent;
-            this.BattleView.OpponentView.ActualPv = (pokemonOpponent.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
+            this.CombatManager.Pokemon = this.CombatManager.Combat.Pokemon2;
+            this.CombatManager.ActualPvPokemon = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+            this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque02;
+            this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Nom + " attaque " +
+                                                            this.CombatManager.Attaque.Nom;
+            // Disable attack buttons
+            this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton3.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton4.IsEnabled = false;
+
+            this.CombatManager.LaunchAttackAgainstOpponent(this.CombatManager);
         }
 
         private void AttackButton3_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -210,12 +344,18 @@ namespace Pokemon.ViewModels
         {
             // Launch Attack03 against the opponent
             // Get actual PV 
-            int actualPv = this.BattleView.OpponentView.Pokemon.TypeDePokemon.Pv;
-            actualPv = actualPv - this.BattleView.AttackMenu.Attaque03.Puissance * this.BattleView.AttackMenu.Attaque03.Degats;
-            ClassLibraryEntity.Pokemon pokemonOpponent = this.BattleView.OpponentView.Pokemon;
-            pokemonOpponent.TypeDePokemon.Pv = actualPv;
-            this.BattleView.OpponentView.Pokemon = pokemonOpponent;
-            this.BattleView.OpponentView.ActualPv = (pokemonOpponent.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
+            this.CombatManager.Pokemon = this.CombatManager.Combat.Pokemon2;
+            this.CombatManager.ActualPvPokemon = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+            this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque03;
+            this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Nom + " attaque " +
+                                                            this.CombatManager.Attaque.Nom;
+            // Disable attack buttons
+            this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton3.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton4.IsEnabled = false;
+
+            this.CombatManager.LaunchAttackAgainstOpponent(this.CombatManager);
         }
 
         private void AttackButton4_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -232,12 +372,18 @@ namespace Pokemon.ViewModels
         {
             // Launch Attack04 against the opponent
             // Get actual PV 
-            int actualPv = this.BattleView.OpponentView.Pokemon.TypeDePokemon.Pv;
-            actualPv = actualPv - this.BattleView.AttackMenu.Attaque04.Puissance * this.BattleView.AttackMenu.Attaque04.Degats;
-            ClassLibraryEntity.Pokemon pokemonOpponent = this.BattleView.OpponentView.Pokemon;
-            pokemonOpponent.TypeDePokemon.Pv = actualPv;
-            this.BattleView.OpponentView.Pokemon = pokemonOpponent;
-            this.BattleView.OpponentView.ActualPv = (pokemonOpponent.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
+            this.CombatManager.Pokemon = this.CombatManager.Combat.Pokemon2;
+            this.CombatManager.ActualPvPokemon = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+            this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque04;
+            this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Nom + " attaque " +
+                                                            this.CombatManager.Attaque.Nom;
+            // Disable attack buttons
+            this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton3.IsEnabled = false;
+            this.BattleView.AttackMenu.AttackButton4.IsEnabled = false;
+
+            this.CombatManager.LaunchAttackAgainstOpponent(this.CombatManager);
         }
 
         private void ButtonBackAttackMenu_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -267,6 +413,24 @@ namespace Pokemon.ViewModels
             switch ((Int32)res.Id)
             {
                 case 0:
+                    // Update the combat and finish the campaign
+                    if (this.CombatManager.Combat.Dresseur1.Id == this.GridManager.Dresseur.Id)
+                    {
+                        this.CombatManager.Combat.Dresseur2Vainqueur = true;
+                        this.CombatManager.Combat.Pokemon2Vainqueur = true;
+                    }
+                    else
+                    {
+                        this.CombatManager.Combat.Dresseur1Vainqueur = true;
+                        this.CombatManager.Combat.Pokemon1Vainqueur = true;
+                    }
+
+                    // Update the fight
+                    await this.CombatManager.FinishFight(this.CombatManager.Combat);
+
+                    this.BattleView.RingLoader.Visibility = Visibility.Collapsed;
+                    this.BattleView.GridBattleView.Visibility = Visibility.Visible;
+
                     (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
                     break;
                 case 1:
@@ -375,43 +539,9 @@ namespace Pokemon.ViewModels
             this.BattleView.ObjectMenu.LoadItems(this.GridManager.Dresseur.PersonnageNonJoueur.Objets.Where((x) => x.TypeObjet.Id == selectedTypeObjet.Id).ToList());
         }
 
-        private async void ItemsListPokemons_ItemClick(object sender, ItemClickEventArgs e)
+        private void ItemsListPokemons_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (AttackMenu item in Helper.FindVisualChildren<AttackMenu>(this.BattleView.GridBattleView as Grid))
-            {
-                item.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            }
-            ClassLibraryEntity.Pokemon selectedPokemon = e.ClickedItem as ClassLibraryEntity.Pokemon;
-            this.BattleView.AttackMenu.Attaque01 = selectedPokemon.Attaque1;
-            this.BattleView.AttackMenu.Attaque02 = selectedPokemon.Attaque2;
-            this.BattleView.AttackMenu.Attaque03 = selectedPokemon.Attaque3;
-            this.BattleView.AttackMenu.Attaque04 = selectedPokemon.Attaque4;
-            // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
-            this.BattleView.PlayerView.Pokemon = selectedPokemon;
-            this.BattleView.PlayerView.MaximumPv = selectedPokemon.TypeDePokemon.Pv;
-            this.BattleView.PlayerView.ActualPv = (selectedPokemon.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
-            // Create a fight
-            Combat combat = new Combat();
-            combat.Dresseur1 = this.GridManager.Dresseur;
-            combat.Pokemon1 = selectedPokemon;
-            combat.LanceLe = DateTime.Now;
-            combat.Dresseur1Vainqueur = false;
-            combat.Pokemon1Vainqueur = false;
-            combat.Dresseur2Vainqueur = false;
-            combat.Pokemon2Vainqueur = false;
-            // Create instance of fight to api
-            ApiManager manager = new ApiManager();
-            combat = await manager.PostToApiAndReceiveData<Combat>(combat);
-
-            // Get the opponent which join fight
-            Dresseur opponentPlayer = await manager.GetFromApi<Dresseur>(2);
-            ClassLibraryEntity.Pokemon opponentPokemon = await manager.GetFromApi<ClassLibraryEntity.Pokemon>(12);
-
-            combat.Dresseur2 = opponentPlayer;
-            combat.Pokemon2 = opponentPokemon;
-            // Put updated dresseur2 and pokemon2 
-            combat = await manager.PutToApiAndReceiveData<Combat>(combat, combat.Id);
-
+            this.SelectedPokemon = e.ClickedItem as ClassLibraryEntity.Pokemon;
         }
         
         private void RunawayButton_Tapped(object sender, RoutedEventArgs e)
@@ -434,5 +564,30 @@ namespace Pokemon.ViewModels
                 item.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
         }
-}
+
+        public void ReceiveDataPush(CombatManager combatManager)
+        {
+            this.CombatManager = combatManager;
+
+            // Waiting for dataPush alert that it is my turn
+            while (this.CombatManager.PokemonActualTurnId != this.CombatManager.Combat.Pokemon1.Id) { }
+
+            // Update the opponent view
+
+            // Enable attack buttons
+            this.BattleView.AttackMenu.AttackButton1.IsEnabled = true;
+            this.BattleView.AttackMenu.AttackButton2.IsEnabled = true;
+            this.BattleView.AttackMenu.AttackButton3.IsEnabled = true;
+            this.BattleView.AttackMenu.AttackButton4.IsEnabled = true;
+            // We only update the pokemon pv of the combat manager
+            // because the pv are not set in database
+            // in order to always have good value of pv when start new fight synchronously
+            this.BattleView.OpponentView.MaximumPv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+            this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
+            this.BattleView.OpponentView.Pokemon = this.CombatManager.Combat.Pokemon2;
+            this.BattleView.OpponentView.ActualPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
+            this.BattleView.Console.DisplayedMessage = "A toi de jouer " + this.CombatManager.Combat.Dresseur1.Prenom + " " +
+                            this.CombatManager.Combat.Dresseur1.Nom + "." + Environment.NewLine + "Choisi une attaque !";
+        }
+    }
 }

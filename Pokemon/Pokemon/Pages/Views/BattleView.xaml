@@ -12,6 +12,7 @@
     xmlns:UCOther="using:Pokemon.UserControls.Other">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <UCOther:RingLoader x:Name="ucRingLoader" Grid.Row="0" Grid.Column="0" Visibility="Collapsed" />
         <Grid x:Name="mainGridBattleView" Style="{StaticResource BackgroundGrid}" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>

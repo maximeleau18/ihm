@@ -114,6 +114,7 @@
     <Compile Include="base\EnityBase.cs" />
     <Compile Include="Combat.cs" />
     <Compile Include="Dresseur.cs" />
+    <Compile Include="CombatManager.cs" />
     <Compile Include="MessageErreur.cs" />
     <Compile Include="MyDateTimeConverter.cs" />
     <Compile Include="Objet.cs" />

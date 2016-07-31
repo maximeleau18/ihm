@@ -52,6 +52,8 @@ namespace Pokemon.UserControls.Menus
             }
         }
 
+        private Button buttonBack;
+
         public Button ButtonBack
         {
             get
@@ -65,7 +67,20 @@ namespace Pokemon.UserControls.Menus
             }
         }
 
-        private Button buttonBack;
+        public Button ButtonValidate
+        {
+            get
+            {
+                return buttonValidate;
+            }
+
+            set
+            {
+                buttonValidate = value;
+            }
+        }
+
+        private Button buttonValidate;
 
         public PokemonSelectionMenu()
         {
@@ -74,6 +89,7 @@ namespace Pokemon.UserControls.Menus
             this.listPokemon.ItemsSource = this.pokemons;
             this.ItemsListPokemons = this.listPokemon;
             this.ButtonBack = this.btnBack;
+            this.ButtonValidate = this.btnValidate;
         }
 
         public void LoadItems(List<ClassLibraryEntity.Pokemon> pokemons)

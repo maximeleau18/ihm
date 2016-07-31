@@ -57,6 +57,8 @@ namespace Pokemon.Pages.Views
             }
         }
         private BattleViewModel battleViewModel;
+        private RingLoader ringLoader;
+        private Console console;
         public BattleMenu BattleMenu { get; set; }
         public AttackMenu AttackMenu { get; set; }
         public PokemonSelectionMenu PokemonSelectionMenu { get; set; }
@@ -64,7 +66,43 @@ namespace Pokemon.Pages.Views
         public ObjectMenu ObjectMenu { get; set; }
         public PokemonBattleDisplayOpponent OpponentView { get; set; }        
         public PokemonBattleDisplayPlayer PlayerView { get; set; }
-        
+        public RingLoader RingLoader
+        {
+            get
+            {
+                return ringLoader;
+            }
+
+            set
+            {
+                ringLoader = value;
+            }
+        }
+        public Console Console
+        {
+            get
+            {
+                return console;
+            }
+
+            set
+            {
+                console = value;
+            }
+        }
+        public BattleViewModel BattleViewModel
+        {
+            get
+            {
+                return battleViewModel;
+            }
+
+            set
+            {
+                battleViewModel = value;
+            }
+        }
+
         public BattleView()
         {
             this.InitializeComponent();
@@ -76,8 +114,9 @@ namespace Pokemon.Pages.Views
             this.ObjectMenu = this.objectMenu;
             this.OpponentView = this.opponentView;
             this.PlayerView = this.playerView;
+            this.RingLoader = this.ucRingLoader;
+            this.Console = this.ucConsole;
             this.GridBattleView = this.mainGridBattleView;
-
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
