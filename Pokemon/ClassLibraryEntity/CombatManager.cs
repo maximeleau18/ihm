@@ -155,33 +155,21 @@ namespace ClassLibraryEntity
             return combat = await manager.PostToApiAndReceiveData<Combat>(combat);
         }
 
-        //public async Task<Combat> WaitingForDressseur2(Combat combat)
-        //{
-        //    ApiManager manager = new ApiManager();
-        //    Stopwatch s = new Stopwatch();
-        //    s.Start();
-        //    while (s.Elapsed < TimeSpan.FromSeconds(10) && combat.Dresseur2 == null)
-        //    {
-        //        combat = await manager.GetFromApi<Combat>(combat.Id);
-        //    }
+        public async Task<Combat> WaitingForDressseur2(Combat combat)
+        {
+            ApiManager manager = new ApiManager();
+            Stopwatch s = new Stopwatch();
+            s.Start();
+            while (s.Elapsed < TimeSpan.FromSeconds(30) && combat.Dresseur2 == null)
+            {
+                combat = await manager.GetFromApi<Combat>(combat.Id);
+            }
 
-        //    s.Stop();
+            s.Stop();
 
-        //    if (combat.Dresseur2 == null)
-        //    {
-        //        // Get the opponent which join fight
-        //        Dresseur opponentPlayer = await manager.GetFromApi<Dresseur>(2);
-        //        Pokemon opponentPokemon = await manager.GetFromApi<Pokemon>(12);
+            return combat;
+        }
 
-        //        combat.Dresseur2 = opponentPlayer;
-        //        combat.Pokemon2 = opponentPokemon;
-        //        // Put updated dresseur2 and pokemon2 
-        //        combat = await manager.PutToApiAndReceiveData<Combat>(combat, combat.Id);
-        //    }
-
-        //    return combat;
-        //}
-        
         public async Task<Combat> FinishFight(Combat combat)
         {
             ApiManager manager = new ApiManager();
