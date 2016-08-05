@@ -26,12 +26,15 @@ namespace ClassLibraryEntity
         private int pokemonid2;
         private int dresseurid1;
         private int dresseurid2;
+        private String dresseur1DeviceId;
+        private String dresseur2DeviceId;
+
 
         public Combat() { }
         
         [JsonConstructor]
         public Combat(int id,  DateTime lanceLe, int duree, bool pokemon1Vainqueur, bool pokemon2Vainqueur, bool dresseur1Vainqueur, bool dresseur2Vainqueur, 
-                                Dresseur dresseur1, Dresseur dresseur2, Pokemon pokemon1, Pokemon pokemon2)
+                                Dresseur dresseur1, Dresseur dresseur2, Pokemon pokemon1, Pokemon pokemon2, String dresseur1DeviceId, String dresseur2DeviceId)
         {
             this.id = id;
             this.lanceLe = lanceLe;
@@ -44,6 +47,8 @@ namespace ClassLibraryEntity
             this.dresseur2 = dresseur2;
             this.pokemon1 = pokemon1;
             this.pokemon2 = pokemon2;
+            this.dresseur1DeviceId = dresseur1DeviceId;
+            this.dresseur2DeviceId = dresseur2DeviceId;
         }
 
 
@@ -272,6 +277,34 @@ namespace ClassLibraryEntity
             set
             {
                 dresseurid2 = value;
+            }
+        }
+
+        [JsonProperty(PropertyName = "dresseur1DeviceId")]
+        public String Dresseur1DeviceId
+        {
+            get
+            {
+                return dresseur1DeviceId;
+            }
+
+            set
+            {
+                dresseur1DeviceId = value;
+            }
+        }
+
+        [JsonProperty(PropertyName = "dresseur2DeviceId")]
+        public String Dresseur2DeviceId
+        {
+            get
+            {
+                return dresseur2DeviceId;
+            }
+
+            set
+            {
+                dresseur2DeviceId = value;
             }
         }
     }

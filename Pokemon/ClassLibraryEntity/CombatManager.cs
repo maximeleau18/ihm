@@ -1,4 +1,5 @@
 ﻿using ClassLibraryEntity.API;
+using Microsoft.Azure.Engagement;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,6 @@ namespace ClassLibraryEntity
         private int pokemonId;
         private int actualPvPokemon;
         private int pokemonActualTurnId;
-
         public Combat Combat
         {
             get
@@ -100,7 +100,7 @@ namespace ClassLibraryEntity
             }
         }
         
-        [JsonProperty(PropertyName = "actual_pv")]
+        [JsonProperty(PropertyName = "actualPv")]
         public int ActualPvPokemon
         {
             get
@@ -114,7 +114,7 @@ namespace ClassLibraryEntity
             }
         }
 
-        [JsonProperty(PropertyName = "pokemon_actual_turn_id")]
+        [JsonProperty(PropertyName = "pokemonActualTurnId")]
         public int PokemonActualTurnId
         {
             get
@@ -127,7 +127,7 @@ namespace ClassLibraryEntity
                 pokemonActualTurnId = value;
             }
         }
-
+               
         public CombatManager() { }
                 
         [JsonConstructor]
@@ -150,6 +150,8 @@ namespace ClassLibraryEntity
             combat.Pokemon1Vainqueur = false;
             combat.Dresseur2Vainqueur = false;
             combat.Pokemon2Vainqueur = false;
+            // Set deviceid for dresseur1
+            combat.Dresseur1DeviceId = EngagementAgent.Instance.GetDeviceId();
 
             ApiManager manager = new ApiManager();
             return combat = await manager.PostToApiAndReceiveData<Combat>(combat);
@@ -184,10 +186,10 @@ namespace ClassLibraryEntity
             return await manager.DeleteToApi(combat, combat.Id);
         }
                 
-        public void LaunchAttackAgainstOpponent(CombatManager fightManager)
+        public void LaunchAttackAgainstOpponent(CombatManager combatManager)
         {
             ApiManager manager = new ApiManager();
-            manager.PostToApiAndReceiveData<CombatManager>(this);
+            manager.PostToApiLaunchAttackAndReceiveData<CombatManager>(combatManager);
         }
     }
 }

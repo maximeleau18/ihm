@@ -101,6 +101,31 @@ namespace ClassLibraryEntity.API
             return item;
         }
 
+
+        public async Task<T> PostToApiLaunchAttackAndReceiveData<T>(T item)
+        {
+            using (Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient())
+            {
+                Windows.Web.Http.HttpRequestMessage message = new Windows.Web.Http.HttpRequestMessage(
+                    Windows.Web.Http.HttpMethod.Post, new Uri(urlApi + typeof(T).Name.ToLower() + "/launchattack"));
+                message.Content = new Windows.Web.Http.HttpStringContent(
+                    JsonConvert.SerializeObject(item));
+
+                message.Content.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
+                Windows.Web.Http.HttpResponseMessage response = await client.SendRequestAsync(message);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    String result = await response.Content.ReadAsStringAsync();
+                    item = JsonConvert.DeserializeObject<T>(result);
+                }
+
+                Debug.WriteLine(message.Content.ToString());
+                Debug.WriteLine(response.Content.ToString());
+            }
+            return item;
+        }
+
         public String PostToApiAndReceiveDataSync<T>(T item)
         {
             String result;
