@@ -50,7 +50,7 @@
                     <ColumnDefinition Width="10*"/>
                     <ColumnDefinition Width="45*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,6,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="Auto" Height="Auto"
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,6,0" x:Name="pokemonPlayerActualPvTxtB" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="Auto" Height="Auto"
                            Text="{Binding Pokemon.TypeDePokemon.Pv}" />
                 <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="Auto" Height="Auto"
                            Text="/" />

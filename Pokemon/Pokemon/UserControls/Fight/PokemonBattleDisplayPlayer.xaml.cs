@@ -63,6 +63,14 @@ namespace Pokemon.UserControls.Fight
             }
         }
 
+        public int GetActualPvTxtBox
+        {
+            get
+            {
+                return Int32.Parse(this.pokemonPlayerActualPvTxtB.Text);
+            }
+        }
+
         public PokemonBattleDisplayPlayer()
         {
             this.InitializeComponent();

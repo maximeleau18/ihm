@@ -204,7 +204,7 @@ namespace ClassLibraryEntity.API
                 message.Content.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
                 Windows.Web.Http.HttpResponseMessage response = await client.PutAsync(new Uri(urlApi + typeof(T).Name.ToLower() + "/" + id), message.Content);
 
-                response.EnsureSuccessStatusCode();
+                //response.EnsureSuccessStatusCode();
 
                 if (response.IsSuccessStatusCode)
                 {

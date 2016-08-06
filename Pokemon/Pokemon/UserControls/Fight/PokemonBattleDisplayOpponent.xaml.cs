@@ -62,6 +62,14 @@ namespace Pokemon.UserControls.Fight
                 base.OnPropertyChanged("Pokemon");
             }
         }
+
+        public int GetActualPvTxtBox
+        {
+            get
+            {
+                return Int32.Parse(this.pokemonOpponentActualPvTxtB.Text);
+            }
+        }
         
         public PokemonBattleDisplayOpponent()
         {
