@@ -12,7 +12,10 @@ namespace ClassLibraryEntity.API
     public class ApiManager
     {
         private String urlApi {
-            get { return "http://127.0.0.1:8000/api/"; }
+            get {
+                //return "http://192.168.1.13:8000/api/";
+                return "http://127.0.0.1:8000/api/";
+            }
         }
 
         public async Task<T> GetFromApi<T>(Int32 id)
@@ -101,7 +104,6 @@ namespace ClassLibraryEntity.API
             return item;
         }
 
-
         public async Task<T> PostToApiLaunchAttackAndReceiveData<T>(T item)
         {
             using (Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient())
@@ -124,6 +126,29 @@ namespace ClassLibraryEntity.API
                 Debug.WriteLine(response.Content.ToString());
             }
             return item;
+        }
+        
+        public async Task<String> PostToApiSearchEmptyFightAsync<T>(T item)
+        {
+            String result;
+
+            using (Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient())
+            {
+                Windows.Web.Http.HttpRequestMessage message = new Windows.Web.Http.HttpRequestMessage(
+                    Windows.Web.Http.HttpMethod.Post, new Uri(urlApi + typeof(T).Name.ToLower() + "/searchemptycombat"));
+                message.Content = new Windows.Web.Http.HttpStringContent(
+                    JsonConvert.SerializeObject(item));
+
+                message.Content.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
+                Windows.Web.Http.HttpResponseMessage response = await client.SendRequestAsync(message);
+
+                result = await response.Content.ReadAsStringAsync();
+
+                Debug.WriteLine(message.Content.ToString());
+                Debug.WriteLine(response.Content.ToString());
+            }
+
+            return result;
         }
 
         public String PostToApiAndReceiveDataSync<T>(T item)
@@ -188,6 +213,10 @@ namespace ClassLibraryEntity.API
                 Windows.Web.Http.HttpResponseMessage response = await client.SendRequestAsync(message);
 
                 result = await response.Content.ReadAsStringAsync();
+
+
+                Debug.WriteLine(message.Content.ToString());
+                Debug.WriteLine(response.Content.ToString());
             }
 
             return result;

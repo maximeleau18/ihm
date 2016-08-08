@@ -22,10 +22,10 @@ namespace ClassLibraryEntity
         private Dresseur dresseur2;
         private Pokemon pokemon1;
         private Pokemon pokemon2;
-        private int pokemonid1;
-        private int pokemonid2;
-        private int dresseurid1;
-        private int dresseurid2;
+        private int pokemonId1;
+        private int pokemonId2;
+        private int dresseurId1;
+        private int dresseurId2;
         private String dresseur1DeviceId;
         private String dresseur2DeviceId;
 
@@ -205,24 +205,32 @@ namespace ClassLibraryEntity
             }
         }
 
-        [JsonProperty(PropertyName = "pokemon1")]
-        public int Pokemonid1
+        [JsonProperty(PropertyName = "pokemon1", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [DefaultValue(0)]
+        public int PokemonId1
         {
             get
             {
-                return this.Pokemon1.Id;
+                if (this.Pokemon1 == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return this.Pokemon1.Id;
+                }
             }
 
             set
             {
-                pokemonid1 = value;
+                pokemonId1 = value;
             }
         }
 
 
         [JsonProperty(PropertyName = "pokemon2", DefaultValueHandling = DefaultValueHandling.Ignore)]
         [DefaultValue(0)]
-        public int Pokemonid2
+        public int PokemonId2
         {
             get
             {
@@ -238,29 +246,37 @@ namespace ClassLibraryEntity
 
             set
             {
-                pokemonid2 = value;
+                pokemonId2 = value;
             }
         }
 
 
-        [JsonProperty(PropertyName = "dresseur1")]
-        public int Dresseurid1
+        [JsonProperty(PropertyName = "dresseur1", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [DefaultValue(0)]
+        public int DresseurId1
         {
             get
             {
-                return this.Dresseur1.Id;
+                if (this.Dresseur1 == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return this.Dresseur1.Id;
+                }
             }
 
             set
             {
-                dresseurid1 = value;
+                dresseurId1 = value;
             }
         }
 
 
         [JsonProperty(PropertyName = "dresseur2", DefaultValueHandling = DefaultValueHandling.Ignore)]
         [DefaultValue(0)]
-        public int Dresseurid2
+        public int DresseurId2
         {
             get
             {
@@ -276,7 +292,7 @@ namespace ClassLibraryEntity
 
             set
             {
-                dresseurid2 = value;
+                dresseurId2 = value;
             }
         }
 

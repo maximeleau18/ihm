@@ -14,12 +14,12 @@ namespace ClassLibraryEntity
     {
         private Combat combat;
         private Attaque attaque;
-        private Pokemon pokemon;
+        private Dresseur dresseur;
         private int combatId;
         private int attaqueId;
-        private int pokemonId;
+        private int dresseurId;
         private int actualPvPokemon;
-        private int pokemonActualTurnId;
+        private int dresseurActualTurnId;
         public Combat Combat
         {
             get
@@ -44,16 +44,16 @@ namespace ClassLibraryEntity
                 attaque = value;
             }
         }
-        public Pokemon Pokemon
+        public Dresseur Dresseur
         {
             get
             {
-                return pokemon;
+                return dresseur;
             }
 
             set
             {
-                pokemon = value;
+                dresseur = value;
             }
         }
 
@@ -86,17 +86,17 @@ namespace ClassLibraryEntity
             }
         }
 
-        [JsonProperty(PropertyName = "pokemon")]
-        public int PokemonId
+        [JsonProperty(PropertyName = "dresseur")]
+        public int DresseurId
         {
             get
             {
-                return this.Pokemon.Id;
+                return this.Dresseur.Id;
             }
 
             set
             {
-                pokemonId = value;
+                dresseurId = value;
             }
         }
         
@@ -114,30 +114,30 @@ namespace ClassLibraryEntity
             }
         }
 
-        [JsonProperty(PropertyName = "pokemonActualTurnId")]
-        public int PokemonActualTurnId
+        [JsonProperty(PropertyName = "dresseurActualTurnId")]
+        public int DresseurActualTurnId
         {
             get
             {
-                return pokemonActualTurnId;
+                return dresseurActualTurnId;
             }
 
             set
             {
-                pokemonActualTurnId = value;
+                dresseurActualTurnId = value;
             }
         }
                
         public CombatManager() { }
                 
         [JsonConstructor]
-        public CombatManager(Combat combat, Attaque attaque, Pokemon pokemon, int actualPv, int pokemonActualTurnId)
+        public CombatManager(Combat combat, Attaque attaque, Dresseur dresseur, int actualPv, int dressseurActualTurnId)
         {
             this.Combat = combat;
             this.Attaque = attaque;
-            this.Pokemon = pokemon;
+            this.Dresseur = dresseur;
             this.ActualPvPokemon = actualPv;
-            this.PokemonActualTurnId = pokemonActualTurnId;
+            this.DresseurActualTurnId = dresseurActualTurnId;
         }
         
         public async Task<Combat> StartNewFight(Dresseur dresseur1, ClassLibraryEntity.Pokemon pokemon1)
@@ -156,18 +156,30 @@ namespace ClassLibraryEntity
             ApiManager manager = new ApiManager();
             return combat = await manager.PostToApiAndReceiveData<Combat>(combat);
         }
+        
+        public async Task<String> SearchEmptyFight(Dresseur dresseur2, ClassLibraryEntity.Pokemon pokemon2)
+        {
+            Combat combat = new Combat();
+            combat.Dresseur2 = dresseur2;
+            combat.Pokemon2 = pokemon2;
+            // Set deviceid for dresseur2
+            combat.Dresseur2DeviceId = EngagementAgent.Instance.GetDeviceId();
+
+            ApiManager manager = new ApiManager();
+            return await manager.PostToApiSearchEmptyFightAsync<Combat>(combat);
+        }
 
         public async Task<Combat> WaitingForDressseur2(Combat combat)
         {
             ApiManager manager = new ApiManager();
-            Stopwatch s = new Stopwatch();
-            s.Start();
-            while (s.Elapsed < TimeSpan.FromSeconds(30) && combat.Dresseur2 == null)
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            while (stopWatch.Elapsed < TimeSpan.FromSeconds(30) && combat.Dresseur2 == null)
             {
                 combat = await manager.GetFromApi<Combat>(combat.Id);
             }
 
-            s.Stop();
+            stopWatch.Stop();
 
             return combat;
         }
