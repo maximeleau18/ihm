@@ -20,6 +20,7 @@ namespace ClassLibraryEntity
         private int dresseurId;
         private int actualPvPokemon;
         private int dresseurActualTurnId;
+        private String console;
         public Combat Combat
         {
             get
@@ -127,17 +128,32 @@ namespace ClassLibraryEntity
                 dresseurActualTurnId = value;
             }
         }
-               
+
+        [JsonProperty(PropertyName = "console")]
+        public String Console
+        {
+            get
+            {
+                return console;
+            }
+
+            set
+            {
+                console = value;
+            }
+        }
+
         public CombatManager() { }
                 
         [JsonConstructor]
-        public CombatManager(Combat combat, Attaque attaque, Dresseur dresseur, int actualPv, int dressseurActualTurnId)
+        public CombatManager(Combat combat, Attaque attaque, Dresseur dresseur, int actualPv, int dressseurActualTurnId, String console)
         {
             this.Combat = combat;
             this.Attaque = attaque;
             this.Dresseur = dresseur;
             this.ActualPvPokemon = actualPv;
             this.DresseurActualTurnId = dresseurActualTurnId;
+            this.Console = console;
         }
         
         public async Task<Combat> StartNewFight(Dresseur dresseur1, ClassLibraryEntity.Pokemon pokemon1)
@@ -184,12 +200,12 @@ namespace ClassLibraryEntity
             return combat;
         }
 
-        public async Task<Combat> FinishFight(Combat combat)
+        public async Task<Combat> FinishFight(CombatManager combatManager)
         {
             ApiManager manager = new ApiManager();
-            combat = await manager.PutToApiAndReceiveData<Combat>(combat, combat.Id);            
+            combatManager = await manager.PutToApiAndReceiveData<CombatManager>(combatManager, combatManager.Combat.Id);            
 
-            return combat;
+            return combatManager.Combat;
         }
 
         public async Task<Boolean> DeleteFight(Combat combat)

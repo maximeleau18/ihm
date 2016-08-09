@@ -9,12 +9,14 @@
     mc:Ignorable="d">
 
     <Grid Background="White" BorderBrush="Black" BorderThickness="5" Margin="5">
-        <TextBlock x:Name="consoleTxtB"                       
-                   Grid.Row="0" Grid.Column="0"
-                   Margin="5"
-                   TextWrapping="Wrap"
-                   Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
-                   Text="{Binding DisplayedMessage}">            
-        </TextBlock>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" x:Name="consoleSV">
+            <TextBlock x:Name="consoleTxtB"                       
+                       Grid.Row="0" Grid.Column="0"
+                       Margin="5"
+                       TextWrapping="Wrap"
+                       Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Text="{Binding DisplayedMessage}">            
+            </TextBlock>
+        </ScrollViewer>
     </Grid>
 </base:BaseUserControl>

@@ -31,9 +31,42 @@ namespace Pokemon.UserControls.Other
             }
         }
 
+        public ScrollViewer ConsoleScrollViewer
+        {
+            get
+            {
+                return consoleScrollViewer;
+            }
+
+            set
+            {
+                consoleScrollViewer = value;
+            }
+        }
+        
+        private ScrollViewer consoleScrollViewer;
+
+        private TextBlock consoleTextBlock;
+
+        public TextBlock ConsoleTextBlock
+        {
+            get
+            {
+                return consoleTextBlock;
+            }
+
+            set
+            {
+                consoleTextBlock = value;
+            }
+        }
+
+
         public Console()
         {
             this.InitializeComponent();
+            this.ConsoleScrollViewer = this.consoleSV;
+            this.ConsoleTextBlock = this.consoleTxtB;
             this.DataContext = this;       
         }
     }

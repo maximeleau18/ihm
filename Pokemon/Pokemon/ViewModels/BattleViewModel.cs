@@ -265,10 +265,16 @@ namespace Pokemon.ViewModels
                             dialogError.Title = "Oups";
 
                             await dialogError.ShowAsync();
+
+                            this.BattleView.RingLoader.Visibility = Visibility.Collapsed;
+                            this.BattleView.GridBattleView.Visibility = Visibility.Visible;
                         }
                         else
                         {
                             this.combatManager.Combat = JsonConvert.DeserializeObject<Combat>(responseApi);
+
+                            this.BattleView.RingLoader.Visibility = Visibility.Collapsed;
+                            this.BattleView.GridBattleView.Visibility = Visibility.Visible;
                         }
                         break;
                     case 2:
@@ -277,9 +283,6 @@ namespace Pokemon.ViewModels
                     default:
                         break;
                 }
-
-                this.BattleView.RingLoader.Visibility = Visibility.Collapsed;
-                this.BattleView.GridBattleView.Visibility = Visibility.Visible;
             }       
         }
 
@@ -312,8 +315,6 @@ namespace Pokemon.ViewModels
                 this.CombatManager.Dresseur = this.CombatManager.Combat.Dresseur2;
                 this.CombatManager.ActualPvPokemon = this.BattleView.OpponentView.GetActualPvTxtBox;
                 this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque01;
-                this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Nom + " attaque " +
-                                                                this.CombatManager.Attaque.Nom;
                 // Disable attack buttons
                 this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
                 this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
@@ -327,8 +328,6 @@ namespace Pokemon.ViewModels
                 this.CombatManager.Dresseur = this.CombatManager.Combat.Dresseur1;
                 this.CombatManager.ActualPvPokemon = this.BattleView.OpponentView.GetActualPvTxtBox;
                 this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque01;
-                this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Nom + " attaque " +
-                                                                this.CombatManager.Attaque.Nom;
                 // Disable attack buttons
                 this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
                 this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
@@ -358,8 +357,6 @@ namespace Pokemon.ViewModels
                 this.CombatManager.Dresseur = this.CombatManager.Combat.Dresseur2;
                 this.CombatManager.ActualPvPokemon = this.BattleView.OpponentView.GetActualPvTxtBox;
                 this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque02;
-                this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Nom + " attaque " +
-                                                                this.CombatManager.Attaque.Nom;
                 // Disable attack buttons
                 this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
                 this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
@@ -373,8 +370,6 @@ namespace Pokemon.ViewModels
                 this.CombatManager.Dresseur = this.CombatManager.Combat.Dresseur1;
                 this.CombatManager.ActualPvPokemon = this.BattleView.OpponentView.GetActualPvTxtBox;
                 this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque02;
-                this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Nom + " attaque " +
-                                                                this.CombatManager.Attaque.Nom;
                 // Disable attack buttons
                 this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
                 this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
@@ -404,8 +399,6 @@ namespace Pokemon.ViewModels
                 this.CombatManager.Dresseur = this.CombatManager.Combat.Dresseur2;
                 this.CombatManager.ActualPvPokemon = this.BattleView.OpponentView.GetActualPvTxtBox;
                 this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque03;
-                this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Nom + " attaque " +
-                                                                this.CombatManager.Attaque.Nom;
                 // Disable attack buttons
                 this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
                 this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
@@ -419,8 +412,6 @@ namespace Pokemon.ViewModels
                 this.CombatManager.Dresseur = this.CombatManager.Combat.Dresseur1;
                 this.CombatManager.ActualPvPokemon = this.BattleView.OpponentView.GetActualPvTxtBox;
                 this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque03;
-                this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Nom + " attaque " +
-                                                                this.CombatManager.Attaque.Nom;
                 // Disable attack buttons
                 this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
                 this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
@@ -451,8 +442,6 @@ namespace Pokemon.ViewModels
                 this.CombatManager.Dresseur = this.CombatManager.Combat.Dresseur2;
                 this.CombatManager.ActualPvPokemon = this.BattleView.OpponentView.GetActualPvTxtBox;
                 this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque04;
-                this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Nom + " attaque " +
-                                                                this.CombatManager.Attaque.Nom;
                 // Disable attack buttons
                 this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
                 this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
@@ -466,8 +455,6 @@ namespace Pokemon.ViewModels
                 this.CombatManager.Dresseur = this.CombatManager.Combat.Dresseur1;
                 this.CombatManager.ActualPvPokemon = this.BattleView.OpponentView.GetActualPvTxtBox;
                 this.CombatManager.Attaque = this.BattleView.AttackMenu.Attaque04;
-                this.BattleView.Console.DisplayedMessage = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Nom + " attaque " +
-                                                                this.CombatManager.Attaque.Nom;
                 // Disable attack buttons
                 this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
                 this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
@@ -518,7 +505,7 @@ namespace Pokemon.ViewModels
                     }
 
                     // Update the fight
-                    await this.CombatManager.FinishFight(this.CombatManager.Combat);
+                    await this.CombatManager.FinishFight(this.CombatManager);
 
                     this.BattleView.RingLoader.Visibility = Visibility.Collapsed;
                     this.BattleView.GridBattleView.Visibility = Visibility.Visible;
@@ -526,7 +513,7 @@ namespace Pokemon.ViewModels
                     (Window.Current.Content as Frame).Navigate(typeof(MapView), this.GridManager);
                     break;
                 case 1:
-                    // Still in the fight view
+                    // Stay in the fight view
                     break;
                 case 2:
                     // Do nothing
@@ -663,13 +650,60 @@ namespace Pokemon.ViewModels
 
             if (this.CombatManager.Combat.Dresseur1Vainqueur == true || this.CombatManager.Combat.Dresseur2Vainqueur == true)
             {
+                // Disable attack buttons
+                this.BattleView.AttackMenu.AttackButton1.IsEnabled = false;
+                this.BattleView.AttackMenu.AttackButton2.IsEnabled = false;
+                this.BattleView.AttackMenu.AttackButton3.IsEnabled = false;
+                this.BattleView.AttackMenu.AttackButton4.IsEnabled = false;
 
-                this.BattleView.RingLoader.Visibility = Visibility.Visible;
-                this.battleView.RingLoader.ProgressRingText.Text = "Enregistrement du résultat";
-                this.BattleView.GridBattleView.Visibility = Visibility.Collapsed;
+                // Update message in console
+                this.BattleView.Console.DisplayedMessage = this.CombatManager.Console;
+                this.BattleView.Console.ConsoleScrollViewer.ChangeView(null, this.BattleView.Console.ConsoleScrollViewer.VerticalOffset, null);
+
+                if (this.GridManager.Dresseur.Id == this.CombatManager.Combat.Dresseur1.Id)
+                {
+
+                    if (this.CombatManager.Dresseur != null && this.CombatManager.Dresseur.Id == this.CombatManager.Combat.Dresseur1.Id)
+                    {
+                        // Other turn update my HP
+                        // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
+                        this.BattleView.PlayerView.MaximumPv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
+                        this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
+                        this.BattleView.PlayerView.Pokemon = this.CombatManager.Combat.Pokemon1;
+                        this.BattleView.PlayerView.ActualPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
+                    }
+                    else if (this.CombatManager.Dresseur != null && this.CombatManager.Dresseur.Id == this.CombatManager.Combat.Dresseur2.Id)
+                    {
+                        // Bind Opponent view
+                        this.BattleView.OpponentView.MaximumPv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+                        this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
+                        this.BattleView.OpponentView.Pokemon = this.CombatManager.Combat.Pokemon2;
+                        this.BattleView.OpponentView.ActualPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
+                    }
+                }
+                else if (this.GridManager.Dresseur.Id == this.CombatManager.Combat.Dresseur2.Id)
+                {
+                    if (this.CombatManager.Dresseur != null && this.CombatManager.Dresseur.Id == this.CombatManager.Combat.Dresseur2.Id)
+                    {
+                        // Other turn update my HP
+                        // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
+                        this.BattleView.PlayerView.MaximumPv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+                        this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
+                        this.BattleView.PlayerView.Pokemon = this.CombatManager.Combat.Pokemon2;
+                        this.BattleView.PlayerView.ActualPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
+                    }
+                    else if (this.CombatManager.Dresseur != null && this.CombatManager.Dresseur.Id == this.CombatManager.Combat.Dresseur1.Id)
+                    {
+                        // Bind Opponent view
+                        this.BattleView.OpponentView.MaximumPv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
+                        this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
+                        this.BattleView.OpponentView.Pokemon = this.CombatManager.Combat.Pokemon1;
+                        this.BattleView.OpponentView.ActualPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
+                    }
+                }                    
 
                 // Update the fight
-                await this.CombatManager.FinishFight(this.CombatManager.Combat);
+                await this.CombatManager.FinishFight(this.CombatManager);
 
                 // Finish the campaign and display result
                 if (this.CombatManager.Combat.Dresseur1.Id == this.gridManager.Dresseur.Id)
@@ -708,6 +742,10 @@ namespace Pokemon.ViewModels
             }
             else
             {
+                // Update message in console
+                this.BattleView.Console.DisplayedMessage = this.CombatManager.Console;
+                this.BattleView.Console.ConsoleScrollViewer.ChangeView(null, this.BattleView.Console.ConsoleScrollViewer.VerticalOffset , null);
+
                 // If dresseur connected is dresseur1 in fight
                 if (this.GridManager.Dresseur.Id == this.CombatManager.Combat.Dresseur1.Id)
                 {
@@ -780,9 +818,6 @@ namespace Pokemon.ViewModels
                             this.BattleView.AttackMenu.AttackButton2.IsEnabled = true;
                             this.BattleView.AttackMenu.AttackButton3.IsEnabled = true;
                             this.BattleView.AttackMenu.AttackButton4.IsEnabled = true;
-                            // Set console message
-                            this.BattleView.Console.DisplayedMessage = "A toi de jouer " + this.CombatManager.Combat.Dresseur1.Prenom + " " +
-                                                            this.CombatManager.Combat.Dresseur1.Nom + "." + Environment.NewLine + "Choisi une attaque !";
                         }
                     }
                     else
@@ -880,9 +915,6 @@ namespace Pokemon.ViewModels
                         this.BattleView.AttackMenu.AttackButton2.IsEnabled = true;
                         this.BattleView.AttackMenu.AttackButton3.IsEnabled = true;
                         this.BattleView.AttackMenu.AttackButton4.IsEnabled = true;
-                        // Set console message
-                        this.BattleView.Console.DisplayedMessage = "A toi de jouer " + this.CombatManager.Combat.Dresseur2.Prenom + " " +
-                                                        this.CombatManager.Combat.Dresseur2.Nom + "." + Environment.NewLine + "Choisi une attaque !";
                     }
                 }              
             }
