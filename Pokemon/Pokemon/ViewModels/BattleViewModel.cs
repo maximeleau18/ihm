@@ -490,7 +490,7 @@ namespace Pokemon.ViewModels
 
         private async void ButtonBackAttackMenu_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            MessageDialog dialog = new MessageDialog("Voulez-vous vraiment abandonner le combat ? Vous serez considéré comme perdant.");
+            MessageDialog dialog = new MessageDialog("Es-tu certain de vouloir quitter le combat ? Tu seras considéré comme perdant.");
             dialog.Title = "Confirmation";
             dialog.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
             dialog.Commands.Add(new UICommand { Label = "Non", Id = 1 });
