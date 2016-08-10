@@ -443,7 +443,6 @@
     <Compile Include="UserControls\Pokemons\PnjPokemonsAttacks.xaml.cs">
       <DependentUpon>PnjPokemonsAttacks.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utils\GridManager.cs" />
     <Compile Include="Pages\Views\BattleView.xaml.cs">
       <DependentUpon>BattleView.xaml</DependentUpon>
     </Compile>

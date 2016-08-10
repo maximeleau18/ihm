@@ -16,13 +16,13 @@ namespace ClassLibraryEntity
 
         public Attaque() { }
 
-        public Attaque(int id, string nom, int puissance, int degats, TypeAttaque typeAttaque)
+        public Attaque(int id, String nom, int puissance, int degats, TypeAttaque typeAttaque)
         {
-            this.id = id;
-            this.nom = nom;
-            this.puissance = puissance;
-            this.degats = degats;
-            this.typeAttaque = typeAttaque;
+            this.Id = id;
+            this.Nom = nom;
+            this.Puissance = puissance;
+            this.Degats = degats;
+            this.TypeAttaque = typeAttaque;
         }
 
         public int Id

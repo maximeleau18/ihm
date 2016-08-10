@@ -21,13 +21,13 @@ namespace ClassLibraryEntity
 
         public TypeDePokemon(int id, String nom, int attaque, int defense, int pv, int numPokedex, String urlImage)
         {
-            this.id = id;
-            this.nom = nom;
-            this.attaque = attaque;
-            this.defense = defense;
-            this.pv = pv;
-            this.numPokedex = numPokedex;
-            this.urlImage = urlImage;
+            this.Id = id;
+            this.Nom = nom;
+            this.Attaque = attaque;
+            this.Defense = defense;
+            this.Pv = pv;
+            this.NumPokedex = numPokedex;
+            this.UrlImage = urlImage;
         }
 
         public int Id

@@ -13,7 +13,7 @@ namespace ClassLibraryEntity
 
         public Badge() { }
 
-        public Badge(int id, string nom)
+        public Badge(int id, String nom)
         {
             this.Id = id;
             this.Nom = nom;

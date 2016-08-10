@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryEntity
 {
-    public class MessageErreur
+    public class MessageErreur : EntityBase
     {
         [JsonProperty(PropertyName = "errors_login")]
         public List<String> messagesErreursLogin { get; set; }

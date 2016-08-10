@@ -36,19 +36,19 @@ namespace ClassLibraryEntity
         public Combat(int id,  DateTime lanceLe, int duree, bool pokemon1Vainqueur, bool pokemon2Vainqueur, bool dresseur1Vainqueur, bool dresseur2Vainqueur, 
                                 Dresseur dresseur1, Dresseur dresseur2, Pokemon pokemon1, Pokemon pokemon2, String dresseur1DeviceId, String dresseur2DeviceId)
         {
-            this.id = id;
-            this.lanceLe = lanceLe;
-            this.duree = duree;
-            this.pokemon1Vainqueur = pokemon1Vainqueur;
-            this.pokemon2Vainqueur = pokemon2Vainqueur;
-            this.dresseur1Vainqueur = dresseur1Vainqueur;
-            this.dresseur2Vainqueur = dresseur2Vainqueur;
-            this.dresseur1 = dresseur1;
-            this.dresseur2 = dresseur2;
-            this.pokemon1 = pokemon1;
-            this.pokemon2 = pokemon2;
-            this.dresseur1DeviceId = dresseur1DeviceId;
-            this.dresseur2DeviceId = dresseur2DeviceId;
+            this.Id = id;
+            this.LanceLe = lanceLe;
+            this.Duree = duree;
+            this.Pokemon1Vainqueur = pokemon1Vainqueur;
+            this.Pokemon2Vainqueur = pokemon2Vainqueur;
+            this.Dresseur1Vainqueur = dresseur1Vainqueur;
+            this.Dresseur2Vainqueur = dresseur2Vainqueur;
+            this.Dresseur1 = dresseur1;
+            this.Dresseur2 = dresseur2;
+            this.Pokemon1 = pokemon1;
+            this.Pokemon2 = pokemon2;
+            this.Dresseur1DeviceId = dresseur1DeviceId;
+            this.Dresseur2DeviceId = dresseur2DeviceId;
         }
 
 

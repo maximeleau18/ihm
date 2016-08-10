@@ -1,22 +1,14 @@
-﻿using ClassLibraryEntity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
-using Pokemon.Pages.Views;
-using Windows.UI.Popups;
-using Windows.ApplicationModel.Core;
 
-namespace Pokemon.Utils
+namespace ClassLibraryEntity
 {
-    public class GridManager
+    public class GridManager : EntityBase
     {
         private Grid gridPlayerMap;
         private BitmapImage[,] tabImagesSource;
@@ -28,7 +20,7 @@ namespace Pokemon.Utils
         private int currentCol;
         private Image playerImg;
         private Player player;
-        private Dresseur dresseur;              
+        private Dresseur dresseur;
 
         public int CurrentRow
         {
@@ -47,13 +39,13 @@ namespace Pokemon.Utils
             get { return playAreaMaxRow; }
             set { playAreaMaxRow = value; }
         }
-        
+
         public int PlayAreaMaxCol
         {
             get { return playAreaMaxCol; }
             set { playAreaMaxCol = value; }
         }
-        
+
         public int MaxRow
         {
             get { return maxRow; }
@@ -69,7 +61,8 @@ namespace Pokemon.Utils
         public Grid GridPlayerMap
         {
             get { return gridPlayerMap; }
-            set {
+            set
+            {
                 gridPlayerMap = value;
             }
         }
@@ -145,7 +138,7 @@ namespace Pokemon.Utils
             this.PlayerImg = new Image();
             this.Player = player;
             this.Dresseur = dresseur;
-            
+
             ConstructGridPlayerMap(0, this.PlayAreaMaxRow, 0, this.PlayAreaMaxCol);
         }
 
@@ -255,11 +248,6 @@ namespace Pokemon.Utils
             this.GridPlayerMap.Children.Add(this.PlayerImg);
             Grid.SetColumn(this.PlayerImg, this.Player.PosX - this.CurrentCol);
             Grid.SetRow(this.PlayerImg, this.Player.PosY - this.CurrentRow);
-
-            //if ((this.Player.PosX == 29) && (this.Player.PosY == 15))
-            //{
-            //    (Window.Current.Content as Frame).Navigate(typeof(BattleView), this);
-            //}
         }
     }
 }

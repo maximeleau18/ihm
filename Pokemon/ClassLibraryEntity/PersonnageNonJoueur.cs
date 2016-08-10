@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SQLite.Net.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +13,12 @@ namespace ClassLibraryEntity
         private String nom;
         private String description;
         private Profession profession;
-        private int professionId;
         private String urlImage;
         private List<Pokemon> pokemons;
 
         public PersonnageNonJoueur() { }
         
-        public PersonnageNonJoueur(int id, string nom, string description, Profession profession)
+        public PersonnageNonJoueur(int id, String nom, String description, Profession profession)
         {
             this.Id = id;
             this.Nom = nom;
@@ -28,8 +26,6 @@ namespace ClassLibraryEntity
             this.Profession = profession;
         }
 
-        [PrimaryKey, AutoIncrement]
-        [Column("id")]
         public int Id
         {
             get
@@ -43,7 +39,6 @@ namespace ClassLibraryEntity
             }
         }
 
-        [Column("nom")]
         public String Nom
         {
             get
@@ -56,8 +51,7 @@ namespace ClassLibraryEntity
                 nom = value;
             }
         }
-
-        [Column("description")]
+        
         public String Description
         {
             get
@@ -70,8 +64,7 @@ namespace ClassLibraryEntity
                 description = value;
             }
         }
-
-        [Ignore]
+        
         public Profession Profession
         {
             get
@@ -97,21 +90,7 @@ namespace ClassLibraryEntity
                 urlImage = value;
             }
         }
-
-        [Column("profession_id")]
-        public int ProfessionId
-        {
-            get
-            {
-                return professionId;
-            }
-
-            set
-            {
-                professionId = value;
-            }
-        }
-        
+                
         public List<Pokemon> Pokemons
         {
 
@@ -131,11 +110,6 @@ namespace ClassLibraryEntity
         public String UrlImagePNJ
         {
             get { return "ms-appx:///Images/PNJ/" + this.Nom + ".png"; }
-        }
-
-        public override string ToString()
-        {
-            return this.Id.ToString();
-        }
+        }        
     }
 }

@@ -20,7 +20,7 @@
                                    VerticalAlignment="Center" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Style="{StaticResource BackgroundMenuPokedex}"
-                                x:Name="menuPokedexStackPanel">
+                                x:Name="menuPokedexStackPanel" Visibility="Collapsed">
                         <Image Source="ms-appx:///Images/Menu/PokedexButton.png" 
                                Margin="0,0,15,0"/>
                         <TextBlock Text="Pokédex" FontSize="18" Foreground="#ffffff" 

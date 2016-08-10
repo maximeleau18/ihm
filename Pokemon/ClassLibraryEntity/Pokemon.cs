@@ -22,18 +22,19 @@ namespace ClassLibraryEntity
 
         public Pokemon() { }
         
-        public Pokemon(int id, string surnom, int niveau, DateTime captureLe, TypeDePokemon typeDePokemon, PersonnageNonJoueur personnageNonJoueur, Attaque attaque1, Attaque attaque2, Attaque attaque3, Attaque attaque4)
+        public Pokemon(int id, String surnom, int niveau, DateTime captureLe, TypeDePokemon typeDePokemon, PersonnageNonJoueur personnageNonJoueur, Attaque attaque1, 
+                        Attaque attaque2, Attaque attaque3, Attaque attaque4)
         {
-            this.id = id;
-            this.surnom = surnom;
-            this.niveau = niveau;
-            this.captureLe = captureLe;
-            this.typeDePokemon = typeDePokemon;
-            this.personnageNonJoueur = personnageNonJoueur;
-            this.attaque1 = attaque1;
-            this.attaque2 = attaque2;
-            this.attaque3 = attaque3;
-            this.attaque4 = attaque4;
+            this.Id = id;
+            this.Surnom = surnom;
+            this.Niveau = niveau;
+            this.CaptureLe = captureLe;
+            this.TypeDePokemon = typeDePokemon;
+            this.PersonnageNonJoueur = personnageNonJoueur;
+            this.Attaque1 = attaque1;
+            this.Attaque2 = attaque2;
+            this.Attaque3 = attaque3;
+            this.Attaque4 = attaque4;
         }
 
         public int Id

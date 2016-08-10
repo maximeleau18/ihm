@@ -1,4 +1,5 @@
-﻿using Pokemon.Pages.Views;
+﻿using ClassLibraryEntity;
+using Pokemon.Pages.Views;
 using Pokemon.Utils;
 using System;
 using System.Collections.Generic;

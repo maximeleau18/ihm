@@ -14,10 +14,10 @@ namespace ClassLibraryEntity
 
         public TypeObjet() { }
         
-        public TypeObjet(int id, string nom)
+        public TypeObjet(int id, String nom)
         {
-            this.id = id;
-            this.nom = nom;
+            this.Id = id;
+            this.Nom = nom;
         }
 
         public int Id

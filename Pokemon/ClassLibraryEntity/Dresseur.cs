@@ -15,19 +15,18 @@ namespace ClassLibraryEntity
         private String login;
         private String password;
         private PersonnageNonJoueur personnageNonJoueur;
-
-        
+                
         public Dresseur() { }
 
         [JsonConstructor]
-        public Dresseur(int id, string nom, string prenom, string login, string password, PersonnageNonJoueur personnageNonJoueur)
+        public Dresseur(int id, String nom, String prenom, String login, String password, PersonnageNonJoueur personnageNonJoueur)
         {
-            this.id = id;
-            this.nom = nom;
-            this.prenom = prenom;
-            this.login = login;
-            this.password = password;
-            this.personnageNonJoueur = personnageNonJoueur;
+            this.Id = id;
+            this.Nom = nom;
+            this.Prenom = prenom;
+            this.Login = login;
+            this.Password = password;
+            this.PersonnageNonJoueur = personnageNonJoueur;
         }        
 
         

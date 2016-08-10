@@ -13,10 +13,10 @@ namespace ClassLibraryEntity
 
         public TypeAttaque() { }
 
-        public TypeAttaque(int id, string nom)
+        public TypeAttaque(int id, String nom)
         {
-            this.id = id;
-            this.nom = nom;
+            this.Id = id;
+            this.Nom = nom;
         }
 
         public int Id

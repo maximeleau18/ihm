@@ -16,13 +16,13 @@ namespace ClassLibraryEntity
 
         public Arene() { }
 
-        public Arene(int id, string nom, Position position, Badge badge, PersonnageNonJoueur maitre)
+        public Arene(int id, String nom, Position position, Badge badge, PersonnageNonJoueur maitre)
         {
-            this.id = id;
-            this.nom = nom;
-            this.position = position;
-            this.badge = badge;
-            this.maitre = maitre;
+            this.Id = id;
+            this.Nom = nom;
+            this.Position = position;
+            this.Badge = badge;
+            this.Maitre = maitre;
         }
         
         public int Id

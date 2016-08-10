@@ -16,9 +16,9 @@ namespace ClassLibraryEntity
 
         public TypeDePokemonEvolution(int id, TypeDePokemon evolueEn, TypeDePokemon estEvolueEn)
         {
-            this.id = id;
-            this.evolueEn = evolueEn;
-            this.estEvolueEn = estEvolueEn;
+            this.Id = id;
+            this.EvolueEn = evolueEn;
+            this.EstEvolueEn = estEvolueEn;
         }
 
         public int Id

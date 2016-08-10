@@ -13,10 +13,10 @@ namespace ClassLibraryEntity
 
         public Zone() { }
 
-        public Zone(int id, string nom)
+        public Zone(int id, String nom)
         {
-            this.id = id;
-            this.nom = nom;
+            this.Id = id;
+            this.Nom = nom;
         }
 
         public int Id

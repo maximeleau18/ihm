@@ -17,13 +17,13 @@ namespace ClassLibraryEntity
 
         public Objet() { }
 
-        public Objet(int id, string nom, int quantite, TypeObjet typeObjet, PersonnageNonJoueur personnageNonJoueur)
+        public Objet(int id, String nom, int quantite, TypeObjet typeObjet, PersonnageNonJoueur personnageNonJoueur)
         {
-            this.id = id;
-            this.nom = nom;
-            this.quantite = quantite;
-            this.typeObjet = typeObjet;
-            this.personnageNonJoueur = personnageNonJoueur;
+            this.Id = id;
+            this.Nom = nom;
+            this.Quantite = quantite;
+            this.TypeObjet = typeObjet;
+            this.PersonnageNonJoueur = personnageNonJoueur;
         }
 
         public int Id

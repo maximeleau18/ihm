@@ -17,10 +17,10 @@ namespace ClassLibraryEntity
 
         public Position(int id, int x, int y, Zone zone)
         {
-            this.id = id;
-            this.x = x;
-            this.y = y;
-            this.zone = zone;
+            this.Id = id;
+            this.X = x;
+            this.Y = y;
+            this.Zone = zone;
         }
 
         public int Id

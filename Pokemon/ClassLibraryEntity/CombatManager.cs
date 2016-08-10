@@ -22,6 +22,20 @@ namespace ClassLibraryEntity
         private int actualPvPokemon;
         private int dresseurActualTurnId;
         private String console;
+        
+        public CombatManager() { }
+
+        [JsonConstructor]
+        public CombatManager(Combat combat, Attaque attaque, Dresseur dresseur, int actualPv, int dressseurActualTurnId, String console)
+        {
+            this.Combat = combat;
+            this.Attaque = attaque;
+            this.Dresseur = dresseur;
+            this.ActualPvPokemon = actualPv;
+            this.DresseurActualTurnId = dresseurActualTurnId;
+            this.Console = console;
+        }
+
         public Combat Combat
         {
             get
@@ -34,6 +48,7 @@ namespace ClassLibraryEntity
                 combat = value;
             }
         }
+
         public Attaque Attaque
         {
             get
@@ -46,6 +61,7 @@ namespace ClassLibraryEntity
                 attaque = value;
             }
         }
+
         public Dresseur Dresseur
         {
             get
@@ -58,8 +74,7 @@ namespace ClassLibraryEntity
                 dresseur = value;
             }
         }
-
-
+        
         [JsonProperty(PropertyName = "combat")]
         public int CombatId
         {
@@ -160,19 +175,8 @@ namespace ClassLibraryEntity
             }
         }
 
-        public CombatManager() { }
-                
-        [JsonConstructor]
-        public CombatManager(Combat combat, Attaque attaque, Dresseur dresseur, int actualPv, int dressseurActualTurnId, String console)
-        {
-            this.Combat = combat;
-            this.Attaque = attaque;
-            this.Dresseur = dresseur;
-            this.ActualPvPokemon = actualPv;
-            this.DresseurActualTurnId = dresseurActualTurnId;
-            this.Console = console;
-        }
-        
+        #region "Methods"
+
         public async Task<Combat> StartNewFight(Dresseur dresseur1, ClassLibraryEntity.Pokemon pokemon1)
         {
             Combat combat = new Combat();
@@ -236,5 +240,7 @@ namespace ClassLibraryEntity
             ApiManager manager = new ApiManager();
             manager.PostToApiLaunchAttackAndReceiveData<CombatManager>(combatManager);
         }
+
+        #endregion
     }
 }

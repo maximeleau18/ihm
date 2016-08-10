@@ -16,9 +16,9 @@ namespace ClassLibraryEntity
 
         public TypeDePokemonZone(int id, Zone zone, TypeDePokemon typeDePokemon)
         {
-            this.id = id;
-            this.zone = zone;
-            this.typeDePokemon = typeDePokemon;
+            this.Id = id;
+            this.Zone = zone;
+            this.TypeDePokemon = typeDePokemon;
         }
 
         public int Id
