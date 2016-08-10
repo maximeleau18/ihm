@@ -658,7 +658,8 @@ namespace Pokemon.ViewModels
 
                 // Update message in console
                 this.BattleView.Console.DisplayedMessage = this.CombatManager.Console;
-                this.BattleView.Console.ConsoleScrollViewer.ChangeView(null, this.BattleView.Console.ConsoleScrollViewer.VerticalOffset, null);
+                this.BattleView.Console.ConsoleScrollViewer.UpdateLayout();
+                this.BattleView.Console.ConsoleScrollViewer.ChangeView(null, (this.BattleView.Console.ConsoleScrollViewer.ExtentHeight - this.BattleView.Console.ConsoleScrollViewer.ViewportHeight), null);
 
                 if (this.GridManager.Dresseur.Id == this.CombatManager.Combat.Dresseur1.Id)
                 {
@@ -744,7 +745,8 @@ namespace Pokemon.ViewModels
             {
                 // Update message in console
                 this.BattleView.Console.DisplayedMessage = this.CombatManager.Console;
-                this.BattleView.Console.ConsoleScrollViewer.ChangeView(null, this.BattleView.Console.ConsoleScrollViewer.VerticalOffset , null);
+                this.BattleView.Console.ConsoleScrollViewer.UpdateLayout();
+                this.BattleView.Console.ConsoleScrollViewer.ChangeView(null, (this.BattleView.Console.ConsoleScrollViewer.ExtentHeight - this.BattleView.Console.ConsoleScrollViewer.ViewportHeight), null);
 
                 // If dresseur connected is dresseur1 in fight
                 if (this.GridManager.Dresseur.Id == this.CombatManager.Combat.Dresseur1.Id)

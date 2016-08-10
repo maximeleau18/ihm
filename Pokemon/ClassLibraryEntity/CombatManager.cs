@@ -3,6 +3,7 @@ using Microsoft.Azure.Engagement;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -73,12 +74,20 @@ namespace ClassLibraryEntity
             }
         }
 
-        [JsonProperty(PropertyName = "attaque")]
+        [JsonProperty(PropertyName = "attaque", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [DefaultValue(0)]
         public int AttaqueId
         {
             get
             {
-                return this.Attaque.Id;
+                if (this.Attaque == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return this.Attaque.Id;
+                }
             }
 
             set
@@ -87,12 +96,20 @@ namespace ClassLibraryEntity
             }
         }
 
-        [JsonProperty(PropertyName = "dresseur")]
+        [JsonProperty(PropertyName = "dresseur", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [DefaultValue(0)]
         public int DresseurId
         {
             get
             {
-                return this.Dresseur.Id;
+                if (this.Dresseur == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return this.Dresseur.Id;
+                }
             }
 
             set
@@ -203,7 +220,7 @@ namespace ClassLibraryEntity
         public async Task<Combat> FinishFight(CombatManager combatManager)
         {
             ApiManager manager = new ApiManager();
-            combatManager = await manager.PutToApiAndReceiveData<CombatManager>(combatManager, combatManager.Combat.Id);            
+            combatManager.Combat = await manager.PutToApiDesertFightAndReceiveData(combatManager, combatManager.Combat.Id);            
 
             return combatManager.Combat;
         }

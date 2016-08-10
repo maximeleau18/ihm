@@ -213,8 +213,7 @@ namespace ClassLibraryEntity.API
                 Windows.Web.Http.HttpResponseMessage response = await client.SendRequestAsync(message);
 
                 result = await response.Content.ReadAsStringAsync();
-
-
+                
                 Debug.WriteLine(message.Content.ToString());
                 Debug.WriteLine(response.Content.ToString());
             }
@@ -245,7 +244,34 @@ namespace ClassLibraryEntity.API
             return item;
 
         }
-        
+
+        public async Task<Combat> PutToApiDesertFightAndReceiveData(CombatManager combatManager, Int32 id)
+        {
+            using (Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient())
+            {
+                Windows.Web.Http.HttpRequestMessage message = new Windows.Web.Http.HttpRequestMessage();
+                message.Content = new Windows.Web.Http.HttpStringContent(
+                    JsonConvert.SerializeObject(combatManager));
+
+                message.Content.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
+                Windows.Web.Http.HttpResponseMessage response = await client.PutAsync(new Uri(urlApi + "combat/" + id), message.Content);
+
+                //response.EnsureSuccessStatusCode();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    String result = await response.Content.ReadAsStringAsync();
+                    combatManager.Combat = JsonConvert.DeserializeObject<ClassLibraryEntity.Combat>(result);
+                }
+
+                Debug.WriteLine(message.Content.ToString());
+                Debug.WriteLine(response.Content.ToString());
+            }
+            
+            return  combatManager.Combat;
+
+        }
+
         public async Task<Boolean> DeleteToApi<T>(T item, Int32 id)
         {
             Boolean isOk = false;
