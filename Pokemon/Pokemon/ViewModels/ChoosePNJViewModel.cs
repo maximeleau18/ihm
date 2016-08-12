@@ -98,13 +98,15 @@ namespace Pokemon.ViewModels
             this.ChoosePNJView.ButtonValidate.Style = (Style)Application.Current.Resources["ButtonParamsSelected"];
         }
 
-        private void ItemsListPnjs_ItemClick(object sender, ItemClickEventArgs e)
+        private async void ItemsListPnjs_ItemClick(object sender, ItemClickEventArgs e)
         {
             PersonnageNonJoueur pnjSelected = e.ClickedItem as PersonnageNonJoueur;
-            this.Pnj = pnjSelected;
+            ClassLibraryEntity.API.ApiManager manager = new ClassLibraryEntity.API.ApiManager();
+            this.Pnj = await manager.GetFromApi<PersonnageNonJoueur>(pnjSelected.Id);
+           // this.Pnj = pnjSelected;
             this.ChoosePNJView.Console.DisplayedMessage = "Regarde les pokémons de \"" + pnjSelected.Nom + "\" dans la liste de droite puis clique sur VALIDER.";
             this.ChoosePNJView.SelectedPnj = Visibility.Visible;
-            this.ChoosePNJView.PnjPokemons.LoadItems(pnjSelected.Pokemons);
+            this.ChoosePNJView.PnjPokemons.LoadItems(this.Pnj.Pokemons);
             this.ChoosePNJView.PnjPokemonsAttacks.Visibility = Visibility.Collapsed;
         }
 

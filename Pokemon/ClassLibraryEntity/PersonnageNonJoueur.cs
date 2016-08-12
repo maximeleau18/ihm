@@ -14,7 +14,6 @@ namespace ClassLibraryEntity
         private String description;
         private Profession profession;
         private String urlImage;
-        private List<Pokemon> pokemons;
 
         public PersonnageNonJoueur() { }
         
@@ -94,14 +93,7 @@ namespace ClassLibraryEntity
         public List<Pokemon> Pokemons
         {
 
-            get
-            {
-                return pokemons;
-            }
-            set
-            {
-                pokemons = value;
-            }
+            get; set;
         }
         
         public List<Objet> Objets { get; set; }
@@ -110,6 +102,7 @@ namespace ClassLibraryEntity
         public String UrlImagePNJ
         {
             get { return "ms-appx:///Images/PNJ/" + this.Nom + ".png"; }
-        }        
+        }
+        
     }
 }

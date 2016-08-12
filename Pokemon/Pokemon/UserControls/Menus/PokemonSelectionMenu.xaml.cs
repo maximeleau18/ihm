@@ -97,6 +97,7 @@ namespace Pokemon.UserControls.Menus
             this.pokemons.Clear();
             foreach (var item in pokemons)
             {
+                item.TypeDePokemon.Pv = item.TypeDePokemon.Pv * item.Niveau;
                 this.pokemons.Add(item);
             }
         }

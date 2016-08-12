@@ -62,6 +62,7 @@ namespace Pokemon.UserControls.Pokemons
             this.Pokemons.Clear();
             foreach (var item in pokemons)
             {
+                item.TypeDePokemon.Pv = item.TypeDePokemon.Pv * item.Niveau;
                 this.Pokemons.Add(item);
             }
         }

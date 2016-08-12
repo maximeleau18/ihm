@@ -668,7 +668,7 @@ namespace Pokemon.ViewModels
                     {
                         // Other turn update my HP
                         // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
-                        this.BattleView.PlayerView.MaximumPv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
+                        this.BattleView.PlayerView.MaximumPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon1.Niveau);
                         this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
                         this.BattleView.PlayerView.Pokemon = this.CombatManager.Combat.Pokemon1;
                         this.BattleView.PlayerView.ActualPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
@@ -676,7 +676,7 @@ namespace Pokemon.ViewModels
                     else if (this.CombatManager.Dresseur != null && this.CombatManager.Dresseur.Id == this.CombatManager.Combat.Dresseur2.Id)
                     {
                         // Bind Opponent view
-                        this.BattleView.OpponentView.MaximumPv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+                        this.BattleView.OpponentView.MaximumPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon2.Niveau);
                         this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
                         this.BattleView.OpponentView.Pokemon = this.CombatManager.Combat.Pokemon2;
                         this.BattleView.OpponentView.ActualPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
@@ -688,7 +688,7 @@ namespace Pokemon.ViewModels
                     {
                         // Other turn update my HP
                         // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
-                        this.BattleView.PlayerView.MaximumPv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+                        this.BattleView.PlayerView.MaximumPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon2.Niveau);
                         this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
                         this.BattleView.PlayerView.Pokemon = this.CombatManager.Combat.Pokemon2;
                         this.BattleView.PlayerView.ActualPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
@@ -696,7 +696,7 @@ namespace Pokemon.ViewModels
                     else if (this.CombatManager.Dresseur != null && this.CombatManager.Dresseur.Id == this.CombatManager.Combat.Dresseur1.Id)
                     {
                         // Bind Opponent view
-                        this.BattleView.OpponentView.MaximumPv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
+                        this.BattleView.OpponentView.MaximumPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon1.Niveau);
                         this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
                         this.BattleView.OpponentView.Pokemon = this.CombatManager.Combat.Pokemon1;
                         this.BattleView.OpponentView.ActualPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
@@ -772,13 +772,13 @@ namespace Pokemon.ViewModels
                         {
                             // Turn 1
                             // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
-                            this.BattleView.PlayerView.MaximumPv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
-                            this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
+                            this.BattleView.PlayerView.MaximumPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon1.Niveau);
+                            this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon1.Niveau);
                             this.BattleView.PlayerView.Pokemon = this.CombatManager.Combat.Pokemon1;
                             this.BattleView.PlayerView.ActualPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
                             // Bind Opponent view
-                            this.BattleView.OpponentView.MaximumPv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
-                            this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+                            this.BattleView.OpponentView.MaximumPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon2.Niveau);
+                            this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon2.Niveau);
                             this.BattleView.OpponentView.Pokemon = this.CombatManager.Combat.Pokemon2;
                             this.BattleView.OpponentView.ActualPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
                         }
@@ -788,7 +788,7 @@ namespace Pokemon.ViewModels
                             {
                                 // Other turn update my HP
                                 // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
-                                this.BattleView.PlayerView.MaximumPv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
+                                this.BattleView.PlayerView.MaximumPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon1.Niveau);
                                 this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
                                 this.BattleView.PlayerView.Pokemon = this.CombatManager.Combat.Pokemon1;
                                 this.BattleView.PlayerView.ActualPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
@@ -796,14 +796,13 @@ namespace Pokemon.ViewModels
                             else if (this.CombatManager.Dresseur.Id == this.CombatManager.Combat.Dresseur2.Id)
                             {
                                 // Bind Opponent view
-                                this.BattleView.OpponentView.MaximumPv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+                                this.BattleView.OpponentView.MaximumPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon2.Niveau);
                                 this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
                                 this.BattleView.OpponentView.Pokemon = this.CombatManager.Combat.Pokemon2;
                                 this.BattleView.OpponentView.ActualPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
                             }
                         }
-
-
+                        
                         // Waiting for dataPush alert that it is my turn
                         if (this.CombatManager.DresseurActualTurnId != this.CombatManager.Combat.Dresseur1.Id)
                         {
@@ -877,13 +876,13 @@ namespace Pokemon.ViewModels
                     {
                         // Turn 1
                         // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
-                        this.BattleView.PlayerView.MaximumPv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
-                        this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+                        this.BattleView.PlayerView.MaximumPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon2.Niveau);
+                        this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon2.Niveau);
                         this.BattleView.PlayerView.Pokemon = this.CombatManager.Combat.Pokemon2;
                         this.BattleView.PlayerView.ActualPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
                         // Bind Opponent view
-                        this.BattleView.OpponentView.MaximumPv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
-                        this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
+                        this.BattleView.OpponentView.MaximumPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon1.Niveau);
+                        this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon1.Niveau);
                         this.BattleView.OpponentView.Pokemon = this.CombatManager.Combat.Pokemon1;
                         this.BattleView.OpponentView.ActualPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
                     }
@@ -893,7 +892,7 @@ namespace Pokemon.ViewModels
                         {
                             // Other turn update my HP
                             // Bind Selected Pokemon to usercontrol PokemonBattleDisplayPlayer
-                            this.BattleView.PlayerView.MaximumPv = this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv;
+                            this.BattleView.PlayerView.MaximumPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon2.Niveau);
                             this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
                             this.BattleView.PlayerView.Pokemon = this.CombatManager.Combat.Pokemon2;
                             this.BattleView.PlayerView.ActualPv = (this.CombatManager.Combat.Pokemon2.TypeDePokemon.Pv / this.BattleView.PlayerView.MaximumPv) * 100;
@@ -901,7 +900,7 @@ namespace Pokemon.ViewModels
                         else if (this.CombatManager.Dresseur.Id == this.CombatManager.Combat.Dresseur1.Id)
                         {
                             // Bind Opponent view
-                            this.BattleView.OpponentView.MaximumPv = this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv;
+                            this.BattleView.OpponentView.MaximumPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv * this.CombatManager.Combat.Pokemon1.Niveau);
                             this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv = this.CombatManager.ActualPvPokemon;
                             this.BattleView.OpponentView.Pokemon = this.CombatManager.Combat.Pokemon1;
                             this.BattleView.OpponentView.ActualPv = (this.CombatManager.Combat.Pokemon1.TypeDePokemon.Pv / this.BattleView.OpponentView.MaximumPv) * 100;
