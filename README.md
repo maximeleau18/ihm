@@ -12,7 +12,7 @@ Si vous souhaitez poursuivre une partie alors votre couple login / password sera
 
 Une fois connecté, vous arriverez sur la carte. Pour débuter un combat il suffira d'ouvrir le menu de gauche et de 
 cliquer sur "Combattre". A partir de ce moment deux possibilités s'offriront à vous. Soit vous souhaitez engager un combat
-soit votre cherchez à rejoindre un combat existant. 
+soit vous cherchez à rejoindre un combat existant. 
 Dans le premier cas on cherchera un combat où il manque un joueur durant 30 secondes. Si aucun adversaire n'est trouvé le combat
 sera annulé et vous devrez lancer une nouvelle recherche. Dans le deuxième cas l'application cherchera un combat incomplet et 
 si un combat est trouvé alors le combat commencera.
