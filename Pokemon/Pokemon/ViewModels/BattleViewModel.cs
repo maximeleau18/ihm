@@ -96,9 +96,11 @@ namespace Pokemon.ViewModels
             this.Bind();
         }
 
-        private void Init()
+        private async void Init()
         {
-            this.BattleView.PokemonSelectionMenu.LoadItems(this.GridManager.Dresseur.PersonnageNonJoueur.Pokemons);
+            ApiManager manager = new ApiManager();
+            PersonnageNonJoueur myPNJ = await manager.GetFromApi<PersonnageNonJoueur>(this.GridManager.Dresseur.PersonnageNonJoueur.Id);
+            this.BattleView.PokemonSelectionMenu.LoadItems(myPNJ.Pokemons);
             // Get the list of TypeObjet from Objets owned by the PersonnageNonJoueur
             List<TypeObjet> typesObjets = new List<TypeObjet>();
             TypeObjet currentTypeObjet = new TypeObjet();

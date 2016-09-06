@@ -13,8 +13,8 @@ namespace ClassLibraryEntity.API
     {
         private String urlApi {
             get {
-                //return "http://192.168.1.13:8000/api/";
-                return "http://127.0.0.1:8000/api/";
+                return "http://192.168.43.135:8000/api/";
+                //return "http://127.0.0.1:8000/api/";
             }
         }
 

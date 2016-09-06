@@ -103,7 +103,6 @@ namespace Pokemon.ViewModels
             PersonnageNonJoueur pnjSelected = e.ClickedItem as PersonnageNonJoueur;
             ClassLibraryEntity.API.ApiManager manager = new ClassLibraryEntity.API.ApiManager();
             this.Pnj = await manager.GetFromApi<PersonnageNonJoueur>(pnjSelected.Id);
-           // this.Pnj = pnjSelected;
             this.ChoosePNJView.Console.DisplayedMessage = "Regarde les pokémons de \"" + pnjSelected.Nom + "\" dans la liste de droite puis clique sur VALIDER.";
             this.ChoosePNJView.SelectedPnj = Visibility.Visible;
             this.ChoosePNJView.PnjPokemons.LoadItems(this.Pnj.Pokemons);
